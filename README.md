@@ -1,5 +1,5 @@
 # AccuWeather (accuweather)
-I honestly have no idea what I am doing
+AccuWeather provides the world's most sophisticated weather intelligence to make lives simpler, safer, and better. Our mission is to save lives and protect property.
 
 **URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-search/weather/main/_apis/accuweather/apis.md)
 
@@ -16,7 +16,7 @@ I honestly have no idea what I am doing
 ## Timestamps
 
 - **Created:** 2023-11-22T00:00:00.000Z 
-- **Modified:** 2024-12-10 
+- **Modified:** 2024-12-11 
 
 ## APIs
 
