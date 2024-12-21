@@ -15,7 +15,7 @@ AccuWeather provides the world's most sophisticated weather intelligence to make
 
 ## Timestamps
 
-- **Created:** 2023-11-22T00:00:00.000Z 
+- **Created:** 2023-11-22 
 - **Modified:** 2024-12-11 
 
 ## APIs
@@ -24,7 +24,9 @@ AccuWeather provides the world's most sophisticated weather intelligence to make
 AccuWeather provides the world's most sophisticated weather intelligence to make lives simpler, safer, and better. Our mission is to save lives and protect property.
 
 **Human URL:** [https://developer.accuweather.com/accuweather-locations-api/apis](https://developer.accuweather.com/accuweather-locations-api/apis)
+r
 **Base URL:** [https://api.example.com](https://api.example.com)
+r
 
 #### Tags
 
