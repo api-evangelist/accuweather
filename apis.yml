@@ -13,7 +13,7 @@ apis:
     properties:
       - url: https://developer.accuweather.com/accuweather-locations-api/apis
         type: Documentation
-      - url: properties/accuweather-openapi-original.yml
+      - url: openapiaccuweather-openapi-original.yml
         type: OpenAPI
     description: >-
       AccuWeather provides the world's most sophisticated weather intelligence
