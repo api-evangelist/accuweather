@@ -1,7 +1,11 @@
 # AccuWeather (accuweather)
-AccuWeather provides the world's most sophisticated weather intelligence to make lives simpler, safer, and better. Our mission is to save lives and protect property.
 
-**URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-search/weather/main/_apis/accuweather/apis.md)
+AccuWeather provides the world's most sophisticated weather intelligence to
+make lives simpler, safer, and better. Our mission is to save lives and
+protect property.
+
+**URL:** [Visit APIs.json URL](
+https://raw.githubusercontent.com/api-search/weather/main/_apis/accuweather/apis.md)
 
 ## Scope
 
@@ -9,33 +13,35 @@ AccuWeather provides the world's most sophisticated weather intelligence to make
 - **Position:** Consuming 
 - **Access:** 3rd-Party 
 
-## Tags
+## Tags:
 
-- Weather
+ - Weather
 
 ## Timestamps
 
 - **Created:** 2023-11-22 
-- **Modified:** 2024-12-11 
+- **Modified:** 2024-12-27 
 
 ## APIs
 
 ### AccuWeather API
-AccuWeather provides the world's most sophisticated weather intelligence to make lives simpler, safer, and better. Our mission is to save lives and protect property.
+AccuWeather provides the world's most sophisticated weather intelligence
+to make lives simpler, safer, and better. Our mission is to save lives and
+protect property.
 
 **Human URL:** [https://developer.accuweather.com/accuweather-locations-api/apis](https://developer.accuweather.com/accuweather-locations-api/apis)
-r
+
 **Base URL:** [https://api.example.com](https://api.example.com)
-r
 
-#### Tags
 
-- Weather
+#### Tags:
+
+ - Weather
 
 #### Properties
 
 - [Documentation](https://developer.accuweather.com/accuweather-locations-api/apis)
-- [OpenAPI](properties/accuweather-openapi-original.yml)
+- [OpenAPI](openapi/accuweather-openapi-original.yml)
 
 ## Common Properties
 
