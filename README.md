@@ -4,8 +4,7 @@ AccuWeather provides the world's most sophisticated weather intelligence to
 make lives simpler, safer, and better. Our mission is to save lives and
 protect property.
 
-**URL:** [Visit APIs.json URL](
-https://raw.githubusercontent.com/api-search/weather/main/_apis/accuweather/apis.md)
+**URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-search/weather/main/_apis/accuweather/apis.md)
 
 ## Scope
 
@@ -20,7 +19,7 @@ https://raw.githubusercontent.com/api-search/weather/main/_apis/accuweather/apis
 ## Timestamps
 
 - **Created:** 2023-11-22 
-- **Modified:** 2024-12-27 
+- **Modified:** 2025-01-08 
 
 ## APIs
 
