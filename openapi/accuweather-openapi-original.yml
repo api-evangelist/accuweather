@@ -8,7 +8,7 @@ paths:
     get:
       tags:
         - Api
-      summary: Retrieves a list of locations matching the specified query
+      summary: AccuWeather Retrieves a list of locations matching the specified query
       parameters:
         - name: Query
           in: query
@@ -70,7 +70,7 @@ paths:
     get:
       tags:
         - Api
-      summary: Takes in a Location as a query parameter
+      summary: AccuWeather Takes in a Location as a query parameter
       parameters:
         - name: LocationType
           in: query
@@ -176,7 +176,7 @@ paths:
     get:
       tags:
         - Api
-      summary: Takes in a Location as a query parameter
+      summary: AccuWeather Takes in a Location as a query parameter
       parameters:
         - name: LocationType
           in: query
@@ -282,7 +282,7 @@ paths:
     get:
       tags:
         - Api
-      summary: Resolves and updates the favorite location cookie
+      summary: AccuWeather Resolves and updates the favorite location cookie
       parameters:
         - name: LocationType
           in: query
@@ -413,7 +413,7 @@ paths:
     get:
       tags:
         - Api
-      summary: Retrieves a the latest weather conditions for a location
+      summary: AccuWeather Retrieves a the latest weather conditions for a location
       parameters:
         - name: locationKey
           in: path
@@ -459,7 +459,7 @@ paths:
     get:
       tags:
         - Api
-      summary: Retrieves the latest hourly forecast for a location
+      summary: AccuWeather Retrieves the latest hourly forecast for a location
       parameters:
         - name: locationKey
           in: path
@@ -514,7 +514,7 @@ paths:
     get:
       tags:
         - Api
-      summary: Retrieves the latest minute by minute forecast for a location
+      summary: AccuWeather Retrieves the latest minute by minute forecast for a location
       parameters:
         - name: locationKey
           in: path
@@ -560,7 +560,7 @@ paths:
     get:
       tags:
         - Api
-      summary: Retrieves the latest daily forecast for a location
+      summary: AccuWeather Retrieves the latest daily forecast for a location
       parameters:
         - name: locationKey
           in: path
@@ -615,7 +615,7 @@ paths:
     get:
       tags:
         - Api
-      summary: Retrieves the Current Conditions for a given location
+      summary: AccuWeather Retrieves the Current Conditions for a given location
       parameters:
         - name: locationKey
           in: path
@@ -661,7 +661,7 @@ paths:
     get:
       tags:
         - Api
-      summary: Retrieves the Current Air Quality for a given location
+      summary: AccuWeather Retrieves the Current Air Quality for a given location
       parameters:
         - name: locationKey
           in: path
@@ -707,7 +707,7 @@ paths:
     get:
       tags:
         - Api
-      summary: Retrieves the Hourly Air Quality forcast for a given location
+      summary: AccuWeather Retrieves the Hourly Air Quality forcast for a given location
       parameters:
         - name: locationKey
           in: path
@@ -760,7 +760,7 @@ paths:
     get:
       tags:
         - Api
-      summary: Retreives the Raine configuration for a page
+      summary: AccuWeather Retreives the Raine configuration for a page
       parameters:
         - name: Locale
           in: query
@@ -817,7 +817,7 @@ paths:
     get:
       tags:
         - Api
-      summary: Retrieves a the latest weather wintercast for a location
+      summary: AccuWeather Retrieves a the latest weather wintercast for a location
       parameters:
         - name: locationKey
           in: path
@@ -852,7 +852,7 @@ paths:
     get:
       tags:
         - Api
-      summary: Retrieves a the latest weather tropical for a location
+      summary: AccuWeather Retrieves a the latest weather tropical for a location
       parameters:
         - name: locationKey
           in: path
@@ -900,7 +900,7 @@ paths:
     get:
       tags:
         - Api
-      summary: Retrieves all active global storms
+      summary: AccuWeather Retrieves all active global storms
       parameters:
         - name: locationKey
           in: path
@@ -957,7 +957,7 @@ paths:
     get:
       tags:
         - Api
-      summary: Retrieves data about a specific storm
+      summary: AccuWeather Retrieves data about a specific storm
       parameters:
         - name: year
           in: path
@@ -1025,7 +1025,7 @@ paths:
     get:
       tags:
         - Api
-      summary: Retrieves a the latest static map for a location
+      summary: AccuWeather Retrieves a the latest static map for a location
       parameters:
         - name: locationKey
           in: path
@@ -1073,7 +1073,7 @@ paths:
     get:
       tags:
         - Api
-      summary: Retrieve the partner for a specific location
+      summary: AccuWeather Retrieve the partner for a specific location
       parameters:
         - name: locationKey
           in: path
@@ -1099,7 +1099,7 @@ paths:
     get:
       tags:
         - Api
-      summary: Retrieves a the daily indices for a location
+      summary: AccuWeather Retrieves a the daily indices for a location
       parameters:
         - name: locationKey
           in: path
@@ -1152,7 +1152,7 @@ paths:
     get:
       tags:
         - Api
-      summary: Get the data for given ad slots
+      summary: AccuWeather Get the data for given ad slots
       parameters:
         - name: locationKey
           in: path
@@ -1181,7 +1181,7 @@ paths:
     get:
       tags:
         - Test
-      summary: Example of a simple scope and linked scope
+      summary: AccuWeather Example of a simple scope and linked scope
       responses:
         '200':
           description: Success
