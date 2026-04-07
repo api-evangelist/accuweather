@@ -6,8 +6,7 @@ info:
 paths:
   /api/autocomplete:
     get:
-      tags:
-        - Api
+      tags: []
       summary: AccuWeather Retrieves a list of locations matching the specified query
       parameters:
         - name: Query
@@ -68,8 +67,7 @@ paths:
           description: Parameters are bad, details in body.
   /api/resolve-location-redirect:
     get:
-      tags:
-        - Api
+      tags: []
       summary: AccuWeather Takes in a Location as a query parameter
       parameters:
         - name: LocationType
@@ -174,8 +172,7 @@ paths:
           description: Location was unable to be resolved
   /api/resolve-location:
     get:
-      tags:
-        - Api
+      tags: []
       summary: AccuWeather Takes in a Location as a query parameter
       parameters:
         - name: LocationType
@@ -280,8 +277,7 @@ paths:
           description: Location was unable to be resolved
   /api/favorite:
     get:
-      tags:
-        - Api
+      tags: []
       summary: AccuWeather Resolves and updates the favorite location cookie
       parameters:
         - name: LocationType
@@ -411,8 +407,7 @@ paths:
           description: Query parameter was missing or empty
   /api/current/{locationKey}:
     get:
-      tags:
-        - Api
+      tags: []
       summary: AccuWeather Retrieves a the latest weather conditions for a location
       parameters:
         - name: locationKey
@@ -457,8 +452,7 @@ paths:
           description: Response was missing or empty
   /api/hourly/{locationKey}:
     get:
-      tags:
-        - Api
+      tags: []
       summary: AccuWeather Retrieves the latest hourly forecast for a location
       parameters:
         - name: locationKey
@@ -512,8 +506,7 @@ paths:
           description: Query parameter was missing or empty
   /api/minutecast/{locationKey}:
     get:
-      tags:
-        - Api
+      tags: []
       summary: AccuWeather Retrieves the latest minute by minute forecast for a location
       parameters:
         - name: locationKey
@@ -558,8 +551,7 @@ paths:
           description: Query parameter was missing or empty
   /api/daily/{locationKey}:
     get:
-      tags:
-        - Api
+      tags: []
       summary: AccuWeather Retrieves the latest daily forecast for a location
       parameters:
         - name: locationKey
@@ -613,8 +605,7 @@ paths:
           description: Query parameter was missing or empty
   /api/current-conditions/{locationKey}:
     get:
-      tags:
-        - Api
+      tags: []
       summary: AccuWeather Retrieves the Current Conditions for a given location
       parameters:
         - name: locationKey
@@ -659,8 +650,7 @@ paths:
           description: Query parameter was missing or empty
   /api/airQuality/{locationKey}:
     get:
-      tags:
-        - Api
+      tags: []
       summary: AccuWeather Retrieves the Current Air Quality for a given location
       parameters:
         - name: locationKey
@@ -705,8 +695,7 @@ paths:
           description: Query parameter was missing or empty
   /api/hourlyaq/{locationKey}:
     get:
-      tags:
-        - Api
+      tags: []
       summary: AccuWeather Retrieves the Hourly Air Quality forcast for a given location
       parameters:
         - name: locationKey
@@ -758,8 +747,7 @@ paths:
           description: Query parameter was missing or empty
   /api/raine:
     get:
-      tags:
-        - Api
+      tags: []
       summary: AccuWeather Retreives the Raine configuration for a page
       parameters:
         - name: Locale
@@ -815,8 +803,7 @@ paths:
           description: Parameters are bad, details in body.
   /api/wintercast/{locationKey}:
     get:
-      tags:
-        - Api
+      tags: []
       summary: AccuWeather Retrieves a the latest weather wintercast for a location
       parameters:
         - name: locationKey
@@ -850,8 +837,7 @@ paths:
           description: Query parameter was missing or empty
   /api/tropical/{locationKey}:
     get:
-      tags:
-        - Api
+      tags: []
       summary: AccuWeather Retrieves a the latest weather tropical for a location
       parameters:
         - name: locationKey
@@ -898,8 +884,7 @@ paths:
           description: Query parameter was missing or empty
   /api/active-storms/{locationKey}:
     get:
-      tags:
-        - Api
+      tags: []
       summary: AccuWeather Retrieves all active global storms
       parameters:
         - name: locationKey
@@ -955,8 +940,7 @@ paths:
                   $ref: '#/components/schemas/Storm'
   /api/storm/{year}/{basinId}/{depressionNumber}:
     get:
-      tags:
-        - Api
+      tags: []
       summary: AccuWeather Retrieves data about a specific storm
       parameters:
         - name: year
@@ -1023,8 +1007,7 @@ paths:
                 $ref: '#/components/schemas/Storm'
   /api/staticMap/{locationKey}:
     get:
-      tags:
-        - Api
+      tags: []
       summary: AccuWeather Retrieves a the latest static map for a location
       parameters:
         - name: locationKey
@@ -1071,8 +1054,7 @@ paths:
           description: Query parameter was missing or empty
   /api/partner/{locationKey}:
     get:
-      tags:
-        - Api
+      tags: []
       summary: AccuWeather Retrieve the partner for a specific location
       parameters:
         - name: locationKey
@@ -1097,8 +1079,7 @@ paths:
           description: Query parameter was missing or empty
   /api/daily-indices/{locationKey}:
     get:
-      tags:
-        - Api
+      tags: []
       summary: AccuWeather Retrieves a the daily indices for a location
       parameters:
         - name: locationKey
@@ -1150,8 +1131,7 @@ paths:
           description: Query parameter was missing or empty
   /api/ads/{locationKey}:
     get:
-      tags:
-        - Api
+      tags: []
       summary: AccuWeather Get the data for given ad slots
       parameters:
         - name: locationKey
@@ -2740,3 +2720,5 @@ components:
         - Cardinal
         - Degrees
       type: string
+tags:
+  - name: Test
