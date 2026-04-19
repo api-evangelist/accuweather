@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/accuweather/refs/heads/main/json-schema/accuweather-uv-index-schema.json",
+  "title": "UVIndex",
+  "description": "UVIndex schema from AccuWeather API",
+  "type": "object",
+  "properties": {
+    "category": {
+      "type": "string",
+      "nullable": true
+    },
+    "value": {
+      "type": "number",
+      "format": "float"
+    }
+  },
+  "additionalProperties": false
+}

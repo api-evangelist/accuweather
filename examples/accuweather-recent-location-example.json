@@ -1,0 +1,15 @@
+{
+  "id": "500123",
+  "key": "347628",
+  "name": "New York",
+  "longName": "-74.0060",
+  "displayName": "New York",
+  "localTime": "example-string",
+  "displayTemperature": "example-string",
+  "icon": 6,
+  "color": "example-string",
+  "isBefore7PM": true,
+  "isDayTime": true,
+  "latitude": 40.7128,
+  "longitude": -74.006
+}

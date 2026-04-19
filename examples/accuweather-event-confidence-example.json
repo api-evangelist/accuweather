@@ -1,0 +1,36 @@
+{
+  "startDate": "2026-04-19T10:00:00Z",
+  "epochStartDate": 27,
+  "endDate": "2026-04-19T10:00:00Z",
+  "epochEndDate": 80,
+  "event": "Winter",
+  "eventKey": "347628",
+  "eventName": "New York",
+  "forecastRanges": {
+    "lower": {
+      "displayAmount": "example-string",
+      "probability": 26,
+      "phrase": "Partly cloudy"
+    },
+    "low": {
+      "displayAmount": "example-string",
+      "probability": 6,
+      "phrase": "Partly cloudy"
+    },
+    "likely": {
+      "displayAmount": "example-string",
+      "probability": 91,
+      "phrase": "Partly cloudy"
+    },
+    "high": {
+      "displayAmount": "example-string",
+      "probability": 19,
+      "phrase": "Partly cloudy"
+    },
+    "higher": {
+      "displayAmount": "example-string",
+      "probability": 70,
+      "phrase": "Partly cloudy"
+    }
+  }
+}

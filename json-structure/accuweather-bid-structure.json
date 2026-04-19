@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/accuweather/refs/heads/main/json-structure/accuweather-bid-structure.json",
+  "name": "Bid",
+  "description": "Bid schema from AccuWeather API",
+  "type": "object",
+  "properties": {
+    "bidder": {
+      "type": "string",
+      "nullable": true
+    },
+    "params": {
+      "type": "object",
+      "additionalProperties": {},
+      "nullable": true
+    },
+    "isBuyItNow": {
+      "type": "boolean"
+    }
+  }
+}

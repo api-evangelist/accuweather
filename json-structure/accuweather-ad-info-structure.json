@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/accuweather/refs/heads/main/json-structure/accuweather-ad-info-structure.json",
+  "name": "AdInfo",
+  "description": "AdInfo schema from AccuWeather API",
+  "type": "object",
+  "properties": {
+    "code": {
+      "type": "string",
+      "description": "Simplified ad code for ad slots on the page.\r\nEg. '6581/web/us/*/news_info/country_home'",
+      "nullable": true
+    },
+    "status": {
+      "type": "string",
+      "description": "One of 'active', 'missing', or 'restricted' indicating a user's ID status\r\nDefault missing.",
+      "nullable": true
+    },
+    "cookie3p": {
+      "type": "string",
+      "description": "One of 'active', 'missing', or 'restricted' indicating a user can access 3rd party cookies or not.\r\nDefault missing.",
+      "nullable": true
+    }
+  }
+}

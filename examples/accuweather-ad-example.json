@@ -1,0 +1,12 @@
+{
+  "slot": "example-string",
+  "adDivId": "500123",
+  "adUnitCode": "Imperial",
+  "bidders": [
+    {
+      "bidder": "500123",
+      "isBuyItNow": true
+    }
+  ],
+  "upr": 53.4
+}

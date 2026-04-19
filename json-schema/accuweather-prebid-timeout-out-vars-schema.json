@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/accuweather/refs/heads/main/json-schema/accuweather-prebid-timeout-out-vars-schema.json",
+  "title": "PrebidTimeoutOutVars",
+  "description": "PrebidTimeoutOutVars schema from AccuWeather API",
+  "type": "object",
+  "properties": {
+    "prebidTimeout": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "awxTimeout": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "bundleUrl": {
+      "type": "string",
+      "nullable": true,
+      "deprecated": true
+    },
+    "bundleId": {
+      "type": "string",
+      "nullable": true
+    },
+    "gptEnableSingleRequest": {
+      "type": "boolean"
+    },
+    "gptLazyLoading": {
+      "type": "string",
+      "nullable": true
+    },
+    "buyItNowSkipGoogleAdManager": {
+      "type": "boolean"
+    },
+    "testVariant": {
+      "type": "string",
+      "nullable": true
+    },
+    "deviceClass": {
+      "type": "string",
+      "nullable": true
+    },
+    "disableInitialAdLoad": {
+      "type": "boolean"
+    },
+    "javascriptHead": {
+      "type": "string",
+      "nullable": true
+    },
+    "javascriptBody": {
+      "type": "string",
+      "nullable": true
+    }
+  },
+  "additionalProperties": false
+}

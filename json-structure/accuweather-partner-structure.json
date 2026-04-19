@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/accuweather/refs/heads/main/json-structure/accuweather-partner-structure.json",
+  "name": "Partner",
+  "description": "Partner schema from AccuWeather API",
+  "type": "object",
+  "properties": {
+    "siteName": {
+      "type": "string",
+      "nullable": true
+    },
+    "logo": {
+      "type": "string",
+      "nullable": true
+    },
+    "link": {
+      "type": "string",
+      "nullable": true
+    }
+  }
+}

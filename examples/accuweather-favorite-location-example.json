@@ -1,0 +1,27 @@
+{
+  "id": "500123",
+  "key": "347628",
+  "name": "New York",
+  "longName": "-74.0060",
+  "displayName": "New York",
+  "displayTemperature": "example-string",
+  "displayHighTemperature": "example-string",
+  "displayLowTemperature": "example-string",
+  "displayRealFeel": "example-string",
+  "displayRealFeelShade": "example-string",
+  "icon": 6,
+  "conditions": "example-string",
+  "localTime": "example-string",
+  "color": "example-string",
+  "isBefore7PM": true,
+  "isDayTime": true,
+  "minuteCastForecast": {
+    "summary60": "example-string",
+    "minutes": [
+      null
+    ]
+  },
+  "numberOfAlerts": 70,
+  "latitude": 40.7128,
+  "longitude": -74.006
+}

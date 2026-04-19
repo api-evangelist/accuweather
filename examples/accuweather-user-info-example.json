@@ -1,0 +1,10 @@
+{
+  "id": "500123",
+  "language": "example-string",
+  "country": "US",
+  "region": "example-string",
+  "city": "example-string",
+  "dma": "example-string",
+  "start": "example-string",
+  "offset": "example-string"
+}

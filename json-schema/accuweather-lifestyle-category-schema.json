@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/accuweather/refs/heads/main/json-schema/accuweather-lifestyle-category-schema.json",
+  "title": "LifestyleCategory",
+  "description": "LifestyleCategory schema from AccuWeather API",
+  "enum": [
+    "Allergies",
+    "Health",
+    "OutdoorActivities",
+    "TravelCommute",
+    "HomeGarden",
+    "Pests"
+  ],
+  "type": "string"
+}

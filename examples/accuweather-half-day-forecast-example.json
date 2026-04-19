@@ -1,0 +1,10 @@
+{
+  "temperature": 72.5,
+  "displayTemperature": "example-string",
+  "icon": 6,
+  "iconPhrase": "Partly cloudy",
+  "phrase": "Partly cloudy",
+  "longPhrase": "-74.0060",
+  "precip": "example-string",
+  "realFeelValue": 72.5
+}

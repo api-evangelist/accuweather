@@ -1,0 +1,40 @@
+{
+  "name": "New York",
+  "domain": "example-string",
+  "categories": [
+    "example-string"
+  ],
+  "sectionCategories": [
+    "example-string"
+  ],
+  "pageCategories": [
+    "example-string"
+  ],
+  "keywords": "347628",
+  "pageUrl": "https://www.accuweather.com/",
+  "referrerUrl": "https://www.accuweather.com/",
+  "isOptimizedForMobile": true,
+  "hasPrivacyPolicy": true,
+  "publisher": {
+    "name": "New York",
+    "domain": "example-string",
+    "categories": [
+      "example-string"
+    ]
+  },
+  "content": {
+    "title": "example-string",
+    "url": "https://www.accuweather.com/",
+    "categories": [
+      "example-string"
+    ],
+    "productQuality": "example-string",
+    "context": "Partly cloudy",
+    "keywords": "347628",
+    "sourceRelationship": "Indirect",
+    "language": "example-string",
+    "data": {
+      "name": "New York"
+    }
+  }
+}

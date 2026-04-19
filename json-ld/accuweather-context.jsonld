@@ -1,0 +1,1069 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "acw": "https://developer.accuweather.com/schema/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "AdData": "acw:AdData",
+    "AdInfo": "acw:AdInfo",
+    "AdPageInfo": "acw:AdPageInfo",
+    "Ad": "acw:Ad",
+    "AirQuality": "acw:AirQuality",
+    "AutocompleteLocation": "acw:AutocompleteLocation",
+    "Bid": "acw:Bid",
+    "ConfidenceQuantity": "acw:ConfidenceQuantity",
+    "ConfidenceRange": "acw:ConfidenceRange",
+    "CurrentConditions": "acw:CurrentConditions",
+    "DailyForecast": "acw:DailyForecast",
+    "DailyIndex": "acw:DailyIndex",
+    "DeviceInfo": "acw:DeviceInfo",
+    "EventConfidence": "acw:EventConfidence",
+    "ExtendedForecastInformation": "acw:ExtendedForecastInformation",
+    "FavoriteLocation": "acw:FavoriteLocation",
+    "HalfDayForecast": "acw:HalfDayForecast",
+    "HourlyForecast": "acw:HourlyForecast",
+    "IndexDay": "acw:IndexDay",
+    "LandmarkReference": "acw:LandmarkReference",
+    "LocationSettingsInfo": "acw:LocationSettingsInfo",
+    "MinuteCastForecast": "acw:MinuteCastForecast",
+    "MinuteCastMinute": "acw:MinuteCastMinute",
+    "OrtbContent": "acw:OrtbContent",
+    "OrtbData": "acw:OrtbData",
+    "OrtbPublisher": "acw:OrtbPublisher",
+    "OrtbSegment": "acw:OrtbSegment",
+    "OrtbSite": "acw:OrtbSite",
+    "PageInfo": "acw:PageInfo",
+    "Partner": "acw:Partner",
+    "Pollutant": "acw:Pollutant",
+    "Polygon": "acw:Polygon",
+    "PrebidTimeoutOutVars": "acw:PrebidTimeoutOutVars",
+    "PrecipitationSummary": "acw:PrecipitationSummary",
+    "QuantityRangeEstimate": "acw:QuantityRangeEstimate",
+    "RainePageView": "acw:RainePageView",
+    "RecentLocation": "acw:RecentLocation",
+    "SessionInfo": "acw:SessionInfo",
+    "StormPosition": "acw:StormPosition",
+    "Storm": "acw:Storm",
+    "UserInfo": "acw:UserInfo",
+    "UserNetwork": "acw:UserNetwork",
+    "UTMInfo": "acw:UTMInfo",
+    "UVIndex": "acw:UVIndex",
+    "WeatherInfo": "acw:WeatherInfo",
+    "accuId": {
+      "@id": "acw:accuId",
+      "@type": "xsd:integer"
+    },
+    "activityType": {
+      "@id": "acw:activityType",
+      "@type": "xsd:string"
+    },
+    "adDivId": {
+      "@id": "acw:adDivId",
+      "@type": "xsd:string"
+    },
+    "adInfo": {
+      "@id": "acw:adInfo",
+      "@type": "xsd:string"
+    },
+    "adPageInfo": {
+      "@id": "acw:adPageInfo",
+      "@type": "xsd:string"
+    },
+    "adSlots": {
+      "@id": "acw:adSlots",
+      "@type": "xsd:string"
+    },
+    "adUnitCode": {
+      "@id": "acw:adUnitCode",
+      "@type": "xsd:string"
+    },
+    "adminCode": {
+      "@id": "acw:adminCode",
+      "@type": "xsd:string"
+    },
+    "ads": {
+      "@id": "acw:ads",
+      "@type": "xsd:string"
+    },
+    "airQuality": {
+      "@id": "acw:airQuality",
+      "@type": "xsd:string"
+    },
+    "apparentTempImperial": {
+      "@id": "acw:apparentTempImperial",
+      "@type": "xsd:decimal"
+    },
+    "awxTimeout": {
+      "@id": "acw:awxTimeout",
+      "@type": "xsd:integer"
+    },
+    "basin": {
+      "@id": "acw:basin",
+      "@type": "xsd:string"
+    },
+    "basinId": {
+      "@id": "acw:basinId",
+      "@type": "xsd:string"
+    },
+    "basinSlug": {
+      "@id": "acw:basinSlug",
+      "@type": "xsd:string"
+    },
+    "bidder": {
+      "@id": "acw:bidder",
+      "@type": "xsd:string"
+    },
+    "bidders": {
+      "@id": "acw:bidders",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "bot": {
+      "@id": "acw:bot",
+      "@type": "xsd:boolean"
+    },
+    "brand": {
+      "@id": "acw:brand",
+      "@type": "xsd:string"
+    },
+    "bundleId": {
+      "@id": "acw:bundleId",
+      "@type": "xsd:string"
+    },
+    "bundleUrl": {
+      "@id": "acw:bundleUrl",
+      "@type": "xsd:string"
+    },
+    "buyItNowSkipGoogleAdManager": {
+      "@id": "acw:buyItNowSkipGoogleAdManager",
+      "@type": "xsd:boolean"
+    },
+    "campaign": {
+      "@id": "acw:campaign",
+      "@type": "xsd:string"
+    },
+    "categories": {
+      "@id": "acw:categories",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "category": {
+      "@id": "acw:category",
+      "@type": "xsd:string"
+    },
+    "categoryColor": {
+      "@id": "acw:categoryColor",
+      "@type": "xsd:string"
+    },
+    "ceiling": {
+      "@id": "acw:ceiling",
+      "@type": "xsd:string"
+    },
+    "city": {
+      "@id": "acw:city",
+      "@type": "xsd:string"
+    },
+    "cloudCover": {
+      "@id": "acw:cloudCover",
+      "@type": "xsd:string"
+    },
+    "code": {
+      "@id": "acw:code",
+      "@type": "xsd:string"
+    },
+    "color": {
+      "@id": "acw:color",
+      "@type": "xsd:string"
+    },
+    "concentration": {
+      "@id": "acw:concentration",
+      "@type": "xsd:string"
+    },
+    "conditions": {
+      "@id": "acw:conditions",
+      "@type": "xsd:string"
+    },
+    "content": {
+      "@id": "acw:content",
+      "@type": "xsd:string"
+    },
+    "context": {
+      "@id": "acw:context",
+      "@type": "xsd:string"
+    },
+    "cookie3p": {
+      "@id": "acw:cookie3p",
+      "@type": "xsd:string"
+    },
+    "coordinates": {
+      "@id": "acw:coordinates",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "country": {
+      "@id": "acw:country",
+      "@type": "xsd:string"
+    },
+    "countryCode": {
+      "@id": "acw:countryCode",
+      "@type": "xsd:string"
+    },
+    "data": {
+      "@id": "acw:data",
+      "@type": "xsd:string"
+    },
+    "date": {
+      "@id": "acw:date",
+      "@type": "xsd:dateTime"
+    },
+    "dateTime": {
+      "@id": "acw:dateTime",
+      "@type": "xsd:string"
+    },
+    "dateTimeLabel": {
+      "@id": "acw:dateTimeLabel",
+      "@type": "xsd:string"
+    },
+    "dateTimeLabelShort": {
+      "@id": "acw:dateTimeLabelShort",
+      "@type": "xsd:string"
+    },
+    "day": {
+      "@id": "acw:day",
+      "@type": "xsd:string"
+    },
+    "dayOfWeek": {
+      "@id": "acw:dayOfWeek",
+      "@type": "xsd:string"
+    },
+    "dayOfWeekAbbreviated": {
+      "@id": "acw:dayOfWeekAbbreviated",
+      "@type": "xsd:string"
+    },
+    "days": {
+      "@id": "acw:days",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "dbz": {
+      "@id": "acw:dbz",
+      "@type": "xsd:decimal"
+    },
+    "device": {
+      "@id": "acw:device",
+      "@type": "xsd:string"
+    },
+    "deviceClass": {
+      "@id": "acw:deviceClass",
+      "@type": "xsd:string"
+    },
+    "dewPoint": {
+      "@id": "acw:dewPoint",
+      "@type": "xsd:string"
+    },
+    "direction": {
+      "@id": "acw:direction",
+      "@type": "xsd:string"
+    },
+    "disableInitialAdLoad": {
+      "@id": "acw:disableInitialAdLoad",
+      "@type": "xsd:boolean"
+    },
+    "displayAmount": {
+      "@id": "acw:displayAmount",
+      "@type": "xsd:string"
+    },
+    "displayDate": {
+      "@id": "acw:displayDate",
+      "@type": "xsd:string"
+    },
+    "displayHighTemperature": {
+      "@id": "acw:displayHighTemperature",
+      "@type": "xsd:string"
+    },
+    "displayLowTemperature": {
+      "@id": "acw:displayLowTemperature",
+      "@type": "xsd:string"
+    },
+    "displayName": {
+      "@id": "acw:displayName",
+      "@type": "xsd:string"
+    },
+    "displayRealFeel": {
+      "@id": "acw:displayRealFeel",
+      "@type": "xsd:string"
+    },
+    "displayRealFeelShade": {
+      "@id": "acw:displayRealFeelShade",
+      "@type": "xsd:string"
+    },
+    "displayTemperature": {
+      "@id": "acw:displayTemperature",
+      "@type": "xsd:string"
+    },
+    "displayTime": {
+      "@id": "acw:displayTime",
+      "@type": "xsd:string"
+    },
+    "distance": {
+      "@id": "acw:distance",
+      "@type": "xsd:string"
+    },
+    "dma": {
+      "@id": "acw:dma",
+      "@type": "xsd:string"
+    },
+    "domain": {
+      "@id": "acw:domain",
+      "@type": "xsd:string"
+    },
+    "dominantPollutant": {
+      "@id": "acw:dominantPollutant",
+      "@type": "xsd:string"
+    },
+    "end": {
+      "@id": "acw:end",
+      "@type": "xsd:dateTime"
+    },
+    "endDate": {
+      "@id": "acw:endDate",
+      "@type": "xsd:dateTime"
+    },
+    "epoch": {
+      "@id": "acw:epoch",
+      "@type": "xsd:integer"
+    },
+    "epochEndDate": {
+      "@id": "acw:epochEndDate",
+      "@type": "xsd:integer"
+    },
+    "epochStartDate": {
+      "@id": "acw:epochStartDate",
+      "@type": "xsd:integer"
+    },
+    "event": {
+      "@id": "acw:event",
+      "@type": "xsd:string"
+    },
+    "eventKey": {
+      "@id": "acw:eventKey",
+      "@type": "xsd:string"
+    },
+    "eventName": {
+      "@id": "acw:eventName",
+      "@type": "xsd:string"
+    },
+    "extended": {
+      "@id": "acw:extended",
+      "@type": "xsd:string"
+    },
+    "extensions": {
+      "@id": "acw:extensions",
+      "@type": "xsd:string"
+    },
+    "forecastRanges": {
+      "@id": "acw:forecastRanges",
+      "@type": "xsd:string"
+    },
+    "fullDayOfWeek": {
+      "@id": "acw:fullDayOfWeek",
+      "@type": "xsd:string"
+    },
+    "globalAdConfig": {
+      "@id": "acw:globalAdConfig",
+      "@type": "xsd:string"
+    },
+    "governmentId": {
+      "@id": "acw:governmentId",
+      "@type": "xsd:integer"
+    },
+    "gptEnableSingleRequest": {
+      "@id": "acw:gptEnableSingleRequest",
+      "@type": "xsd:boolean"
+    },
+    "gptLazyLoading": {
+      "@id": "acw:gptLazyLoading",
+      "@type": "xsd:string"
+    },
+    "group": {
+      "@id": "acw:group",
+      "@type": "xsd:string"
+    },
+    "gusts": {
+      "@id": "acw:gusts",
+      "@type": "xsd:string"
+    },
+    "hasAlert": {
+      "@id": "acw:hasAlert",
+      "@type": "xsd:boolean"
+    },
+    "hasPrivacyPolicy": {
+      "@id": "acw:hasPrivacyPolicy",
+      "@type": "xsd:boolean"
+    },
+    "hazardStatement": {
+      "@id": "acw:hazardStatement",
+      "@type": "xsd:string"
+    },
+    "high": {
+      "@id": "acw:high",
+      "@type": "xsd:string"
+    },
+    "higher": {
+      "@id": "acw:higher",
+      "@type": "xsd:string"
+    },
+    "humidity": {
+      "@id": "acw:humidity",
+      "@type": "xsd:string"
+    },
+    "humidityValue": {
+      "@id": "acw:humidityValue",
+      "@type": "xsd:integer"
+    },
+    "ice": {
+      "@id": "acw:ice",
+      "@type": "xsd:string"
+    },
+    "icon": {
+      "@id": "acw:icon",
+      "@type": "xsd:integer"
+    },
+    "iconCode": {
+      "@id": "acw:iconCode",
+      "@type": "xsd:integer"
+    },
+    "iconPhrase": {
+      "@id": "acw:iconPhrase",
+      "@type": "xsd:string"
+    },
+    "id": {
+      "@id": "acw:id",
+      "@type": "xsd:string"
+    },
+    "index": {
+      "@id": "acw:index",
+      "@type": "xsd:decimal"
+    },
+    "indexName": {
+      "@id": "acw:indexName",
+      "@type": "xsd:string"
+    },
+    "indexType": {
+      "@id": "acw:indexType",
+      "@type": "xsd:string"
+    },
+    "indoorHumidity": {
+      "@id": "acw:indoorHumidity",
+      "@type": "xsd:string"
+    },
+    "indoorHumidityCategory": {
+      "@id": "acw:indoorHumidityCategory",
+      "@type": "xsd:string"
+    },
+    "isActive": {
+      "@id": "acw:isActive",
+      "@type": "xsd:boolean"
+    },
+    "isBefore7PM": {
+      "@id": "acw:isBefore7PM",
+      "@type": "xsd:boolean"
+    },
+    "isBuyItNow": {
+      "@id": "acw:isBuyItNow",
+      "@type": "xsd:boolean"
+    },
+    "isCurrent": {
+      "@id": "acw:isCurrent",
+      "@type": "xsd:boolean"
+    },
+    "isDayLight": {
+      "@id": "acw:isDayLight",
+      "@type": "xsd:boolean"
+    },
+    "isDayTime": {
+      "@id": "acw:isDayTime",
+      "@type": "xsd:boolean"
+    },
+    "isFuture": {
+      "@id": "acw:isFuture",
+      "@type": "xsd:boolean"
+    },
+    "isHistorical": {
+      "@id": "acw:isHistorical",
+      "@type": "xsd:boolean"
+    },
+    "isMarked": {
+      "@id": "acw:isMarked",
+      "@type": "xsd:boolean"
+    },
+    "isOptimizedForMobile": {
+      "@id": "acw:isOptimizedForMobile",
+      "@type": "xsd:boolean"
+    },
+    "isPeak": {
+      "@id": "acw:isPeak",
+      "@type": "xsd:boolean"
+    },
+    "isPrebidDisabled": {
+      "@id": "acw:isPrebidDisabled",
+      "@type": "xsd:boolean"
+    },
+    "javascriptBody": {
+      "@id": "acw:javascriptBody",
+      "@type": "xsd:string"
+    },
+    "javascriptHead": {
+      "@id": "acw:javascriptHead",
+      "@type": "xsd:string"
+    },
+    "key": {
+      "@id": "acw:key",
+      "@type": "xsd:string"
+    },
+    "keywords": {
+      "@id": "acw:keywords",
+      "@type": "xsd:string"
+    },
+    "landmark": {
+      "@id": "acw:landmark",
+      "@type": "xsd:string"
+    },
+    "landmarkReferences": {
+      "@id": "acw:landmarkReferences",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "language": {
+      "@id": "acw:language",
+      "@type": "xsd:string"
+    },
+    "latitude": {
+      "@id": "acw:latitude",
+      "@type": "xsd:decimal"
+    },
+    "level": {
+      "@id": "acw:level",
+      "@type": "xsd:string"
+    },
+    "likely": {
+      "@id": "acw:likely",
+      "@type": "xsd:string"
+    },
+    "link": {
+      "@id": "acw:link",
+      "@type": "xsd:string"
+    },
+    "localDate": {
+      "@id": "acw:localDate",
+      "@type": "xsd:dateTime"
+    },
+    "localDayOfWeek": {
+      "@id": "acw:localDayOfWeek",
+      "@type": "xsd:string"
+    },
+    "localEnd": {
+      "@id": "acw:localEnd",
+      "@type": "xsd:dateTime"
+    },
+    "localStart": {
+      "@id": "acw:localStart",
+      "@type": "xsd:dateTime"
+    },
+    "localTime": {
+      "@id": "acw:localTime",
+      "@type": "xsd:string"
+    },
+    "localizedStartDate": {
+      "@id": "acw:localizedStartDate",
+      "@type": "xsd:string"
+    },
+    "localizedStatus": {
+      "@id": "acw:localizedStatus",
+      "@type": "xsd:string"
+    },
+    "locationKey": {
+      "@id": "acw:locationKey",
+      "@type": "xsd:string"
+    },
+    "locationSettingsInfo": {
+      "@id": "acw:locationSettingsInfo",
+      "@type": "xsd:string"
+    },
+    "locationType": {
+      "@id": "acw:locationType",
+      "@type": "xsd:string"
+    },
+    "logo": {
+      "@id": "acw:logo",
+      "@type": "xsd:string"
+    },
+    "longDisplayDate": {
+      "@id": "acw:longDisplayDate",
+      "@type": "xsd:string"
+    },
+    "longName": {
+      "@id": "acw:longName",
+      "@type": "xsd:string"
+    },
+    "longPhrase": {
+      "@id": "acw:longPhrase",
+      "@type": "xsd:string"
+    },
+    "longitude": {
+      "@id": "acw:longitude",
+      "@type": "xsd:decimal"
+    },
+    "low": {
+      "@id": "acw:low",
+      "@type": "xsd:string"
+    },
+    "lower": {
+      "@id": "acw:lower",
+      "@type": "xsd:string"
+    },
+    "maximumSustainedWind": {
+      "@id": "acw:maximumSustainedWind",
+      "@type": "xsd:string"
+    },
+    "maximumSustainedWindValue": {
+      "@id": "acw:maximumSustainedWindValue",
+      "@type": "xsd:decimal"
+    },
+    "maximumWindGust": {
+      "@id": "acw:maximumWindGust",
+      "@type": "xsd:string"
+    },
+    "maximumWindGustValue": {
+      "@id": "acw:maximumWindGustValue",
+      "@type": "xsd:decimal"
+    },
+    "medium": {
+      "@id": "acw:medium",
+      "@type": "xsd:string"
+    },
+    "minimumPressure": {
+      "@id": "acw:minimumPressure",
+      "@type": "xsd:string"
+    },
+    "minute": {
+      "@id": "acw:minute",
+      "@type": "xsd:integer"
+    },
+    "minuteCastForecast": {
+      "@id": "acw:minuteCastForecast",
+      "@type": "xsd:string"
+    },
+    "minutes": {
+      "@id": "acw:minutes",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "name": "schema:name",
+    "network": {
+      "@id": "acw:network",
+      "@type": "xsd:string"
+    },
+    "night": {
+      "@id": "acw:night",
+      "@type": "xsd:string"
+    },
+    "now": {
+      "@id": "acw:now",
+      "@type": "xsd:string"
+    },
+    "numberOfAlerts": {
+      "@id": "acw:numberOfAlerts",
+      "@type": "xsd:integer"
+    },
+    "offset": {
+      "@id": "acw:offset",
+      "@type": "xsd:string"
+    },
+    "ortbConfig": {
+      "@id": "acw:ortbConfig",
+      "@type": "xsd:string"
+    },
+    "overallIndex": {
+      "@id": "acw:overallIndex",
+      "@type": "xsd:decimal"
+    },
+    "overallPlumeLabsIndex": {
+      "@id": "acw:overallPlumeLabsIndex",
+      "@type": "xsd:decimal"
+    },
+    "page": {
+      "@id": "acw:page",
+      "@type": "xsd:string"
+    },
+    "pageCategories": {
+      "@id": "acw:pageCategories",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "pageUrl": {
+      "@id": "acw:pageUrl",
+      "@type": "xsd:string"
+    },
+    "params": {
+      "@id": "acw:params",
+      "@type": "xsd:string"
+    },
+    "partner": {
+      "@id": "acw:partner",
+      "@type": "xsd:string"
+    },
+    "past12Hours": {
+      "@id": "acw:past12Hours",
+      "@type": "xsd:string"
+    },
+    "past18Hours": {
+      "@id": "acw:past18Hours",
+      "@type": "xsd:string"
+    },
+    "past24Hours": {
+      "@id": "acw:past24Hours",
+      "@type": "xsd:string"
+    },
+    "past3Hours": {
+      "@id": "acw:past3Hours",
+      "@type": "xsd:string"
+    },
+    "past6Hours": {
+      "@id": "acw:past6Hours",
+      "@type": "xsd:string"
+    },
+    "past9Hours": {
+      "@id": "acw:past9Hours",
+      "@type": "xsd:string"
+    },
+    "pastHour": {
+      "@id": "acw:pastHour",
+      "@type": "xsd:string"
+    },
+    "peakPosition": {
+      "@id": "acw:peakPosition",
+      "@type": "xsd:string"
+    },
+    "phrase": {
+      "@id": "acw:phrase",
+      "@type": "xsd:string"
+    },
+    "platform": {
+      "@id": "acw:platform",
+      "@type": "xsd:string"
+    },
+    "pollutants": {
+      "@id": "acw:pollutants",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "position": {
+      "@id": "acw:position",
+      "@container": "@set",
+      "@type": "xsd:decimal"
+    },
+    "postalCode": {
+      "@id": "acw:postalCode",
+      "@type": "xsd:string"
+    },
+    "ppid": {
+      "@id": "acw:ppid",
+      "@type": "xsd:string"
+    },
+    "prebidTimeout": {
+      "@id": "acw:prebidTimeout",
+      "@type": "xsd:integer"
+    },
+    "precip": {
+      "@id": "acw:precip",
+      "@type": "xsd:string"
+    },
+    "precipSummary": {
+      "@id": "acw:precipSummary",
+      "@type": "xsd:string"
+    },
+    "precipitation": {
+      "@id": "acw:precipitation",
+      "@type": "xsd:string"
+    },
+    "precipitationType": {
+      "@id": "acw:precipitationType",
+      "@type": "xsd:string"
+    },
+    "pressure": {
+      "@id": "acw:pressure",
+      "@type": "xsd:string"
+    },
+    "probability": {
+      "@id": "acw:probability",
+      "@type": "xsd:integer"
+    },
+    "productQuality": {
+      "@id": "acw:productQuality",
+      "@type": "xsd:string"
+    },
+    "publisher": {
+      "@id": "acw:publisher",
+      "@type": "xsd:string"
+    },
+    "rain": {
+      "@id": "acw:rain",
+      "@type": "xsd:string"
+    },
+    "realFeel": {
+      "@id": "acw:realFeel",
+      "@type": "xsd:string"
+    },
+    "realFeelPhrase": {
+      "@id": "acw:realFeelPhrase",
+      "@type": "xsd:string"
+    },
+    "realFeelShade": {
+      "@id": "acw:realFeelShade",
+      "@type": "xsd:string"
+    },
+    "realFeelShadePhrase": {
+      "@id": "acw:realFeelShadePhrase",
+      "@type": "xsd:string"
+    },
+    "realFeelShadeValue": {
+      "@id": "acw:realFeelShadeValue",
+      "@type": "xsd:decimal"
+    },
+    "realFeelValue": {
+      "@id": "acw:realFeelValue",
+      "@type": "xsd:decimal"
+    },
+    "referrer": {
+      "@id": "acw:referrer",
+      "@type": "xsd:string"
+    },
+    "referrerUrl": {
+      "@id": "acw:referrerUrl",
+      "@type": "xsd:string"
+    },
+    "region": {
+      "@id": "acw:region",
+      "@type": "xsd:string"
+    },
+    "sectionCategories": {
+      "@id": "acw:sectionCategories",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "segments": {
+      "@id": "acw:segments",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "session": {
+      "@id": "acw:session",
+      "@type": "xsd:string"
+    },
+    "shortDateShortTimeLabel": {
+      "@id": "acw:shortDateShortTimeLabel",
+      "@type": "xsd:string"
+    },
+    "shortDayOfWeek": {
+      "@id": "acw:shortDayOfWeek",
+      "@type": "xsd:string"
+    },
+    "siteName": {
+      "@id": "acw:siteName",
+      "@type": "xsd:string"
+    },
+    "slot": {
+      "@id": "acw:slot",
+      "@type": "xsd:string"
+    },
+    "snow": {
+      "@id": "acw:snow",
+      "@type": "xsd:string"
+    },
+    "source": {
+      "@id": "acw:source",
+      "@type": "xsd:string"
+    },
+    "sourceRelationship": {
+      "@id": "acw:sourceRelationship",
+      "@type": "xsd:string"
+    },
+    "speed": {
+      "@id": "acw:speed",
+      "@type": "xsd:string"
+    },
+    "start": {
+      "@id": "acw:start",
+      "@type": "xsd:dateTime"
+    },
+    "startDate": {
+      "@id": "acw:startDate",
+      "@type": "xsd:dateTime"
+    },
+    "startEpoch": {
+      "@id": "acw:startEpoch",
+      "@type": "xsd:integer"
+    },
+    "stationCode": {
+      "@id": "acw:stationCode",
+      "@type": "xsd:string"
+    },
+    "status": {
+      "@id": "acw:status",
+      "@type": "xsd:string"
+    },
+    "statusIcon": {
+      "@id": "acw:statusIcon",
+      "@type": "xsd:string"
+    },
+    "statusIconString": {
+      "@id": "acw:statusIconString",
+      "@type": "xsd:string"
+    },
+    "statusName": {
+      "@id": "acw:statusName",
+      "@type": "xsd:string"
+    },
+    "stormLink": {
+      "@id": "acw:stormLink",
+      "@type": "xsd:string"
+    },
+    "stormPositions": {
+      "@id": "acw:stormPositions",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "summary60": {
+      "@id": "acw:summary60",
+      "@type": "xsd:string"
+    },
+    "supportedDataSets": {
+      "@id": "acw:supportedDataSets",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "supportsEventConfidence": {
+      "@id": "acw:supportsEventConfidence",
+      "@type": "xsd:boolean"
+    },
+    "supportsMinuteCast": {
+      "@id": "acw:supportsMinuteCast",
+      "@type": "xsd:boolean"
+    },
+    "temperature": {
+      "@id": "acw:temperature",
+      "@type": "xsd:string"
+    },
+    "temperatureValue": {
+      "@id": "acw:temperatureValue",
+      "@type": "xsd:decimal"
+    },
+    "term": {
+      "@id": "acw:term",
+      "@type": "xsd:string"
+    },
+    "test": {
+      "@id": "acw:test",
+      "@type": "xsd:string"
+    },
+    "testVariant": {
+      "@id": "acw:testVariant",
+      "@type": "xsd:string"
+    },
+    "throughput": {
+      "@id": "acw:throughput",
+      "@type": "xsd:string"
+    },
+    "thunderstormProbability": {
+      "@id": "acw:thunderstormProbability",
+      "@type": "xsd:string"
+    },
+    "time": {
+      "@id": "acw:time",
+      "@type": "xsd:string"
+    },
+    "title": {
+      "@id": "acw:title",
+      "@type": "xsd:string"
+    },
+    "type": {
+      "@id": "acw:type",
+      "@type": "xsd:string"
+    },
+    "unit": {
+      "@id": "acw:unit",
+      "@type": "xsd:string"
+    },
+    "unitType": {
+      "@id": "acw:unitType",
+      "@type": "xsd:integer"
+    },
+    "updatedStormName": {
+      "@id": "acw:updatedStormName",
+      "@type": "xsd:string"
+    },
+    "upr": {
+      "@id": "acw:upr",
+      "@type": "xsd:decimal"
+    },
+    "url": "schema:url",
+    "user": {
+      "@id": "acw:user",
+      "@type": "xsd:string"
+    },
+    "uspString": {
+      "@id": "acw:uspString",
+      "@type": "xsd:string"
+    },
+    "utm": {
+      "@id": "acw:utm",
+      "@type": "xsd:string"
+    },
+    "uv": {
+      "@id": "acw:uv",
+      "@type": "xsd:string"
+    },
+    "value": {
+      "@id": "acw:value",
+      "@type": "xsd:decimal"
+    },
+    "version": {
+      "@id": "acw:version",
+      "@type": "xsd:string"
+    },
+    "visibility": {
+      "@id": "acw:visibility",
+      "@type": "xsd:string"
+    },
+    "weather": {
+      "@id": "acw:weather",
+      "@type": "xsd:string"
+    },
+    "wind": {
+      "@id": "acw:wind",
+      "@type": "xsd:string"
+    },
+    "windDegrees": {
+      "@id": "acw:windDegrees",
+      "@type": "xsd:decimal"
+    },
+    "windDirection": {
+      "@id": "acw:windDirection",
+      "@type": "xsd:string"
+    },
+    "windSpeedImperial": {
+      "@id": "acw:windSpeedImperial",
+      "@type": "xsd:decimal"
+    },
+    "windValue": {
+      "@id": "acw:windValue",
+      "@type": "xsd:decimal"
+    },
+    "year": {
+      "@id": "acw:year",
+      "@type": "xsd:integer"
+    }
+  }
+}

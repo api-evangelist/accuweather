@@ -1,0 +1,67 @@
+{
+  "dayOfWeek": "example-string",
+  "shortDayOfWeek": "example-string",
+  "fullDayOfWeek": "example-string",
+  "epoch": 57,
+  "dateTime": "example-string",
+  "displayDate": "example-string",
+  "longDisplayDate": "-74.0060",
+  "hasAlert": true,
+  "icon": 6,
+  "temperature": "example-string",
+  "precip": "example-string",
+  "phrase": "Partly cloudy",
+  "realFeel": "example-string",
+  "realFeelShade": "example-string",
+  "isDayLight": true,
+  "extended": {
+    "ceiling": "example-string",
+    "cloudCover": "example-string",
+    "dewPoint": "example-string",
+    "gusts": "example-string",
+    "wind": "example-string",
+    "windValue": 12.5,
+    "windDegrees": 12.5,
+    "windDirection": "example-string",
+    "humidity": "500123",
+    "humidityValue": 54,
+    "indoorHumidity": "500123",
+    "indoorHumidityCategory": "500123",
+    "precipitation": "example-string",
+    "pressure": "example-string",
+    "ice": "example-string",
+    "rain": "example-string",
+    "snow": "example-string",
+    "thunderstormProbability": "example-string",
+    "uv": {
+      "category": "example-string",
+      "value": 44.3
+    },
+    "visibility": "example-string",
+    "precipSummary": {
+      "past12Hours": "example-string",
+      "past18Hours": "example-string",
+      "past24Hours": "example-string",
+      "past3Hours": "example-string",
+      "past6Hours": "example-string",
+      "past9Hours": "example-string",
+      "pastHour": "example-string"
+    }
+  },
+  "airQuality": {
+    "category": "example-string",
+    "categoryColor": "example-string",
+    "date": "2026-04-19T10:00:00Z",
+    "dayOfWeek": "example-string",
+    "dayOfWeekAbbreviated": "example-string",
+    "displayDate": "example-string",
+    "displayTime": "example-string",
+    "dominantPollutant": "example-string",
+    "hazardStatement": "example-string",
+    "overallIndex": 60.3,
+    "overallPlumeLabsIndex": 29.6,
+    "pollutants": [
+      null
+    ]
+  }
+}

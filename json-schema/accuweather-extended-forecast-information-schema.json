@@ -1,0 +1,137 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/accuweather/refs/heads/main/json-schema/accuweather-extended-forecast-information-schema.json",
+  "title": "ExtendedForecastInformation",
+  "description": "ExtendedForecastInformation schema from AccuWeather API",
+  "type": "object",
+  "properties": {
+    "ceiling": {
+      "type": "string",
+      "nullable": true
+    },
+    "cloudCover": {
+      "type": "string",
+      "nullable": true
+    },
+    "dewPoint": {
+      "type": "string",
+      "nullable": true
+    },
+    "gusts": {
+      "type": "string",
+      "nullable": true
+    },
+    "wind": {
+      "type": "string",
+      "nullable": true
+    },
+    "windValue": {
+      "type": "number",
+      "format": "double",
+      "nullable": true
+    },
+    "windDegrees": {
+      "type": "number",
+      "format": "double",
+      "nullable": true
+    },
+    "windDirection": {
+      "type": "string",
+      "nullable": true
+    },
+    "humidity": {
+      "type": "string",
+      "nullable": true
+    },
+    "humidityValue": {
+      "type": "integer",
+      "format": "int32",
+      "nullable": true
+    },
+    "indoorHumidity": {
+      "type": "string",
+      "nullable": true
+    },
+    "indoorHumidityCategory": {
+      "type": "string",
+      "nullable": true
+    },
+    "precipitation": {
+      "type": "string",
+      "nullable": true
+    },
+    "pressure": {
+      "type": "string",
+      "nullable": true
+    },
+    "ice": {
+      "type": "string",
+      "nullable": true
+    },
+    "rain": {
+      "type": "string",
+      "nullable": true
+    },
+    "snow": {
+      "type": "string",
+      "nullable": true
+    },
+    "thunderstormProbability": {
+      "type": "string",
+      "nullable": true
+    },
+    "uv": {
+      "type": "object",
+      "properties": {
+        "category": {
+          "type": "string",
+          "nullable": true
+        },
+        "value": {
+          "type": "number",
+          "format": "float"
+        }
+      },
+      "additionalProperties": false
+    },
+    "visibility": {
+      "type": "string",
+      "nullable": true
+    },
+    "precipSummary": {
+      "type": "object",
+      "properties": {
+        "past12Hours": {
+          "type": "string",
+          "nullable": true
+        },
+        "past18Hours": {
+          "type": "string",
+          "nullable": true
+        },
+        "past24Hours": {
+          "type": "string",
+          "nullable": true
+        },
+        "past3Hours": {
+          "type": "string",
+          "nullable": true
+        },
+        "past6Hours": {
+          "type": "string",
+          "nullable": true
+        },
+        "past9Hours": {
+          "type": "string",
+          "nullable": true
+        },
+        "pastHour": {
+          "type": "string",
+          "nullable": true
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

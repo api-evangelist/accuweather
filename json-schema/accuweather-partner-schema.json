@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/accuweather/refs/heads/main/json-schema/accuweather-partner-schema.json",
+  "title": "Partner",
+  "description": "Partner schema from AccuWeather API",
+  "type": "object",
+  "properties": {
+    "siteName": {
+      "type": "string",
+      "nullable": true
+    },
+    "logo": {
+      "type": "string",
+      "nullable": true
+    },
+    "link": {
+      "type": "string",
+      "nullable": true
+    }
+  },
+  "additionalProperties": false
+}

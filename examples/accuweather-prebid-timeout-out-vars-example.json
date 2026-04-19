@@ -1,0 +1,14 @@
+{
+  "prebidTimeout": 87,
+  "awxTimeout": 54,
+  "bundleUrl": "https://www.accuweather.com/",
+  "bundleId": "500123",
+  "gptEnableSingleRequest": true,
+  "gptLazyLoading": "example-string",
+  "buyItNowSkipGoogleAdManager": true,
+  "testVariant": "example-string",
+  "deviceClass": "example-string",
+  "disableInitialAdLoad": true,
+  "javascriptHead": "example-string",
+  "javascriptBody": "example-string"
+}

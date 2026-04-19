@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/accuweather/refs/heads/main/json-schema/accuweather-precipitation-summary-schema.json",
+  "title": "PrecipitationSummary",
+  "description": "PrecipitationSummary schema from AccuWeather API",
+  "type": "object",
+  "properties": {
+    "past12Hours": {
+      "type": "string",
+      "nullable": true
+    },
+    "past18Hours": {
+      "type": "string",
+      "nullable": true
+    },
+    "past24Hours": {
+      "type": "string",
+      "nullable": true
+    },
+    "past3Hours": {
+      "type": "string",
+      "nullable": true
+    },
+    "past6Hours": {
+      "type": "string",
+      "nullable": true
+    },
+    "past9Hours": {
+      "type": "string",
+      "nullable": true
+    },
+    "pastHour": {
+      "type": "string",
+      "nullable": true
+    }
+  },
+  "additionalProperties": false
+}

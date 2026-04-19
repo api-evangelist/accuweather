@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/accuweather/refs/heads/main/json-structure/accuweather-weather-info-structure.json",
+  "name": "WeatherInfo",
+  "description": "WeatherInfo schema from AccuWeather API",
+  "type": "object",
+  "properties": {
+    "key": {
+      "type": "string",
+      "description": "Surefind location key for the user's weather location\r\nEg. 335315",
+      "nullable": true
+    }
+  }
+}

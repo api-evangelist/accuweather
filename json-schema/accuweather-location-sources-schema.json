@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/accuweather/refs/heads/main/json-schema/accuweather-location-sources-schema.json",
+  "title": "LocationSources",
+  "description": "The parent provider of the location.",
+  "enum": [
+    "AccuWeather",
+    "Radar",
+    "Unknown"
+  ],
+  "type": "string"
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/accuweather/refs/heads/main/json-structure/accuweather-wind-direction-display-type-structure.json",
+  "name": "WindDirectionDisplayType",
+  "description": "WindDirectionDisplayType schema from AccuWeather API",
+  "type": "string",
+  "enum": [
+    "Cardinal",
+    "Degrees"
+  ]
+}

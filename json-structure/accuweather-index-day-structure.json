@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/accuweather/refs/heads/main/json-structure/accuweather-index-day-structure.json",
+  "name": "IndexDay",
+  "description": "IndexDay schema from AccuWeather API",
+  "type": "object",
+  "properties": {
+    "dayOfWeek": {
+      "type": "string",
+      "nullable": true
+    },
+    "shortDayOfWeek": {
+      "type": "string",
+      "nullable": true
+    },
+    "fullDayOfWeek": {
+      "type": "string",
+      "nullable": true
+    },
+    "epoch": {
+      "type": "int32",
+      "nullable": true
+    },
+    "dateTime": {
+      "type": "string",
+      "nullable": true
+    },
+    "displayDate": {
+      "type": "string",
+      "nullable": true
+    },
+    "longDisplayDate": {
+      "type": "string",
+      "nullable": true
+    },
+    "value": {
+      "type": "int32"
+    },
+    "category": {
+      "type": "string",
+      "nullable": true
+    },
+    "color": {
+      "type": "string",
+      "nullable": true
+    }
+  }
+}

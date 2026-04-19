@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/accuweather/refs/heads/main/json-structure/accuweather-ortb-relationship-type-structure.json",
+  "name": "OrtbRelationshipType",
+  "description": "OrtbRelationshipType schema from AccuWeather API",
+  "type": "string",
+  "enum": [
+    "Indirect",
+    "Direct"
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "globalAdConfig": {
+    "prebidTimeout": 85,
+    "awxTimeout": 69,
+    "bundleUrl": "https://www.accuweather.com/",
+    "bundleId": "500123",
+    "gptEnableSingleRequest": true,
+    "gptLazyLoading": "example-string",
+    "buyItNowSkipGoogleAdManager": true,
+    "testVariant": "example-string",
+    "deviceClass": "example-string",
+    "disableInitialAdLoad": true,
+    "javascriptHead": "example-string",
+    "javascriptBody": "example-string"
+  },
+  "ortbConfig": {
+    "name": "New York",
+    "domain": "example-string",
+    "categories": [
+      "example-string"
+    ],
+    "sectionCategories": [
+      "example-string"
+    ],
+    "pageCategories": [
+      "example-string"
+    ],
+    "keywords": "347628",
+    "pageUrl": "https://www.accuweather.com/",
+    "referrerUrl": "https://www.accuweather.com/",
+    "isOptimizedForMobile": true,
+    "hasPrivacyPolicy": true,
+    "publisher": {
+      "name": "New York",
+      "domain": "example-string"
+    },
+    "content": {
+      "title": "example-string",
+      "url": "https://www.accuweather.com/",
+      "productQuality": "example-string",
+      "context": "Partly cloudy",
+      "keywords": "347628",
+      "sourceRelationship": "Indirect",
+      "language": "example-string"
+    }
+  },
+  "adPageInfo": {},
+  "adSlots": {},
+  "adInfo": {},
+  "uspString": "example-string",
+  "ppid": "500123",
+  "isPrebidDisabled": true
+}

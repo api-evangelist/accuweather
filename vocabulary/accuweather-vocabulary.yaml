@@ -1,0 +1,214 @@
+vocabulary: "1.0.0"
+
+info:
+  provider: AccuWeather
+  description: >-
+    Vocabulary taxonomy for AccuWeather's weather data APIs, covering operational resources
+    from the AccuWeather One Platform API and capability workflows for weather-aware
+    application development.
+  created: "2026-04-19"
+  modified: "2026-04-19"
+
+operational:
+  apis:
+    - name: AccuWeather One Platform API
+      namespace: accuweather
+      version: "v1"
+      baseUrl: https://dataservice.accuweather.com
+      status: active
+
+  resources:
+    - name: Location
+      description: A geographic location with an AccuWeather location key
+      api: accuweather
+      actions: [autocomplete, resolve, search]
+    - name: Current Conditions
+      description: Real-time weather observation for a location
+      api: accuweather
+      actions: [get]
+    - name: Hourly Forecast
+      description: Hour-by-hour weather forecast for a location
+      api: accuweather
+      actions: [get]
+    - name: Daily Forecast
+      description: Day-by-day weather forecast for up to 15 days
+      api: accuweather
+      actions: [get]
+    - name: MinuteCast
+      description: Minute-by-minute precipitation forecast for a location
+      api: accuweather
+      actions: [get]
+    - name: Air Quality
+      description: Current and forecasted air quality index data
+      api: accuweather
+      actions: [get]
+    - name: Tropical Storm
+      description: Active and historical tropical storm data
+      api: accuweather
+      actions: [list, get]
+    - name: Daily Indices
+      description: Lifestyle and health indices (UV, comfort, flu, etc.)
+      api: accuweather
+      actions: [get]
+    - name: Static Map
+      description: Weather radar and satellite imagery maps
+      api: accuweather
+      actions: [get]
+
+  actions:
+    - verb: get
+      description: Retrieve current or forecast data for a location
+      pattern: read
+      httpMethod: GET
+    - verb: autocomplete
+      description: Search for locations by partial text query
+      pattern: read
+      httpMethod: GET
+    - verb: resolve
+      description: Resolve a location reference to an AccuWeather location key
+      pattern: read
+      httpMethod: GET
+    - verb: list
+      description: List active or historical storms
+      pattern: read
+      httpMethod: GET
+    - verb: search
+      description: Search by geoposition, IP address, or postal code
+      pattern: read
+      httpMethod: GET
+
+  schemas:
+    core:
+      - CurrentConditions
+      - HourlyForecast
+      - DailyForecast
+      - LocationResponse
+    weather:
+      - Temperature
+      - Wind
+      - Precipitation
+      - Visibility
+    air-quality:
+      - AirQualityIndex
+    storms:
+      - TropicalStorm
+
+  parameters:
+    identifiers:
+      - name: locationKey
+        description: AccuWeather unique identifier for a location
+      - name: year
+        description: Year of a tropical storm
+      - name: basinId
+        description: Ocean basin identifier for tropical storms
+      - name: depressionNumber
+        description: Depression number for tropical storm identification
+    filters:
+      - name: MeasurementDisplay
+        description: Imperial or Metric unit display preference
+      - name: Locale
+        description: ISO language/region code for response localization
+
+  enums:
+    measurementDisplay:
+      - Imperial
+      - Metric
+    windDirectionDisplay:
+      - Cardinal
+      - Degrees
+    forecastDays:
+      - "1"
+      - "5"
+      - "7"
+      - "10"
+      - "15"
+
+  authentication:
+    schemes:
+      - type: ApiKey
+        name: apikey
+        placement: query
+        description: AccuWeather API key passed as a query parameter
+
+capability:
+  workflows:
+    - name: Weather Intelligence
+      file: capabilities/weather-intelligence.yaml
+      description: Unified weather data workflow for location search, conditions, forecasts, air quality, and storm tracking
+      apisCombed: [AccuWeather One Platform API]
+      toolCount: 9
+      personas: [Developer, Mobile App, IoT Platform, Emergency Management]
+
+  personas:
+    - id: developer
+      name: Developer
+      description: Software developer building weather-aware applications
+      workflows: [Weather Intelligence]
+    - id: mobile-app
+      name: Mobile App
+      description: Consumer weather app presenting conditions and forecasts
+      workflows: [Weather Intelligence]
+    - id: iot-platform
+      name: IoT Platform
+      description: IoT system using weather data for device automation
+      workflows: [Weather Intelligence]
+    - id: emergency-management
+      name: Emergency Management
+      description: Emergency response team tracking storms and severe weather
+      workflows: [Weather Intelligence]
+
+  domains:
+    - name: Weather Conditions
+      description: Current and historical weather observation data
+    - name: Weather Forecasting
+      description: Short and long-range weather prediction
+    - name: Air Quality Monitoring
+      description: AQI and pollutant measurement data
+    - name: Tropical Storm Tracking
+      description: Active and historical tropical cyclone monitoring
+    - name: Location Services
+      description: Geographic location search and resolution
+
+  namespaces:
+    - namespace: accuweather
+      type: consumed
+      baseUri: https://dataservice.accuweather.com
+    - namespace: weather-intelligence-api
+      type: rest-exposed
+      port: 8080
+    - namespace: weather-intelligence-mcp
+      type: mcp-exposed
+      port: 9090
+
+  binds:
+    - ACCUWEATHER_API_KEY
+
+crossReference:
+  - resource: Location
+    operations: [autocomplete, resolve, search]
+    workflows: [Weather Intelligence]
+    personas: [Developer, Mobile App, IoT Platform]
+  - resource: Current Conditions
+    operations: [get]
+    workflows: [Weather Intelligence]
+    personas: [Developer, Mobile App, IoT Platform]
+  - resource: Hourly Forecast
+    operations: [get]
+    workflows: [Weather Intelligence]
+    personas: [Developer, Mobile App, IoT Platform]
+  - resource: Daily Forecast
+    operations: [get]
+    workflows: [Weather Intelligence]
+    personas: [Developer, Mobile App]
+  - resource: MinuteCast
+    operations: [get]
+    workflows: [Weather Intelligence]
+    personas: [Developer, Mobile App, IoT Platform]
+  - resource: Air Quality
+    operations: [get]
+    workflows: [Weather Intelligence]
+    personas: [Developer, Mobile App]
+  - resource: Tropical Storm
+    operations: [list, get]
+    workflows: [Weather Intelligence]
+    personas: [Emergency Management, Developer]

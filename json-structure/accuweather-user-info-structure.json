@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/accuweather/refs/heads/main/json-structure/accuweather-user-info-structure.json",
+  "name": "UserInfo",
+  "description": "UserInfo schema from AccuWeather API",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique ID for the user (persistent across sessions)",
+      "nullable": true
+    },
+    "language": {
+      "type": "string",
+      "description": "Language code set for the product for the user (en-us, en-gb, etc.)",
+      "nullable": true
+    },
+    "country": {
+      "type": "string",
+      "description": "Country code for the user's location.\r\nEg. US",
+      "nullable": true
+    },
+    "region": {
+      "type": "string",
+      "description": "Region code for the user's location.\r\nEg. PA",
+      "nullable": true
+    },
+    "city": {
+      "type": "string",
+      "description": "City for the location",
+      "nullable": true
+    },
+    "dma": {
+      "type": "string",
+      "description": "DMA for the user's location.\r\nEg. 566. Not available outside of the US.",
+      "nullable": true
+    },
+    "start": {
+      "type": "string",
+      "description": "Date of the user's first visit.\r\nI.e. Cookie creation date",
+      "nullable": true
+    },
+    "offset": {
+      "type": "string",
+      "description": "Valid string of the user's current UTC offset in hh:mm:ss format.\r\nEx. -05:00 or 05:00",
+      "nullable": true
+    }
+  }
+}

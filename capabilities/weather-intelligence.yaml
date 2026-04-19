@@ -1,0 +1,233 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: AccuWeather Weather Intelligence
+  description: >-
+    Unified workflow combining AccuWeather's location, conditions, forecasts, air quality, and storm
+    tracking APIs into a single capability for weather-aware applications. Used by developers, IoT
+    platforms, travel apps, and emergency management systems.
+  tags:
+    - AccuWeather
+    - Weather
+    - Forecasts
+    - Air Quality
+    - Storm Tracking
+    - Location Services
+  created: "2026-04-19"
+  modified: "2026-04-19"
+
+binds:
+  - namespace: env
+    keys:
+      ACCUWEATHER_API_KEY: ACCUWEATHER_API_KEY
+
+capability:
+  consumes:
+    - import: accuweather
+      location: ./shared/accuweather-api.yaml
+
+  exposes:
+    - type: rest
+      port: 8080
+      namespace: weather-intelligence-api
+      description: Unified REST API for AccuWeather weather intelligence workflows.
+      resources:
+        - path: /v1/locations
+          name: locations
+          description: Search for weather locations
+          operations:
+            - method: GET
+              name: search-locations
+              description: Search for weather locations by text query
+              call: "accuweather.autocomplete-locations"
+              with:
+                Query: "rest.query"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/weather/current/{locationKey}
+          name: current-conditions
+          description: Current weather conditions for a location
+          operations:
+            - method: GET
+              name: get-current-weather
+              description: Get current weather conditions
+              call: "accuweather.get-current-conditions"
+              with:
+                locationKey: "rest.locationKey"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/weather/forecast/hourly/{locationKey}
+          name: hourly-forecast
+          description: Hourly weather forecast
+          operations:
+            - method: GET
+              name: get-hourly-forecast
+              description: Get hourly weather forecast
+              call: "accuweather.get-hourly-forecast"
+              with:
+                locationKey: "rest.locationKey"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/weather/forecast/daily/{locationKey}
+          name: daily-forecast
+          description: Daily weather forecast
+          operations:
+            - method: GET
+              name: get-daily-forecast
+              description: Get daily weather forecast
+              call: "accuweather.get-daily-forecast"
+              with:
+                locationKey: "rest.locationKey"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/weather/minutecast/{locationKey}
+          name: minutecast
+          description: Minute-by-minute precipitation forecast
+          operations:
+            - method: GET
+              name: get-minutecast
+              description: Get MinuteCast precipitation forecast
+              call: "accuweather.get-minutecast"
+              with:
+                locationKey: "rest.locationKey"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/air-quality/{locationKey}
+          name: air-quality
+          description: Air quality data
+          operations:
+            - method: GET
+              name: get-air-quality
+              description: Get current air quality
+              call: "accuweather.get-air-quality"
+              with:
+                locationKey: "rest.locationKey"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/storms/active/{locationKey}
+          name: active-storms
+          description: Active tropical storm tracking
+          operations:
+            - method: GET
+              name: get-active-storms
+              description: Get all active global storms
+              call: "accuweather.get-active-storms"
+              with:
+                locationKey: "rest.locationKey"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9090
+      namespace: weather-intelligence-mcp
+      transport: http
+      description: MCP server for AI-assisted weather intelligence and forecasting workflows.
+      tools:
+        - name: search-locations
+          description: Search for weather locations by partial name or query text
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "accuweather.autocomplete-locations"
+          with:
+            Query: "tools.query"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-current-weather
+          description: Get current weather conditions for a location key
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "accuweather.get-current-conditions"
+          with:
+            locationKey: "tools.locationKey"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-hourly-forecast
+          description: Get hourly weather forecast for the next 12-120 hours
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "accuweather.get-hourly-forecast"
+          with:
+            locationKey: "tools.locationKey"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-daily-forecast
+          description: Get 1, 5, 7, 10, or 15 day weather forecast
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "accuweather.get-daily-forecast"
+          with:
+            locationKey: "tools.locationKey"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-minutecast
+          description: Get AccuWeather MinuteCast minute-by-minute precipitation forecast
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "accuweather.get-minutecast"
+          with:
+            locationKey: "tools.locationKey"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-air-quality
+          description: Get current air quality index and pollutant data
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "accuweather.get-air-quality"
+          with:
+            locationKey: "tools.locationKey"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-hourly-air-quality
+          description: Get hourly air quality forecast
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "accuweather.get-hourly-air-quality"
+          with:
+            locationKey: "tools.locationKey"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-active-storms
+          description: Get all currently active tropical storms globally
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "accuweather.get-active-storms"
+          with:
+            locationKey: "tools.locationKey"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-storm-details
+          description: Get detailed tracking data for a specific tropical storm
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "accuweather.get-storm-details"
+          with:
+            year: "tools.year"
+            basinId: "tools.basinId"
+            depressionNumber: "tools.depressionNumber"
+          outputParameters:
+            - type: object
+              mapping: "$."

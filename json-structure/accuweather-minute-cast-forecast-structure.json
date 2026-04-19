@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/accuweather/refs/heads/main/json-structure/accuweather-minute-cast-forecast-structure.json",
+  "name": "MinuteCastForecast",
+  "description": "MinuteCastForecast schema from AccuWeather API",
+  "type": "object",
+  "properties": {
+    "summary60": {
+      "type": "string",
+      "nullable": true
+    },
+    "minutes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "displayTime": {
+            "type": "string",
+            "nullable": true
+          },
+          "minute": {
+            "type": "int32"
+          },
+          "color": {
+            "type": "string",
+            "nullable": true
+          },
+          "dbz": {
+            "type": "float",
+            "nullable": true
+          },
+          "precipitationType": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "nullable": true
+    }
+  }
+}

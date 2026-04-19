@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/accuweather/refs/heads/main/json-structure/accuweather-ad-structure.json",
+  "name": "Ad",
+  "description": "Ad schema from AccuWeather API",
+  "type": "object",
+  "properties": {
+    "slot": {
+      "type": "string",
+      "nullable": true
+    },
+    "adDivId": {
+      "type": "string",
+      "nullable": true
+    },
+    "adUnitCode": {
+      "type": "string",
+      "nullable": true
+    },
+    "bidders": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "bidder": {
+            "type": "string",
+            "nullable": true
+          },
+          "params": {
+            "type": "object",
+            "additionalProperties": {},
+            "nullable": true
+          },
+          "isBuyItNow": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "nullable": true
+    },
+    "upr": {
+      "type": "float",
+      "nullable": true
+    }
+  }
+}

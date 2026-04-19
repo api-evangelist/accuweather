@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/accuweather/refs/heads/main/json-schema/accuweather-ortb-content-schema.json",
+  "title": "OrtbContent",
+  "description": "OrtbContent schema from AccuWeather API",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "nullable": true
+    },
+    "url": {
+      "type": "string",
+      "nullable": true
+    },
+    "categories": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "nullable": true
+    },
+    "productQuality": {
+      "type": "string",
+      "nullable": true
+    },
+    "context": {
+      "type": "string",
+      "nullable": true
+    },
+    "keywords": {
+      "type": "string",
+      "nullable": true
+    },
+    "sourceRelationship": {
+      "enum": [
+        "Indirect",
+        "Direct"
+      ],
+      "type": "string"
+    },
+    "language": {
+      "type": "string",
+      "nullable": true
+    },
+    "data": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "nullable": true
+        },
+        "extensions": {
+          "type": "object",
+          "additionalProperties": {
+            "nullable": true
+          },
+          "nullable": true
+        },
+        "segments": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "nullable": true
+              },
+              "value": {
+                "type": "string",
+                "nullable": true
+              }
+            },
+            "additionalProperties": false
+          },
+          "nullable": true
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

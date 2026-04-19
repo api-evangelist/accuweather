@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/accuweather/refs/heads/main/json-schema/accuweather-device-info-schema.json",
+  "title": "DeviceInfo",
+  "description": "DeviceInfo schema from AccuWeather API",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Name of the user's browser.\r\nEg. 'Chrome'",
+      "nullable": true
+    },
+    "brand": {
+      "type": "string",
+      "description": "Name of the user's device maker.\r\nEg. 'Apple' or 'Samsung'",
+      "nullable": true
+    },
+    "version": {
+      "type": "string",
+      "description": "Version of the user's browser.\r\nEg. '16'",
+      "nullable": true
+    },
+    "category": {
+      "type": "string",
+      "description": "One of 'mobile', 'tablet', or 'desktop'",
+      "nullable": true
+    }
+  },
+  "additionalProperties": false
+}

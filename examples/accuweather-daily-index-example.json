@@ -1,0 +1,19 @@
+{
+  "indexName": "New York",
+  "indexType": "UVIntensity",
+  "days": [
+    {
+      "dayOfWeek": "example-string",
+      "shortDayOfWeek": "example-string",
+      "fullDayOfWeek": "example-string",
+      "epoch": 86,
+      "dateTime": "example-string",
+      "displayDate": "example-string",
+      "longDisplayDate": "-74.0060",
+      "value": 47,
+      "category": "example-string",
+      "color": "example-string"
+    }
+  ],
+  "activityType": "OutdoorActivities"
+}

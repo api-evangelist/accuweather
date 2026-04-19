@@ -1,0 +1,9 @@
+{
+  "past12Hours": "example-string",
+  "past18Hours": "example-string",
+  "past24Hours": "example-string",
+  "past3Hours": "example-string",
+  "past6Hours": "example-string",
+  "past9Hours": "example-string",
+  "pastHour": "example-string"
+}

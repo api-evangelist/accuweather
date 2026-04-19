@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/accuweather/refs/heads/main/json-schema/accuweather-basin-id-schema.json",
+  "title": "BasinId",
+  "description": "BasinId schema from AccuWeather API",
+  "enum": [
+    "AL",
+    "EP",
+    "SI",
+    "NI",
+    "CP",
+    "NP",
+    "SP"
+  ],
+  "type": "string"
+}

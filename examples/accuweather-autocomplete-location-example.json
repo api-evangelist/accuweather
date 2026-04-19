@@ -1,0 +1,38 @@
+{
+  "locationType": "address",
+  "city": "London",
+  "adminCode": "PA",
+  "countryCode": "US",
+  "postalCode": "example-string",
+  "position": [
+    51.50032,
+    -0.145433
+  ],
+  "name": "Buckingham Palace",
+  "longName": "Buckingham Palace, Westminster, London, Greater London GBR",
+  "locationSettingsInfo": {
+    "id": "50603e3f-5433-4d14-9b5f-01c8cf619d9b",
+    "locationKey": "328328",
+    "name": "State Collage",
+    "longName": "385 Science Park Rd, State College, PA",
+    "displayName": "385 Science Park Rd, State College, PA or Eureka, CA USA",
+    "stationCode": "EGRB",
+    "supportedDataSets": [
+      "AirQualityCurrentConditions",
+      "AirQualityForecasts",
+      "Alerts",
+      "DailyAirQualityForecast",
+      "DailyPollenForecast",
+      "ForecastConfidence",
+      "FutureRadar",
+      "MinuteCast",
+      "ProximityNotification-Lightning",
+      "Radar"
+    ],
+    "supportsMinuteCast": true,
+    "latitude": 40.7128,
+    "longitude": -74.006,
+    "supportsEventConfidence": true
+  },
+  "source": "Unknown"
+}

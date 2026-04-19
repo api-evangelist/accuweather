@@ -1,0 +1,317 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/accuweather/refs/heads/main/json-structure/accuweather-event-confidence-structure.json",
+  "name": "EventConfidence",
+  "description": "EventConfidence schema from AccuWeather API",
+  "type": "object",
+  "properties": {
+    "startDate": {
+      "type": "datetime"
+    },
+    "epochStartDate": {
+      "type": "int32"
+    },
+    "endDate": {
+      "type": "datetime"
+    },
+    "epochEndDate": {
+      "type": "int32"
+    },
+    "event": {
+      "enum": [
+        "Ice",
+        "Rain",
+        "SevereThunderstorm",
+        "Snow",
+        "SustainedWind",
+        "Thunderstorm",
+        "Tornado",
+        "Tropical",
+        "Wind",
+        "WindGust",
+        "Unknown",
+        "Hail",
+        "Flooding",
+        "FlashFlooding",
+        "CoastalFlooding",
+        "RiverFlooding",
+        "Winter"
+      ],
+      "type": "string"
+    },
+    "eventKey": {
+      "type": "string",
+      "nullable": true
+    },
+    "eventName": {
+      "type": "string",
+      "nullable": true
+    },
+    "forecastRanges": {
+      "type": "object",
+      "properties": {
+        "lower": {
+          "type": "object",
+          "properties": {
+            "displayAmount": {
+              "type": "string",
+              "nullable": true
+            },
+            "low": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "float",
+                  "nullable": true
+                },
+                "unit": {
+                  "type": "string",
+                  "nullable": true
+                },
+                "unitType": {
+                  "type": "int32"
+                }
+              },
+              "additionalProperties": false
+            },
+            "high": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "float",
+                  "nullable": true
+                },
+                "unit": {
+                  "type": "string",
+                  "nullable": true
+                },
+                "unitType": {
+                  "type": "int32"
+                }
+              },
+              "additionalProperties": false
+            },
+            "probability": {
+              "type": "int32",
+              "nullable": true
+            },
+            "phrase": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "low": {
+          "type": "object",
+          "properties": {
+            "displayAmount": {
+              "type": "string",
+              "nullable": true
+            },
+            "low": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "float",
+                  "nullable": true
+                },
+                "unit": {
+                  "type": "string",
+                  "nullable": true
+                },
+                "unitType": {
+                  "type": "int32"
+                }
+              },
+              "additionalProperties": false
+            },
+            "high": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "float",
+                  "nullable": true
+                },
+                "unit": {
+                  "type": "string",
+                  "nullable": true
+                },
+                "unitType": {
+                  "type": "int32"
+                }
+              },
+              "additionalProperties": false
+            },
+            "probability": {
+              "type": "int32",
+              "nullable": true
+            },
+            "phrase": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "likely": {
+          "type": "object",
+          "properties": {
+            "displayAmount": {
+              "type": "string",
+              "nullable": true
+            },
+            "low": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "float",
+                  "nullable": true
+                },
+                "unit": {
+                  "type": "string",
+                  "nullable": true
+                },
+                "unitType": {
+                  "type": "int32"
+                }
+              },
+              "additionalProperties": false
+            },
+            "high": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "float",
+                  "nullable": true
+                },
+                "unit": {
+                  "type": "string",
+                  "nullable": true
+                },
+                "unitType": {
+                  "type": "int32"
+                }
+              },
+              "additionalProperties": false
+            },
+            "probability": {
+              "type": "int32",
+              "nullable": true
+            },
+            "phrase": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "high": {
+          "type": "object",
+          "properties": {
+            "displayAmount": {
+              "type": "string",
+              "nullable": true
+            },
+            "low": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "float",
+                  "nullable": true
+                },
+                "unit": {
+                  "type": "string",
+                  "nullable": true
+                },
+                "unitType": {
+                  "type": "int32"
+                }
+              },
+              "additionalProperties": false
+            },
+            "high": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "float",
+                  "nullable": true
+                },
+                "unit": {
+                  "type": "string",
+                  "nullable": true
+                },
+                "unitType": {
+                  "type": "int32"
+                }
+              },
+              "additionalProperties": false
+            },
+            "probability": {
+              "type": "int32",
+              "nullable": true
+            },
+            "phrase": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "higher": {
+          "type": "object",
+          "properties": {
+            "displayAmount": {
+              "type": "string",
+              "nullable": true
+            },
+            "low": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "float",
+                  "nullable": true
+                },
+                "unit": {
+                  "type": "string",
+                  "nullable": true
+                },
+                "unitType": {
+                  "type": "int32"
+                }
+              },
+              "additionalProperties": false
+            },
+            "high": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "float",
+                  "nullable": true
+                },
+                "unit": {
+                  "type": "string",
+                  "nullable": true
+                },
+                "unitType": {
+                  "type": "int32"
+                }
+              },
+              "additionalProperties": false
+            },
+            "probability": {
+              "type": "int32",
+              "nullable": true
+            },
+            "phrase": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

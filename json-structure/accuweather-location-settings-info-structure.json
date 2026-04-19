@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/accuweather/refs/heads/main/json-structure/accuweather-location-settings-info-structure.json",
+  "name": "LocationSettingsInfo",
+  "description": "Detailed keys for the location from AccuWeather to aid in weather data retrieval.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique Id created for favorite and recent locations",
+      "nullable": true,
+      "example": "50603e3f-5433-4d14-9b5f-01c8cf619d9b"
+    },
+    "locationKey": {
+      "type": "string",
+      "description": "AccuWeather Surefind location key for this location.",
+      "nullable": true,
+      "example": "328328"
+    },
+    "name": {
+      "type": "string",
+      "description": "Simple name for a location, such as the name of a city",
+      "nullable": true,
+      "example": "State Collage"
+    },
+    "longName": {
+      "type": "string",
+      "description": "Full name for a location, such as the name of an Admin or address",
+      "nullable": true,
+      "example": "385 Science Park Rd, State College, PA"
+    },
+    "displayName": {
+      "type": "string",
+      "description": "Name used to display to the user as the placeholder\r\nThis differece from the LongName since will be sometimes display location name from\r\nthe AW API (Non-english/direct location key serach)",
+      "nullable": true,
+      "example": "385 Science Park Rd, State College, PA or Eureka, CA USA"
+    },
+    "stationCode": {
+      "type": "string",
+      "description": "AccuWeather station code for this location.",
+      "nullable": true,
+      "example": "EGRB"
+    },
+    "supportedDataSets": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "AccuWeather list of supported data sets for this location.",
+      "nullable": true,
+      "example": [
+        "AirQualityCurrentConditions",
+        "AirQualityForecasts",
+        "Alerts",
+        "DailyAirQualityForecast",
+        "DailyPollenForecast",
+        "ForecastConfidence",
+        "FutureRadar",
+        "MinuteCast",
+        "ProximityNotification-Lightning",
+        "Radar"
+      ]
+    },
+    "supportsMinuteCast": {
+      "type": "boolean",
+      "description": "True if a location supports MinuteCast data.",
+      "nullable": true,
+      "readOnly": true,
+      "example": true
+    },
+    "latitude": {
+      "type": "double",
+      "description": "Latitude for a location",
+      "nullable": true
+    },
+    "longitude": {
+      "type": "double",
+      "description": "Longitude for a location",
+      "nullable": true
+    },
+    "supportsEventConfidence": {
+      "type": "boolean",
+      "description": "True if a location supports probabilities on weather events.",
+      "nullable": true,
+      "readOnly": true,
+      "example": true
+    }
+  }
+}

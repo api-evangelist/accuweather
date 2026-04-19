@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/accuweather/refs/heads/main/json-structure/accuweather-recent-location-structure.json",
+  "name": "RecentLocation",
+  "description": "RecentLocation schema from AccuWeather API",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "nullable": true
+    },
+    "key": {
+      "type": "string",
+      "nullable": true
+    },
+    "name": {
+      "type": "string",
+      "nullable": true
+    },
+    "longName": {
+      "type": "string",
+      "nullable": true
+    },
+    "displayName": {
+      "type": "string",
+      "nullable": true
+    },
+    "localTime": {
+      "type": "string",
+      "nullable": true
+    },
+    "displayTemperature": {
+      "type": "string",
+      "nullable": true
+    },
+    "icon": {
+      "type": "int32",
+      "nullable": true
+    },
+    "color": {
+      "type": "string",
+      "nullable": true
+    },
+    "isBefore7PM": {
+      "type": "boolean"
+    },
+    "isDayTime": {
+      "type": "boolean"
+    },
+    "latitude": {
+      "type": "double",
+      "nullable": true
+    },
+    "longitude": {
+      "type": "double",
+      "nullable": true
+    }
+  }
+}

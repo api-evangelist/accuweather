@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/accuweather/refs/heads/main/json-structure/accuweather-uv-index-structure.json",
+  "name": "UVIndex",
+  "description": "UVIndex schema from AccuWeather API",
+  "type": "object",
+  "properties": {
+    "category": {
+      "type": "string",
+      "nullable": true
+    },
+    "value": {
+      "type": "float"
+    }
+  }
+}

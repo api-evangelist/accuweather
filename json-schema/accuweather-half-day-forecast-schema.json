@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/accuweather/refs/heads/main/json-schema/accuweather-half-day-forecast-schema.json",
+  "title": "HalfDayForecast",
+  "description": "HalfDayForecast schema from AccuWeather API",
+  "type": "object",
+  "properties": {
+    "temperature": {
+      "type": "number",
+      "format": "float",
+      "nullable": true
+    },
+    "displayTemperature": {
+      "type": "string",
+      "nullable": true
+    },
+    "icon": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "iconPhrase": {
+      "type": "string",
+      "nullable": true
+    },
+    "phrase": {
+      "type": "string",
+      "nullable": true
+    },
+    "longPhrase": {
+      "type": "string",
+      "nullable": true
+    },
+    "precip": {
+      "type": "string",
+      "nullable": true
+    },
+    "realFeelValue": {
+      "type": "number",
+      "format": "float",
+      "nullable": true
+    }
+  },
+  "additionalProperties": false
+}

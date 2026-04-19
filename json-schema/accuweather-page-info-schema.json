@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/accuweather/refs/heads/main/json-schema/accuweather-page-info-schema.json",
+  "title": "PageInfo",
+  "description": "PageInfo schema from AccuWeather API",
+  "type": "object",
+  "properties": {
+    "group": {
+      "type": "string",
+      "description": "Page group like 'three-day' or 'hourly' designating the page category",
+      "nullable": true
+    },
+    "url": {
+      "type": "string",
+      "description": "URL of the page",
+      "nullable": true
+    },
+    "referrer": {
+      "type": "string",
+      "description": "Referrer of the page",
+      "nullable": true
+    }
+  },
+  "additionalProperties": false
+}

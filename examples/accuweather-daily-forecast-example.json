@@ -1,0 +1,30 @@
+{
+  "dayOfWeek": "example-string",
+  "shortDayOfWeek": "example-string",
+  "fullDayOfWeek": "example-string",
+  "epoch": 93,
+  "dateTime": "example-string",
+  "displayDate": "example-string",
+  "longDisplayDate": "-74.0060",
+  "hasAlert": true,
+  "day": {
+    "temperature": 72.5,
+    "displayTemperature": "example-string",
+    "icon": 6,
+    "iconPhrase": "Partly cloudy",
+    "phrase": "Partly cloudy",
+    "longPhrase": "-74.0060",
+    "precip": "example-string",
+    "realFeelValue": 72.5
+  },
+  "night": {
+    "temperature": 72.5,
+    "displayTemperature": "example-string",
+    "icon": 6,
+    "iconPhrase": "Partly cloudy",
+    "phrase": "Partly cloudy",
+    "longPhrase": "-74.0060",
+    "precip": "example-string",
+    "realFeelValue": 72.5
+  }
+}

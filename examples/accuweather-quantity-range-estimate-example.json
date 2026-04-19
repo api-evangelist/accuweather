@@ -1,0 +1,15 @@
+{
+  "displayAmount": "example-string",
+  "low": {
+    "value": 35.2,
+    "unit": "Imperial",
+    "unitType": 33
+  },
+  "high": {
+    "value": 77.1,
+    "unit": "Imperial",
+    "unitType": 88
+  },
+  "probability": 47,
+  "phrase": "Partly cloudy"
+}

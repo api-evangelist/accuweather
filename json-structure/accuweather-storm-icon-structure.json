@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/accuweather/refs/heads/main/json-structure/accuweather-storm-icon-structure.json",
+  "name": "StormIcon",
+  "description": "StormIcon schema from AccuWeather API",
+  "type": "string",
+  "enum": [
+    "ExtratropicalStorm",
+    "Subtropical",
+    "Category0",
+    "Category1",
+    "Category2",
+    "Category3",
+    "Category4",
+    "Category5",
+    "TropicalRainStorm",
+    "TropicalDepression"
+  ]
+}

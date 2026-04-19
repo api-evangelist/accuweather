@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/accuweather/refs/heads/main/json-schema/accuweather-utm-info-schema.json",
+  "title": "UTMInfo",
+  "description": "UTMInfo schema from AccuWeather API",
+  "type": "object",
+  "properties": {
+    "source": {
+      "type": "string",
+      "description": "utm_source from the URL",
+      "nullable": true
+    },
+    "medium": {
+      "type": "string",
+      "description": "utm_medium from the URL",
+      "nullable": true
+    },
+    "campaign": {
+      "type": "string",
+      "description": "utm_campaign from the URL",
+      "nullable": true
+    },
+    "term": {
+      "type": "string",
+      "description": "utm_term from the URL",
+      "nullable": true
+    }
+  },
+  "additionalProperties": false
+}

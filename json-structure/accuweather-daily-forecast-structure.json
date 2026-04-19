@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/accuweather/refs/heads/main/json-structure/accuweather-daily-forecast-structure.json",
+  "name": "DailyForecast",
+  "description": "DailyForecast schema from AccuWeather API",
+  "type": "object",
+  "properties": {
+    "dayOfWeek": {
+      "type": "string",
+      "nullable": true
+    },
+    "shortDayOfWeek": {
+      "type": "string",
+      "nullable": true
+    },
+    "fullDayOfWeek": {
+      "type": "string",
+      "nullable": true
+    },
+    "epoch": {
+      "type": "int32",
+      "nullable": true
+    },
+    "dateTime": {
+      "type": "string",
+      "nullable": true
+    },
+    "displayDate": {
+      "type": "string",
+      "nullable": true
+    },
+    "longDisplayDate": {
+      "type": "string",
+      "nullable": true
+    },
+    "hasAlert": {
+      "type": "boolean"
+    },
+    "day": {
+      "type": "object",
+      "properties": {
+        "temperature": {
+          "type": "float",
+          "nullable": true
+        },
+        "displayTemperature": {
+          "type": "string",
+          "nullable": true
+        },
+        "icon": {
+          "type": "int32"
+        },
+        "iconPhrase": {
+          "type": "string",
+          "nullable": true
+        },
+        "phrase": {
+          "type": "string",
+          "nullable": true
+        },
+        "longPhrase": {
+          "type": "string",
+          "nullable": true
+        },
+        "precip": {
+          "type": "string",
+          "nullable": true
+        },
+        "realFeelValue": {
+          "type": "float",
+          "nullable": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "night": {
+      "type": "object",
+      "properties": {
+        "temperature": {
+          "type": "float",
+          "nullable": true
+        },
+        "displayTemperature": {
+          "type": "string",
+          "nullable": true
+        },
+        "icon": {
+          "type": "int32"
+        },
+        "iconPhrase": {
+          "type": "string",
+          "nullable": true
+        },
+        "phrase": {
+          "type": "string",
+          "nullable": true
+        },
+        "longPhrase": {
+          "type": "string",
+          "nullable": true
+        },
+        "precip": {
+          "type": "string",
+          "nullable": true
+        },
+        "realFeelValue": {
+          "type": "float",
+          "nullable": true
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

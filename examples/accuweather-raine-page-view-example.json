@@ -1,0 +1,52 @@
+{
+  "id": "500123",
+  "test": "example-string",
+  "platform": "40.7128",
+  "version": "example-string",
+  "page": {
+    "group": "example-string",
+    "url": "https://www.accuweather.com/",
+    "referrer": "example-string"
+  },
+  "ads": {
+    "code": "example-string",
+    "status": "example-string",
+    "cookie3p": "example-string"
+  },
+  "session": {
+    "id": "500123",
+    "partner": "example-string",
+    "utm": {
+      "source": "AccuWeather",
+      "medium": "example-string",
+      "campaign": "example-string",
+      "term": "example-string"
+    }
+  },
+  "user": {
+    "id": "500123",
+    "language": "example-string",
+    "country": "US",
+    "region": "example-string",
+    "city": "example-string",
+    "dma": "example-string",
+    "start": "example-string",
+    "offset": "example-string"
+  },
+  "network": {
+    "throughput": "example-string",
+    "network": "example-string",
+    "type": "example-string"
+  },
+  "device": {
+    "name": "New York",
+    "brand": "example-string",
+    "version": "example-string",
+    "category": "example-string"
+  },
+  "weather": {
+    "key": "347628"
+  },
+  "bot": true,
+  "time": "example-string"
+}

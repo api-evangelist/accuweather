@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/accuweather/refs/heads/main/json-structure/accuweather-pollutant-structure.json",
+  "name": "Pollutant",
+  "description": "Pollutant schema from AccuWeather API",
+  "type": "object",
+  "properties": {
+    "concentration": {
+      "type": "string",
+      "nullable": true
+    },
+    "index": {
+      "type": "double"
+    },
+    "name": {
+      "type": "string",
+      "nullable": true
+    },
+    "source": {
+      "type": "string",
+      "nullable": true
+    },
+    "type": {
+      "type": "string",
+      "nullable": true
+    }
+  }
+}

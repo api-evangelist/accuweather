@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/accuweather/refs/heads/main/json-structure/accuweather-location-sources-structure.json",
+  "name": "LocationSources",
+  "description": "The parent provider of the location.",
+  "type": "string",
+  "enum": [
+    "AccuWeather",
+    "Radar",
+    "Unknown"
+  ]
+}

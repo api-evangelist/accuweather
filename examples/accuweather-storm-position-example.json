@@ -1,0 +1,41 @@
+{
+  "coordinates": {
+    "type": "example-string",
+    "coordinates": [
+      null
+    ]
+  },
+  "dateTime": "2026-04-19T10:00:00Z",
+  "localDate": "2026-04-19T10:00:00Z",
+  "localDayOfWeek": "example-string",
+  "dateTimeLabelShort": "example-string",
+  "dateTimeLabel": "example-string",
+  "shortDateShortTimeLabel": "example-string",
+  "direction": "example-string",
+  "isCurrent": true,
+  "isHistorical": true,
+  "isMarked": true,
+  "isPeak": true,
+  "latitude": 40.7128,
+  "longitude": -74.006,
+  "maximumSustainedWind": "example-string",
+  "maximumSustainedWindValue": 12.5,
+  "maximumWindGust": "example-string",
+  "maximumWindGustValue": 12.5,
+  "windDegrees": 12.5,
+  "minimumPressure": "example-string",
+  "position": "example-string",
+  "speed": "example-string",
+  "status": "example-string",
+  "localizedStatus": "example-string",
+  "statusName": "New York",
+  "statusIcon": "Subtropical",
+  "statusIconString": "6",
+  "landmarkReferences": [
+    {
+      "landmark": "example-string",
+      "distance": "example-string"
+    }
+  ],
+  "eventKey": "347628"
+}

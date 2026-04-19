@@ -7,53 +7,55 @@ paths:
   /api/autocomplete:
     get:
       tags: []
-      summary: AccuWeather Retrieves a list of locations matching the specified query
+      summary: AccuWeather Retrieves a List of Locations Matching the Specified Query
       parameters:
-        - name: Query
-          in: query
-          description: The partial query to search against. Eg. 'New' to get things like New York or New Market
-          required: true
-          schema:
-            type: string
-            example: New
+      - name: Query
+        in: query
+        description: The partial query to search against. Eg. 'New' to get things like New York or New Market
+        required: true
+        schema:
+          type: string
           example: New
-        - name: Latitude
-          in: query
-          description: The latitude where responses will be biased.
-          schema:
-            type: number
-            format: double
-        - name: Longitude
-          in: query
-          description: The longitude where responses will be biased.
-          schema:
-            type: number
-            format: double
-        - name: Locale
-          in: query
-          description: ISO 639-2 and ISO 3166-1 code for the locale
-          schema:
-            type: string
-            example: en-us
+        example: New
+      - name: Latitude
+        in: query
+        description: The latitude where responses will be biased.
+        schema:
+          type: number
+          format: double
+        example: 40.7128
+      - name: Longitude
+        in: query
+        description: The longitude where responses will be biased.
+        schema:
+          type: number
+          format: double
+        example: -74.006
+      - name: Locale
+        in: query
+        description: ISO 639-2 and ISO 3166-1 code for the locale
+        schema:
+          type: string
           example: en-us
-        - name: MeasurementDisplay
-          in: query
-          description: Display type for weather conditions and distance
-          schema:
-            $ref: '#/components/schemas/MeasurementDisplayType'
-          example: Imperial
-        - name: WindUnit
-          in: query
-          description: Additional display type for wind direction
-          schema:
-            $ref: '#/components/schemas/WindDirectionDisplayType'
-          example: Cardinal
-        - name: Theme
-          in: query
-          description: Theme for the application
-          schema:
-            $ref: '#/components/schemas/ThemeType'
-          example: System
+        example: en-us
+      - name: MeasurementDisplay
+        in: query
+        description: Display type for weather conditions and distance
+        schema:
+          $ref: '#/components/schemas/MeasurementDisplayType'
+        example: Imperial
+      - name: WindUnit
+        in: query
+        description: Additional display type for wind direction
+        schema:
+          $ref: '#/components/schemas/WindDirectionDisplayType'
+        example: Cardinal
+      - name: Theme
+        in: query
+        description: Theme for the application
+        schema:
+          $ref: '#/components/schemas/ThemeType'
+        example: System
       responses:
         '200':
           description: Locations found
@@ -63,104 +65,145 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/AutocompleteLocation'
+              examples:
+                _api_autocomplete200Example:
+                  summary: Default _api_autocomplete 200 response
+                  x-microcks-default: true
+                  value:
+                  - locationType: address
+                    city: London
+                    adminCode: PA
+                    countryCode: US
+                    postalCode: example-value
+                    position: &id001
+                    - 51.50032
+                    - -0.145433
+                    name: Buckingham Palace
+                    longName: Buckingham Palace, Westminster, London, Greater London GBR
+                    locationSettingsInfo:
+                      id: 50603e3f-5433-4d14-9b5f-01c8cf619d9b
+                      locationKey: '328328'
+                      name: State Collage
+                      longName: 385 Science Park Rd, State College, PA
+                      displayName: 385 Science Park Rd, State College, PA or Eureka, CA USA
+                      stationCode: EGRB
+                      supportedDataSets: &id002
+                      - AirQualityCurrentConditions
+                      - AirQualityForecasts
+                      - Alerts
+                      - DailyAirQualityForecast
+                      - DailyPollenForecast
+                      - ForecastConfidence
+                      - FutureRadar
+                      - MinuteCast
+                      - ProximityNotification-Lightning
+                      - Radar
+                      supportsMinuteCast: true
+                      latitude: 40.7128
+                      longitude: -74.006
+                      supportsEventConfidence: true
+                    source: AccuWeather
         '400':
           description: Parameters are bad, details in body.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/resolve-location-redirect:
     get:
       tags: []
-      summary: AccuWeather Takes in a Location as a query parameter
+      summary: AccuWeather Takes in a Location as a Query Parameter
       parameters:
-        - name: LocationType
-          in: query
-          description: The type of location to resolve. Eg. address, postalCode, place, locality
-          schema:
-            type: string
-            example: city
+      - name: LocationType
+        in: query
+        description: The type of location to resolve. Eg. address, postalCode, place, locality
+        schema:
+          type: string
           example: city
-        - name: PostalCode
-          in: query
-          description: The postal code of the location to resolve.
-          schema:
-            type: string
-            example: SW1A 1AA
+        example: city
+      - name: PostalCode
+        in: query
+        description: The postal code of the location to resolve.
+        schema:
+          type: string
           example: SW1A 1AA
-        - name: City
-          in: query
-          description: The city of the location to resolve.
-          schema:
-            type: string
-            example: London
+        example: SW1A 1AA
+      - name: City
+        in: query
+        description: The city of the location to resolve.
+        schema:
+          type: string
           example: London
-        - name: AdminCode
-          in: query
-          description: The admin code for the location.
-          schema:
-            type: string
-            example: PA
+        example: London
+      - name: AdminCode
+        in: query
+        description: The admin code for the location.
+        schema:
+          type: string
           example: PA
-        - name: CountryCode
-          in: query
-          description: The country code for the location.
-          schema:
-            type: string
-            example: US
+        example: PA
+      - name: CountryCode
+        in: query
+        description: The country code for the location.
+        schema:
+          type: string
           example: US
-        - name: Position
-          in: query
-          description: Comma separated position of the location to resolve. Longitude, Latitude.
-          schema:
-            type: string
-            example: 51.500321,-0.145433
+        example: US
+      - name: Position
+        in: query
+        description: Comma separated position of the location to resolve. Longitude, Latitude.
+        schema:
+          type: string
           example: 51.500321,-0.145433
-        - name: Name
-          in: query
-          description: Simple name for a location, such as the name of a city
-          schema:
-            type: string
-            example: State Collage
+        example: 51.500321,-0.145433
+      - name: Name
+        in: query
+        description: Simple name for a location, such as the name of a city
+        schema:
+          type: string
           example: State Collage
-        - name: LongName
-          in: query
-          description: Full name for a location, such as the name of an Admin or address
-          schema:
-            type: string
-            example: 385 Science Park Rd, State College, PA
+        example: State Collage
+      - name: LongName
+        in: query
+        description: Full name for a location, such as the name of an Admin or address
+        schema:
+          type: string
           example: 385 Science Park Rd, State College, PA
-        - name: LocationKey
-          in: query
-          description: AccuWeather Location key
-          schema:
-            type: string
-            example: '335315'
+        example: 385 Science Park Rd, State College, PA
+      - name: LocationKey
+        in: query
+        description: AccuWeather Location key
+        schema:
+          type: string
           example: '335315'
-        - name: IsCurrent
-          in: query
-          description: if 'use current location' was selected
-          schema:
-            type: boolean
-            example: true
+        example: '335315'
+      - name: IsCurrent
+        in: query
+        description: if 'use current location' was selected
+        schema:
+          type: boolean
           example: true
-        - name: RecentId
-          in: query
-          description: recent location's guid
-          schema:
-            type: string
-            example: tru4fa4496d-fca1-4c30-8784-fb612a45ee52e
+        example: true
+      - name: RecentId
+        in: query
+        description: recent location's guid
+        schema:
+          type: string
           example: tru4fa4496d-fca1-4c30-8784-fb612a45ee52e
-        - name: FavoriteId
-          in: query
-          description: favorite location's guid (Used for Edit)
-          schema:
-            type: string
-            example: tru4fa4496d-fca1-4c30-8784-fb612a45ee52e
+        example: tru4fa4496d-fca1-4c30-8784-fb612a45ee52e
+      - name: FavoriteId
+        in: query
+        description: favorite location's guid (Used for Edit)
+        schema:
+          type: string
           example: tru4fa4496d-fca1-4c30-8784-fb612a45ee52e
-        - name: Language
-          in: query
-          description: Language for the query to use for the response.
-          schema:
-            type: string
-            example: en-us
+        example: tru4fa4496d-fca1-4c30-8784-fb612a45ee52e
+      - name: Language
+        in: query
+        description: Language for the query to use for the response.
+        schema:
+          type: string
           example: en-us
+        example: en-us
       responses:
         '200':
           description: Location resolved
@@ -170,102 +213,105 @@ paths:
                 $ref: '#/components/schemas/AutocompleteLocation'
         '404':
           description: Location was unable to be resolved
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/resolve-location:
     get:
       tags: []
-      summary: AccuWeather Takes in a Location as a query parameter
+      summary: AccuWeather Takes in a Location as a Query Parameter
       parameters:
-        - name: LocationType
-          in: query
-          description: The type of location to resolve. Eg. address, postalCode, place, locality
-          schema:
-            type: string
-            example: city
+      - name: LocationType
+        in: query
+        description: The type of location to resolve. Eg. address, postalCode, place, locality
+        schema:
+          type: string
           example: city
-        - name: PostalCode
-          in: query
-          description: The postal code of the location to resolve.
-          schema:
-            type: string
-            example: SW1A 1AA
+        example: city
+      - name: PostalCode
+        in: query
+        description: The postal code of the location to resolve.
+        schema:
+          type: string
           example: SW1A 1AA
-        - name: City
-          in: query
-          description: The city of the location to resolve.
-          schema:
-            type: string
-            example: London
+        example: SW1A 1AA
+      - name: City
+        in: query
+        description: The city of the location to resolve.
+        schema:
+          type: string
           example: London
-        - name: AdminCode
-          in: query
-          description: The admin code for the location.
-          schema:
-            type: string
-            example: PA
+        example: London
+      - name: AdminCode
+        in: query
+        description: The admin code for the location.
+        schema:
+          type: string
           example: PA
-        - name: CountryCode
-          in: query
-          description: The country code for the location.
-          schema:
-            type: string
-            example: US
+        example: PA
+      - name: CountryCode
+        in: query
+        description: The country code for the location.
+        schema:
+          type: string
           example: US
-        - name: Position
-          in: query
-          description: Comma separated position of the location to resolve. Longitude, Latitude.
-          schema:
-            type: string
-            example: 51.500321,-0.145433
+        example: US
+      - name: Position
+        in: query
+        description: Comma separated position of the location to resolve. Longitude, Latitude.
+        schema:
+          type: string
           example: 51.500321,-0.145433
-        - name: Name
-          in: query
-          description: Simple name for a location, such as the name of a city
-          schema:
-            type: string
-            example: State Collage
+        example: 51.500321,-0.145433
+      - name: Name
+        in: query
+        description: Simple name for a location, such as the name of a city
+        schema:
+          type: string
           example: State Collage
-        - name: LongName
-          in: query
-          description: Full name for a location, such as the name of an Admin or address
-          schema:
-            type: string
-            example: 385 Science Park Rd, State College, PA
+        example: State Collage
+      - name: LongName
+        in: query
+        description: Full name for a location, such as the name of an Admin or address
+        schema:
+          type: string
           example: 385 Science Park Rd, State College, PA
-        - name: LocationKey
-          in: query
-          description: AccuWeather Location key
-          schema:
-            type: string
-            example: '335315'
+        example: 385 Science Park Rd, State College, PA
+      - name: LocationKey
+        in: query
+        description: AccuWeather Location key
+        schema:
+          type: string
           example: '335315'
-        - name: IsCurrent
-          in: query
-          description: if 'use current location' was selected
-          schema:
-            type: boolean
-            example: true
+        example: '335315'
+      - name: IsCurrent
+        in: query
+        description: if 'use current location' was selected
+        schema:
+          type: boolean
           example: true
-        - name: RecentId
-          in: query
-          description: recent location's guid
-          schema:
-            type: string
-            example: tru4fa4496d-fca1-4c30-8784-fb612a45ee52e
+        example: true
+      - name: RecentId
+        in: query
+        description: recent location's guid
+        schema:
+          type: string
           example: tru4fa4496d-fca1-4c30-8784-fb612a45ee52e
-        - name: FavoriteId
-          in: query
-          description: favorite location's guid (Used for Edit)
-          schema:
-            type: string
-            example: tru4fa4496d-fca1-4c30-8784-fb612a45ee52e
+        example: tru4fa4496d-fca1-4c30-8784-fb612a45ee52e
+      - name: FavoriteId
+        in: query
+        description: favorite location's guid (Used for Edit)
+        schema:
+          type: string
           example: tru4fa4496d-fca1-4c30-8784-fb612a45ee52e
-        - name: Language
-          in: query
-          description: Language for the query to use for the response.
-          schema:
-            type: string
-            example: en-us
+        example: tru4fa4496d-fca1-4c30-8784-fb612a45ee52e
+      - name: Language
+        in: query
+        description: Language for the query to use for the response.
+        schema:
+          type: string
           example: en-us
+        example: en-us
       responses:
         '200':
           description: Location resolved
@@ -273,129 +319,158 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AutocompleteLocation'
+              examples:
+                _api_resolve-location200Example:
+                  summary: Default _api_resolve-location 200 response
+                  x-microcks-default: true
+                  value:
+                    locationType: address
+                    city: London
+                    adminCode: PA
+                    countryCode: US
+                    postalCode: example-value
+                    position: *id001
+                    name: Buckingham Palace
+                    longName: Buckingham Palace, Westminster, London, Greater London GBR
+                    locationSettingsInfo:
+                      id: 50603e3f-5433-4d14-9b5f-01c8cf619d9b
+                      locationKey: '328328'
+                      name: State Collage
+                      longName: 385 Science Park Rd, State College, PA
+                      displayName: 385 Science Park Rd, State College, PA or Eureka, CA USA
+                      stationCode: EGRB
+                      supportedDataSets: *id002
+                      supportsMinuteCast: true
+                      latitude: 40.7128
+                      longitude: -74.006
+                      supportsEventConfidence: true
+                    source: AccuWeather
         '404':
           description: Location was unable to be resolved
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/favorite:
     get:
       tags: []
-      summary: AccuWeather Resolves and updates the favorite location cookie
+      summary: AccuWeather Resolves and Updates the Favorite Location Cookie
       parameters:
-        - name: LocationType
-          in: query
-          description: The type of location to resolve. Eg. address, postalCode, place, locality
-          schema:
-            type: string
-            example: city
+      - name: LocationType
+        in: query
+        description: The type of location to resolve. Eg. address, postalCode, place, locality
+        schema:
+          type: string
           example: city
-        - name: PostalCode
-          in: query
-          description: The postal code of the location to resolve.
-          schema:
-            type: string
-            example: SW1A 1AA
+        example: city
+      - name: PostalCode
+        in: query
+        description: The postal code of the location to resolve.
+        schema:
+          type: string
           example: SW1A 1AA
-        - name: City
-          in: query
-          description: The city of the location to resolve.
-          schema:
-            type: string
-            example: London
+        example: SW1A 1AA
+      - name: City
+        in: query
+        description: The city of the location to resolve.
+        schema:
+          type: string
           example: London
-        - name: AdminCode
-          in: query
-          description: The admin code for the location.
-          schema:
-            type: string
-            example: PA
+        example: London
+      - name: AdminCode
+        in: query
+        description: The admin code for the location.
+        schema:
+          type: string
           example: PA
-        - name: CountryCode
-          in: query
-          description: The country code for the location.
-          schema:
-            type: string
-            example: US
+        example: PA
+      - name: CountryCode
+        in: query
+        description: The country code for the location.
+        schema:
+          type: string
           example: US
-        - name: Position
-          in: query
-          description: Comma separated position of the location to resolve. Longitude, Latitude.
-          schema:
-            type: string
-            example: 51.500321,-0.145433
+        example: US
+      - name: Position
+        in: query
+        description: Comma separated position of the location to resolve. Longitude, Latitude.
+        schema:
+          type: string
           example: 51.500321,-0.145433
-        - name: Name
-          in: query
-          description: Simple name for a location, such as the name of a city
-          schema:
-            type: string
-            example: State Collage
+        example: 51.500321,-0.145433
+      - name: Name
+        in: query
+        description: Simple name for a location, such as the name of a city
+        schema:
+          type: string
           example: State Collage
-        - name: LongName
-          in: query
-          description: Full name for a location, such as the name of an Admin or address
-          schema:
-            type: string
-            example: 385 Science Park Rd, State College, PA
+        example: State Collage
+      - name: LongName
+        in: query
+        description: Full name for a location, such as the name of an Admin or address
+        schema:
+          type: string
           example: 385 Science Park Rd, State College, PA
-        - name: LocationKey
-          in: query
-          description: AccuWeather Location key
-          schema:
-            type: string
-            example: '335315'
+        example: 385 Science Park Rd, State College, PA
+      - name: LocationKey
+        in: query
+        description: AccuWeather Location key
+        schema:
+          type: string
           example: '335315'
-        - name: IsCurrent
-          in: query
-          description: if 'use current location' was selected
-          schema:
-            type: boolean
-            example: true
+        example: '335315'
+      - name: IsCurrent
+        in: query
+        description: if 'use current location' was selected
+        schema:
+          type: boolean
           example: true
-        - name: RecentId
-          in: query
-          description: recent location's guid
-          schema:
-            type: string
-            example: tru4fa4496d-fca1-4c30-8784-fb612a45ee52e
+        example: true
+      - name: RecentId
+        in: query
+        description: recent location's guid
+        schema:
+          type: string
           example: tru4fa4496d-fca1-4c30-8784-fb612a45ee52e
-        - name: FavoriteId
-          in: query
-          description: favorite location's guid (Used for Edit)
-          schema:
-            type: string
-            example: tru4fa4496d-fca1-4c30-8784-fb612a45ee52e
+        example: tru4fa4496d-fca1-4c30-8784-fb612a45ee52e
+      - name: FavoriteId
+        in: query
+        description: favorite location's guid (Used for Edit)
+        schema:
+          type: string
           example: tru4fa4496d-fca1-4c30-8784-fb612a45ee52e
-        - name: Language
-          in: query
-          description: Language for the query to use for the response.
-          schema:
-            type: string
-            example: en-us
+        example: tru4fa4496d-fca1-4c30-8784-fb612a45ee52e
+      - name: Language
+        in: query
+        description: Language for the query to use for the response.
+        schema:
+          type: string
           example: en-us
-        - name: Locale
-          in: query
-          description: ISO 639-2 and ISO 3166-1 code for the locale
-          schema:
-            type: string
-            example: en-us
+        example: en-us
+      - name: Locale
+        in: query
+        description: ISO 639-2 and ISO 3166-1 code for the locale
+        schema:
+          type: string
           example: en-us
-        - name: MeasurementDisplay
-          in: query
-          description: Display type for weather conditions and distance
-          schema:
-            $ref: '#/components/schemas/MeasurementDisplayType'
-          example: Imperial
-        - name: WindUnit
-          in: query
-          description: Additional display type for wind direction
-          schema:
-            $ref: '#/components/schemas/WindDirectionDisplayType'
-          example: Cardinal
-        - name: Theme
-          in: query
-          description: Theme for the application
-          schema:
-            $ref: '#/components/schemas/ThemeType'
-          example: System
+        example: en-us
+      - name: MeasurementDisplay
+        in: query
+        description: Display type for weather conditions and distance
+        schema:
+          $ref: '#/components/schemas/MeasurementDisplayType'
+        example: Imperial
+      - name: WindUnit
+        in: query
+        description: Additional display type for wind direction
+        schema:
+          $ref: '#/components/schemas/WindDirectionDisplayType'
+        example: Cardinal
+      - name: Theme
+        in: query
+        description: Theme for the application
+        schema:
+          $ref: '#/components/schemas/ThemeType'
+        example: System
       responses:
         '200':
           description: resolved location
@@ -403,44 +478,80 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/FavoriteLocation'
+              examples:
+                _api_favorite200Example:
+                  summary: Default _api_favorite 200 response
+                  x-microcks-default: true
+                  value:
+                    id: '500123'
+                    key: '347628'
+                    name: New York
+                    longName: New York
+                    displayName: New York
+                    displayTemperature: example-value
+                    displayHighTemperature: example-value
+                    displayLowTemperature: example-value
+                    displayRealFeel: example-value
+                    displayRealFeelShade: example-value
+                    icon: 6
+                    conditions: example-value
+                    localTime: example-value
+                    color: example-value
+                    isBefore7PM: true
+                    isDayTime: true
+                    minuteCastForecast:
+                      summary60: example-value
+                      minutes:
+                      - displayTime:
+                        minute:
+                        color:
+                        dbz:
+                        precipitationType:
+                    numberOfAlerts: 1
+                    latitude: 40.7128
+                    longitude: -74.006
         '400':
           description: Query parameter was missing or empty
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/current/{locationKey}:
     get:
       tags: []
-      summary: AccuWeather Retrieves a the latest weather conditions for a location
+      summary: AccuWeather Retrieves a the Latest Weather Conditions for a Location
       parameters:
-        - name: locationKey
-          in: path
-          description: The location key to retrieve weather conditions for
-          required: true
-          schema:
-            type: string
-        - name: Locale
-          in: query
-          description: ISO 639-2 and ISO 3166-1 code for the locale
-          schema:
-            type: string
-            example: en-us
+      - name: locationKey
+        in: path
+        description: The location key to retrieve weather conditions for
+        required: true
+        schema:
+          type: string
+        example: '347628'
+      - name: Locale
+        in: query
+        description: ISO 639-2 and ISO 3166-1 code for the locale
+        schema:
+          type: string
           example: en-us
-        - name: MeasurementDisplay
-          in: query
-          description: Display type for weather conditions and distance
-          schema:
-            $ref: '#/components/schemas/MeasurementDisplayType'
-          example: Imperial
-        - name: WindUnit
-          in: query
-          description: Additional display type for wind direction
-          schema:
-            $ref: '#/components/schemas/WindDirectionDisplayType'
-          example: Cardinal
-        - name: Theme
-          in: query
-          description: Theme for the application
-          schema:
-            $ref: '#/components/schemas/ThemeType'
-          example: System
+        example: en-us
+      - name: MeasurementDisplay
+        in: query
+        description: Display type for weather conditions and distance
+        schema:
+          $ref: '#/components/schemas/MeasurementDisplayType'
+        example: Imperial
+      - name: WindUnit
+        in: query
+        description: Additional display type for wind direction
+        schema:
+          $ref: '#/components/schemas/WindDirectionDisplayType'
+        example: Cardinal
+      - name: Theme
+        in: query
+        description: Theme for the application
+        schema:
+          $ref: '#/components/schemas/ThemeType'
+        example: System
       responses:
         '200':
           description: Current conditions found
@@ -448,51 +559,88 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/FavoriteLocation'
+              examples:
+                _api_current_locationKey200Example:
+                  summary: Default _api_current_locationKey 200 response
+                  x-microcks-default: true
+                  value:
+                    id: '500123'
+                    key: '347628'
+                    name: New York
+                    longName: New York
+                    displayName: New York
+                    displayTemperature: example-value
+                    displayHighTemperature: example-value
+                    displayLowTemperature: example-value
+                    displayRealFeel: example-value
+                    displayRealFeelShade: example-value
+                    icon: 6
+                    conditions: example-value
+                    localTime: example-value
+                    color: example-value
+                    isBefore7PM: true
+                    isDayTime: true
+                    minuteCastForecast:
+                      summary60: example-value
+                      minutes:
+                      - displayTime:
+                        minute:
+                        color:
+                        dbz:
+                        precipitationType:
+                    numberOfAlerts: 1
+                    latitude: 40.7128
+                    longitude: -74.006
         '404':
           description: Response was missing or empty
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/hourly/{locationKey}:
     get:
       tags: []
-      summary: AccuWeather Retrieves the latest hourly forecast for a location
+      summary: AccuWeather Retrieves the Latest Hourly Forecast for a Location
       parameters:
-        - name: locationKey
-          in: path
-          description: The location key to retrieve weather conditions for
-          required: true
-          schema:
-            type: string
-        - name: Locale
-          in: query
-          description: ISO 639-2 and ISO 3166-1 code for the locale
-          schema:
-            type: string
-            example: en-us
+      - name: locationKey
+        in: path
+        description: The location key to retrieve weather conditions for
+        required: true
+        schema:
+          type: string
+        example: '347628'
+      - name: Locale
+        in: query
+        description: ISO 639-2 and ISO 3166-1 code for the locale
+        schema:
+          type: string
           example: en-us
-        - name: MeasurementDisplay
-          in: query
-          description: Display type for weather conditions and distance
-          schema:
-            $ref: '#/components/schemas/MeasurementDisplayType'
-          example: Imperial
-        - name: WindUnit
-          in: query
-          description: Additional display type for wind direction
-          schema:
-            $ref: '#/components/schemas/WindDirectionDisplayType'
-          example: Cardinal
-        - name: Theme
-          in: query
-          description: Theme for the application
-          schema:
-            $ref: '#/components/schemas/ThemeType'
-          example: System
-        - name: hourCount
-          in: query
-          description: The number of hour to retrieve
-          schema:
-            type: integer
-            format: int32
-            default: 24
+        example: en-us
+      - name: MeasurementDisplay
+        in: query
+        description: Display type for weather conditions and distance
+        schema:
+          $ref: '#/components/schemas/MeasurementDisplayType'
+        example: Imperial
+      - name: WindUnit
+        in: query
+        description: Additional display type for wind direction
+        schema:
+          $ref: '#/components/schemas/WindDirectionDisplayType'
+        example: Cardinal
+      - name: Theme
+        in: query
+        description: Theme for the application
+        schema:
+          $ref: '#/components/schemas/ThemeType'
+        example: System
+      - name: hourCount
+        in: query
+        description: The number of hour to retrieve
+        schema:
+          type: integer
+          format: int32
+          default: 24
+        example: 12
       responses:
         '200':
           description: Hourly Forecast found
@@ -502,44 +650,113 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/HourlyForecast'
+              examples:
+                _api_hourly_locationKey200Example:
+                  summary: Default _api_hourly_locationKey 200 response
+                  x-microcks-default: true
+                  value:
+                  - dayOfWeek: example-value
+                    shortDayOfWeek: example-value
+                    fullDayOfWeek: example-value
+                    epoch: 1
+                    dateTime: example-value
+                    displayDate: example-value
+                    longDisplayDate: example-value
+                    hasAlert: true
+                    icon: 6
+                    temperature: example-value
+                    precip: example-value
+                    phrase: Partly cloudy
+                    realFeel: example-value
+                    realFeelShade: example-value
+                    isDayLight: true
+                    extended:
+                      ceiling: example-value
+                      cloudCover: example-value
+                      dewPoint: example-value
+                      gusts: example-value
+                      wind: example-value
+                      windValue: 12.5
+                      windDegrees: 12.5
+                      windDirection: example-value
+                      humidity: '500123'
+                      humidityValue: 1
+                      indoorHumidity: '500123'
+                      indoorHumidityCategory: '500123'
+                      precipitation: example-value
+                      pressure: example-value
+                      ice: example-value
+                      rain: example-value
+                      snow: example-value
+                      thunderstormProbability: example-value
+                      uv:
+                        category:
+                        value:
+                      visibility: example-value
+                      precipSummary:
+                        past12Hours:
+                        past18Hours:
+                        past24Hours:
+                        past3Hours:
+                        past6Hours:
+                        past9Hours:
+                        pastHour:
+                    airQuality:
+                      category: example-value
+                      categoryColor: example-value
+                      date: '2026-04-19T10:00:00Z'
+                      dayOfWeek: example-value
+                      dayOfWeekAbbreviated: example-value
+                      displayDate: example-value
+                      displayTime: example-value
+                      dominantPollutant: example-value
+                      hazardStatement: example-value
+                      overallIndex: 42.0
+                      overallPlumeLabsIndex: 42.0
+                      pollutants:
+                      - 
         '400':
           description: Query parameter was missing or empty
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/minutecast/{locationKey}:
     get:
       tags: []
-      summary: AccuWeather Retrieves the latest minute by minute forecast for a location
+      summary: AccuWeather Retrieves the Latest Minute by Minute Forecast for a Location
       parameters:
-        - name: locationKey
-          in: path
-          description: The location key to retrieve weather conditions for
-          required: true
-          schema:
-            type: string
-        - name: Locale
-          in: query
-          description: ISO 639-2 and ISO 3166-1 code for the locale
-          schema:
-            type: string
-            example: en-us
+      - name: locationKey
+        in: path
+        description: The location key to retrieve weather conditions for
+        required: true
+        schema:
+          type: string
+        example: '347628'
+      - name: Locale
+        in: query
+        description: ISO 639-2 and ISO 3166-1 code for the locale
+        schema:
+          type: string
           example: en-us
-        - name: MeasurementDisplay
-          in: query
-          description: Display type for weather conditions and distance
-          schema:
-            $ref: '#/components/schemas/MeasurementDisplayType'
-          example: Imperial
-        - name: WindUnit
-          in: query
-          description: Additional display type for wind direction
-          schema:
-            $ref: '#/components/schemas/WindDirectionDisplayType'
-          example: Cardinal
-        - name: Theme
-          in: query
-          description: Theme for the application
-          schema:
-            $ref: '#/components/schemas/ThemeType'
-          example: System
+        example: en-us
+      - name: MeasurementDisplay
+        in: query
+        description: Display type for weather conditions and distance
+        schema:
+          $ref: '#/components/schemas/MeasurementDisplayType'
+        example: Imperial
+      - name: WindUnit
+        in: query
+        description: Additional display type for wind direction
+        schema:
+          $ref: '#/components/schemas/WindDirectionDisplayType'
+        example: Cardinal
+      - name: Theme
+        in: query
+        description: Theme for the application
+        schema:
+          $ref: '#/components/schemas/ThemeType'
+        example: System
       responses:
         '200':
           description: MinuteCast Forecast found
@@ -547,51 +764,68 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/MinuteCastForecast'
+              examples:
+                _api_minutecast_locationKey200Example:
+                  summary: Default _api_minutecast_locationKey 200 response
+                  x-microcks-default: true
+                  value:
+                    summary60: example-value
+                    minutes:
+                    - displayTime: example-value
+                      minute: 30
+                      color: example-value
+                      dbz: 42.0
+                      precipitationType: example-value
         '400':
           description: Query parameter was missing or empty
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/daily/{locationKey}:
     get:
       tags: []
-      summary: AccuWeather Retrieves the latest daily forecast for a location
+      summary: AccuWeather Retrieves the Latest Daily Forecast for a Location
       parameters:
-        - name: locationKey
-          in: path
-          description: The location key to retrieve weather conditions for
-          required: true
-          schema:
-            type: string
-        - name: Locale
-          in: query
-          description: ISO 639-2 and ISO 3166-1 code for the locale
-          schema:
-            type: string
-            example: en-us
+      - name: locationKey
+        in: path
+        description: The location key to retrieve weather conditions for
+        required: true
+        schema:
+          type: string
+        example: '347628'
+      - name: Locale
+        in: query
+        description: ISO 639-2 and ISO 3166-1 code for the locale
+        schema:
+          type: string
           example: en-us
-        - name: MeasurementDisplay
-          in: query
-          description: Display type for weather conditions and distance
-          schema:
-            $ref: '#/components/schemas/MeasurementDisplayType'
-          example: Imperial
-        - name: WindUnit
-          in: query
-          description: Additional display type for wind direction
-          schema:
-            $ref: '#/components/schemas/WindDirectionDisplayType'
-          example: Cardinal
-        - name: Theme
-          in: query
-          description: Theme for the application
-          schema:
-            $ref: '#/components/schemas/ThemeType'
-          example: System
-        - name: dayCount
-          in: query
-          description: The number of hour to retrieve
-          schema:
-            type: integer
-            format: int32
-            default: 15
+        example: en-us
+      - name: MeasurementDisplay
+        in: query
+        description: Display type for weather conditions and distance
+        schema:
+          $ref: '#/components/schemas/MeasurementDisplayType'
+        example: Imperial
+      - name: WindUnit
+        in: query
+        description: Additional display type for wind direction
+        schema:
+          $ref: '#/components/schemas/WindDirectionDisplayType'
+        example: Cardinal
+      - name: Theme
+        in: query
+        description: Theme for the application
+        schema:
+          $ref: '#/components/schemas/ThemeType'
+        example: System
+      - name: dayCount
+        in: query
+        description: The number of hour to retrieve
+        schema:
+          type: integer
+          format: int32
+          default: 15
+        example: 5
       responses:
         '200':
           description: Daily Forecast found
@@ -601,44 +835,79 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/DailyForecast'
+              examples:
+                _api_daily_locationKey200Example:
+                  summary: Default _api_daily_locationKey 200 response
+                  x-microcks-default: true
+                  value:
+                  - dayOfWeek: example-value
+                    shortDayOfWeek: example-value
+                    fullDayOfWeek: example-value
+                    epoch: 1
+                    dateTime: example-value
+                    displayDate: example-value
+                    longDisplayDate: example-value
+                    hasAlert: true
+                    day:
+                      temperature: 72.5
+                      displayTemperature: example-value
+                      icon: 6
+                      iconPhrase: '6'
+                      phrase: Partly cloudy
+                      longPhrase: Partly cloudy
+                      precip: example-value
+                      realFeelValue: 42.0
+                    night:
+                      temperature: 72.5
+                      displayTemperature: example-value
+                      icon: 6
+                      iconPhrase: '6'
+                      phrase: Partly cloudy
+                      longPhrase: Partly cloudy
+                      precip: example-value
+                      realFeelValue: 42.0
         '400':
           description: Query parameter was missing or empty
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/current-conditions/{locationKey}:
     get:
       tags: []
-      summary: AccuWeather Retrieves the Current Conditions for a given location
+      summary: AccuWeather Retrieves the Current Conditions for a Given Location
       parameters:
-        - name: locationKey
-          in: path
-          description: The location key to retrieve weather conditions for
-          required: true
-          schema:
-            type: string
-        - name: Locale
-          in: query
-          description: ISO 639-2 and ISO 3166-1 code for the locale
-          schema:
-            type: string
-            example: en-us
+      - name: locationKey
+        in: path
+        description: The location key to retrieve weather conditions for
+        required: true
+        schema:
+          type: string
+        example: '347628'
+      - name: Locale
+        in: query
+        description: ISO 639-2 and ISO 3166-1 code for the locale
+        schema:
+          type: string
           example: en-us
-        - name: MeasurementDisplay
-          in: query
-          description: Display type for weather conditions and distance
-          schema:
-            $ref: '#/components/schemas/MeasurementDisplayType'
-          example: Imperial
-        - name: WindUnit
-          in: query
-          description: Additional display type for wind direction
-          schema:
-            $ref: '#/components/schemas/WindDirectionDisplayType'
-          example: Cardinal
-        - name: Theme
-          in: query
-          description: Theme for the application
-          schema:
-            $ref: '#/components/schemas/ThemeType'
-          example: System
+        example: en-us
+      - name: MeasurementDisplay
+        in: query
+        description: Display type for weather conditions and distance
+        schema:
+          $ref: '#/components/schemas/MeasurementDisplayType'
+        example: Imperial
+      - name: WindUnit
+        in: query
+        description: Additional display type for wind direction
+        schema:
+          $ref: '#/components/schemas/WindDirectionDisplayType'
+        example: Cardinal
+      - name: Theme
+        in: query
+        description: Theme for the application
+        schema:
+          $ref: '#/components/schemas/ThemeType'
+        example: System
       responses:
         '200':
           description: Current Conditions found
@@ -646,44 +915,98 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/CurrentConditions'
+              examples:
+                _api_current-conditions_locationKey200Example:
+                  summary: Default _api_current-conditions_locationKey 200 response
+                  x-microcks-default: true
+                  value:
+                    extended:
+                      ceiling: example-value
+                      cloudCover: example-value
+                      dewPoint: example-value
+                      gusts: example-value
+                      wind: example-value
+                      windValue: 12.5
+                      windDegrees: 12.5
+                      windDirection: example-value
+                      humidity: '500123'
+                      humidityValue: 1
+                      indoorHumidity: '500123'
+                      indoorHumidityCategory: '500123'
+                      precipitation: example-value
+                      pressure: example-value
+                      ice: example-value
+                      rain: example-value
+                      snow: example-value
+                      thunderstormProbability: example-value
+                      uv:
+                        category: example-value
+                        value: 42.0
+                      visibility: example-value
+                      precipSummary:
+                        past12Hours: example-value
+                        past18Hours: example-value
+                        past24Hours: example-value
+                        past3Hours: example-value
+                        past6Hours: example-value
+                        past9Hours: example-value
+                        pastHour: example-value
+                    isDayTime: true
+                    iconCode: 6
+                    now: example-value
+                    phrase: Partly cloudy
+                    realFeel: example-value
+                    realFeelShade: example-value
+                    temperature: example-value
+                    temperatureValue: 72.5
+                    realFeelValue: 42.0
+                    realFeelShadeValue: 42.0
+                    realFeelPhrase: Partly cloudy
+                    realFeelShadePhrase: Partly cloudy
+                    apparentTempImperial: 72.5
+                    windSpeedImperial: 12.5
         '400':
           description: Query parameter was missing or empty
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/airQuality/{locationKey}:
     get:
       tags: []
-      summary: AccuWeather Retrieves the Current Air Quality for a given location
+      summary: AccuWeather Retrieves the Current Air Quality for a Given Location
       parameters:
-        - name: locationKey
-          in: path
-          description: The location key to retrieve Air Quality for
-          required: true
-          schema:
-            type: string
-        - name: Locale
-          in: query
-          description: ISO 639-2 and ISO 3166-1 code for the locale
-          schema:
-            type: string
-            example: en-us
+      - name: locationKey
+        in: path
+        description: The location key to retrieve Air Quality for
+        required: true
+        schema:
+          type: string
+        example: '347628'
+      - name: Locale
+        in: query
+        description: ISO 639-2 and ISO 3166-1 code for the locale
+        schema:
+          type: string
           example: en-us
-        - name: MeasurementDisplay
-          in: query
-          description: Display type for weather conditions and distance
-          schema:
-            $ref: '#/components/schemas/MeasurementDisplayType'
-          example: Imperial
-        - name: WindUnit
-          in: query
-          description: Additional display type for wind direction
-          schema:
-            $ref: '#/components/schemas/WindDirectionDisplayType'
-          example: Cardinal
-        - name: Theme
-          in: query
-          description: Theme for the application
-          schema:
-            $ref: '#/components/schemas/ThemeType'
-          example: System
+        example: en-us
+      - name: MeasurementDisplay
+        in: query
+        description: Display type for weather conditions and distance
+        schema:
+          $ref: '#/components/schemas/MeasurementDisplayType'
+        example: Imperial
+      - name: WindUnit
+        in: query
+        description: Additional display type for wind direction
+        schema:
+          $ref: '#/components/schemas/WindDirectionDisplayType'
+        example: Cardinal
+      - name: Theme
+        in: query
+        description: Theme for the application
+        schema:
+          $ref: '#/components/schemas/ThemeType'
+        example: System
       responses:
         '200':
           description: Current AirQuality found
@@ -691,51 +1014,78 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AirQuality'
+              examples:
+                _api_airQuality_locationKey200Example:
+                  summary: Default _api_airQuality_locationKey 200 response
+                  x-microcks-default: true
+                  value:
+                    category: example-value
+                    categoryColor: example-value
+                    date: '2026-04-19T10:00:00Z'
+                    dayOfWeek: example-value
+                    dayOfWeekAbbreviated: example-value
+                    displayDate: example-value
+                    displayTime: example-value
+                    dominantPollutant: example-value
+                    hazardStatement: example-value
+                    overallIndex: 42.0
+                    overallPlumeLabsIndex: 42.0
+                    pollutants:
+                    - concentration: example-value
+                      index: 42.0
+                      name: New York
+                      source: AccuWeather
+                      type: example-value
         '400':
           description: Query parameter was missing or empty
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/hourlyaq/{locationKey}:
     get:
       tags: []
-      summary: AccuWeather Retrieves the Hourly Air Quality forcast for a given location
+      summary: AccuWeather Retrieves the Hourly Air Quality Forcast for a Given Location
       parameters:
-        - name: locationKey
-          in: path
-          description: The location key to retrieve Air Quality for
-          required: true
-          schema:
-            type: string
-        - name: Locale
-          in: query
-          description: ISO 639-2 and ISO 3166-1 code for the locale
-          schema:
-            type: string
-            example: en-us
+      - name: locationKey
+        in: path
+        description: The location key to retrieve Air Quality for
+        required: true
+        schema:
+          type: string
+        example: '347628'
+      - name: Locale
+        in: query
+        description: ISO 639-2 and ISO 3166-1 code for the locale
+        schema:
+          type: string
           example: en-us
-        - name: MeasurementDisplay
-          in: query
-          description: Display type for weather conditions and distance
-          schema:
-            $ref: '#/components/schemas/MeasurementDisplayType'
-          example: Imperial
-        - name: WindUnit
-          in: query
-          description: Additional display type for wind direction
-          schema:
-            $ref: '#/components/schemas/WindDirectionDisplayType'
-          example: Cardinal
-        - name: Theme
-          in: query
-          description: Theme for the application
-          schema:
-            $ref: '#/components/schemas/ThemeType'
-          example: System
-        - name: hourCount
-          in: query
-          description: The Number of hours of air quality data to return
-          schema:
-            type: integer
-            format: int32
-            default: 24
+        example: en-us
+      - name: MeasurementDisplay
+        in: query
+        description: Display type for weather conditions and distance
+        schema:
+          $ref: '#/components/schemas/MeasurementDisplayType'
+        example: Imperial
+      - name: WindUnit
+        in: query
+        description: Additional display type for wind direction
+        schema:
+          $ref: '#/components/schemas/WindDirectionDisplayType'
+        example: Cardinal
+      - name: Theme
+        in: query
+        description: Theme for the application
+        schema:
+          $ref: '#/components/schemas/ThemeType'
+        example: System
+      - name: hourCount
+        in: query
+        description: The Number of hours of air quality data to return
+        schema:
+          type: integer
+          format: int32
+          default: 24
+        example: 12
       responses:
         '200':
           description: Air Quality found
@@ -743,55 +1093,83 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AirQuality'
+              examples:
+                _api_hourlyaq_locationKey200Example:
+                  summary: Default _api_hourlyaq_locationKey 200 response
+                  x-microcks-default: true
+                  value:
+                    category: example-value
+                    categoryColor: example-value
+                    date: '2026-04-19T10:00:00Z'
+                    dayOfWeek: example-value
+                    dayOfWeekAbbreviated: example-value
+                    displayDate: example-value
+                    displayTime: example-value
+                    dominantPollutant: example-value
+                    hazardStatement: example-value
+                    overallIndex: 42.0
+                    overallPlumeLabsIndex: 42.0
+                    pollutants:
+                    - concentration: example-value
+                      index: 42.0
+                      name: New York
+                      source: AccuWeather
+                      type: example-value
         '400':
           description: Query parameter was missing or empty
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/raine:
     get:
       tags: []
-      summary: AccuWeather Retreives the Raine configuration for a page
+      summary: AccuWeather Retreives the Raine Configuration for a Page
       parameters:
-        - name: Locale
-          in: query
-          description: ISO 639-2 and ISO 3166-1 code for the locale
-          schema:
-            type: string
-            example: en-us
+      - name: Locale
+        in: query
+        description: ISO 639-2 and ISO 3166-1 code for the locale
+        schema:
+          type: string
           example: en-us
-        - name: MeasurementDisplay
-          in: query
-          description: Display type for weather conditions and distance
-          schema:
-            $ref: '#/components/schemas/MeasurementDisplayType'
-          example: Imperial
-        - name: WindUnit
-          in: query
-          description: Additional display type for wind direction
-          schema:
-            $ref: '#/components/schemas/WindDirectionDisplayType'
-          example: Cardinal
-        - name: Theme
-          in: query
-          description: Theme for the application
-          schema:
-            $ref: '#/components/schemas/ThemeType'
-          example: System
-        - name: pageGroup
-          in: query
-          description: The page group name.
-          schema:
-            type: string
-        - name: platform
-          in: query
-          description: The platform name.
-          schema:
-            type: string
-            default: one
-        - name: locationKey
-          in: query
-          description: The location key to retrieve weather location.
-          schema:
-            type: string
-            default: ''
+        example: en-us
+      - name: MeasurementDisplay
+        in: query
+        description: Display type for weather conditions and distance
+        schema:
+          $ref: '#/components/schemas/MeasurementDisplayType'
+        example: Imperial
+      - name: WindUnit
+        in: query
+        description: Additional display type for wind direction
+        schema:
+          $ref: '#/components/schemas/WindDirectionDisplayType'
+        example: Cardinal
+      - name: Theme
+        in: query
+        description: Theme for the application
+        schema:
+          $ref: '#/components/schemas/ThemeType'
+        example: System
+      - name: pageGroup
+        in: query
+        description: The page group name.
+        schema:
+          type: string
+        example: example-value
+      - name: platform
+        in: query
+        description: The platform name.
+        schema:
+          type: string
+          default: one
+        example: example-value
+      - name: locationKey
+        in: query
+        description: The location key to retrieve weather location.
+        schema:
+          type: string
+          default: ''
+        example: '347628'
       responses:
         '200':
           description: Page View response received
@@ -799,31 +1177,84 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/RainePageView'
+              examples:
+                _api_raine200Example:
+                  summary: Default _api_raine 200 response
+                  x-microcks-default: true
+                  value:
+                    id: '500123'
+                    test: example-value
+                    platform: example-value
+                    version: example-value
+                    page:
+                      group: example-value
+                      url: https://www.accuweather.com/en/us/new-york-ny/10007/weather-forecast/347628
+                      referrer: example-value
+                    ads:
+                      code: example-value
+                      status: example-value
+                      cookie3p: example-value
+                    session:
+                      id: '500123'
+                      partner: example-value
+                      utm:
+                        source: AccuWeather
+                        medium: example-value
+                        campaign: example-value
+                        term: example-value
+                    user:
+                      id: '500123'
+                      language: example-value
+                      country: example-value
+                      region: example-value
+                      city: example-value
+                      dma: example-value
+                      start: example-value
+                      offset: example-value
+                    network:
+                      throughput: example-value
+                      network: example-value
+                      type: example-value
+                    device:
+                      name: New York
+                      brand: example-value
+                      version: example-value
+                      category: example-value
+                    weather:
+                      key: '347628'
+                    bot: true
+                    time: example-value
         '400':
           description: Parameters are bad, details in body.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/wintercast/{locationKey}:
     get:
       tags: []
-      summary: AccuWeather Retrieves a the latest weather wintercast for a location
+      summary: AccuWeather Retrieves a the Latest Weather Wintercast for a Location
       parameters:
-        - name: locationKey
-          in: path
-          description: The location key to retrieve weather conditions for
-          required: true
-          schema:
-            type: string
-        - name: language
-          in: query
-          description: The language to retrieve the information in
-          schema:
-            type: string
-            default: en-us
-        - name: isMetric
-          in: query
-          description: The units to retrieve the information in
-          schema:
-            type: boolean
-            default: false
+      - name: locationKey
+        in: path
+        description: The location key to retrieve weather conditions for
+        required: true
+        schema:
+          type: string
+        example: '347628'
+      - name: language
+        in: query
+        description: The language to retrieve the information in
+        schema:
+          type: string
+          default: en-us
+        example: example-value
+      - name: isMetric
+        in: query
+        description: The units to retrieve the information in
+        schema:
+          type: boolean
+          default: false
+        example: true
       responses:
         '200':
           description: Wintercast found
@@ -833,44 +1264,91 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/EventConfidence'
+              examples:
+                _api_wintercast_locationKey200Example:
+                  summary: Default _api_wintercast_locationKey 200 response
+                  x-microcks-default: true
+                  value:
+                  - startDate: '2026-04-19T10:00:00Z'
+                    epochStartDate: 1
+                    endDate: '2026-04-19T10:00:00Z'
+                    epochEndDate: 1
+                    event: Ice
+                    eventKey: '347628'
+                    eventName: New York
+                    forecastRanges:
+                      lower:
+                        displayAmount:
+                        low:
+                        high:
+                        probability:
+                        phrase:
+                      low:
+                        displayAmount:
+                        low:
+                        high:
+                        probability:
+                        phrase:
+                      likely:
+                        displayAmount:
+                        low:
+                        high:
+                        probability:
+                        phrase:
+                      high:
+                        displayAmount:
+                        low:
+                        high:
+                        probability:
+                        phrase:
+                      higher:
+                        displayAmount:
+                        low:
+                        high:
+                        probability:
+                        phrase:
         '400':
           description: Query parameter was missing or empty
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/tropical/{locationKey}:
     get:
       tags: []
-      summary: AccuWeather Retrieves a the latest weather tropical for a location
+      summary: AccuWeather Retrieves a the Latest Weather Tropical for a Location
       parameters:
-        - name: locationKey
-          in: path
-          description: The location key to retrieve tropical conditions for
-          required: true
-          schema:
-            type: string
-        - name: Locale
-          in: query
-          description: ISO 639-2 and ISO 3166-1 code for the locale
-          schema:
-            type: string
-            example: en-us
+      - name: locationKey
+        in: path
+        description: The location key to retrieve tropical conditions for
+        required: true
+        schema:
+          type: string
+        example: '347628'
+      - name: Locale
+        in: query
+        description: ISO 639-2 and ISO 3166-1 code for the locale
+        schema:
+          type: string
           example: en-us
-        - name: MeasurementDisplay
-          in: query
-          description: Display type for weather conditions and distance
-          schema:
-            $ref: '#/components/schemas/MeasurementDisplayType'
-          example: Imperial
-        - name: WindUnit
-          in: query
-          description: Additional display type for wind direction
-          schema:
-            $ref: '#/components/schemas/WindDirectionDisplayType'
-          example: Cardinal
-        - name: Theme
-          in: query
-          description: Theme for the application
-          schema:
-            $ref: '#/components/schemas/ThemeType'
-          example: System
+        example: en-us
+      - name: MeasurementDisplay
+        in: query
+        description: Display type for weather conditions and distance
+        schema:
+          $ref: '#/components/schemas/MeasurementDisplayType'
+        example: Imperial
+      - name: WindUnit
+        in: query
+        description: Additional display type for wind direction
+        schema:
+          $ref: '#/components/schemas/WindDirectionDisplayType'
+        example: Cardinal
+      - name: Theme
+        in: query
+        description: Theme for the application
+        schema:
+          $ref: '#/components/schemas/ThemeType'
+        example: System
       responses:
         '200':
           description: Wintercast found
@@ -880,55 +1358,104 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/EventConfidence'
+              examples:
+                _api_tropical_locationKey200Example:
+                  summary: Default _api_tropical_locationKey 200 response
+                  x-microcks-default: true
+                  value:
+                  - startDate: '2026-04-19T10:00:00Z'
+                    epochStartDate: 1
+                    endDate: '2026-04-19T10:00:00Z'
+                    epochEndDate: 1
+                    event: Ice
+                    eventKey: '347628'
+                    eventName: New York
+                    forecastRanges:
+                      lower:
+                        displayAmount:
+                        low:
+                        high:
+                        probability:
+                        phrase:
+                      low:
+                        displayAmount:
+                        low:
+                        high:
+                        probability:
+                        phrase:
+                      likely:
+                        displayAmount:
+                        low:
+                        high:
+                        probability:
+                        phrase:
+                      high:
+                        displayAmount:
+                        low:
+                        high:
+                        probability:
+                        phrase:
+                      higher:
+                        displayAmount:
+                        low:
+                        high:
+                        probability:
+                        phrase:
         '400':
           description: Query parameter was missing or empty
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/active-storms/{locationKey}:
     get:
       tags: []
-      summary: AccuWeather Retrieves all active global storms
+      summary: AccuWeather Retrieves All Active Global Storms
       parameters:
-        - name: locationKey
-          in: path
-          description: The location key to retrieve tropical conditions for
-          required: true
-          schema:
-            type: string
-        - name: Locale
-          in: query
-          description: ISO 639-2 and ISO 3166-1 code for the locale
-          schema:
-            type: string
-            example: en-us
+      - name: locationKey
+        in: path
+        description: The location key to retrieve tropical conditions for
+        required: true
+        schema:
+          type: string
+        example: '347628'
+      - name: Locale
+        in: query
+        description: ISO 639-2 and ISO 3166-1 code for the locale
+        schema:
+          type: string
           example: en-us
-        - name: MeasurementDisplay
-          in: query
-          description: Display type for weather conditions and distance
-          schema:
-            $ref: '#/components/schemas/MeasurementDisplayType'
-          example: Imperial
-        - name: WindUnit
-          in: query
-          description: Additional display type for wind direction
-          schema:
-            $ref: '#/components/schemas/WindDirectionDisplayType'
-          example: Cardinal
-        - name: Theme
-          in: query
-          description: Theme for the application
-          schema:
-            $ref: '#/components/schemas/ThemeType'
-          example: System
-        - name: gmtOffset
-          in: query
-          description: The GMT offset for the user
-          schema:
-            type: number
-            format: float
-        - name: timeZone
-          in: query
-          description: The time zone for the user
-          schema:
-            type: string
+        example: en-us
+      - name: MeasurementDisplay
+        in: query
+        description: Display type for weather conditions and distance
+        schema:
+          $ref: '#/components/schemas/MeasurementDisplayType'
+        example: Imperial
+      - name: WindUnit
+        in: query
+        description: Additional display type for wind direction
+        schema:
+          $ref: '#/components/schemas/WindDirectionDisplayType'
+        example: Cardinal
+      - name: Theme
+        in: query
+        description: Theme for the application
+        schema:
+          $ref: '#/components/schemas/ThemeType'
+        example: System
+      - name: gmtOffset
+        in: query
+        description: The GMT offset for the user
+        schema:
+          type: number
+          format: float
+        example: 42.0
+      - name: timeZone
+        in: query
+        description: The time zone for the user
+        schema:
+          type: string
+        example: example-value
       responses:
         '200':
           description: Storms found
@@ -938,66 +1465,161 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Storm'
+              examples:
+                _api_active-storms_locationKey200Example:
+                  summary: Default _api_active-storms_locationKey 200 response
+                  x-microcks-default: true
+                  value:
+                  - accuId: 1
+                    eventKey: '347628'
+                    isActive: true
+                    basin: example-value
+                    basinId: AL
+                    basinSlug: example-value
+                    governmentId: 1
+                    level: example-value
+                    name: New York
+                    updatedStormName: New York
+                    stormPositions:
+                    - coordinates:
+                      dateTime:
+                      localDate:
+                      localDayOfWeek:
+                      dateTimeLabelShort:
+                      dateTimeLabel:
+                      shortDateShortTimeLabel:
+                      direction:
+                      isCurrent:
+                      isHistorical:
+                      isMarked:
+                      isPeak:
+                      latitude:
+                      longitude:
+                      maximumSustainedWind:
+                      maximumSustainedWindValue:
+                      maximumWindGust:
+                      maximumWindGustValue:
+                      windDegrees:
+                      minimumPressure:
+                      position:
+                      speed:
+                      status:
+                      localizedStatus:
+                      statusName:
+                      statusIcon:
+                      statusIconString:
+                      landmarkReferences:
+                      eventKey:
+                    peakPosition:
+                      coordinates:
+                        type:
+                        coordinates:
+                      dateTime: '2026-04-19T10:00:00Z'
+                      localDate: '2026-04-19T10:00:00Z'
+                      localDayOfWeek: example-value
+                      dateTimeLabelShort: example-value
+                      dateTimeLabel: example-value
+                      shortDateShortTimeLabel: example-value
+                      direction: example-value
+                      isCurrent: true
+                      isHistorical: true
+                      isMarked: true
+                      isPeak: true
+                      latitude: 40.7128
+                      longitude: -74.006
+                      maximumSustainedWind: example-value
+                      maximumSustainedWindValue: 12.5
+                      maximumWindGust: example-value
+                      maximumWindGustValue: 12.5
+                      windDegrees: 12.5
+                      minimumPressure: example-value
+                      position: example-value
+                      speed: example-value
+                      status: example-value
+                      localizedStatus: example-value
+                      statusName: New York
+                      statusIcon: ExtratropicalStorm
+                      statusIconString: '6'
+                      landmarkReferences:
+                      - 
+                      eventKey: '347628'
+                    start: '2026-04-19T10:00:00Z'
+                    startEpoch: 1
+                    end: '2026-04-19T10:00:00Z'
+                    localStart: '2026-04-19T10:00:00Z'
+                    localEnd: '2026-04-19T10:00:00Z'
+                    year: 1
+                    isFuture: true
+                    stormLink: example-value
+                    localizedStartDate: example-value
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/storm/{year}/{basinId}/{depressionNumber}:
     get:
       tags: []
-      summary: AccuWeather Retrieves data about a specific storm
+      summary: AccuWeather Retrieves Data About a Specific Storm
       parameters:
-        - name: year
-          in: path
-          description: The year of the storm.
-          required: true
-          schema:
-            type: integer
-            format: int32
-        - name: basinId
-          in: path
-          description: The id of the basin for the storm.
-          required: true
-          schema:
-            type: string
-        - name: depressionNumber
-          in: path
-          description: The the number given to the storm.
-          required: true
-          schema:
-            type: integer
-            format: int32
-        - name: includePositions
-          in: query
-          description: A flag for whether to get all of the storms positions
-          schema:
-            type: boolean
-        - name: Locale
-          in: query
-          description: ISO 639-2 and ISO 3166-1 code for the locale
-          schema:
-            type: string
-            example: en-us
+      - name: year
+        in: path
+        description: The year of the storm.
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 1
+      - name: basinId
+        in: path
+        description: The id of the basin for the storm.
+        required: true
+        schema:
+          type: string
+        example: '500123'
+      - name: depressionNumber
+        in: path
+        description: The the number given to the storm.
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 1
+      - name: includePositions
+        in: query
+        description: A flag for whether to get all of the storms positions
+        schema:
+          type: boolean
+        example: true
+      - name: Locale
+        in: query
+        description: ISO 639-2 and ISO 3166-1 code for the locale
+        schema:
+          type: string
           example: en-us
-        - name: MeasurementDisplay
-          in: query
-          description: Display type for weather conditions and distance
-          schema:
-            $ref: '#/components/schemas/MeasurementDisplayType'
-          example: Imperial
-        - name: WindUnit
-          in: query
-          description: Additional display type for wind direction
-          schema:
-            $ref: '#/components/schemas/WindDirectionDisplayType'
-          example: Cardinal
-        - name: Theme
-          in: query
-          description: Theme for the application
-          schema:
-            $ref: '#/components/schemas/ThemeType'
-          example: System
-        - name: locationKey
-          in: query
-          description: The location key to retrieve tropical conditions for
-          schema:
-            type: string
+        example: en-us
+      - name: MeasurementDisplay
+        in: query
+        description: Display type for weather conditions and distance
+        schema:
+          $ref: '#/components/schemas/MeasurementDisplayType'
+        example: Imperial
+      - name: WindUnit
+        in: query
+        description: Additional display type for wind direction
+        schema:
+          $ref: '#/components/schemas/WindDirectionDisplayType'
+        example: Cardinal
+      - name: Theme
+        in: query
+        description: Theme for the application
+        schema:
+          $ref: '#/components/schemas/ThemeType'
+        example: System
+      - name: locationKey
+        in: query
+        description: The location key to retrieve tropical conditions for
+        schema:
+          type: string
+        example: '347628'
       responses:
         '200':
           description: Storm found
@@ -1005,42 +1627,138 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Storm'
+              examples:
+                _api_storm_year_basinId_depressionNumber200Example:
+                  summary: Default _api_storm_year_basinId_depressionNumber 200 response
+                  x-microcks-default: true
+                  value:
+                    accuId: 1
+                    eventKey: '347628'
+                    isActive: true
+                    basin: example-value
+                    basinId: AL
+                    basinSlug: example-value
+                    governmentId: 1
+                    level: example-value
+                    name: New York
+                    updatedStormName: New York
+                    stormPositions:
+                    - coordinates:
+                        type:
+                        coordinates:
+                      dateTime: '2026-04-19T10:00:00Z'
+                      localDate: '2026-04-19T10:00:00Z'
+                      localDayOfWeek: example-value
+                      dateTimeLabelShort: example-value
+                      dateTimeLabel: example-value
+                      shortDateShortTimeLabel: example-value
+                      direction: example-value
+                      isCurrent: true
+                      isHistorical: true
+                      isMarked: true
+                      isPeak: true
+                      latitude: 40.7128
+                      longitude: -74.006
+                      maximumSustainedWind: example-value
+                      maximumSustainedWindValue: 12.5
+                      maximumWindGust: example-value
+                      maximumWindGustValue: 12.5
+                      windDegrees: 12.5
+                      minimumPressure: example-value
+                      position: example-value
+                      speed: example-value
+                      status: example-value
+                      localizedStatus: example-value
+                      statusName: New York
+                      statusIcon: ExtratropicalStorm
+                      statusIconString: '6'
+                      landmarkReferences:
+                      - 
+                      eventKey: '347628'
+                    peakPosition:
+                      coordinates:
+                        type: example-value
+                        coordinates:
+                        - 
+                      dateTime: '2026-04-19T10:00:00Z'
+                      localDate: '2026-04-19T10:00:00Z'
+                      localDayOfWeek: example-value
+                      dateTimeLabelShort: example-value
+                      dateTimeLabel: example-value
+                      shortDateShortTimeLabel: example-value
+                      direction: example-value
+                      isCurrent: true
+                      isHistorical: true
+                      isMarked: true
+                      isPeak: true
+                      latitude: 40.7128
+                      longitude: -74.006
+                      maximumSustainedWind: example-value
+                      maximumSustainedWindValue: 12.5
+                      maximumWindGust: example-value
+                      maximumWindGustValue: 12.5
+                      windDegrees: 12.5
+                      minimumPressure: example-value
+                      position: example-value
+                      speed: example-value
+                      status: example-value
+                      localizedStatus: example-value
+                      statusName: New York
+                      statusIcon: ExtratropicalStorm
+                      statusIconString: '6'
+                      landmarkReferences:
+                      - landmark:
+                        distance:
+                      eventKey: '347628'
+                    start: '2026-04-19T10:00:00Z'
+                    startEpoch: 1
+                    end: '2026-04-19T10:00:00Z'
+                    localStart: '2026-04-19T10:00:00Z'
+                    localEnd: '2026-04-19T10:00:00Z'
+                    year: 1
+                    isFuture: true
+                    stormLink: example-value
+                    localizedStartDate: example-value
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/staticMap/{locationKey}:
     get:
       tags: []
-      summary: AccuWeather Retrieves a the latest static map for a location
+      summary: AccuWeather Retrieves a the Latest Static Map for a Location
       parameters:
-        - name: locationKey
-          in: path
-          description: The location key to retrieve static map for
-          required: true
-          schema:
-            type: string
-        - name: Locale
-          in: query
-          description: ISO 639-2 and ISO 3166-1 code for the locale
-          schema:
-            type: string
-            example: en-us
+      - name: locationKey
+        in: path
+        description: The location key to retrieve static map for
+        required: true
+        schema:
+          type: string
+        example: '347628'
+      - name: Locale
+        in: query
+        description: ISO 639-2 and ISO 3166-1 code for the locale
+        schema:
+          type: string
           example: en-us
-        - name: MeasurementDisplay
-          in: query
-          description: Display type for weather conditions and distance
-          schema:
-            $ref: '#/components/schemas/MeasurementDisplayType'
-          example: Imperial
-        - name: WindUnit
-          in: query
-          description: Additional display type for wind direction
-          schema:
-            $ref: '#/components/schemas/WindDirectionDisplayType'
-          example: Cardinal
-        - name: Theme
-          in: query
-          description: Theme for the application
-          schema:
-            $ref: '#/components/schemas/ThemeType'
-          example: System
+        example: en-us
+      - name: MeasurementDisplay
+        in: query
+        description: Display type for weather conditions and distance
+        schema:
+          $ref: '#/components/schemas/MeasurementDisplayType'
+        example: Imperial
+      - name: WindUnit
+        in: query
+        description: Additional display type for wind direction
+        schema:
+          $ref: '#/components/schemas/WindDirectionDisplayType'
+        example: Cardinal
+      - name: Theme
+        in: query
+        description: Theme for the application
+        schema:
+          $ref: '#/components/schemas/ThemeType'
+        example: System
       responses:
         '200':
           description: Static map found
@@ -1050,24 +1768,72 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/EventConfidence'
+              examples:
+                _api_staticMap_locationKey200Example:
+                  summary: Default _api_staticMap_locationKey 200 response
+                  x-microcks-default: true
+                  value:
+                  - startDate: '2026-04-19T10:00:00Z'
+                    epochStartDate: 1
+                    endDate: '2026-04-19T10:00:00Z'
+                    epochEndDate: 1
+                    event: Ice
+                    eventKey: '347628'
+                    eventName: New York
+                    forecastRanges:
+                      lower:
+                        displayAmount:
+                        low:
+                        high:
+                        probability:
+                        phrase:
+                      low:
+                        displayAmount:
+                        low:
+                        high:
+                        probability:
+                        phrase:
+                      likely:
+                        displayAmount:
+                        low:
+                        high:
+                        probability:
+                        phrase:
+                      high:
+                        displayAmount:
+                        low:
+                        high:
+                        probability:
+                        phrase:
+                      higher:
+                        displayAmount:
+                        low:
+                        high:
+                        probability:
+                        phrase:
         '400':
           description: Query parameter was missing or empty
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/partner/{locationKey}:
     get:
       tags: []
-      summary: AccuWeather Retrieve the partner for a specific location
+      summary: AccuWeather Retrieve the Partner for a Specific Location
       parameters:
-        - name: locationKey
-          in: path
-          description: The location key to retrieve parnter
-          required: true
-          schema:
-            type: string
-        - name: language
-          in: query
-          description: The language for the user.
-          schema:
-            type: string
+      - name: locationKey
+        in: path
+        description: The location key to retrieve parnter
+        required: true
+        schema:
+          type: string
+        example: '347628'
+      - name: language
+        in: query
+        description: The language for the user.
+        schema:
+          type: string
+        example: example-value
       responses:
         '200':
           description: Partner found
@@ -1075,49 +1841,62 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Partner'
+              examples:
+                _api_partner_locationKey200Example:
+                  summary: Default _api_partner_locationKey 200 response
+                  x-microcks-default: true
+                  value:
+                    siteName: New York
+                    logo: example-value
+                    link: example-value
         '400':
           description: Query parameter was missing or empty
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/daily-indices/{locationKey}:
     get:
       tags: []
-      summary: AccuWeather Retrieves a the daily indices for a location
+      summary: AccuWeather Retrieves a the Daily Indices for a Location
       parameters:
-        - name: locationKey
-          in: path
-          description: The location key to retrieve weather conditions for
-          required: true
-          schema:
-            type: string
-        - name: Locale
-          in: query
-          description: ISO 639-2 and ISO 3166-1 code for the locale
-          schema:
-            type: string
-            example: en-us
+      - name: locationKey
+        in: path
+        description: The location key to retrieve weather conditions for
+        required: true
+        schema:
+          type: string
+        example: '347628'
+      - name: Locale
+        in: query
+        description: ISO 639-2 and ISO 3166-1 code for the locale
+        schema:
+          type: string
           example: en-us
-        - name: MeasurementDisplay
-          in: query
-          description: Display type for weather conditions and distance
-          schema:
-            $ref: '#/components/schemas/MeasurementDisplayType'
-          example: Imperial
-        - name: WindUnit
-          in: query
-          description: Additional display type for wind direction
-          schema:
-            $ref: '#/components/schemas/WindDirectionDisplayType'
-          example: Cardinal
-        - name: Theme
-          in: query
-          description: Theme for the application
-          schema:
-            $ref: '#/components/schemas/ThemeType'
-          example: System
-        - name: category
-          in: query
-          description: The index category to get the indices for.
-          schema:
-            $ref: '#/components/schemas/LifestyleCategory'
+        example: en-us
+      - name: MeasurementDisplay
+        in: query
+        description: Display type for weather conditions and distance
+        schema:
+          $ref: '#/components/schemas/MeasurementDisplayType'
+        example: Imperial
+      - name: WindUnit
+        in: query
+        description: Additional display type for wind direction
+        schema:
+          $ref: '#/components/schemas/WindDirectionDisplayType'
+        example: Cardinal
+      - name: Theme
+        in: query
+        description: Theme for the application
+        schema:
+          $ref: '#/components/schemas/ThemeType'
+        example: System
+      - name: category
+        in: query
+        description: The index category to get the indices for.
+        schema:
+          $ref: '#/components/schemas/LifestyleCategory'
+        example: Allergies
       responses:
         '200':
           description: Indices found
@@ -1127,29 +1906,40 @@ paths:
                 type: object
                 additionalProperties:
                   $ref: '#/components/schemas/DailyIndex'
+              examples:
+                _api_daily-indices_locationKey200Example:
+                  summary: Default _api_daily-indices_locationKey 200 response
+                  x-microcks-default: true
+                  value: {}
         '400':
           description: Query parameter was missing or empty
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/ads/{locationKey}:
     get:
       tags: []
-      summary: AccuWeather Get the data for given ad slots
+      summary: AccuWeather Get the Data for Given Ad Slots
       parameters:
-        - name: locationKey
-          in: path
-          description: AccuWeather location key
-          required: true
-          schema:
-            type: string
-        - name: page
-          in: query
-          description: Page id
-          schema:
-            type: string
-        - name: slots
-          in: query
-          description: Comma seperated list of ad slots
-          schema:
-            type: string
+      - name: locationKey
+        in: path
+        description: AccuWeather location key
+        required: true
+        schema:
+          type: string
+        example: '347628'
+      - name: page
+        in: query
+        description: Page id
+        schema:
+          type: string
+        example: example-value
+      - name: slots
+        in: query
+        description: Comma seperated list of ad slots
+        schema:
+          type: string
+        example: example-value
       responses:
         '200':
           description: Ad data success
@@ -1157,11 +1947,71 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AdData'
+              examples:
+                _api_ads_locationKey200Example:
+                  summary: Default _api_ads_locationKey 200 response
+                  x-microcks-default: true
+                  value:
+                    globalAdConfig:
+                      prebidTimeout: 1
+                      awxTimeout: 1
+                      bundleUrl: https://www.accuweather.com/en/us/new-york-ny/10007/weather-forecast/347628
+                      bundleId: '500123'
+                      gptEnableSingleRequest: true
+                      gptLazyLoading: example-value
+                      buyItNowSkipGoogleAdManager: true
+                      testVariant: example-value
+                      deviceClass: example-value
+                      disableInitialAdLoad: true
+                      javascriptHead: example-value
+                      javascriptBody: example-value
+                    ortbConfig:
+                      name: New York
+                      domain: example-value
+                      categories:
+                      - example-value
+                      sectionCategories:
+                      - example-value
+                      pageCategories:
+                      - example-value
+                      keywords: '347628'
+                      pageUrl: https://www.accuweather.com/en/us/new-york-ny/10007/weather-forecast/347628
+                      referrerUrl: https://www.accuweather.com/en/us/new-york-ny/10007/weather-forecast/347628
+                      isOptimizedForMobile: true
+                      hasPrivacyPolicy: true
+                      publisher:
+                        name: New York
+                        domain: example-value
+                        categories:
+                        - 
+                      content:
+                        title: example-value
+                        url: https://www.accuweather.com/en/us/new-york-ny/10007/weather-forecast/347628
+                        categories:
+                        - 
+                        productQuality: example-value
+                        context: Partly cloudy
+                        keywords: '347628'
+                        sourceRelationship: Indirect
+                        language: example-value
+                        data:
+                          name:
+                          extensions:
+                          segments:
+                    adPageInfo: {}
+                    adSlots: {}
+                    adInfo: {}
+                    uspString: example-value
+                    ppid: '500123'
+                    isPrebidDisabled: true
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/test/linked-scope:
     get:
       tags:
-        - Test
-      summary: AccuWeather Example of a simple scope and linked scope
+      - Test
+      summary: AccuWeather Example of a Simple Scope and Linked Scope
       responses:
         '200':
           description: Success
@@ -1169,6 +2019,27 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/RecentLocation'
+              examples:
+                _api_test_linked-scope200Example:
+                  summary: Default _api_test_linked-scope 200 response
+                  x-microcks-default: true
+                  value:
+                    id: '500123'
+                    key: '347628'
+                    name: New York
+                    longName: New York
+                    displayName: New York
+                    localTime: example-value
+                    displayTemperature: example-value
+                    icon: 6
+                    color: example-value
+                    isBefore7PM: true
+                    isDayTime: true
+                    latitude: 40.7128
+                    longitude: -74.006
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
 components:
   schemas:
     Ad:
@@ -1317,9 +2188,7 @@ components:
             format: double
           description: City name of the location, usually used for display purposes when sourcing weather data.
           nullable: true
-          example:
-            - 51.50032
-            - -0.145433
+          example: *id001
         name:
           type: string
           description: Editable name of the location to display to the user.
@@ -1338,13 +2207,13 @@ components:
       description: A location that can be used to plot on a map.
     BasinId:
       enum:
-        - AL
-        - EP
-        - SI
-        - NI
-        - CP
-        - NP
-        - SP
+      - AL
+      - EP
+      - SI
+      - NI
+      - CP
+      - NP
+      - SP
       type: string
     Bid:
       type: object
@@ -1489,12 +2358,12 @@ components:
       additionalProperties: false
     DefaultAppPageOptions:
       enum:
-        - Locations
-        - Today
-        - Daily
-        - Hourly
-        - Maps
-        - News
+      - Locations
+      - Today
+      - Daily
+      - Hourly
+      - Maps
+      - News
       type: string
     DeviceInfo:
       type: object
@@ -1793,122 +2662,122 @@ components:
       additionalProperties: false
     IndexType:
       enum:
-        - Unknown
-        - Running
-        - Jogging
-        - Hiking
-        - Biking
-        - Golf
-        - Tennis
-        - Skateboarding
-        - Concert
-        - KiteFlyingForecast
-        - BeachAndPool
-        - Sailing
-        - Stargazing
-        - FishingForecast
-        - Construction
-        - Skiing
-        - Heart
-        - Mosquito
-        - Dust
-        - SnowDays
-        - Hunting
-        - ArthritisDay
-        - ArthritisNight
-        - Asthma
-        - BBQ
-        - CommonColdForecast
-        - Flu
-        - Migraine
-        - LawnMowing
-        - Outdoor
-        - Sinus
-        - Flying
-        - FieldReadiness
-        - GrassGrowing
-        - SoilMoisture
-        - SchoolBusStop
-        - HomeEnergy
-        - FuelEconomy
-        - Composting
-        - ShoppingForecast
-        - Driving
-        - Thirst
-        - Frizz
-        - DogWalking
-        - COPD
-        - IndoorPest
-        - OutdoorPest
-        - AccuLumenBrightness
-        - MorningExercise
-        - Clothing
-        - CommonCold
-        - Comfort
-        - CarWashing
-        - HeatStroke
-        - UVIntensity
-        - ClothesDrying
-        - AirPollution
-        - Tourism
-        - AirConditioning
-        - Fishing
-        - SunProtection
-        - Shopping
-        - Rowing
-        - Traffic
-        - RoadConditions
-        - Umbrella
-        - HairDressing
-        - NightLife
-        - Beer
-        - KiteFlying
-        - Makeup
-        - WindChills
-        - Mood
-        - Exercise
-        - Dating
-        - Allergy
-        - Beach
-        - Sunglasses
-        - ShortPhrase
-        - Hypertension
-        - Dryness
-        - ApparentTemperature
-        - PolutionPrevention
-        - FoodPoisoning
-        - WindChillDescending
-        - Heat
-        - Discomfort
-        - UVDescending
-        - PipeFreeze
-        - AtmosphericDispersion
-        - HeatSensitivityGeneral
-        - HeatSensitivityElderly
-        - HeatSensitivityChildren
-        - HeatSensitivityOutdoorWorking
-        - HeatSensitivityFarming
-        - HeatSensitivityGreenhouse
-        - HeatSensitivityVulnerableResidential
-        - AsthmaAndLungDisorder
-        - Stroke
-        - SkinSensitivity
-        - CommonColdDescending
-        - TreePollenLevels
-        - PinePollen
-        - WeedPollenLevels
-        - Arthritis
-        - OutdoorHomeGarden
-        - SoilHomeGarden
-        - FieldHomeGarden
-        - UV
-        - TreePollen
-        - RagweedPollen
-        - MoldPollen
-        - GrassPollen
-        - AirQuality
-        - FlightDelay
-        - IndoorActivity
+      - Unknown
+      - Running
+      - Jogging
+      - Hiking
+      - Biking
+      - Golf
+      - Tennis
+      - Skateboarding
+      - Concert
+      - KiteFlyingForecast
+      - BeachAndPool
+      - Sailing
+      - Stargazing
+      - FishingForecast
+      - Construction
+      - Skiing
+      - Heart
+      - Mosquito
+      - Dust
+      - SnowDays
+      - Hunting
+      - ArthritisDay
+      - ArthritisNight
+      - Asthma
+      - BBQ
+      - CommonColdForecast
+      - Flu
+      - Migraine
+      - LawnMowing
+      - Outdoor
+      - Sinus
+      - Flying
+      - FieldReadiness
+      - GrassGrowing
+      - SoilMoisture
+      - SchoolBusStop
+      - HomeEnergy
+      - FuelEconomy
+      - Composting
+      - ShoppingForecast
+      - Driving
+      - Thirst
+      - Frizz
+      - DogWalking
+      - COPD
+      - IndoorPest
+      - OutdoorPest
+      - AccuLumenBrightness
+      - MorningExercise
+      - Clothing
+      - CommonCold
+      - Comfort
+      - CarWashing
+      - HeatStroke
+      - UVIntensity
+      - ClothesDrying
+      - AirPollution
+      - Tourism
+      - AirConditioning
+      - Fishing
+      - SunProtection
+      - Shopping
+      - Rowing
+      - Traffic
+      - RoadConditions
+      - Umbrella
+      - HairDressing
+      - NightLife
+      - Beer
+      - KiteFlying
+      - Makeup
+      - WindChills
+      - Mood
+      - Exercise
+      - Dating
+      - Allergy
+      - Beach
+      - Sunglasses
+      - ShortPhrase
+      - Hypertension
+      - Dryness
+      - ApparentTemperature
+      - PolutionPrevention
+      - FoodPoisoning
+      - WindChillDescending
+      - Heat
+      - Discomfort
+      - UVDescending
+      - PipeFreeze
+      - AtmosphericDispersion
+      - HeatSensitivityGeneral
+      - HeatSensitivityElderly
+      - HeatSensitivityChildren
+      - HeatSensitivityOutdoorWorking
+      - HeatSensitivityFarming
+      - HeatSensitivityGreenhouse
+      - HeatSensitivityVulnerableResidential
+      - AsthmaAndLungDisorder
+      - Stroke
+      - SkinSensitivity
+      - CommonColdDescending
+      - TreePollenLevels
+      - PinePollen
+      - WeedPollenLevels
+      - Arthritis
+      - OutdoorHomeGarden
+      - SoilHomeGarden
+      - FieldHomeGarden
+      - UV
+      - TreePollen
+      - RagweedPollen
+      - MoldPollen
+      - GrassPollen
+      - AirQuality
+      - FlightDelay
+      - IndoorActivity
       type: string
     LandmarkReference:
       type: object
@@ -1922,12 +2791,12 @@ components:
       additionalProperties: false
     LifestyleCategory:
       enum:
-        - Allergies
-        - Health
-        - OutdoorActivities
-        - TravelCommute
-        - HomeGarden
-        - Pests
+      - Allergies
+      - Health
+      - OutdoorActivities
+      - TravelCommute
+      - HomeGarden
+      - Pests
       type: string
     LocationSettingsInfo:
       type: object
@@ -1954,7 +2823,8 @@ components:
           example: 385 Science Park Rd, State College, PA
         displayName:
           type: string
-          description: "Name used to display to the user as the placeholder\r\nThis differece from the LongName since will be sometimes display location name from\r\nthe AW API (Non-english/direct location key serach)"
+          description: "Name used to display to the user as the placeholder\r\nThis differece from the LongName since will be sometimes display location name from\r\nthe AW API (Non-english/direct location
+            key serach)"
           nullable: true
           example: 385 Science Park Rd, State College, PA or Eureka, CA USA
         stationCode:
@@ -1968,17 +2838,7 @@ components:
             type: string
           description: AccuWeather list of supported data sets for this location.
           nullable: true
-          example:
-            - AirQualityCurrentConditions
-            - AirQualityForecasts
-            - Alerts
-            - DailyAirQualityForecast
-            - DailyPollenForecast
-            - ForecastConfidence
-            - FutureRadar
-            - MinuteCast
-            - ProximityNotification-Lightning
-            - Radar
+          example: *id002
         supportsMinuteCast:
           type: boolean
           description: True if a location supports MinuteCast data.
@@ -2005,16 +2865,16 @@ components:
       description: Detailed keys for the location from AccuWeather to aid in weather data retrieval.
     LocationSources:
       enum:
-        - AccuWeather
-        - Radar
-        - Unknown
+      - AccuWeather
+      - Radar
+      - Unknown
       type: string
       description: The parent provider of the location.
     MeasurementDisplayType:
       enum:
-        - Metric
-        - Imperial
-        - Hybrid
+      - Metric
+      - Imperial
+      - Hybrid
       type: string
     MinuteCastForecast:
       type: object
@@ -2050,8 +2910,8 @@ components:
       additionalProperties: false
     MinuteCastStyle:
       enum:
-        - Gauge
-        - Widgets
+      - Gauge
+      - Widgets
       type: string
     OrtbContent:
       type: object
@@ -2118,8 +2978,8 @@ components:
       additionalProperties: false
     OrtbRelationshipType:
       enum:
-        - Indirect
-        - Direct
+      - Indirect
+      - Direct
       type: string
     OrtbSegment:
       type: object
@@ -2489,16 +3349,16 @@ components:
       additionalProperties: false
     StormIcon:
       enum:
-        - ExtratropicalStorm
-        - Subtropical
-        - Category0
-        - Category1
-        - Category2
-        - Category3
-        - Category4
-        - Category5
-        - TropicalRainStorm
-        - TropicalDepression
+      - ExtratropicalStorm
+      - Subtropical
+      - Category0
+      - Category1
+      - Category2
+      - Category3
+      - Category4
+      - Category5
+      - TropicalRainStorm
+      - TropicalDepression
       type: string
     StormPosition:
       type: object
@@ -2601,9 +3461,9 @@ components:
       additionalProperties: false
     ThemeType:
       enum:
-        - Light
-        - Dark
-        - System
+      - Light
+      - Dark
+      - System
       type: string
     UTMInfo:
       type: object
@@ -2689,23 +3549,23 @@ components:
       additionalProperties: false
     WeatherEventType:
       enum:
-        - Ice
-        - Rain
-        - SevereThunderstorm
-        - Snow
-        - SustainedWind
-        - Thunderstorm
-        - Tornado
-        - Tropical
-        - Wind
-        - WindGust
-        - Unknown
-        - Hail
-        - Flooding
-        - FlashFlooding
-        - CoastalFlooding
-        - RiverFlooding
-        - Winter
+      - Ice
+      - Rain
+      - SevereThunderstorm
+      - Snow
+      - SustainedWind
+      - Thunderstorm
+      - Tornado
+      - Tropical
+      - Wind
+      - WindGust
+      - Unknown
+      - Hail
+      - Flooding
+      - FlashFlooding
+      - CoastalFlooding
+      - RiverFlooding
+      - Winter
       type: string
     WeatherInfo:
       type: object
@@ -2717,8 +3577,8 @@ components:
       additionalProperties: false
     WindDirectionDisplayType:
       enum:
-        - Cardinal
-        - Degrees
+      - Cardinal
+      - Degrees
       type: string
 tags:
-  - name: Test
+- name: Test

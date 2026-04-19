@@ -1,0 +1,12 @@
+{
+  "summary60": "example-string",
+  "minutes": [
+    {
+      "displayTime": "example-string",
+      "minute": 53,
+      "color": "example-string",
+      "dbz": 49.9,
+      "precipitationType": "example-string"
+    }
+  ]
+}

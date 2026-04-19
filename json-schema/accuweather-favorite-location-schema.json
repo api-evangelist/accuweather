@@ -1,0 +1,128 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/accuweather/refs/heads/main/json-schema/accuweather-favorite-location-schema.json",
+  "title": "FavoriteLocation",
+  "description": "FavoriteLocation schema from AccuWeather API",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "nullable": true
+    },
+    "key": {
+      "type": "string",
+      "nullable": true
+    },
+    "name": {
+      "type": "string",
+      "nullable": true
+    },
+    "longName": {
+      "type": "string",
+      "nullable": true
+    },
+    "displayName": {
+      "type": "string",
+      "nullable": true
+    },
+    "displayTemperature": {
+      "type": "string",
+      "nullable": true
+    },
+    "displayHighTemperature": {
+      "type": "string",
+      "nullable": true
+    },
+    "displayLowTemperature": {
+      "type": "string",
+      "nullable": true
+    },
+    "displayRealFeel": {
+      "type": "string",
+      "nullable": true
+    },
+    "displayRealFeelShade": {
+      "type": "string",
+      "nullable": true
+    },
+    "icon": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "conditions": {
+      "type": "string",
+      "nullable": true
+    },
+    "localTime": {
+      "type": "string",
+      "nullable": true
+    },
+    "color": {
+      "type": "string",
+      "nullable": true
+    },
+    "isBefore7PM": {
+      "type": "boolean"
+    },
+    "isDayTime": {
+      "type": "boolean"
+    },
+    "minuteCastForecast": {
+      "type": "object",
+      "properties": {
+        "summary60": {
+          "type": "string",
+          "nullable": true
+        },
+        "minutes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "displayTime": {
+                "type": "string",
+                "nullable": true
+              },
+              "minute": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "color": {
+                "type": "string",
+                "nullable": true
+              },
+              "dbz": {
+                "type": "number",
+                "format": "float",
+                "nullable": true
+              },
+              "precipitationType": {
+                "type": "string",
+                "nullable": true
+              }
+            },
+            "additionalProperties": false
+          },
+          "nullable": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "numberOfAlerts": {
+      "type": "integer",
+      "format": "int32",
+      "nullable": true
+    },
+    "latitude": {
+      "type": "number",
+      "format": "double",
+      "nullable": true
+    },
+    "longitude": {
+      "type": "number",
+      "format": "double",
+      "nullable": true
+    }
+  },
+  "additionalProperties": false
+}

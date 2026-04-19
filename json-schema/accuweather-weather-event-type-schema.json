@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/accuweather/refs/heads/main/json-schema/accuweather-weather-event-type-schema.json",
+  "title": "WeatherEventType",
+  "description": "WeatherEventType schema from AccuWeather API",
+  "enum": [
+    "Ice",
+    "Rain",
+    "SevereThunderstorm",
+    "Snow",
+    "SustainedWind",
+    "Thunderstorm",
+    "Tornado",
+    "Tropical",
+    "Wind",
+    "WindGust",
+    "Unknown",
+    "Hail",
+    "Flooding",
+    "FlashFlooding",
+    "CoastalFlooding",
+    "RiverFlooding",
+    "Winter"
+  ],
+  "type": "string"
+}

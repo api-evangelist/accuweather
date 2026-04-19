@@ -1,0 +1,10 @@
+{
+  "id": "500123",
+  "partner": "example-string",
+  "utm": {
+    "source": "AccuWeather",
+    "medium": "example-string",
+    "campaign": "example-string",
+    "term": "example-string"
+  }
+}

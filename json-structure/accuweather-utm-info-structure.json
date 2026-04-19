@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/accuweather/refs/heads/main/json-structure/accuweather-utm-info-structure.json",
+  "name": "UTMInfo",
+  "description": "UTMInfo schema from AccuWeather API",
+  "type": "object",
+  "properties": {
+    "source": {
+      "type": "string",
+      "description": "utm_source from the URL",
+      "nullable": true
+    },
+    "medium": {
+      "type": "string",
+      "description": "utm_medium from the URL",
+      "nullable": true
+    },
+    "campaign": {
+      "type": "string",
+      "description": "utm_campaign from the URL",
+      "nullable": true
+    },
+    "term": {
+      "type": "string",
+      "description": "utm_term from the URL",
+      "nullable": true
+    }
+  }
+}

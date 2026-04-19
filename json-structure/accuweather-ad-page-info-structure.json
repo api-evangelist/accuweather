@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/accuweather/refs/heads/main/json-structure/accuweather-ad-page-info-structure.json",
+  "name": "AdPageInfo",
+  "description": "AdPageInfo schema from AccuWeather API",
+  "type": "object"
+}

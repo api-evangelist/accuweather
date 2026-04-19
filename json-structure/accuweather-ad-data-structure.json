@@ -1,0 +1,241 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/accuweather/refs/heads/main/json-structure/accuweather-ad-data-structure.json",
+  "name": "AdData",
+  "description": "AdData schema from AccuWeather API",
+  "type": "object",
+  "properties": {
+    "globalAdConfig": {
+      "type": "object",
+      "properties": {
+        "prebidTimeout": {
+          "type": "int32"
+        },
+        "awxTimeout": {
+          "type": "int32"
+        },
+        "bundleUrl": {
+          "type": "string",
+          "nullable": true,
+          "deprecated": true
+        },
+        "bundleId": {
+          "type": "string",
+          "nullable": true
+        },
+        "gptEnableSingleRequest": {
+          "type": "boolean"
+        },
+        "gptLazyLoading": {
+          "type": "string",
+          "nullable": true
+        },
+        "buyItNowSkipGoogleAdManager": {
+          "type": "boolean"
+        },
+        "testVariant": {
+          "type": "string",
+          "nullable": true
+        },
+        "deviceClass": {
+          "type": "string",
+          "nullable": true
+        },
+        "disableInitialAdLoad": {
+          "type": "boolean"
+        },
+        "javascriptHead": {
+          "type": "string",
+          "nullable": true
+        },
+        "javascriptBody": {
+          "type": "string",
+          "nullable": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "ortbConfig": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "nullable": true
+        },
+        "domain": {
+          "type": "string",
+          "nullable": true
+        },
+        "categories": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "nullable": true
+        },
+        "sectionCategories": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "nullable": true
+        },
+        "pageCategories": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "nullable": true
+        },
+        "keywords": {
+          "type": "string",
+          "nullable": true
+        },
+        "pageUrl": {
+          "type": "string",
+          "nullable": true
+        },
+        "referrerUrl": {
+          "type": "string",
+          "nullable": true
+        },
+        "isOptimizedForMobile": {
+          "type": "boolean"
+        },
+        "hasPrivacyPolicy": {
+          "type": "boolean"
+        },
+        "publisher": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "nullable": true
+            },
+            "domain": {
+              "type": "string",
+              "nullable": true
+            },
+            "categories": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "content": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string",
+              "nullable": true
+            },
+            "url": {
+              "type": "string",
+              "nullable": true
+            },
+            "categories": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "nullable": true
+            },
+            "productQuality": {
+              "type": "string",
+              "nullable": true
+            },
+            "context": {
+              "type": "string",
+              "nullable": true
+            },
+            "keywords": {
+              "type": "string",
+              "nullable": true
+            },
+            "sourceRelationship": {
+              "enum": [
+                "Indirect",
+                "Direct"
+              ],
+              "type": "string"
+            },
+            "language": {
+              "type": "string",
+              "nullable": true
+            },
+            "data": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "nullable": true
+                },
+                "extensions": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "nullable": true
+                  },
+                  "nullable": true
+                },
+                "segments": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string",
+                        "nullable": true
+                      },
+                      "value": {
+                        "type": "string",
+                        "nullable": true
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  "nullable": true
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "adPageInfo": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "adSlots": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/components/schemas/Ad"
+      },
+      "nullable": true
+    },
+    "adInfo": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      },
+      "nullable": true
+    },
+    "uspString": {
+      "type": "string",
+      "nullable": true
+    },
+    "ppid": {
+      "type": "string",
+      "nullable": true
+    },
+    "isPrebidDisabled": {
+      "type": "boolean"
+    }
+  }
+}

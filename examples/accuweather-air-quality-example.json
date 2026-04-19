@@ -1,0 +1,22 @@
+{
+  "category": "example-string",
+  "categoryColor": "example-string",
+  "date": "2026-04-19T10:00:00Z",
+  "dayOfWeek": "example-string",
+  "dayOfWeekAbbreviated": "example-string",
+  "displayDate": "example-string",
+  "displayTime": "example-string",
+  "dominantPollutant": "example-string",
+  "hazardStatement": "example-string",
+  "overallIndex": 37.8,
+  "overallPlumeLabsIndex": 12.9,
+  "pollutants": [
+    {
+      "concentration": "example-string",
+      "index": 11.7,
+      "name": "New York",
+      "source": "AccuWeather",
+      "type": "example-string"
+    }
+  ]
+}

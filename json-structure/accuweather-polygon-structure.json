@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/accuweather/refs/heads/main/json-structure/accuweather-polygon-structure.json",
+  "name": "Polygon",
+  "description": "Polygon schema from AccuWeather API",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "nullable": true
+    },
+    "coordinates": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "double"
+          }
+        }
+      },
+      "nullable": true
+    }
+  }
+}

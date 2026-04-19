@@ -1,0 +1,12 @@
+{
+  "dayOfWeek": "example-string",
+  "shortDayOfWeek": "example-string",
+  "fullDayOfWeek": "example-string",
+  "epoch": 66,
+  "dateTime": "example-string",
+  "displayDate": "example-string",
+  "longDisplayDate": "-74.0060",
+  "value": 84,
+  "category": "example-string",
+  "color": "example-string"
+}

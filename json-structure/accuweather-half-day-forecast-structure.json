@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/accuweather/refs/heads/main/json-structure/accuweather-half-day-forecast-structure.json",
+  "name": "HalfDayForecast",
+  "description": "HalfDayForecast schema from AccuWeather API",
+  "type": "object",
+  "properties": {
+    "temperature": {
+      "type": "float",
+      "nullable": true
+    },
+    "displayTemperature": {
+      "type": "string",
+      "nullable": true
+    },
+    "icon": {
+      "type": "int32"
+    },
+    "iconPhrase": {
+      "type": "string",
+      "nullable": true
+    },
+    "phrase": {
+      "type": "string",
+      "nullable": true
+    },
+    "longPhrase": {
+      "type": "string",
+      "nullable": true
+    },
+    "precip": {
+      "type": "string",
+      "nullable": true
+    },
+    "realFeelValue": {
+      "type": "float",
+      "nullable": true
+    }
+  }
+}

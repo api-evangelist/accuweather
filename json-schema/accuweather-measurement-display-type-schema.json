@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/accuweather/refs/heads/main/json-schema/accuweather-measurement-display-type-schema.json",
+  "title": "MeasurementDisplayType",
+  "description": "MeasurementDisplayType schema from AccuWeather API",
+  "enum": [
+    "Metric",
+    "Imperial",
+    "Hybrid"
+  ],
+  "type": "string"
+}

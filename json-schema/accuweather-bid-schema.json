@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/accuweather/refs/heads/main/json-schema/accuweather-bid-schema.json",
+  "title": "Bid",
+  "description": "Bid schema from AccuWeather API",
+  "type": "object",
+  "properties": {
+    "bidder": {
+      "type": "string",
+      "nullable": true
+    },
+    "params": {
+      "type": "object",
+      "additionalProperties": {},
+      "nullable": true
+    },
+    "isBuyItNow": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": false
+}

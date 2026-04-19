@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/accuweather/refs/heads/main/json-structure/accuweather-default-app-page-options-structure.json",
+  "name": "DefaultAppPageOptions",
+  "description": "DefaultAppPageOptions schema from AccuWeather API",
+  "type": "string",
+  "enum": [
+    "Locations",
+    "Today",
+    "Daily",
+    "Hourly",
+    "Maps",
+    "News"
+  ]
+}

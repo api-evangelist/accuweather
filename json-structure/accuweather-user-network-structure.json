@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/accuweather/refs/heads/main/json-structure/accuweather-user-network-structure.json",
+  "name": "UserNetwork",
+  "description": "UserNetwork schema from AccuWeather API",
+  "type": "object",
+  "properties": {
+    "throughput": {
+      "type": "string",
+      "description": "Category of 'network speed' for the user. Eg. 'vhigh'",
+      "nullable": true
+    },
+    "network": {
+      "type": "string",
+      "description": "Name of the network for the user. Eg. 'comcast'",
+      "nullable": true
+    },
+    "type": {
+      "type": "string",
+      "description": "Type of network for the user. Eg. 'cable'",
+      "nullable": true
+    }
+  }
+}

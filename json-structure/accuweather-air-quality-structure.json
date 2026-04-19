@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/accuweather/refs/heads/main/json-structure/accuweather-air-quality-structure.json",
+  "name": "AirQuality",
+  "description": "AirQuality schema from AccuWeather API",
+  "type": "object",
+  "properties": {
+    "category": {
+      "type": "string",
+      "nullable": true
+    },
+    "categoryColor": {
+      "type": "string",
+      "nullable": true
+    },
+    "date": {
+      "type": "datetime",
+      "nullable": true
+    },
+    "dayOfWeek": {
+      "type": "string",
+      "nullable": true
+    },
+    "dayOfWeekAbbreviated": {
+      "type": "string",
+      "nullable": true
+    },
+    "displayDate": {
+      "type": "string",
+      "nullable": true
+    },
+    "displayTime": {
+      "type": "string",
+      "nullable": true
+    },
+    "dominantPollutant": {
+      "type": "string",
+      "nullable": true
+    },
+    "hazardStatement": {
+      "type": "string",
+      "nullable": true
+    },
+    "overallIndex": {
+      "type": "double"
+    },
+    "overallPlumeLabsIndex": {
+      "type": "double"
+    },
+    "pollutants": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "concentration": {
+            "type": "string",
+            "nullable": true
+          },
+          "index": {
+            "type": "double"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "source": {
+            "type": "string",
+            "nullable": true
+          },
+          "type": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "nullable": true
+    }
+  }
+}

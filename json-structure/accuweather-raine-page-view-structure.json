@@ -1,0 +1,222 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/accuweather/refs/heads/main/json-structure/accuweather-raine-page-view-structure.json",
+  "name": "RainePageView",
+  "description": "RainePageView schema from AccuWeather API",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "nullable": true
+    },
+    "test": {
+      "type": "string",
+      "nullable": true
+    },
+    "platform": {
+      "type": "string",
+      "nullable": true
+    },
+    "version": {
+      "type": "string",
+      "nullable": true
+    },
+    "page": {
+      "type": "object",
+      "properties": {
+        "group": {
+          "type": "string",
+          "description": "Page group like 'three-day' or 'hourly' designating the page category",
+          "nullable": true
+        },
+        "url": {
+          "type": "string",
+          "description": "URL of the page",
+          "nullable": true
+        },
+        "referrer": {
+          "type": "string",
+          "description": "Referrer of the page",
+          "nullable": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "ads": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "Simplified ad code for ad slots on the page.\r\nEg. '6581/web/us/*/news_info/country_home'",
+          "nullable": true
+        },
+        "status": {
+          "type": "string",
+          "description": "One of 'active', 'missing', or 'restricted' indicating a user's ID status\r\nDefault missing.",
+          "nullable": true
+        },
+        "cookie3p": {
+          "type": "string",
+          "description": "One of 'active', 'missing', or 'restricted' indicating a user can access 3rd party cookies or not.\r\nDefault missing.",
+          "nullable": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "session": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique ID for the user's session (persistent to 10m after the last pageview)",
+          "nullable": true
+        },
+        "partner": {
+          "type": "string",
+          "description": "Unique ID for the partner from the URL",
+          "nullable": true
+        },
+        "utm": {
+          "type": "object",
+          "properties": {
+            "source": {
+              "type": "string",
+              "description": "utm_source from the URL",
+              "nullable": true
+            },
+            "medium": {
+              "type": "string",
+              "description": "utm_medium from the URL",
+              "nullable": true
+            },
+            "campaign": {
+              "type": "string",
+              "description": "utm_campaign from the URL",
+              "nullable": true
+            },
+            "term": {
+              "type": "string",
+              "description": "utm_term from the URL",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "user": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique ID for the user (persistent across sessions)",
+          "nullable": true
+        },
+        "language": {
+          "type": "string",
+          "description": "Language code set for the product for the user (en-us, en-gb, etc.)",
+          "nullable": true
+        },
+        "country": {
+          "type": "string",
+          "description": "Country code for the user's location.\r\nEg. US",
+          "nullable": true
+        },
+        "region": {
+          "type": "string",
+          "description": "Region code for the user's location.\r\nEg. PA",
+          "nullable": true
+        },
+        "city": {
+          "type": "string",
+          "description": "City for the location",
+          "nullable": true
+        },
+        "dma": {
+          "type": "string",
+          "description": "DMA for the user's location.\r\nEg. 566. Not available outside of the US.",
+          "nullable": true
+        },
+        "start": {
+          "type": "string",
+          "description": "Date of the user's first visit.\r\nI.e. Cookie creation date",
+          "nullable": true
+        },
+        "offset": {
+          "type": "string",
+          "description": "Valid string of the user's current UTC offset in hh:mm:ss format.\r\nEx. -05:00 or 05:00",
+          "nullable": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "network": {
+      "type": "object",
+      "properties": {
+        "throughput": {
+          "type": "string",
+          "description": "Category of 'network speed' for the user. Eg. 'vhigh'",
+          "nullable": true
+        },
+        "network": {
+          "type": "string",
+          "description": "Name of the network for the user. Eg. 'comcast'",
+          "nullable": true
+        },
+        "type": {
+          "type": "string",
+          "description": "Type of network for the user. Eg. 'cable'",
+          "nullable": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "device": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of the user's browser.\r\nEg. 'Chrome'",
+          "nullable": true
+        },
+        "brand": {
+          "type": "string",
+          "description": "Name of the user's device maker.\r\nEg. 'Apple' or 'Samsung'",
+          "nullable": true
+        },
+        "version": {
+          "type": "string",
+          "description": "Version of the user's browser.\r\nEg. '16'",
+          "nullable": true
+        },
+        "category": {
+          "type": "string",
+          "description": "One of 'mobile', 'tablet', or 'desktop'",
+          "nullable": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "weather": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string",
+          "description": "Surefind location key for the user's weather location\r\nEg. 335315",
+          "nullable": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "bot": {
+      "type": "boolean",
+      "description": "True if X-Akamai-Bot header is filled; default false",
+      "nullable": true
+    },
+    "time": {
+      "type": "string",
+      "nullable": true
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/accuweather/refs/heads/main/json-schema/accuweather-landmark-reference-schema.json",
+  "title": "LandmarkReference",
+  "description": "LandmarkReference schema from AccuWeather API",
+  "type": "object",
+  "properties": {
+    "landmark": {
+      "type": "string",
+      "nullable": true
+    },
+    "distance": {
+      "type": "string",
+      "nullable": true
+    }
+  },
+  "additionalProperties": false
+}

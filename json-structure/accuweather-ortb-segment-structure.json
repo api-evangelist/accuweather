@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/accuweather/refs/heads/main/json-structure/accuweather-ortb-segment-structure.json",
+  "name": "OrtbSegment",
+  "description": "OrtbSegment schema from AccuWeather API",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "nullable": true
+    },
+    "value": {
+      "type": "string",
+      "nullable": true
+    }
+  }
+}

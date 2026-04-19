@@ -1,0 +1,77 @@
+{
+  "lower": {
+    "displayAmount": "example-string",
+    "low": {
+      "value": 85.0,
+      "unit": "Imperial",
+      "unitType": 5
+    },
+    "high": {
+      "value": 52.1,
+      "unit": "Imperial",
+      "unitType": 46
+    },
+    "probability": 56,
+    "phrase": "Partly cloudy"
+  },
+  "low": {
+    "displayAmount": "example-string",
+    "low": {
+      "value": 99.5,
+      "unit": "Imperial",
+      "unitType": 57
+    },
+    "high": {
+      "value": 63.7,
+      "unit": "Imperial",
+      "unitType": 94
+    },
+    "probability": 35,
+    "phrase": "Partly cloudy"
+  },
+  "likely": {
+    "displayAmount": "example-string",
+    "low": {
+      "value": 53.2,
+      "unit": "Imperial",
+      "unitType": 91
+    },
+    "high": {
+      "value": 19.9,
+      "unit": "Imperial",
+      "unitType": 48
+    },
+    "probability": 0,
+    "phrase": "Partly cloudy"
+  },
+  "high": {
+    "displayAmount": "example-string",
+    "low": {
+      "value": 8.8,
+      "unit": "Imperial",
+      "unitType": 40
+    },
+    "high": {
+      "value": 39.7,
+      "unit": "Imperial",
+      "unitType": 2
+    },
+    "probability": 32,
+    "phrase": "Partly cloudy"
+  },
+  "higher": {
+    "displayAmount": "example-string",
+    "low": {
+      "value": 30.2,
+      "unit": "Imperial",
+      "unitType": 66
+    },
+    "high": {
+      "value": 7.2,
+      "unit": "Imperial",
+      "unitType": 2
+    },
+    "probability": 88,
+    "phrase": "Partly cloudy"
+  }
+}

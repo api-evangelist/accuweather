@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/accuweather/refs/heads/main/json-schema/accuweather-minute-cast-minute-schema.json",
+  "title": "MinuteCastMinute",
+  "description": "MinuteCastMinute schema from AccuWeather API",
+  "type": "object",
+  "properties": {
+    "displayTime": {
+      "type": "string",
+      "nullable": true
+    },
+    "minute": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "color": {
+      "type": "string",
+      "nullable": true
+    },
+    "dbz": {
+      "type": "number",
+      "format": "float",
+      "nullable": true
+    },
+    "precipitationType": {
+      "type": "string",
+      "nullable": true
+    }
+  },
+  "additionalProperties": false
+}

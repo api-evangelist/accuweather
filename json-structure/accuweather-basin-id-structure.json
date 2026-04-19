@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/accuweather/refs/heads/main/json-structure/accuweather-basin-id-structure.json",
+  "name": "BasinId",
+  "description": "BasinId schema from AccuWeather API",
+  "type": "string",
+  "enum": [
+    "AL",
+    "EP",
+    "SI",
+    "NI",
+    "CP",
+    "NP",
+    "SP"
+  ]
+}

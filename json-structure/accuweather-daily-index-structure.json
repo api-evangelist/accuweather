@@ -1,0 +1,194 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/accuweather/refs/heads/main/json-structure/accuweather-daily-index-structure.json",
+  "name": "DailyIndex",
+  "description": "DailyIndex schema from AccuWeather API",
+  "type": "object",
+  "properties": {
+    "indexName": {
+      "type": "string",
+      "nullable": true
+    },
+    "indexType": {
+      "enum": [
+        "Unknown",
+        "Running",
+        "Jogging",
+        "Hiking",
+        "Biking",
+        "Golf",
+        "Tennis",
+        "Skateboarding",
+        "Concert",
+        "KiteFlyingForecast",
+        "BeachAndPool",
+        "Sailing",
+        "Stargazing",
+        "FishingForecast",
+        "Construction",
+        "Skiing",
+        "Heart",
+        "Mosquito",
+        "Dust",
+        "SnowDays",
+        "Hunting",
+        "ArthritisDay",
+        "ArthritisNight",
+        "Asthma",
+        "BBQ",
+        "CommonColdForecast",
+        "Flu",
+        "Migraine",
+        "LawnMowing",
+        "Outdoor",
+        "Sinus",
+        "Flying",
+        "FieldReadiness",
+        "GrassGrowing",
+        "SoilMoisture",
+        "SchoolBusStop",
+        "HomeEnergy",
+        "FuelEconomy",
+        "Composting",
+        "ShoppingForecast",
+        "Driving",
+        "Thirst",
+        "Frizz",
+        "DogWalking",
+        "COPD",
+        "IndoorPest",
+        "OutdoorPest",
+        "AccuLumenBrightness",
+        "MorningExercise",
+        "Clothing",
+        "CommonCold",
+        "Comfort",
+        "CarWashing",
+        "HeatStroke",
+        "UVIntensity",
+        "ClothesDrying",
+        "AirPollution",
+        "Tourism",
+        "AirConditioning",
+        "Fishing",
+        "SunProtection",
+        "Shopping",
+        "Rowing",
+        "Traffic",
+        "RoadConditions",
+        "Umbrella",
+        "HairDressing",
+        "NightLife",
+        "Beer",
+        "KiteFlying",
+        "Makeup",
+        "WindChills",
+        "Mood",
+        "Exercise",
+        "Dating",
+        "Allergy",
+        "Beach",
+        "Sunglasses",
+        "ShortPhrase",
+        "Hypertension",
+        "Dryness",
+        "ApparentTemperature",
+        "PolutionPrevention",
+        "FoodPoisoning",
+        "WindChillDescending",
+        "Heat",
+        "Discomfort",
+        "UVDescending",
+        "PipeFreeze",
+        "AtmosphericDispersion",
+        "HeatSensitivityGeneral",
+        "HeatSensitivityElderly",
+        "HeatSensitivityChildren",
+        "HeatSensitivityOutdoorWorking",
+        "HeatSensitivityFarming",
+        "HeatSensitivityGreenhouse",
+        "HeatSensitivityVulnerableResidential",
+        "AsthmaAndLungDisorder",
+        "Stroke",
+        "SkinSensitivity",
+        "CommonColdDescending",
+        "TreePollenLevels",
+        "PinePollen",
+        "WeedPollenLevels",
+        "Arthritis",
+        "OutdoorHomeGarden",
+        "SoilHomeGarden",
+        "FieldHomeGarden",
+        "UV",
+        "TreePollen",
+        "RagweedPollen",
+        "MoldPollen",
+        "GrassPollen",
+        "AirQuality",
+        "FlightDelay",
+        "IndoorActivity"
+      ],
+      "type": "string"
+    },
+    "days": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "dayOfWeek": {
+            "type": "string",
+            "nullable": true
+          },
+          "shortDayOfWeek": {
+            "type": "string",
+            "nullable": true
+          },
+          "fullDayOfWeek": {
+            "type": "string",
+            "nullable": true
+          },
+          "epoch": {
+            "type": "int32",
+            "nullable": true
+          },
+          "dateTime": {
+            "type": "string",
+            "nullable": true
+          },
+          "displayDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "longDisplayDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "value": {
+            "type": "int32"
+          },
+          "category": {
+            "type": "string",
+            "nullable": true
+          },
+          "color": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "nullable": true
+    },
+    "activityType": {
+      "enum": [
+        "Allergies",
+        "Health",
+        "OutdoorActivities",
+        "TravelCommute",
+        "HomeGarden",
+        "Pests"
+      ],
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "title": "example-string",
+  "url": "https://www.accuweather.com/",
+  "categories": [
+    "example-string"
+  ],
+  "productQuality": "example-string",
+  "context": "Partly cloudy",
+  "keywords": "347628",
+  "sourceRelationship": "Indirect",
+  "language": "example-string",
+  "data": {
+    "name": "New York",
+    "extensions": {},
+    "segments": [
+      null
+    ]
+  }
+}

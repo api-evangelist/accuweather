@@ -1,0 +1,429 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/accuweather/refs/heads/main/json-structure/accuweather-storm-structure.json",
+  "name": "Storm",
+  "description": "Storm schema from AccuWeather API",
+  "type": "object",
+  "properties": {
+    "accuId": {
+      "type": "int32",
+      "nullable": true
+    },
+    "eventKey": {
+      "type": "string",
+      "nullable": true
+    },
+    "isActive": {
+      "type": "boolean"
+    },
+    "basin": {
+      "type": "string",
+      "nullable": true,
+      "readOnly": true
+    },
+    "basinId": {
+      "enum": [
+        "AL",
+        "EP",
+        "SI",
+        "NI",
+        "CP",
+        "NP",
+        "SP"
+      ],
+      "type": "string"
+    },
+    "basinSlug": {
+      "type": "string",
+      "nullable": true
+    },
+    "governmentId": {
+      "type": "int32",
+      "nullable": true
+    },
+    "level": {
+      "type": "string",
+      "nullable": true
+    },
+    "name": {
+      "type": "string",
+      "nullable": true
+    },
+    "updatedStormName": {
+      "type": "string",
+      "nullable": true
+    },
+    "stormPositions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "coordinates": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "nullable": true
+              },
+              "coordinates": {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "array",
+                    "items": {
+                      "type": "double"
+                    }
+                  }
+                },
+                "nullable": true
+              }
+            },
+            "additionalProperties": false
+          },
+          "dateTime": {
+            "type": "datetime",
+            "nullable": true
+          },
+          "localDate": {
+            "type": "datetime",
+            "nullable": true
+          },
+          "localDayOfWeek": {
+            "type": "string",
+            "nullable": true
+          },
+          "dateTimeLabelShort": {
+            "type": "string",
+            "nullable": true
+          },
+          "dateTimeLabel": {
+            "type": "string",
+            "nullable": true
+          },
+          "shortDateShortTimeLabel": {
+            "type": "string",
+            "nullable": true
+          },
+          "direction": {
+            "type": "string",
+            "nullable": true
+          },
+          "isCurrent": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "isHistorical": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "isMarked": {
+            "type": "boolean"
+          },
+          "isPeak": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "latitude": {
+            "type": "double",
+            "nullable": true
+          },
+          "longitude": {
+            "type": "double",
+            "nullable": true
+          },
+          "maximumSustainedWind": {
+            "type": "string",
+            "nullable": true
+          },
+          "maximumSustainedWindValue": {
+            "type": "float",
+            "nullable": true
+          },
+          "maximumWindGust": {
+            "type": "string",
+            "nullable": true
+          },
+          "maximumWindGustValue": {
+            "type": "float",
+            "nullable": true
+          },
+          "windDegrees": {
+            "type": "float",
+            "nullable": true
+          },
+          "minimumPressure": {
+            "type": "string",
+            "nullable": true
+          },
+          "position": {
+            "type": "string",
+            "nullable": true
+          },
+          "speed": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "string",
+            "nullable": true
+          },
+          "localizedStatus": {
+            "type": "string",
+            "nullable": true
+          },
+          "statusName": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "statusIcon": {
+            "enum": [
+              "ExtratropicalStorm",
+              "Subtropical",
+              "Category0",
+              "Category1",
+              "Category2",
+              "Category3",
+              "Category4",
+              "Category5",
+              "TropicalRainStorm",
+              "TropicalDepression"
+            ],
+            "type": "string"
+          },
+          "statusIconString": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "landmarkReferences": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "landmark": {
+                  "type": "string",
+                  "nullable": true
+                },
+                "distance": {
+                  "type": "string",
+                  "nullable": true
+                }
+              },
+              "additionalProperties": false
+            },
+            "nullable": true
+          },
+          "eventKey": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "nullable": true
+    },
+    "peakPosition": {
+      "type": "object",
+      "properties": {
+        "coordinates": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "nullable": true
+            },
+            "coordinates": {
+              "type": "array",
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "double"
+                  }
+                }
+              },
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "dateTime": {
+          "type": "datetime",
+          "nullable": true
+        },
+        "localDate": {
+          "type": "datetime",
+          "nullable": true
+        },
+        "localDayOfWeek": {
+          "type": "string",
+          "nullable": true
+        },
+        "dateTimeLabelShort": {
+          "type": "string",
+          "nullable": true
+        },
+        "dateTimeLabel": {
+          "type": "string",
+          "nullable": true
+        },
+        "shortDateShortTimeLabel": {
+          "type": "string",
+          "nullable": true
+        },
+        "direction": {
+          "type": "string",
+          "nullable": true
+        },
+        "isCurrent": {
+          "type": "boolean",
+          "nullable": true
+        },
+        "isHistorical": {
+          "type": "boolean",
+          "nullable": true
+        },
+        "isMarked": {
+          "type": "boolean"
+        },
+        "isPeak": {
+          "type": "boolean",
+          "nullable": true
+        },
+        "latitude": {
+          "type": "double",
+          "nullable": true
+        },
+        "longitude": {
+          "type": "double",
+          "nullable": true
+        },
+        "maximumSustainedWind": {
+          "type": "string",
+          "nullable": true
+        },
+        "maximumSustainedWindValue": {
+          "type": "float",
+          "nullable": true
+        },
+        "maximumWindGust": {
+          "type": "string",
+          "nullable": true
+        },
+        "maximumWindGustValue": {
+          "type": "float",
+          "nullable": true
+        },
+        "windDegrees": {
+          "type": "float",
+          "nullable": true
+        },
+        "minimumPressure": {
+          "type": "string",
+          "nullable": true
+        },
+        "position": {
+          "type": "string",
+          "nullable": true
+        },
+        "speed": {
+          "type": "string",
+          "nullable": true
+        },
+        "status": {
+          "type": "string",
+          "nullable": true
+        },
+        "localizedStatus": {
+          "type": "string",
+          "nullable": true
+        },
+        "statusName": {
+          "type": "string",
+          "nullable": true,
+          "readOnly": true
+        },
+        "statusIcon": {
+          "enum": [
+            "ExtratropicalStorm",
+            "Subtropical",
+            "Category0",
+            "Category1",
+            "Category2",
+            "Category3",
+            "Category4",
+            "Category5",
+            "TropicalRainStorm",
+            "TropicalDepression"
+          ],
+          "type": "string"
+        },
+        "statusIconString": {
+          "type": "string",
+          "nullable": true,
+          "readOnly": true
+        },
+        "landmarkReferences": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "landmark": {
+                "type": "string",
+                "nullable": true
+              },
+              "distance": {
+                "type": "string",
+                "nullable": true
+              }
+            },
+            "additionalProperties": false
+          },
+          "nullable": true
+        },
+        "eventKey": {
+          "type": "string",
+          "nullable": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "start": {
+      "type": "datetime",
+      "nullable": true
+    },
+    "startEpoch": {
+      "type": "int32",
+      "nullable": true
+    },
+    "end": {
+      "type": "datetime",
+      "nullable": true
+    },
+    "localStart": {
+      "type": "datetime",
+      "nullable": true
+    },
+    "localEnd": {
+      "type": "datetime",
+      "nullable": true
+    },
+    "year": {
+      "type": "int32"
+    },
+    "isFuture": {
+      "type": "boolean"
+    },
+    "stormLink": {
+      "type": "string",
+      "nullable": true
+    },
+    "localizedStartDate": {
+      "type": "string",
+      "nullable": true
+    }
+  }
+}

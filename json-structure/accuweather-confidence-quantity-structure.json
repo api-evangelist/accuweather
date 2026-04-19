@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/accuweather/refs/heads/main/json-structure/accuweather-confidence-quantity-structure.json",
+  "name": "ConfidenceQuantity",
+  "description": "ConfidenceQuantity schema from AccuWeather API",
+  "type": "object",
+  "properties": {
+    "value": {
+      "type": "float",
+      "nullable": true
+    },
+    "unit": {
+      "type": "string",
+      "nullable": true
+    },
+    "unitType": {
+      "type": "int32"
+    }
+  }
+}
