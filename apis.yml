@@ -72,7 +72,7 @@ common:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/accuweather/refs/heads/main/rules/accuweather-spectral-rules.yml
     title: AccuWeather Spectral Rules
-  - type: JSON-LD
+  - type: JSONLD
     url: >-
       https://raw.githubusercontent.com/api-evangelist/accuweather/refs/heads/main/json-ld/accuweather-context.jsonld
     title: AccuWeather JSON-LD Context
