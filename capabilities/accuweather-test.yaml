@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: AccuWeather One API — Test
+  description: 'AccuWeather One API — Test. 1 operations. Lead operation: AccuWeather Example of a Simple Scope and Linked
+    Scope. Self-contained Naftiko capability covering one Accuweather business surface.'
+  tags:
+  - Accuweather
+  - Test
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    ACCUWEATHER_API_KEY: ACCUWEATHER_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: accuweather-test
+    baseUri: ''
+    description: AccuWeather One API — Test business capability. Self-contained, no shared references.
+    resources:
+    - name: api-test-linked-scope
+      path: /api/test/linked-scope
+      operations:
+      - name: get
+        method: GET
+        description: AccuWeather Example of a Simple Scope and Linked Scope
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: accuweather-test-rest
+    port: 8080
+    description: REST adapter for AccuWeather One API — Test. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/api/test/linked-scope
+      name: api-test-linked-scope
+      description: REST surface for api-test-linked-scope.
+      operations:
+      - method: GET
+        name: get
+        description: AccuWeather Example of a Simple Scope and Linked Scope
+        call: accuweather-test.get
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: accuweather-test-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for AccuWeather One API — Test. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: accuweather-example-simple-scope-and
+      description: AccuWeather Example of a Simple Scope and Linked Scope
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: accuweather-test.get
+      outputParameters:
+      - type: object
+        mapping: $.

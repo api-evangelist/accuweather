@@ -1,0 +1,1562 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: AccuWeather One API
+  description: 'AccuWeather One API. 20 operations. Lead operation: AccuWeather Retrieves All Active Global Storms. Self-contained
+    Naftiko capability covering one Accuweather business surface.'
+  tags:
+  - Accuweather
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    ACCUWEATHER_API_KEY: ACCUWEATHER_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: accuweather-general
+    baseUri: ''
+    description: AccuWeather One API business capability. Self-contained, no shared references.
+    resources:
+    - name: api-active-storms-locationKey
+      path: /api/active-storms/{locationKey}
+      operations:
+      - name: get
+        method: GET
+        description: AccuWeather Retrieves All Active Global Storms
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: locationKey
+          in: path
+          type: string
+          description: The location key to retrieve tropical conditions for
+          required: true
+        - name: Locale
+          in: query
+          type: string
+          description: ISO 639-2 and ISO 3166-1 code for the locale
+        - name: MeasurementDisplay
+          in: query
+          type: string
+          description: Display type for weather conditions and distance
+        - name: WindUnit
+          in: query
+          type: string
+          description: Additional display type for wind direction
+        - name: Theme
+          in: query
+          type: string
+          description: Theme for the application
+        - name: gmtOffset
+          in: query
+          type: number
+          description: The GMT offset for the user
+        - name: timeZone
+          in: query
+          type: string
+          description: The time zone for the user
+    - name: api-ads-locationKey
+      path: /api/ads/{locationKey}
+      operations:
+      - name: get
+        method: GET
+        description: AccuWeather Get the Data for Given Ad Slots
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: locationKey
+          in: path
+          type: string
+          description: AccuWeather location key
+          required: true
+        - name: page
+          in: query
+          type: string
+          description: Page id
+        - name: slots
+          in: query
+          type: string
+          description: Comma seperated list of ad slots
+    - name: api-airQuality-locationKey
+      path: /api/airQuality/{locationKey}
+      operations:
+      - name: get
+        method: GET
+        description: AccuWeather Retrieves the Current Air Quality for a Given Location
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: locationKey
+          in: path
+          type: string
+          description: The location key to retrieve Air Quality for
+          required: true
+        - name: Locale
+          in: query
+          type: string
+          description: ISO 639-2 and ISO 3166-1 code for the locale
+        - name: MeasurementDisplay
+          in: query
+          type: string
+          description: Display type for weather conditions and distance
+        - name: WindUnit
+          in: query
+          type: string
+          description: Additional display type for wind direction
+        - name: Theme
+          in: query
+          type: string
+          description: Theme for the application
+    - name: api-autocomplete
+      path: /api/autocomplete
+      operations:
+      - name: get
+        method: GET
+        description: AccuWeather Retrieves a List of Locations Matching the Specified Query
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Query
+          in: query
+          type: string
+          description: The partial query to search against. Eg. 'New' to get things like New York or New Market
+          required: true
+        - name: Latitude
+          in: query
+          type: number
+          description: The latitude where responses will be biased.
+        - name: Longitude
+          in: query
+          type: number
+          description: The longitude where responses will be biased.
+        - name: Locale
+          in: query
+          type: string
+          description: ISO 639-2 and ISO 3166-1 code for the locale
+        - name: MeasurementDisplay
+          in: query
+          type: string
+          description: Display type for weather conditions and distance
+        - name: WindUnit
+          in: query
+          type: string
+          description: Additional display type for wind direction
+        - name: Theme
+          in: query
+          type: string
+          description: Theme for the application
+    - name: api-current-conditions-locationKey
+      path: /api/current-conditions/{locationKey}
+      operations:
+      - name: get
+        method: GET
+        description: AccuWeather Retrieves the Current Conditions for a Given Location
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: locationKey
+          in: path
+          type: string
+          description: The location key to retrieve weather conditions for
+          required: true
+        - name: Locale
+          in: query
+          type: string
+          description: ISO 639-2 and ISO 3166-1 code for the locale
+        - name: MeasurementDisplay
+          in: query
+          type: string
+          description: Display type for weather conditions and distance
+        - name: WindUnit
+          in: query
+          type: string
+          description: Additional display type for wind direction
+        - name: Theme
+          in: query
+          type: string
+          description: Theme for the application
+    - name: api-current-locationKey
+      path: /api/current/{locationKey}
+      operations:
+      - name: get
+        method: GET
+        description: AccuWeather Retrieves a the Latest Weather Conditions for a Location
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: locationKey
+          in: path
+          type: string
+          description: The location key to retrieve weather conditions for
+          required: true
+        - name: Locale
+          in: query
+          type: string
+          description: ISO 639-2 and ISO 3166-1 code for the locale
+        - name: MeasurementDisplay
+          in: query
+          type: string
+          description: Display type for weather conditions and distance
+        - name: WindUnit
+          in: query
+          type: string
+          description: Additional display type for wind direction
+        - name: Theme
+          in: query
+          type: string
+          description: Theme for the application
+    - name: api-daily-indices-locationKey
+      path: /api/daily-indices/{locationKey}
+      operations:
+      - name: get
+        method: GET
+        description: AccuWeather Retrieves a the Daily Indices for a Location
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: locationKey
+          in: path
+          type: string
+          description: The location key to retrieve weather conditions for
+          required: true
+        - name: Locale
+          in: query
+          type: string
+          description: ISO 639-2 and ISO 3166-1 code for the locale
+        - name: MeasurementDisplay
+          in: query
+          type: string
+          description: Display type for weather conditions and distance
+        - name: WindUnit
+          in: query
+          type: string
+          description: Additional display type for wind direction
+        - name: Theme
+          in: query
+          type: string
+          description: Theme for the application
+        - name: category
+          in: query
+          type: string
+          description: The index category to get the indices for.
+    - name: api-daily-locationKey
+      path: /api/daily/{locationKey}
+      operations:
+      - name: get
+        method: GET
+        description: AccuWeather Retrieves the Latest Daily Forecast for a Location
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: locationKey
+          in: path
+          type: string
+          description: The location key to retrieve weather conditions for
+          required: true
+        - name: Locale
+          in: query
+          type: string
+          description: ISO 639-2 and ISO 3166-1 code for the locale
+        - name: MeasurementDisplay
+          in: query
+          type: string
+          description: Display type for weather conditions and distance
+        - name: WindUnit
+          in: query
+          type: string
+          description: Additional display type for wind direction
+        - name: Theme
+          in: query
+          type: string
+          description: Theme for the application
+        - name: dayCount
+          in: query
+          type: integer
+          description: The number of hour to retrieve
+    - name: api-favorite
+      path: /api/favorite
+      operations:
+      - name: get
+        method: GET
+        description: AccuWeather Resolves and Updates the Favorite Location Cookie
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: LocationType
+          in: query
+          type: string
+          description: The type of location to resolve. Eg. address, postalCode, place, locality
+        - name: PostalCode
+          in: query
+          type: string
+          description: The postal code of the location to resolve.
+        - name: City
+          in: query
+          type: string
+          description: The city of the location to resolve.
+        - name: AdminCode
+          in: query
+          type: string
+          description: The admin code for the location.
+        - name: CountryCode
+          in: query
+          type: string
+          description: The country code for the location.
+        - name: Position
+          in: query
+          type: string
+          description: Comma separated position of the location to resolve. Longitude, Latitude.
+        - name: Name
+          in: query
+          type: string
+          description: Simple name for a location, such as the name of a city
+        - name: LongName
+          in: query
+          type: string
+          description: Full name for a location, such as the name of an Admin or address
+        - name: LocationKey
+          in: query
+          type: string
+          description: AccuWeather Location key
+        - name: IsCurrent
+          in: query
+          type: boolean
+          description: if 'use current location' was selected
+        - name: RecentId
+          in: query
+          type: string
+          description: recent location's guid
+        - name: FavoriteId
+          in: query
+          type: string
+          description: favorite location's guid (Used for Edit)
+        - name: Language
+          in: query
+          type: string
+          description: Language for the query to use for the response.
+        - name: Locale
+          in: query
+          type: string
+          description: ISO 639-2 and ISO 3166-1 code for the locale
+        - name: MeasurementDisplay
+          in: query
+          type: string
+          description: Display type for weather conditions and distance
+        - name: WindUnit
+          in: query
+          type: string
+          description: Additional display type for wind direction
+        - name: Theme
+          in: query
+          type: string
+          description: Theme for the application
+    - name: api-hourly-locationKey
+      path: /api/hourly/{locationKey}
+      operations:
+      - name: get
+        method: GET
+        description: AccuWeather Retrieves the Latest Hourly Forecast for a Location
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: locationKey
+          in: path
+          type: string
+          description: The location key to retrieve weather conditions for
+          required: true
+        - name: Locale
+          in: query
+          type: string
+          description: ISO 639-2 and ISO 3166-1 code for the locale
+        - name: MeasurementDisplay
+          in: query
+          type: string
+          description: Display type for weather conditions and distance
+        - name: WindUnit
+          in: query
+          type: string
+          description: Additional display type for wind direction
+        - name: Theme
+          in: query
+          type: string
+          description: Theme for the application
+        - name: hourCount
+          in: query
+          type: integer
+          description: The number of hour to retrieve
+    - name: api-hourlyaq-locationKey
+      path: /api/hourlyaq/{locationKey}
+      operations:
+      - name: get
+        method: GET
+        description: AccuWeather Retrieves the Hourly Air Quality Forcast for a Given Location
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: locationKey
+          in: path
+          type: string
+          description: The location key to retrieve Air Quality for
+          required: true
+        - name: Locale
+          in: query
+          type: string
+          description: ISO 639-2 and ISO 3166-1 code for the locale
+        - name: MeasurementDisplay
+          in: query
+          type: string
+          description: Display type for weather conditions and distance
+        - name: WindUnit
+          in: query
+          type: string
+          description: Additional display type for wind direction
+        - name: Theme
+          in: query
+          type: string
+          description: Theme for the application
+        - name: hourCount
+          in: query
+          type: integer
+          description: The Number of hours of air quality data to return
+    - name: api-minutecast-locationKey
+      path: /api/minutecast/{locationKey}
+      operations:
+      - name: get
+        method: GET
+        description: AccuWeather Retrieves the Latest Minute by Minute Forecast for a Location
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: locationKey
+          in: path
+          type: string
+          description: The location key to retrieve weather conditions for
+          required: true
+        - name: Locale
+          in: query
+          type: string
+          description: ISO 639-2 and ISO 3166-1 code for the locale
+        - name: MeasurementDisplay
+          in: query
+          type: string
+          description: Display type for weather conditions and distance
+        - name: WindUnit
+          in: query
+          type: string
+          description: Additional display type for wind direction
+        - name: Theme
+          in: query
+          type: string
+          description: Theme for the application
+    - name: api-partner-locationKey
+      path: /api/partner/{locationKey}
+      operations:
+      - name: get
+        method: GET
+        description: AccuWeather Retrieve the Partner for a Specific Location
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: locationKey
+          in: path
+          type: string
+          description: The location key to retrieve parnter
+          required: true
+        - name: language
+          in: query
+          type: string
+          description: The language for the user.
+    - name: api-raine
+      path: /api/raine
+      operations:
+      - name: get
+        method: GET
+        description: AccuWeather Retreives the Raine Configuration for a Page
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Locale
+          in: query
+          type: string
+          description: ISO 639-2 and ISO 3166-1 code for the locale
+        - name: MeasurementDisplay
+          in: query
+          type: string
+          description: Display type for weather conditions and distance
+        - name: WindUnit
+          in: query
+          type: string
+          description: Additional display type for wind direction
+        - name: Theme
+          in: query
+          type: string
+          description: Theme for the application
+        - name: pageGroup
+          in: query
+          type: string
+          description: The page group name.
+        - name: platform
+          in: query
+          type: string
+          description: The platform name.
+        - name: locationKey
+          in: query
+          type: string
+          description: The location key to retrieve weather location.
+    - name: api-resolve-location
+      path: /api/resolve-location
+      operations:
+      - name: get
+        method: GET
+        description: AccuWeather Takes in a Location as a Query Parameter
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: LocationType
+          in: query
+          type: string
+          description: The type of location to resolve. Eg. address, postalCode, place, locality
+        - name: PostalCode
+          in: query
+          type: string
+          description: The postal code of the location to resolve.
+        - name: City
+          in: query
+          type: string
+          description: The city of the location to resolve.
+        - name: AdminCode
+          in: query
+          type: string
+          description: The admin code for the location.
+        - name: CountryCode
+          in: query
+          type: string
+          description: The country code for the location.
+        - name: Position
+          in: query
+          type: string
+          description: Comma separated position of the location to resolve. Longitude, Latitude.
+        - name: Name
+          in: query
+          type: string
+          description: Simple name for a location, such as the name of a city
+        - name: LongName
+          in: query
+          type: string
+          description: Full name for a location, such as the name of an Admin or address
+        - name: LocationKey
+          in: query
+          type: string
+          description: AccuWeather Location key
+        - name: IsCurrent
+          in: query
+          type: boolean
+          description: if 'use current location' was selected
+        - name: RecentId
+          in: query
+          type: string
+          description: recent location's guid
+        - name: FavoriteId
+          in: query
+          type: string
+          description: favorite location's guid (Used for Edit)
+        - name: Language
+          in: query
+          type: string
+          description: Language for the query to use for the response.
+    - name: api-resolve-location-redirect
+      path: /api/resolve-location-redirect
+      operations:
+      - name: get
+        method: GET
+        description: AccuWeather Takes in a Location as a Query Parameter
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: LocationType
+          in: query
+          type: string
+          description: The type of location to resolve. Eg. address, postalCode, place, locality
+        - name: PostalCode
+          in: query
+          type: string
+          description: The postal code of the location to resolve.
+        - name: City
+          in: query
+          type: string
+          description: The city of the location to resolve.
+        - name: AdminCode
+          in: query
+          type: string
+          description: The admin code for the location.
+        - name: CountryCode
+          in: query
+          type: string
+          description: The country code for the location.
+        - name: Position
+          in: query
+          type: string
+          description: Comma separated position of the location to resolve. Longitude, Latitude.
+        - name: Name
+          in: query
+          type: string
+          description: Simple name for a location, such as the name of a city
+        - name: LongName
+          in: query
+          type: string
+          description: Full name for a location, such as the name of an Admin or address
+        - name: LocationKey
+          in: query
+          type: string
+          description: AccuWeather Location key
+        - name: IsCurrent
+          in: query
+          type: boolean
+          description: if 'use current location' was selected
+        - name: RecentId
+          in: query
+          type: string
+          description: recent location's guid
+        - name: FavoriteId
+          in: query
+          type: string
+          description: favorite location's guid (Used for Edit)
+        - name: Language
+          in: query
+          type: string
+          description: Language for the query to use for the response.
+    - name: api-staticMap-locationKey
+      path: /api/staticMap/{locationKey}
+      operations:
+      - name: get
+        method: GET
+        description: AccuWeather Retrieves a the Latest Static Map for a Location
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: locationKey
+          in: path
+          type: string
+          description: The location key to retrieve static map for
+          required: true
+        - name: Locale
+          in: query
+          type: string
+          description: ISO 639-2 and ISO 3166-1 code for the locale
+        - name: MeasurementDisplay
+          in: query
+          type: string
+          description: Display type for weather conditions and distance
+        - name: WindUnit
+          in: query
+          type: string
+          description: Additional display type for wind direction
+        - name: Theme
+          in: query
+          type: string
+          description: Theme for the application
+    - name: api-storm-year-basinId-depressionNumber
+      path: /api/storm/{year}/{basinId}/{depressionNumber}
+      operations:
+      - name: get
+        method: GET
+        description: AccuWeather Retrieves Data About a Specific Storm
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: year
+          in: path
+          type: integer
+          description: The year of the storm.
+          required: true
+        - name: basinId
+          in: path
+          type: string
+          description: The id of the basin for the storm.
+          required: true
+        - name: depressionNumber
+          in: path
+          type: integer
+          description: The the number given to the storm.
+          required: true
+        - name: includePositions
+          in: query
+          type: boolean
+          description: A flag for whether to get all of the storms positions
+        - name: Locale
+          in: query
+          type: string
+          description: ISO 639-2 and ISO 3166-1 code for the locale
+        - name: MeasurementDisplay
+          in: query
+          type: string
+          description: Display type for weather conditions and distance
+        - name: WindUnit
+          in: query
+          type: string
+          description: Additional display type for wind direction
+        - name: Theme
+          in: query
+          type: string
+          description: Theme for the application
+        - name: locationKey
+          in: query
+          type: string
+          description: The location key to retrieve tropical conditions for
+    - name: api-tropical-locationKey
+      path: /api/tropical/{locationKey}
+      operations:
+      - name: get
+        method: GET
+        description: AccuWeather Retrieves a the Latest Weather Tropical for a Location
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: locationKey
+          in: path
+          type: string
+          description: The location key to retrieve tropical conditions for
+          required: true
+        - name: Locale
+          in: query
+          type: string
+          description: ISO 639-2 and ISO 3166-1 code for the locale
+        - name: MeasurementDisplay
+          in: query
+          type: string
+          description: Display type for weather conditions and distance
+        - name: WindUnit
+          in: query
+          type: string
+          description: Additional display type for wind direction
+        - name: Theme
+          in: query
+          type: string
+          description: Theme for the application
+    - name: api-wintercast-locationKey
+      path: /api/wintercast/{locationKey}
+      operations:
+      - name: get
+        method: GET
+        description: AccuWeather Retrieves a the Latest Weather Wintercast for a Location
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: locationKey
+          in: path
+          type: string
+          description: The location key to retrieve weather conditions for
+          required: true
+        - name: language
+          in: query
+          type: string
+          description: The language to retrieve the information in
+        - name: isMetric
+          in: query
+          type: boolean
+          description: The units to retrieve the information in
+  exposes:
+  - type: rest
+    namespace: accuweather-general-rest
+    port: 8080
+    description: REST adapter for AccuWeather One API. One Spectral-compliant resource per consumed operation, prefixed with
+      /v1.
+    resources:
+    - path: /v1/api/active-storms/{locationkey}
+      name: api-active-storms-locationkey
+      description: REST surface for api-active-storms-locationKey.
+      operations:
+      - method: GET
+        name: get
+        description: AccuWeather Retrieves All Active Global Storms
+        call: accuweather-general.get
+        with:
+          locationKey: rest.locationKey
+          Locale: rest.Locale
+          MeasurementDisplay: rest.MeasurementDisplay
+          WindUnit: rest.WindUnit
+          Theme: rest.Theme
+          gmtOffset: rest.gmtOffset
+          timeZone: rest.timeZone
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/ads/{locationkey}
+      name: api-ads-locationkey
+      description: REST surface for api-ads-locationKey.
+      operations:
+      - method: GET
+        name: get
+        description: AccuWeather Get the Data for Given Ad Slots
+        call: accuweather-general.get
+        with:
+          locationKey: rest.locationKey
+          page: rest.page
+          slots: rest.slots
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/airquality/{locationkey}
+      name: api-airquality-locationkey
+      description: REST surface for api-airQuality-locationKey.
+      operations:
+      - method: GET
+        name: get
+        description: AccuWeather Retrieves the Current Air Quality for a Given Location
+        call: accuweather-general.get
+        with:
+          locationKey: rest.locationKey
+          Locale: rest.Locale
+          MeasurementDisplay: rest.MeasurementDisplay
+          WindUnit: rest.WindUnit
+          Theme: rest.Theme
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/autocomplete
+      name: api-autocomplete
+      description: REST surface for api-autocomplete.
+      operations:
+      - method: GET
+        name: get
+        description: AccuWeather Retrieves a List of Locations Matching the Specified Query
+        call: accuweather-general.get
+        with:
+          Query: rest.Query
+          Latitude: rest.Latitude
+          Longitude: rest.Longitude
+          Locale: rest.Locale
+          MeasurementDisplay: rest.MeasurementDisplay
+          WindUnit: rest.WindUnit
+          Theme: rest.Theme
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/current-conditions/{locationkey}
+      name: api-current-conditions-locationkey
+      description: REST surface for api-current-conditions-locationKey.
+      operations:
+      - method: GET
+        name: get
+        description: AccuWeather Retrieves the Current Conditions for a Given Location
+        call: accuweather-general.get
+        with:
+          locationKey: rest.locationKey
+          Locale: rest.Locale
+          MeasurementDisplay: rest.MeasurementDisplay
+          WindUnit: rest.WindUnit
+          Theme: rest.Theme
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/current/{locationkey}
+      name: api-current-locationkey
+      description: REST surface for api-current-locationKey.
+      operations:
+      - method: GET
+        name: get
+        description: AccuWeather Retrieves a the Latest Weather Conditions for a Location
+        call: accuweather-general.get
+        with:
+          locationKey: rest.locationKey
+          Locale: rest.Locale
+          MeasurementDisplay: rest.MeasurementDisplay
+          WindUnit: rest.WindUnit
+          Theme: rest.Theme
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/daily-indices/{locationkey}
+      name: api-daily-indices-locationkey
+      description: REST surface for api-daily-indices-locationKey.
+      operations:
+      - method: GET
+        name: get
+        description: AccuWeather Retrieves a the Daily Indices for a Location
+        call: accuweather-general.get
+        with:
+          locationKey: rest.locationKey
+          Locale: rest.Locale
+          MeasurementDisplay: rest.MeasurementDisplay
+          WindUnit: rest.WindUnit
+          Theme: rest.Theme
+          category: rest.category
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/daily/{locationkey}
+      name: api-daily-locationkey
+      description: REST surface for api-daily-locationKey.
+      operations:
+      - method: GET
+        name: get
+        description: AccuWeather Retrieves the Latest Daily Forecast for a Location
+        call: accuweather-general.get
+        with:
+          locationKey: rest.locationKey
+          Locale: rest.Locale
+          MeasurementDisplay: rest.MeasurementDisplay
+          WindUnit: rest.WindUnit
+          Theme: rest.Theme
+          dayCount: rest.dayCount
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/favorite
+      name: api-favorite
+      description: REST surface for api-favorite.
+      operations:
+      - method: GET
+        name: get
+        description: AccuWeather Resolves and Updates the Favorite Location Cookie
+        call: accuweather-general.get
+        with:
+          LocationType: rest.LocationType
+          PostalCode: rest.PostalCode
+          City: rest.City
+          AdminCode: rest.AdminCode
+          CountryCode: rest.CountryCode
+          Position: rest.Position
+          Name: rest.Name
+          LongName: rest.LongName
+          LocationKey: rest.LocationKey
+          IsCurrent: rest.IsCurrent
+          RecentId: rest.RecentId
+          FavoriteId: rest.FavoriteId
+          Language: rest.Language
+          Locale: rest.Locale
+          MeasurementDisplay: rest.MeasurementDisplay
+          WindUnit: rest.WindUnit
+          Theme: rest.Theme
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/hourly/{locationkey}
+      name: api-hourly-locationkey
+      description: REST surface for api-hourly-locationKey.
+      operations:
+      - method: GET
+        name: get
+        description: AccuWeather Retrieves the Latest Hourly Forecast for a Location
+        call: accuweather-general.get
+        with:
+          locationKey: rest.locationKey
+          Locale: rest.Locale
+          MeasurementDisplay: rest.MeasurementDisplay
+          WindUnit: rest.WindUnit
+          Theme: rest.Theme
+          hourCount: rest.hourCount
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/hourlyaq/{locationkey}
+      name: api-hourlyaq-locationkey
+      description: REST surface for api-hourlyaq-locationKey.
+      operations:
+      - method: GET
+        name: get
+        description: AccuWeather Retrieves the Hourly Air Quality Forcast for a Given Location
+        call: accuweather-general.get
+        with:
+          locationKey: rest.locationKey
+          Locale: rest.Locale
+          MeasurementDisplay: rest.MeasurementDisplay
+          WindUnit: rest.WindUnit
+          Theme: rest.Theme
+          hourCount: rest.hourCount
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/minutecast/{locationkey}
+      name: api-minutecast-locationkey
+      description: REST surface for api-minutecast-locationKey.
+      operations:
+      - method: GET
+        name: get
+        description: AccuWeather Retrieves the Latest Minute by Minute Forecast for a Location
+        call: accuweather-general.get
+        with:
+          locationKey: rest.locationKey
+          Locale: rest.Locale
+          MeasurementDisplay: rest.MeasurementDisplay
+          WindUnit: rest.WindUnit
+          Theme: rest.Theme
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/partner/{locationkey}
+      name: api-partner-locationkey
+      description: REST surface for api-partner-locationKey.
+      operations:
+      - method: GET
+        name: get
+        description: AccuWeather Retrieve the Partner for a Specific Location
+        call: accuweather-general.get
+        with:
+          locationKey: rest.locationKey
+          language: rest.language
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/raine
+      name: api-raine
+      description: REST surface for api-raine.
+      operations:
+      - method: GET
+        name: get
+        description: AccuWeather Retreives the Raine Configuration for a Page
+        call: accuweather-general.get
+        with:
+          Locale: rest.Locale
+          MeasurementDisplay: rest.MeasurementDisplay
+          WindUnit: rest.WindUnit
+          Theme: rest.Theme
+          pageGroup: rest.pageGroup
+          platform: rest.platform
+          locationKey: rest.locationKey
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/resolve-location
+      name: api-resolve-location
+      description: REST surface for api-resolve-location.
+      operations:
+      - method: GET
+        name: get
+        description: AccuWeather Takes in a Location as a Query Parameter
+        call: accuweather-general.get
+        with:
+          LocationType: rest.LocationType
+          PostalCode: rest.PostalCode
+          City: rest.City
+          AdminCode: rest.AdminCode
+          CountryCode: rest.CountryCode
+          Position: rest.Position
+          Name: rest.Name
+          LongName: rest.LongName
+          LocationKey: rest.LocationKey
+          IsCurrent: rest.IsCurrent
+          RecentId: rest.RecentId
+          FavoriteId: rest.FavoriteId
+          Language: rest.Language
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/resolve-location-redirect
+      name: api-resolve-location-redirect
+      description: REST surface for api-resolve-location-redirect.
+      operations:
+      - method: GET
+        name: get
+        description: AccuWeather Takes in a Location as a Query Parameter
+        call: accuweather-general.get
+        with:
+          LocationType: rest.LocationType
+          PostalCode: rest.PostalCode
+          City: rest.City
+          AdminCode: rest.AdminCode
+          CountryCode: rest.CountryCode
+          Position: rest.Position
+          Name: rest.Name
+          LongName: rest.LongName
+          LocationKey: rest.LocationKey
+          IsCurrent: rest.IsCurrent
+          RecentId: rest.RecentId
+          FavoriteId: rest.FavoriteId
+          Language: rest.Language
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/staticmap/{locationkey}
+      name: api-staticmap-locationkey
+      description: REST surface for api-staticMap-locationKey.
+      operations:
+      - method: GET
+        name: get
+        description: AccuWeather Retrieves a the Latest Static Map for a Location
+        call: accuweather-general.get
+        with:
+          locationKey: rest.locationKey
+          Locale: rest.Locale
+          MeasurementDisplay: rest.MeasurementDisplay
+          WindUnit: rest.WindUnit
+          Theme: rest.Theme
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/storm/{year}/{basinid}/{depressionnumber}
+      name: api-storm-year-basinid-depressionnumber
+      description: REST surface for api-storm-year-basinId-depressionNumber.
+      operations:
+      - method: GET
+        name: get
+        description: AccuWeather Retrieves Data About a Specific Storm
+        call: accuweather-general.get
+        with:
+          year: rest.year
+          basinId: rest.basinId
+          depressionNumber: rest.depressionNumber
+          includePositions: rest.includePositions
+          Locale: rest.Locale
+          MeasurementDisplay: rest.MeasurementDisplay
+          WindUnit: rest.WindUnit
+          Theme: rest.Theme
+          locationKey: rest.locationKey
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/tropical/{locationkey}
+      name: api-tropical-locationkey
+      description: REST surface for api-tropical-locationKey.
+      operations:
+      - method: GET
+        name: get
+        description: AccuWeather Retrieves a the Latest Weather Tropical for a Location
+        call: accuweather-general.get
+        with:
+          locationKey: rest.locationKey
+          Locale: rest.Locale
+          MeasurementDisplay: rest.MeasurementDisplay
+          WindUnit: rest.WindUnit
+          Theme: rest.Theme
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/wintercast/{locationkey}
+      name: api-wintercast-locationkey
+      description: REST surface for api-wintercast-locationKey.
+      operations:
+      - method: GET
+        name: get
+        description: AccuWeather Retrieves a the Latest Weather Wintercast for a Location
+        call: accuweather-general.get
+        with:
+          locationKey: rest.locationKey
+          language: rest.language
+          isMetric: rest.isMetric
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: accuweather-general-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for AccuWeather One API. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: accuweather-retrieves-all-active-global
+      description: AccuWeather Retrieves All Active Global Storms
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: accuweather-general.get
+      with:
+        locationKey: tools.locationKey
+        Locale: tools.Locale
+        MeasurementDisplay: tools.MeasurementDisplay
+        WindUnit: tools.WindUnit
+        Theme: tools.Theme
+        gmtOffset: tools.gmtOffset
+        timeZone: tools.timeZone
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: accuweather-get-data-given-ad
+      description: AccuWeather Get the Data for Given Ad Slots
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: accuweather-general.get
+      with:
+        locationKey: tools.locationKey
+        page: tools.page
+        slots: tools.slots
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: accuweather-retrieves-current-air-quality
+      description: AccuWeather Retrieves the Current Air Quality for a Given Location
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: accuweather-general.get
+      with:
+        locationKey: tools.locationKey
+        Locale: tools.Locale
+        MeasurementDisplay: tools.MeasurementDisplay
+        WindUnit: tools.WindUnit
+        Theme: tools.Theme
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: accuweather-retrieves-list-locations-matching
+      description: AccuWeather Retrieves a List of Locations Matching the Specified Query
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: accuweather-general.get
+      with:
+        Query: tools.Query
+        Latitude: tools.Latitude
+        Longitude: tools.Longitude
+        Locale: tools.Locale
+        MeasurementDisplay: tools.MeasurementDisplay
+        WindUnit: tools.WindUnit
+        Theme: tools.Theme
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: accuweather-retrieves-current-conditions-given
+      description: AccuWeather Retrieves the Current Conditions for a Given Location
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: accuweather-general.get
+      with:
+        locationKey: tools.locationKey
+        Locale: tools.Locale
+        MeasurementDisplay: tools.MeasurementDisplay
+        WindUnit: tools.WindUnit
+        Theme: tools.Theme
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: accuweather-retrieves-latest-weather-conditions
+      description: AccuWeather Retrieves a the Latest Weather Conditions for a Location
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: accuweather-general.get
+      with:
+        locationKey: tools.locationKey
+        Locale: tools.Locale
+        MeasurementDisplay: tools.MeasurementDisplay
+        WindUnit: tools.WindUnit
+        Theme: tools.Theme
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: accuweather-retrieves-daily-indices-location
+      description: AccuWeather Retrieves a the Daily Indices for a Location
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: accuweather-general.get
+      with:
+        locationKey: tools.locationKey
+        Locale: tools.Locale
+        MeasurementDisplay: tools.MeasurementDisplay
+        WindUnit: tools.WindUnit
+        Theme: tools.Theme
+        category: tools.category
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: accuweather-retrieves-latest-daily-forecast
+      description: AccuWeather Retrieves the Latest Daily Forecast for a Location
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: accuweather-general.get
+      with:
+        locationKey: tools.locationKey
+        Locale: tools.Locale
+        MeasurementDisplay: tools.MeasurementDisplay
+        WindUnit: tools.WindUnit
+        Theme: tools.Theme
+        dayCount: tools.dayCount
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: accuweather-resolves-and-updates-favorite
+      description: AccuWeather Resolves and Updates the Favorite Location Cookie
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: accuweather-general.get
+      with:
+        LocationType: tools.LocationType
+        PostalCode: tools.PostalCode
+        City: tools.City
+        AdminCode: tools.AdminCode
+        CountryCode: tools.CountryCode
+        Position: tools.Position
+        Name: tools.Name
+        LongName: tools.LongName
+        LocationKey: tools.LocationKey
+        IsCurrent: tools.IsCurrent
+        RecentId: tools.RecentId
+        FavoriteId: tools.FavoriteId
+        Language: tools.Language
+        Locale: tools.Locale
+        MeasurementDisplay: tools.MeasurementDisplay
+        WindUnit: tools.WindUnit
+        Theme: tools.Theme
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: accuweather-retrieves-latest-hourly-forecast
+      description: AccuWeather Retrieves the Latest Hourly Forecast for a Location
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: accuweather-general.get
+      with:
+        locationKey: tools.locationKey
+        Locale: tools.Locale
+        MeasurementDisplay: tools.MeasurementDisplay
+        WindUnit: tools.WindUnit
+        Theme: tools.Theme
+        hourCount: tools.hourCount
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: accuweather-retrieves-hourly-air-quality
+      description: AccuWeather Retrieves the Hourly Air Quality Forcast for a Given Location
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: accuweather-general.get
+      with:
+        locationKey: tools.locationKey
+        Locale: tools.Locale
+        MeasurementDisplay: tools.MeasurementDisplay
+        WindUnit: tools.WindUnit
+        Theme: tools.Theme
+        hourCount: tools.hourCount
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: accuweather-retrieves-latest-minute-minute
+      description: AccuWeather Retrieves the Latest Minute by Minute Forecast for a Location
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: accuweather-general.get
+      with:
+        locationKey: tools.locationKey
+        Locale: tools.Locale
+        MeasurementDisplay: tools.MeasurementDisplay
+        WindUnit: tools.WindUnit
+        Theme: tools.Theme
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: accuweather-retrieve-partner-specific-location
+      description: AccuWeather Retrieve the Partner for a Specific Location
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: accuweather-general.get
+      with:
+        locationKey: tools.locationKey
+        language: tools.language
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: accuweather-retreives-raine-configuration-page
+      description: AccuWeather Retreives the Raine Configuration for a Page
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: accuweather-general.get
+      with:
+        Locale: tools.Locale
+        MeasurementDisplay: tools.MeasurementDisplay
+        WindUnit: tools.WindUnit
+        Theme: tools.Theme
+        pageGroup: tools.pageGroup
+        platform: tools.platform
+        locationKey: tools.locationKey
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: accuweather-takes-location-query-parameter
+      description: AccuWeather Takes in a Location as a Query Parameter
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: accuweather-general.get
+      with:
+        LocationType: tools.LocationType
+        PostalCode: tools.PostalCode
+        City: tools.City
+        AdminCode: tools.AdminCode
+        CountryCode: tools.CountryCode
+        Position: tools.Position
+        Name: tools.Name
+        LongName: tools.LongName
+        LocationKey: tools.LocationKey
+        IsCurrent: tools.IsCurrent
+        RecentId: tools.RecentId
+        FavoriteId: tools.FavoriteId
+        Language: tools.Language
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: accuweather-takes-location-query-parameter-2
+      description: AccuWeather Takes in a Location as a Query Parameter
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: accuweather-general.get
+      with:
+        LocationType: tools.LocationType
+        PostalCode: tools.PostalCode
+        City: tools.City
+        AdminCode: tools.AdminCode
+        CountryCode: tools.CountryCode
+        Position: tools.Position
+        Name: tools.Name
+        LongName: tools.LongName
+        LocationKey: tools.LocationKey
+        IsCurrent: tools.IsCurrent
+        RecentId: tools.RecentId
+        FavoriteId: tools.FavoriteId
+        Language: tools.Language
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: accuweather-retrieves-latest-static-map
+      description: AccuWeather Retrieves a the Latest Static Map for a Location
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: accuweather-general.get
+      with:
+        locationKey: tools.locationKey
+        Locale: tools.Locale
+        MeasurementDisplay: tools.MeasurementDisplay
+        WindUnit: tools.WindUnit
+        Theme: tools.Theme
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: accuweather-retrieves-data-about-specific
+      description: AccuWeather Retrieves Data About a Specific Storm
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: accuweather-general.get
+      with:
+        year: tools.year
+        basinId: tools.basinId
+        depressionNumber: tools.depressionNumber
+        includePositions: tools.includePositions
+        Locale: tools.Locale
+        MeasurementDisplay: tools.MeasurementDisplay
+        WindUnit: tools.WindUnit
+        Theme: tools.Theme
+        locationKey: tools.locationKey
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: accuweather-retrieves-latest-weather-tropical
+      description: AccuWeather Retrieves a the Latest Weather Tropical for a Location
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: accuweather-general.get
+      with:
+        locationKey: tools.locationKey
+        Locale: tools.Locale
+        MeasurementDisplay: tools.MeasurementDisplay
+        WindUnit: tools.WindUnit
+        Theme: tools.Theme
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: accuweather-retrieves-latest-weather-wintercast
+      description: AccuWeather Retrieves a the Latest Weather Wintercast for a Location
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: accuweather-general.get
+      with:
+        locationKey: tools.locationKey
+        language: tools.language
+        isMetric: tools.isMetric
+      outputParameters:
+      - type: object
+        mapping: $.
