@@ -1,0 +1,792 @@
+"""
+AccuWeather GraphQL Schema
+Conceptual schema derived from the AccuWeather One Platform REST API.
+Covers locations, current conditions, forecasts, air quality, alerts, and more.
+"""
+
+schema {
+  query: Query
+}
+
+type Query {
+  """Search for locations by text query."""
+  locationSearch(query: String!, language: String, details: Boolean, offset: Int, alias: String): [Location]
+
+  """Get a location by its AccuWeather LocationKey."""
+  location(locationKey: String!, language: String, details: Boolean): Location
+
+  """Get locations near a lat/lon coordinate."""
+  nearbyLocations(latitude: Float!, longitude: Float!, language: String, details: Boolean, offset: Int): [Location]
+
+  """Get IP-based auto-location."""
+  autoLocation(ip: String, language: String, details: Boolean): Location
+
+  """Current conditions for a location."""
+  currentConditions(locationKey: String!, language: String, details: Boolean): [CurrentConditions]
+
+  """Hourly forecast (1, 12, 24, 72, 120 hours)."""
+  hourlyForecast(locationKey: String!, hours: Int!, language: String, details: Boolean, metric: Boolean): [HourlyForecast]
+
+  """Daily forecast (1, 5, 10, 15 days)."""
+  dailyForecast(locationKey: String!, days: Int!, language: String, details: Boolean, metric: Boolean): DailyForecastResponse
+
+  """MinuteCast — minute-by-minute precipitation for 120 minutes."""
+  minuteForecast(locationKey: String!, language: String): MinuteForecastResponse
+
+  """Lifestyle and weather indices for a location."""
+  indices(locationKey: String!, days: Int!, indexId: Int, language: String): [DailyIndex]
+
+  """Sun and moon data for a location."""
+  sunAndMoon(locationKey: String!, date: String, language: String): [SunAndMoon]
+
+  """Active weather alerts for a location."""
+  alerts(locationKey: String!, language: String, details: Boolean, locale: String): [Alert]
+
+  """Air quality index for a location."""
+  airQuality(locationKey: String!, language: String): AirQualityIndex
+
+  """Historical conditions (past 6 or 24 hours)."""
+  historicalConditions(locationKey: String!, hours: Int!, language: String, details: Boolean): [HistoricalConditions]
+}
+
+# ---------------------------------------------------------------------------
+# Location types
+# ---------------------------------------------------------------------------
+
+"""A geographic location resolved by AccuWeather."""
+type Location {
+  key: String!
+  type: String
+  rank: Int
+  localizedName: String
+  englishName: String
+  primaryPostalCode: String
+  region: Region
+  country: Country
+  administrativeArea: AdministrativeArea
+  timeZone: TimeZone
+  geoPosition: GeoPosition
+  isAlias: Boolean
+  supplementalAdminAreas: [SupplementalAdminArea]
+  dataSets: [String]
+  details: LocationDetails
+}
+
+"""Unique identifier key for an AccuWeather location."""
+type LocationKey {
+  key: String!
+  localizedName: String
+  country: Country
+}
+
+"""A country as returned by the AccuWeather Locations API."""
+type Country {
+  id: String!
+  localizedName: String
+  englishName: String
+}
+
+"""A region grouping multiple countries (e.g. North America)."""
+type Region {
+  id: String!
+  localizedName: String
+  englishName: String
+}
+
+"""An administrative area (state, province, etc.)."""
+type AdministrativeArea {
+  id: String!
+  localizedName: String
+  englishName: String
+  level: Int
+  localizedType: String
+  englishType: String
+  countryId: String
+}
+
+"""A secondary or tertiary administrative subdivision."""
+type SupplementalAdminArea {
+  level: Int
+  localizedName: String
+  englishName: String
+}
+
+"""Time zone information for a location."""
+type TimeZone {
+  code: String
+  name: String
+  gmtOffset: Float
+  isDaylightSaving: Boolean
+  nextOffsetChange: String
+}
+
+"""Latitude/longitude geographic position."""
+type GeoPosition {
+  latitude: Float
+  longitude: Float
+  elevation: Elevation
+}
+
+"""Elevation with metric and imperial values."""
+type Elevation {
+  metric: UnitValue
+  imperial: UnitValue
+}
+
+"""Extended location details (premium fields)."""
+type LocationDetails {
+  key: String
+  stationCode: String
+  stationGmtOffset: Float
+  bandMap: String
+  climo: String
+  localRadar: String
+  mediaRegion: String
+  metar: String
+  nxMetro: String
+  nxState: String
+  population: Int
+  primaryWarningCountyCode: String
+  primaryWarningZoneCode: String
+  satellite: String
+  synopticCode: String
+  urbanization: String
+  windDirectionId: Int
+  windDirectionText: String
+  sources: [DataSource]
+}
+
+"""A data source attribution record."""
+type DataSource {
+  dataType: String
+  source: String
+  sourceId: String
+  partnerId: String
+}
+
+# ---------------------------------------------------------------------------
+# Current Conditions
+# ---------------------------------------------------------------------------
+
+"""Real-time observed weather conditions at a location."""
+type CurrentConditions {
+  localObservationDateTime: String
+  epochTime: Int
+  weatherText: WeatherText
+  weatherIcon: WeatherIcon
+  hasPrecipitation: Boolean
+  precipitationType: PrecipitationType
+  isDayTime: Boolean
+  temperature: TemperaturePair
+  realFeelTemperature: RealFeel
+  realFeelTemperatureShade: RealFeel
+  relativeHumidity: Int
+  indoorRelativeHumidity: Int
+  dewPoint: TemperaturePair
+  wind: Wind
+  windGust: WindGust
+  uvIndex: Int
+  uvIndexText: String
+  visibility: VisibilityPair
+  obstructionsToVisibility: String
+  cloudCover: CloudCover
+  ceiling: VisibilityPair
+  pressure: PressurePair
+  pressureTendency: PressureTendency
+  past24HourTemperatureDeparture: TemperaturePair
+  apparentTemperature: TemperaturePair
+  windChillTemperature: TemperaturePair
+  wetBulbTemperature: WetBulb
+  precip1hr: PrecipPair
+  precipitationSummary: PrecipitationSummary
+  temperatureSummary: TemperatureSummary
+  mobileLink: String
+  link: String
+}
+
+# ---------------------------------------------------------------------------
+# Forecasts
+# ---------------------------------------------------------------------------
+
+"""Wrapper for a daily forecast response including a headline."""
+type DailyForecastResponse {
+  headline: Headline
+  dailyForecasts: [DailyForecast]
+}
+
+"""A single day's weather forecast."""
+type DailyForecast {
+  date: String
+  epochDate: Int
+  sun: SunriseSunset
+  moon: MoonPhase
+  temperature: TemperatureRange
+  realFeelTemperature: TemperatureRange
+  realFeelTemperatureShade: TemperatureRange
+  hoursOfSun: Float
+  degreeDaySummary: DegreeDaySummary
+  airAndPollen: [AirAndPollen]
+  day: DayNightForecast
+  night: DayNightForecast
+  sources: [String]
+  mobileLink: String
+  link: String
+}
+
+"""Daytime or nighttime portion of a daily forecast."""
+type DayNightForecast {
+  icon: Int
+  iconPhrase: String
+  hasPrecipitation: Boolean
+  precipitationType: PrecipitationType
+  precipitationIntensity: String
+  shortPhrase: String
+  longPhrase: String
+  precipitationProbability: PrecipitationProbability
+  thunderstormProbability: ThunderstormProbability
+  rainProbability: Int
+  snowProbability: SnowProbability
+  iceProbability: IceProbability
+  wind: Wind
+  windGust: WindGust
+  totalLiquid: PrecipPair
+  rain: PrecipPair
+  snow: PrecipPair
+  ice: PrecipPair
+  hoursOfPrecipitation: Float
+  hoursOfRain: Float
+  hoursOfSnow: Float
+  hoursOfIce: Float
+  cloudCover: Int
+  evapotranspiration: PrecipPair
+  solarIrradiance: SolarIrradiance
+}
+
+"""Hourly weather forecast for a single hour."""
+type HourlyForecast {
+  dateTime: String
+  epochDateTime: Int
+  weatherIcon: WeatherIcon
+  iconPhrase: String
+  hasPrecipitation: Boolean
+  isDaylight: Boolean
+  temperature: UnitValue
+  realFeelTemperature: UnitValue
+  realFeelTemperatureShade: UnitValue
+  wetBulbTemperature: UnitValue
+  dewPoint: UnitValue
+  wind: Wind
+  windGust: WindGust
+  relativeHumidity: Int
+  indoorRelativeHumidity: Int
+  visibility: UnitValue
+  ceiling: UnitValue
+  uvIndex: Int
+  uvIndexText: String
+  precipitationProbability: Int
+  thunderstormProbability: Int
+  rainProbability: Int
+  freezingRainProbability: Int
+  snowProbability: Int
+  iceProbability: Int
+  totalLiquid: UnitValue
+  rain: UnitValue
+  snow: UnitValue
+  ice: UnitValue
+  cloudCover: Int
+  evapotranspiration: UnitValue
+  solarIrradiance: SolarIrradiance
+  mobileLink: String
+  link: String
+}
+
+"""Wrapper for minute-level precipitation forecast."""
+type MinuteForecastResponse {
+  summary: MinuteSummary
+  intervals: [MinuteForecast]
+}
+
+"""Summary of a MinuteCast response."""
+type MinuteSummary {
+  briefPhrase60: String
+  shortPhrase: String
+  briefPhrase: String
+  longPhrase: String
+  iconCode: Int
+}
+
+"""A single minute interval in a MinuteCast forecast."""
+type MinuteForecast {
+  startDateTime: String
+  startEpochDateTime: Int
+  minute: Int
+  dbz: Float
+  shortPhrase: String
+  iconCode: Int
+  precipitationProbability: Int
+  iceProbability: Int
+  rain: UnitValue
+  snow: UnitValue
+  ice: UnitValue
+}
+
+# ---------------------------------------------------------------------------
+# Indices
+# ---------------------------------------------------------------------------
+
+"""A daily lifestyle or weather index value."""
+type DailyIndex {
+  value: Float
+  categoryValue: Int
+  category: String
+  text: String
+  date: String
+  link: String
+  mobileLink: String
+  localDateTime: String
+  epochDateTime: Int
+  id: Int
+  name: String
+  ascending: Boolean
+}
+
+# ---------------------------------------------------------------------------
+# Sun, Moon, and Astronomical
+# ---------------------------------------------------------------------------
+
+"""Sun and moon data for a calendar day."""
+type SunAndMoon {
+  date: String
+  epochDate: Int
+  sun: SunriseSunset
+  moon: MoonPhase
+  hoursOfSun: Float
+}
+
+"""Sunrise and sunset times."""
+type SunriseSunset {
+  rise: String
+  epochRise: Int
+  set: String
+  epochSet: Int
+}
+
+"""Moon phase and rise/set times."""
+type MoonPhase {
+  rise: String
+  epochRise: Int
+  set: String
+  epochSet: Int
+  phase: String
+  age: Int
+}
+
+# ---------------------------------------------------------------------------
+# Wind
+# ---------------------------------------------------------------------------
+
+"""Wind observations including speed and direction."""
+type Wind {
+  direction: WindDirection
+  speed: WindSpeed
+}
+
+"""Wind gust speed measurement."""
+type WindGust {
+  speed: WindSpeed
+}
+
+"""Compass and degree wind direction."""
+type WindDirection {
+  degrees: Int
+  localized: String
+  english: String
+}
+
+"""Wind speed in metric and imperial units."""
+type WindSpeed {
+  metric: UnitValue
+  imperial: UnitValue
+}
+
+# ---------------------------------------------------------------------------
+# Temperature and Thermal Comfort
+# ---------------------------------------------------------------------------
+
+"""A temperature value in both metric and imperial."""
+type TemperaturePair {
+  metric: UnitValue
+  imperial: UnitValue
+}
+
+"""Min/max temperature range for a day."""
+type TemperatureRange {
+  minimum: UnitValue
+  maximum: UnitValue
+}
+
+"""RealFeel (apparent) temperature with phrase."""
+type RealFeel {
+  metric: RealFeelValue
+  imperial: RealFeelValue
+}
+
+"""RealFeel value with descriptive phrase."""
+type RealFeelValue {
+  value: Float
+  unit: String
+  unitType: Int
+  phrase: String
+}
+
+"""Wet bulb temperature in metric and imperial."""
+type WetBulb {
+  metric: UnitValue
+  imperial: UnitValue
+}
+
+# ---------------------------------------------------------------------------
+# Pressure
+# ---------------------------------------------------------------------------
+
+"""Atmospheric pressure in metric and imperial."""
+type PressurePair {
+  metric: UnitValue
+  imperial: UnitValue
+}
+
+"""Pressure tendency (rising, falling, steady)."""
+type PressureTendency {
+  localizedText: String
+  code: String
+}
+
+# ---------------------------------------------------------------------------
+# Humidity
+# ---------------------------------------------------------------------------
+
+"""Relative humidity percentage."""
+type RelativeHumidity {
+  value: Int
+  unit: String
+}
+
+# ---------------------------------------------------------------------------
+# Visibility and Cloud Cover
+# ---------------------------------------------------------------------------
+
+"""Visibility in metric and imperial units."""
+type VisibilityPair {
+  metric: UnitValue
+  imperial: UnitValue
+}
+
+"""Sky cloud cover percentage."""
+type CloudCover {
+  value: Int
+}
+
+# ---------------------------------------------------------------------------
+# Precipitation
+# ---------------------------------------------------------------------------
+
+"""Precipitation amount in metric and imperial."""
+type PrecipPair {
+  metric: UnitValue
+  imperial: UnitValue
+}
+
+"""Type of precipitation (Rain, Snow, Ice, Mixed)."""
+type PrecipitationType {
+  type: String
+}
+
+"""Probability of any precipitation (0-100)."""
+type PrecipitationProbability {
+  value: Int
+}
+
+"""Probability of thunderstorms (0-100)."""
+type ThunderstormProbability {
+  value: Int
+}
+
+"""Probability of snow precipitation (0-100)."""
+type SnowProbability {
+  value: Int
+}
+
+"""Probability of ice precipitation (0-100)."""
+type IceProbability {
+  value: Int
+}
+
+"""Summary of precipitation over several time windows."""
+type PrecipitationSummary {
+  pastHour: PrecipPair
+  past3Hours: PrecipPair
+  past6Hours: PrecipPair
+  past9Hours: PrecipPair
+  past12Hours: PrecipPair
+  past18Hours: PrecipPair
+  past24Hours: PrecipPair
+}
+
+"""High and low temperature summaries over time windows."""
+type TemperatureSummary {
+  past6HourRange: TemperatureRange
+  past12HourRange: TemperatureRange
+  past24HourRange: TemperatureRange
+}
+
+# ---------------------------------------------------------------------------
+# Forecast Headline and Severity
+# ---------------------------------------------------------------------------
+
+"""Headline for a multi-day forecast."""
+type Headline {
+  effectiveDate: String
+  effectiveEpochDate: Int
+  severity: Int
+  text: String
+  category: String
+  endDate: String
+  endEpochDate: Int
+  mobileLink: String
+  link: String
+}
+
+"""Numeric severity level for alerts or headlines."""
+type SeverityLevel {
+  value: Int
+  text: String
+}
+
+# ---------------------------------------------------------------------------
+# Weather Description
+# ---------------------------------------------------------------------------
+
+"""Descriptive weather text phrase."""
+type WeatherText {
+  value: String
+}
+
+"""Numeric icon identifier for a weather condition."""
+type WeatherIcon {
+  value: Int
+  phrase: String
+}
+
+"""URL for a weather photo or imagery asset."""
+type PhotoURL {
+  url: String
+  description: String
+  credit: String
+}
+
+# ---------------------------------------------------------------------------
+# Alerts
+# ---------------------------------------------------------------------------
+
+"""An active weather alert for a location."""
+type Alert {
+  alertId: String
+  description: AlertType
+  category: String
+  priority: Int
+  type: String
+  typeId: String
+  source: String
+  sourceId: String
+  alertAreas: [AlertArea]
+}
+
+"""Summary of all alerts active at a location."""
+type AlertSummary {
+  hasAlerts: Boolean
+  totalAlerts: Int
+  alerts: [Alert]
+}
+
+"""Detailed narrative and timing for an alert."""
+type AlertDetails {
+  name: String
+  startDate: String
+  endDate: String
+  startEpochDate: Int
+  endEpochDate: Int
+  regionSummary: String
+  text: [AlertText]
+  source: String
+  sourceId: String
+  url: String
+  mobileLink: String
+}
+
+"""A geographic area covered by a weather alert."""
+type AlertArea {
+  name: String
+  summary: String
+  startDate: String
+  endDate: String
+  startEpochDate: Int
+  endEpochDate: Int
+  lastAction: AlertAction
+  text: [AlertText]
+}
+
+"""Text block within an alert (language + content)."""
+type AlertText {
+  languageCode: String
+  text: String
+}
+
+"""Most recent action taken on an alert."""
+type AlertAction {
+  title: String
+  url: String
+}
+
+"""Classification of an alert type."""
+type AlertType {
+  english: String
+  localized: String
+}
+
+# ---------------------------------------------------------------------------
+# Air Quality
+# ---------------------------------------------------------------------------
+
+"""Air Quality Index data including pollutant breakdowns."""
+type AirQualityIndex {
+  dateTime: String
+  epochDateTime: Int
+  localDateTime: String
+  epochLocalObservationTime: Int
+  partiallyValid: Boolean
+  index: Int
+  globalIndex: Int
+  category: String
+  color: String
+  pollutants: [Pollutant]
+}
+
+"""Individual pollutant concentration reading."""
+type Pollutant {
+  type: String
+  name: String
+  concentration: PollutantConcentration
+  category: String
+  categoryValue: Int
+  source: String
+}
+
+"""Pollutant concentration value and unit."""
+type PollutantConcentration {
+  value: Float
+  unit: String
+  unitType: Int
+}
+
+# ---------------------------------------------------------------------------
+# Allergy and Environment
+# ---------------------------------------------------------------------------
+
+"""Allergy or environmental outlook for a day."""
+type AllergyOutlook {
+  name: String
+  value: Int
+  category: String
+  categoryValue: Int
+  type: String
+}
+
+"""Air and pollen data combined for daily forecasts."""
+type AirAndPollen {
+  name: String
+  value: Int
+  category: String
+  categoryValue: Int
+  type: String
+}
+
+# ---------------------------------------------------------------------------
+# Historical Conditions
+# ---------------------------------------------------------------------------
+
+"""Observed conditions from a past time period."""
+type HistoricalConditions {
+  localObservationDateTime: String
+  epochTime: Int
+  weatherText: WeatherText
+  weatherIcon: WeatherIcon
+  hasPrecipitation: Boolean
+  precipitationType: PrecipitationType
+  isDayTime: Boolean
+  temperature: TemperaturePair
+  realFeelTemperature: RealFeel
+  relativeHumidity: Int
+  dewPoint: TemperaturePair
+  wind: Wind
+  windGust: WindGust
+  uvIndex: Int
+  visibility: VisibilityPair
+  cloudCover: CloudCover
+  pressure: PressurePair
+  precip1hr: PrecipPair
+  precipitationSummary: PrecipitationSummary
+}
+
+# ---------------------------------------------------------------------------
+# API Access and Credentials
+# ---------------------------------------------------------------------------
+
+"""API credential metadata (key-based auth)."""
+type APICredential {
+  apiKey: String
+  appName: String
+  package: String
+  isActive: Boolean
+  dailyLimit: Int
+  monthlyLimit: Int
+}
+
+"""Usage statistics for an API credential."""
+type APIUsage {
+  date: String
+  calls: Int
+  dailyLimit: Int
+  monthlyLimit: Int
+  callsRemaining: Int
+}
+
+"""A premium feature available on higher-tier plans."""
+type PremiumFeature {
+  name: String
+  description: String
+  requiredPackage: String
+  isAvailable: Boolean
+}
+
+# ---------------------------------------------------------------------------
+# Shared scalar/value types
+# ---------------------------------------------------------------------------
+
+"""A generic numeric value with unit metadata."""
+type UnitValue {
+  value: Float
+  unit: String
+  unitType: Int
+}
+
+"""Degree-day summary (heating and cooling)."""
+type DegreeDaySummary {
+  heating: UnitValue
+  cooling: UnitValue
+}
+
+"""Solar irradiance measurement."""
+type SolarIrradiance {
+  metric: UnitValue
+  imperial: UnitValue
+}
