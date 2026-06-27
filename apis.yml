@@ -44,12 +44,12 @@ apis:
   - type: Authentication
     url: https://developer.accuweather.com/
     title: API Key (query parameter)
-  - type: Quickstart
+  - type: GettingStarted
     url: https://developer.accuweather.com/
     title: 14-Day Free Trial
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/accuweather-general.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/accuweather-test.yaml
   - url: graphql/accuweather-graphql.md
     type: GraphQL
