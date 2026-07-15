@@ -54,6 +54,8 @@ apis:
   - url: graphql/accuweather-graphql.md
     type: GraphQL
 common:
+- type: AgenticAccess
+  url: agentic-access/accuweather-agentic-access.yml
 - type: DomainSecurity
   url: security/accuweather-domain-security.yml
 - type: LinkedIn
