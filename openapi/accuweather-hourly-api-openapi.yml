@@ -1,0 +1,369 @@
+openapi: 3.0.1
+info:
+  title: AccuWeather One Active Storms Hourly API
+  description: AccuWeather's internal product API for the One platform.
+  version: v1
+tags:
+- name: Hourly
+paths:
+  /api/hourly/{locationKey}:
+    get:
+      tags:
+      - Hourly
+      summary: AccuWeather Retrieves the Latest Hourly Forecast for a Location
+      parameters:
+      - name: locationKey
+        in: path
+        description: The location key to retrieve weather conditions for
+        required: true
+        schema:
+          type: string
+        example: '347628'
+      - name: Locale
+        in: query
+        description: ISO 639-2 and ISO 3166-1 code for the locale
+        schema:
+          type: string
+          example: en-us
+        example: en-us
+      - name: MeasurementDisplay
+        in: query
+        description: Display type for weather conditions and distance
+        schema:
+          $ref: '#/components/schemas/MeasurementDisplayType'
+        example: Imperial
+      - name: WindUnit
+        in: query
+        description: Additional display type for wind direction
+        schema:
+          $ref: '#/components/schemas/WindDirectionDisplayType'
+        example: Cardinal
+      - name: Theme
+        in: query
+        description: Theme for the application
+        schema:
+          $ref: '#/components/schemas/ThemeType'
+        example: System
+      - name: hourCount
+        in: query
+        description: The number of hour to retrieve
+        schema:
+          type: integer
+          format: int32
+          default: 24
+        example: 12
+      responses:
+        '200':
+          description: Hourly Forecast found
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/HourlyForecast'
+              examples:
+                _api_hourly_locationKey200Example:
+                  summary: Default _api_hourly_locationKey 200 response
+                  x-microcks-default: true
+                  value:
+                  - dayOfWeek: example-value
+                    shortDayOfWeek: example-value
+                    fullDayOfWeek: example-value
+                    epoch: 1
+                    dateTime: example-value
+                    displayDate: example-value
+                    longDisplayDate: example-value
+                    hasAlert: true
+                    icon: 6
+                    temperature: example-value
+                    precip: example-value
+                    phrase: Partly cloudy
+                    realFeel: example-value
+                    realFeelShade: example-value
+                    isDayLight: true
+                    extended:
+                      ceiling: example-value
+                      cloudCover: example-value
+                      dewPoint: example-value
+                      gusts: example-value
+                      wind: example-value
+                      windValue: 12.5
+                      windDegrees: 12.5
+                      windDirection: example-value
+                      humidity: '500123'
+                      humidityValue: 1
+                      indoorHumidity: '500123'
+                      indoorHumidityCategory: '500123'
+                      precipitation: example-value
+                      pressure: example-value
+                      ice: example-value
+                      rain: example-value
+                      snow: example-value
+                      thunderstormProbability: example-value
+                      uv:
+                        category: null
+                        value: null
+                      visibility: example-value
+                      precipSummary:
+                        past12Hours: null
+                        past18Hours: null
+                        past24Hours: null
+                        past3Hours: null
+                        past6Hours: null
+                        past9Hours: null
+                        pastHour: null
+                    airQuality:
+                      category: example-value
+                      categoryColor: example-value
+                      date: '2026-04-19T10:00:00Z'
+                      dayOfWeek: example-value
+                      dayOfWeekAbbreviated: example-value
+                      displayDate: example-value
+                      displayTime: example-value
+                      dominantPollutant: example-value
+                      hazardStatement: example-value
+                      overallIndex: 42.0
+                      overallPlumeLabsIndex: 42.0
+                      pollutants:
+                      - null
+        '400':
+          description: Query parameter was missing or empty
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    MeasurementDisplayType:
+      enum:
+      - Metric
+      - Imperial
+      - Hybrid
+      type: string
+    HourlyForecast:
+      type: object
+      properties:
+        dayOfWeek:
+          type: string
+          nullable: true
+        shortDayOfWeek:
+          type: string
+          nullable: true
+        fullDayOfWeek:
+          type: string
+          nullable: true
+        epoch:
+          type: integer
+          format: int32
+          nullable: true
+        dateTime:
+          type: string
+          nullable: true
+        displayDate:
+          type: string
+          nullable: true
+        longDisplayDate:
+          type: string
+          nullable: true
+        hasAlert:
+          type: boolean
+        icon:
+          type: integer
+          format: int32
+        temperature:
+          type: string
+          nullable: true
+        precip:
+          type: string
+          nullable: true
+        phrase:
+          type: string
+          nullable: true
+        realFeel:
+          type: string
+          nullable: true
+        realFeelShade:
+          type: string
+          nullable: true
+        isDayLight:
+          type: boolean
+        extended:
+          $ref: '#/components/schemas/ExtendedForecastInformation'
+        airQuality:
+          $ref: '#/components/schemas/AirQuality'
+      additionalProperties: false
+    PrecipitationSummary:
+      type: object
+      properties:
+        past12Hours:
+          type: string
+          nullable: true
+        past18Hours:
+          type: string
+          nullable: true
+        past24Hours:
+          type: string
+          nullable: true
+        past3Hours:
+          type: string
+          nullable: true
+        past6Hours:
+          type: string
+          nullable: true
+        past9Hours:
+          type: string
+          nullable: true
+        pastHour:
+          type: string
+          nullable: true
+      additionalProperties: false
+    UVIndex:
+      type: object
+      properties:
+        category:
+          type: string
+          nullable: true
+        value:
+          type: number
+          format: float
+      additionalProperties: false
+    ExtendedForecastInformation:
+      type: object
+      properties:
+        ceiling:
+          type: string
+          nullable: true
+        cloudCover:
+          type: string
+          nullable: true
+        dewPoint:
+          type: string
+          nullable: true
+        gusts:
+          type: string
+          nullable: true
+        wind:
+          type: string
+          nullable: true
+        windValue:
+          type: number
+          format: double
+          nullable: true
+        windDegrees:
+          type: number
+          format: double
+          nullable: true
+        windDirection:
+          type: string
+          nullable: true
+        humidity:
+          type: string
+          nullable: true
+        humidityValue:
+          type: integer
+          format: int32
+          nullable: true
+        indoorHumidity:
+          type: string
+          nullable: true
+        indoorHumidityCategory:
+          type: string
+          nullable: true
+        precipitation:
+          type: string
+          nullable: true
+        pressure:
+          type: string
+          nullable: true
+        ice:
+          type: string
+          nullable: true
+        rain:
+          type: string
+          nullable: true
+        snow:
+          type: string
+          nullable: true
+        thunderstormProbability:
+          type: string
+          nullable: true
+        uv:
+          $ref: '#/components/schemas/UVIndex'
+        visibility:
+          type: string
+          nullable: true
+        precipSummary:
+          $ref: '#/components/schemas/PrecipitationSummary'
+      additionalProperties: false
+    ThemeType:
+      enum:
+      - Light
+      - Dark
+      - System
+      type: string
+    WindDirectionDisplayType:
+      enum:
+      - Cardinal
+      - Degrees
+      type: string
+    AirQuality:
+      type: object
+      properties:
+        category:
+          type: string
+          nullable: true
+        categoryColor:
+          type: string
+          nullable: true
+        date:
+          type: string
+          format: date-time
+          nullable: true
+        dayOfWeek:
+          type: string
+          nullable: true
+        dayOfWeekAbbreviated:
+          type: string
+          nullable: true
+        displayDate:
+          type: string
+          nullable: true
+        displayTime:
+          type: string
+          nullable: true
+        dominantPollutant:
+          type: string
+          nullable: true
+        hazardStatement:
+          type: string
+          nullable: true
+        overallIndex:
+          type: number
+          format: double
+        overallPlumeLabsIndex:
+          type: number
+          format: double
+        pollutants:
+          type: array
+          items:
+            $ref: '#/components/schemas/Pollutant'
+          nullable: true
+      additionalProperties: false
+    Pollutant:
+      type: object
+      properties:
+        concentration:
+          type: string
+          nullable: true
+        index:
+          type: number
+          format: double
+        name:
+          type: string
+          nullable: true
+        source:
+          type: string
+          nullable: true
+        type:
+          type: string
+          nullable: true
+      additionalProperties: false

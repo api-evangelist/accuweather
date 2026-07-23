@@ -1,0 +1,399 @@
+openapi: 3.0.1
+info:
+  title: AccuWeather One Active Storms API
+  description: AccuWeather's internal product API for the One platform.
+  version: v1
+tags:
+- name: Active Storms
+paths:
+  /api/active-storms/{locationKey}:
+    get:
+      tags:
+      - Active Storms
+      summary: AccuWeather Retrieves All Active Global Storms
+      parameters:
+      - name: locationKey
+        in: path
+        description: The location key to retrieve tropical conditions for
+        required: true
+        schema:
+          type: string
+        example: '347628'
+      - name: Locale
+        in: query
+        description: ISO 639-2 and ISO 3166-1 code for the locale
+        schema:
+          type: string
+          example: en-us
+        example: en-us
+      - name: MeasurementDisplay
+        in: query
+        description: Display type for weather conditions and distance
+        schema:
+          $ref: '#/components/schemas/MeasurementDisplayType'
+        example: Imperial
+      - name: WindUnit
+        in: query
+        description: Additional display type for wind direction
+        schema:
+          $ref: '#/components/schemas/WindDirectionDisplayType'
+        example: Cardinal
+      - name: Theme
+        in: query
+        description: Theme for the application
+        schema:
+          $ref: '#/components/schemas/ThemeType'
+        example: System
+      - name: gmtOffset
+        in: query
+        description: The GMT offset for the user
+        schema:
+          type: number
+          format: float
+        example: 42.0
+      - name: timeZone
+        in: query
+        description: The time zone for the user
+        schema:
+          type: string
+        example: example-value
+      responses:
+        '200':
+          description: Storms found
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Storm'
+              examples:
+                _api_active-storms_locationKey200Example:
+                  summary: Default _api_active-storms_locationKey 200 response
+                  x-microcks-default: true
+                  value:
+                  - accuId: 1
+                    eventKey: '347628'
+                    isActive: true
+                    basin: example-value
+                    basinId: AL
+                    basinSlug: example-value
+                    governmentId: 1
+                    level: example-value
+                    name: New York
+                    updatedStormName: New York
+                    stormPositions:
+                    - coordinates: null
+                      dateTime: null
+                      localDate: null
+                      localDayOfWeek: null
+                      dateTimeLabelShort: null
+                      dateTimeLabel: null
+                      shortDateShortTimeLabel: null
+                      direction: null
+                      isCurrent: null
+                      isHistorical: null
+                      isMarked: null
+                      isPeak: null
+                      latitude: null
+                      longitude: null
+                      maximumSustainedWind: null
+                      maximumSustainedWindValue: null
+                      maximumWindGust: null
+                      maximumWindGustValue: null
+                      windDegrees: null
+                      minimumPressure: null
+                      position: null
+                      speed: null
+                      status: null
+                      localizedStatus: null
+                      statusName: null
+                      statusIcon: null
+                      statusIconString: null
+                      landmarkReferences: null
+                      eventKey: null
+                    peakPosition:
+                      coordinates:
+                        type: null
+                        coordinates: null
+                      dateTime: '2026-04-19T10:00:00Z'
+                      localDate: '2026-04-19T10:00:00Z'
+                      localDayOfWeek: example-value
+                      dateTimeLabelShort: example-value
+                      dateTimeLabel: example-value
+                      shortDateShortTimeLabel: example-value
+                      direction: example-value
+                      isCurrent: true
+                      isHistorical: true
+                      isMarked: true
+                      isPeak: true
+                      latitude: 40.7128
+                      longitude: -74.006
+                      maximumSustainedWind: example-value
+                      maximumSustainedWindValue: 12.5
+                      maximumWindGust: example-value
+                      maximumWindGustValue: 12.5
+                      windDegrees: 12.5
+                      minimumPressure: example-value
+                      position: example-value
+                      speed: example-value
+                      status: example-value
+                      localizedStatus: example-value
+                      statusName: New York
+                      statusIcon: ExtratropicalStorm
+                      statusIconString: '6'
+                      landmarkReferences:
+                      - null
+                      eventKey: '347628'
+                    start: '2026-04-19T10:00:00Z'
+                    startEpoch: 1
+                    end: '2026-04-19T10:00:00Z'
+                    localStart: '2026-04-19T10:00:00Z'
+                    localEnd: '2026-04-19T10:00:00Z'
+                    year: 1
+                    isFuture: true
+                    stormLink: example-value
+                    localizedStartDate: example-value
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    StormIcon:
+      enum:
+      - ExtratropicalStorm
+      - Subtropical
+      - Category0
+      - Category1
+      - Category2
+      - Category3
+      - Category4
+      - Category5
+      - TropicalRainStorm
+      - TropicalDepression
+      type: string
+    MeasurementDisplayType:
+      enum:
+      - Metric
+      - Imperial
+      - Hybrid
+      type: string
+    Polygon:
+      type: object
+      properties:
+        type:
+          type: string
+          nullable: true
+        coordinates:
+          type: array
+          items:
+            type: array
+            items:
+              type: array
+              items:
+                type: number
+                format: double
+          nullable: true
+      additionalProperties: false
+    WindDirectionDisplayType:
+      enum:
+      - Cardinal
+      - Degrees
+      type: string
+    LandmarkReference:
+      type: object
+      properties:
+        landmark:
+          type: string
+          nullable: true
+        distance:
+          type: string
+          nullable: true
+      additionalProperties: false
+    StormPosition:
+      type: object
+      properties:
+        coordinates:
+          $ref: '#/components/schemas/Polygon'
+        dateTime:
+          type: string
+          format: date-time
+          nullable: true
+        localDate:
+          type: string
+          format: date-time
+          nullable: true
+        localDayOfWeek:
+          type: string
+          nullable: true
+        dateTimeLabelShort:
+          type: string
+          nullable: true
+        dateTimeLabel:
+          type: string
+          nullable: true
+        shortDateShortTimeLabel:
+          type: string
+          nullable: true
+        direction:
+          type: string
+          nullable: true
+        isCurrent:
+          type: boolean
+          nullable: true
+        isHistorical:
+          type: boolean
+          nullable: true
+        isMarked:
+          type: boolean
+        isPeak:
+          type: boolean
+          nullable: true
+        latitude:
+          type: number
+          format: double
+          nullable: true
+        longitude:
+          type: number
+          format: double
+          nullable: true
+        maximumSustainedWind:
+          type: string
+          nullable: true
+        maximumSustainedWindValue:
+          type: number
+          format: float
+          nullable: true
+        maximumWindGust:
+          type: string
+          nullable: true
+        maximumWindGustValue:
+          type: number
+          format: float
+          nullable: true
+        windDegrees:
+          type: number
+          format: float
+          nullable: true
+        minimumPressure:
+          type: string
+          nullable: true
+        position:
+          type: string
+          nullable: true
+        speed:
+          type: string
+          nullable: true
+        status:
+          type: string
+          nullable: true
+        localizedStatus:
+          type: string
+          nullable: true
+        statusName:
+          type: string
+          nullable: true
+          readOnly: true
+        statusIcon:
+          $ref: '#/components/schemas/StormIcon'
+        statusIconString:
+          type: string
+          nullable: true
+          readOnly: true
+        landmarkReferences:
+          type: array
+          items:
+            $ref: '#/components/schemas/LandmarkReference'
+          nullable: true
+        eventKey:
+          type: string
+          nullable: true
+      additionalProperties: false
+    ThemeType:
+      enum:
+      - Light
+      - Dark
+      - System
+      type: string
+    BasinId:
+      enum:
+      - AL
+      - EP
+      - SI
+      - NI
+      - CP
+      - NP
+      - SP
+      type: string
+    Storm:
+      type: object
+      properties:
+        accuId:
+          type: integer
+          format: int32
+          nullable: true
+        eventKey:
+          type: string
+          nullable: true
+        isActive:
+          type: boolean
+        basin:
+          type: string
+          nullable: true
+          readOnly: true
+        basinId:
+          $ref: '#/components/schemas/BasinId'
+        basinSlug:
+          type: string
+          nullable: true
+        governmentId:
+          type: integer
+          format: int32
+          nullable: true
+        level:
+          type: string
+          nullable: true
+        name:
+          type: string
+          nullable: true
+        updatedStormName:
+          type: string
+          nullable: true
+        stormPositions:
+          type: array
+          items:
+            $ref: '#/components/schemas/StormPosition'
+          nullable: true
+        peakPosition:
+          $ref: '#/components/schemas/StormPosition'
+        start:
+          type: string
+          format: date-time
+          nullable: true
+        startEpoch:
+          type: integer
+          format: int32
+          nullable: true
+        end:
+          type: string
+          format: date-time
+          nullable: true
+        localStart:
+          type: string
+          format: date-time
+          nullable: true
+        localEnd:
+          type: string
+          format: date-time
+          nullable: true
+        year:
+          type: integer
+          format: int32
+        isFuture:
+          type: boolean
+        stormLink:
+          type: string
+          nullable: true
+        localizedStartDate:
+          type: string
+          nullable: true
+      additionalProperties: false

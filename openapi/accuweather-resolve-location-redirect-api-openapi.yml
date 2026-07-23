@@ -1,0 +1,253 @@
+openapi: 3.0.1
+info:
+  title: AccuWeather One Active Storms Resolve Location Redirect API
+  description: AccuWeather's internal product API for the One platform.
+  version: v1
+tags:
+- name: Resolve Location Redirect
+paths:
+  /api/resolve-location-redirect:
+    get:
+      tags:
+      - Resolve Location Redirect
+      summary: AccuWeather Takes in a Location as a Query Parameter
+      parameters:
+      - name: LocationType
+        in: query
+        description: The type of location to resolve. Eg. address, postalCode, place, locality
+        schema:
+          type: string
+          example: city
+        example: city
+      - name: PostalCode
+        in: query
+        description: The postal code of the location to resolve.
+        schema:
+          type: string
+          example: SW1A 1AA
+        example: SW1A 1AA
+      - name: City
+        in: query
+        description: The city of the location to resolve.
+        schema:
+          type: string
+          example: London
+        example: London
+      - name: AdminCode
+        in: query
+        description: The admin code for the location.
+        schema:
+          type: string
+          example: PA
+        example: PA
+      - name: CountryCode
+        in: query
+        description: The country code for the location.
+        schema:
+          type: string
+          example: US
+        example: US
+      - name: Position
+        in: query
+        description: Comma separated position of the location to resolve. Longitude, Latitude.
+        schema:
+          type: string
+          example: 51.500321,-0.145433
+        example: 51.500321,-0.145433
+      - name: Name
+        in: query
+        description: Simple name for a location, such as the name of a city
+        schema:
+          type: string
+          example: State Collage
+        example: State Collage
+      - name: LongName
+        in: query
+        description: Full name for a location, such as the name of an Admin or address
+        schema:
+          type: string
+          example: 385 Science Park Rd, State College, PA
+        example: 385 Science Park Rd, State College, PA
+      - name: LocationKey
+        in: query
+        description: AccuWeather Location key
+        schema:
+          type: string
+          example: '335315'
+        example: '335315'
+      - name: IsCurrent
+        in: query
+        description: if 'use current location' was selected
+        schema:
+          type: boolean
+          example: true
+        example: true
+      - name: RecentId
+        in: query
+        description: recent location's guid
+        schema:
+          type: string
+          example: tru4fa4496d-fca1-4c30-8784-fb612a45ee52e
+        example: tru4fa4496d-fca1-4c30-8784-fb612a45ee52e
+      - name: FavoriteId
+        in: query
+        description: favorite location's guid (Used for Edit)
+        schema:
+          type: string
+          example: tru4fa4496d-fca1-4c30-8784-fb612a45ee52e
+        example: tru4fa4496d-fca1-4c30-8784-fb612a45ee52e
+      - name: Language
+        in: query
+        description: Language for the query to use for the response.
+        schema:
+          type: string
+          example: en-us
+        example: en-us
+      responses:
+        '200':
+          description: Location resolved
+          content:
+            application/html:
+              schema:
+                $ref: '#/components/schemas/AutocompleteLocation'
+        '404':
+          description: Location was unable to be resolved
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    LocationSources:
+      enum:
+      - AccuWeather
+      - Radar
+      - Unknown
+      type: string
+      description: The parent provider of the location.
+    LocationSettingsInfo:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique Id created for favorite and recent locations
+          nullable: true
+          example: 50603e3f-5433-4d14-9b5f-01c8cf619d9b
+        locationKey:
+          type: string
+          description: AccuWeather Surefind location key for this location.
+          nullable: true
+          example: '328328'
+        name:
+          type: string
+          description: Simple name for a location, such as the name of a city
+          nullable: true
+          example: State Collage
+        longName:
+          type: string
+          description: Full name for a location, such as the name of an Admin or address
+          nullable: true
+          example: 385 Science Park Rd, State College, PA
+        displayName:
+          type: string
+          description: "Name used to display to the user as the placeholder\r\nThis differece from the LongName since will be sometimes display location name from\r\nthe AW API (Non-english/direct location key serach)"
+          nullable: true
+          example: 385 Science Park Rd, State College, PA or Eureka, CA USA
+        stationCode:
+          type: string
+          description: AccuWeather station code for this location.
+          nullable: true
+          example: EGRB
+        supportedDataSets:
+          type: array
+          items:
+            type: string
+          description: AccuWeather list of supported data sets for this location.
+          nullable: true
+          example:
+          - AirQualityCurrentConditions
+          - AirQualityForecasts
+          - Alerts
+          - DailyAirQualityForecast
+          - DailyPollenForecast
+          - ForecastConfidence
+          - FutureRadar
+          - MinuteCast
+          - ProximityNotification-Lightning
+          - Radar
+        supportsMinuteCast:
+          type: boolean
+          description: True if a location supports MinuteCast data.
+          nullable: true
+          readOnly: true
+          example: true
+        latitude:
+          type: number
+          description: Latitude for a location
+          format: double
+          nullable: true
+        longitude:
+          type: number
+          description: Longitude for a location
+          format: double
+          nullable: true
+        supportsEventConfidence:
+          type: boolean
+          description: True if a location supports probabilities on weather events.
+          nullable: true
+          readOnly: true
+          example: true
+      additionalProperties: false
+      description: Detailed keys for the location from AccuWeather to aid in weather data retrieval.
+    AutocompleteLocation:
+      type: object
+      properties:
+        locationType:
+          type: string
+          description: Type of location, eg. address or postalcode
+          nullable: true
+          example: address
+        city:
+          type: string
+          description: City name of the location, usually used for display purposes when sourcing weather data.
+          nullable: true
+          example: London
+        adminCode:
+          type: string
+          description: The admin code for the location.
+          nullable: true
+          example: PA
+        countryCode:
+          type: string
+          description: County code for the location.
+          nullable: true
+          example: US
+        postalCode:
+          type: string
+          description: Postal Code of the location, usually used for display purposes when sourcing weather data.
+          nullable: true
+        position:
+          type: array
+          items:
+            type: number
+            format: double
+          description: City name of the location, usually used for display purposes when sourcing weather data.
+          nullable: true
+          example:
+          - 51.50032
+          - -0.145433
+        name:
+          type: string
+          description: Editable name of the location to display to the user.
+          nullable: true
+          example: Buckingham Palace
+        longName:
+          type: string
+          description: Longer name of the location to display to the user, typically the full address.
+          nullable: true
+          example: Buckingham Palace, Westminster, London, Greater London GBR
+        locationSettingsInfo:
+          $ref: '#/components/schemas/LocationSettingsInfo'
+        source:
+          $ref: '#/components/schemas/LocationSources'
+      additionalProperties: false
+      description: A location that can be used to plot on a map.

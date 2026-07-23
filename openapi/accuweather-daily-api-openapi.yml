@@ -1,0 +1,180 @@
+openapi: 3.0.1
+info:
+  title: AccuWeather One Active Storms Daily API
+  description: AccuWeather's internal product API for the One platform.
+  version: v1
+tags:
+- name: Daily
+paths:
+  /api/daily/{locationKey}:
+    get:
+      tags:
+      - Daily
+      summary: AccuWeather Retrieves the Latest Daily Forecast for a Location
+      parameters:
+      - name: locationKey
+        in: path
+        description: The location key to retrieve weather conditions for
+        required: true
+        schema:
+          type: string
+        example: '347628'
+      - name: Locale
+        in: query
+        description: ISO 639-2 and ISO 3166-1 code for the locale
+        schema:
+          type: string
+          example: en-us
+        example: en-us
+      - name: MeasurementDisplay
+        in: query
+        description: Display type for weather conditions and distance
+        schema:
+          $ref: '#/components/schemas/MeasurementDisplayType'
+        example: Imperial
+      - name: WindUnit
+        in: query
+        description: Additional display type for wind direction
+        schema:
+          $ref: '#/components/schemas/WindDirectionDisplayType'
+        example: Cardinal
+      - name: Theme
+        in: query
+        description: Theme for the application
+        schema:
+          $ref: '#/components/schemas/ThemeType'
+        example: System
+      - name: dayCount
+        in: query
+        description: The number of hour to retrieve
+        schema:
+          type: integer
+          format: int32
+          default: 15
+        example: 5
+      responses:
+        '200':
+          description: Daily Forecast found
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DailyForecast'
+              examples:
+                _api_daily_locationKey200Example:
+                  summary: Default _api_daily_locationKey 200 response
+                  x-microcks-default: true
+                  value:
+                  - dayOfWeek: example-value
+                    shortDayOfWeek: example-value
+                    fullDayOfWeek: example-value
+                    epoch: 1
+                    dateTime: example-value
+                    displayDate: example-value
+                    longDisplayDate: example-value
+                    hasAlert: true
+                    day:
+                      temperature: 72.5
+                      displayTemperature: example-value
+                      icon: 6
+                      iconPhrase: '6'
+                      phrase: Partly cloudy
+                      longPhrase: Partly cloudy
+                      precip: example-value
+                      realFeelValue: 42.0
+                    night:
+                      temperature: 72.5
+                      displayTemperature: example-value
+                      icon: 6
+                      iconPhrase: '6'
+                      phrase: Partly cloudy
+                      longPhrase: Partly cloudy
+                      precip: example-value
+                      realFeelValue: 42.0
+        '400':
+          description: Query parameter was missing or empty
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    MeasurementDisplayType:
+      enum:
+      - Metric
+      - Imperial
+      - Hybrid
+      type: string
+    HalfDayForecast:
+      type: object
+      properties:
+        temperature:
+          type: number
+          format: float
+          nullable: true
+        displayTemperature:
+          type: string
+          nullable: true
+        icon:
+          type: integer
+          format: int32
+        iconPhrase:
+          type: string
+          nullable: true
+        phrase:
+          type: string
+          nullable: true
+        longPhrase:
+          type: string
+          nullable: true
+        precip:
+          type: string
+          nullable: true
+        realFeelValue:
+          type: number
+          format: float
+          nullable: true
+      additionalProperties: false
+    ThemeType:
+      enum:
+      - Light
+      - Dark
+      - System
+      type: string
+    WindDirectionDisplayType:
+      enum:
+      - Cardinal
+      - Degrees
+      type: string
+    DailyForecast:
+      type: object
+      properties:
+        dayOfWeek:
+          type: string
+          nullable: true
+        shortDayOfWeek:
+          type: string
+          nullable: true
+        fullDayOfWeek:
+          type: string
+          nullable: true
+        epoch:
+          type: integer
+          format: int32
+          nullable: true
+        dateTime:
+          type: string
+          nullable: true
+        displayDate:
+          type: string
+          nullable: true
+        longDisplayDate:
+          type: string
+          nullable: true
+        hasAlert:
+          type: boolean
+        day:
+          $ref: '#/components/schemas/HalfDayForecast'
+        night:
+          $ref: '#/components/schemas/HalfDayForecast'
+      additionalProperties: false

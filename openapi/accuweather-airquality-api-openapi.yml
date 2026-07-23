@@ -1,0 +1,161 @@
+openapi: 3.0.1
+info:
+  title: AccuWeather One Active Storms AirQuality API
+  description: AccuWeather's internal product API for the One platform.
+  version: v1
+tags:
+- name: AirQuality
+paths:
+  /api/airQuality/{locationKey}:
+    get:
+      tags:
+      - AirQuality
+      summary: AccuWeather Retrieves the Current Air Quality for a Given Location
+      parameters:
+      - name: locationKey
+        in: path
+        description: The location key to retrieve Air Quality for
+        required: true
+        schema:
+          type: string
+        example: '347628'
+      - name: Locale
+        in: query
+        description: ISO 639-2 and ISO 3166-1 code for the locale
+        schema:
+          type: string
+          example: en-us
+        example: en-us
+      - name: MeasurementDisplay
+        in: query
+        description: Display type for weather conditions and distance
+        schema:
+          $ref: '#/components/schemas/MeasurementDisplayType'
+        example: Imperial
+      - name: WindUnit
+        in: query
+        description: Additional display type for wind direction
+        schema:
+          $ref: '#/components/schemas/WindDirectionDisplayType'
+        example: Cardinal
+      - name: Theme
+        in: query
+        description: Theme for the application
+        schema:
+          $ref: '#/components/schemas/ThemeType'
+        example: System
+      responses:
+        '200':
+          description: Current AirQuality found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AirQuality'
+              examples:
+                _api_airQuality_locationKey200Example:
+                  summary: Default _api_airQuality_locationKey 200 response
+                  x-microcks-default: true
+                  value:
+                    category: example-value
+                    categoryColor: example-value
+                    date: '2026-04-19T10:00:00Z'
+                    dayOfWeek: example-value
+                    dayOfWeekAbbreviated: example-value
+                    displayDate: example-value
+                    displayTime: example-value
+                    dominantPollutant: example-value
+                    hazardStatement: example-value
+                    overallIndex: 42.0
+                    overallPlumeLabsIndex: 42.0
+                    pollutants:
+                    - concentration: example-value
+                      index: 42.0
+                      name: New York
+                      source: AccuWeather
+                      type: example-value
+        '400':
+          description: Query parameter was missing or empty
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    MeasurementDisplayType:
+      enum:
+      - Metric
+      - Imperial
+      - Hybrid
+      type: string
+    ThemeType:
+      enum:
+      - Light
+      - Dark
+      - System
+      type: string
+    WindDirectionDisplayType:
+      enum:
+      - Cardinal
+      - Degrees
+      type: string
+    AirQuality:
+      type: object
+      properties:
+        category:
+          type: string
+          nullable: true
+        categoryColor:
+          type: string
+          nullable: true
+        date:
+          type: string
+          format: date-time
+          nullable: true
+        dayOfWeek:
+          type: string
+          nullable: true
+        dayOfWeekAbbreviated:
+          type: string
+          nullable: true
+        displayDate:
+          type: string
+          nullable: true
+        displayTime:
+          type: string
+          nullable: true
+        dominantPollutant:
+          type: string
+          nullable: true
+        hazardStatement:
+          type: string
+          nullable: true
+        overallIndex:
+          type: number
+          format: double
+        overallPlumeLabsIndex:
+          type: number
+          format: double
+        pollutants:
+          type: array
+          items:
+            $ref: '#/components/schemas/Pollutant'
+          nullable: true
+      additionalProperties: false
+    Pollutant:
+      type: object
+      properties:
+        concentration:
+          type: string
+          nullable: true
+        index:
+          type: number
+          format: double
+        name:
+          type: string
+          nullable: true
+        source:
+          type: string
+          nullable: true
+        type:
+          type: string
+          nullable: true
+      additionalProperties: false

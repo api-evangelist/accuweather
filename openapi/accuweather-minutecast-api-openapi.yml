@@ -1,0 +1,121 @@
+openapi: 3.0.1
+info:
+  title: AccuWeather One Active Storms Minutecast API
+  description: AccuWeather's internal product API for the One platform.
+  version: v1
+tags:
+- name: Minutecast
+paths:
+  /api/minutecast/{locationKey}:
+    get:
+      tags:
+      - Minutecast
+      summary: AccuWeather Retrieves the Latest Minute by Minute Forecast for a Location
+      parameters:
+      - name: locationKey
+        in: path
+        description: The location key to retrieve weather conditions for
+        required: true
+        schema:
+          type: string
+        example: '347628'
+      - name: Locale
+        in: query
+        description: ISO 639-2 and ISO 3166-1 code for the locale
+        schema:
+          type: string
+          example: en-us
+        example: en-us
+      - name: MeasurementDisplay
+        in: query
+        description: Display type for weather conditions and distance
+        schema:
+          $ref: '#/components/schemas/MeasurementDisplayType'
+        example: Imperial
+      - name: WindUnit
+        in: query
+        description: Additional display type for wind direction
+        schema:
+          $ref: '#/components/schemas/WindDirectionDisplayType'
+        example: Cardinal
+      - name: Theme
+        in: query
+        description: Theme for the application
+        schema:
+          $ref: '#/components/schemas/ThemeType'
+        example: System
+      responses:
+        '200':
+          description: MinuteCast Forecast found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MinuteCastForecast'
+              examples:
+                _api_minutecast_locationKey200Example:
+                  summary: Default _api_minutecast_locationKey 200 response
+                  x-microcks-default: true
+                  value:
+                    summary60: example-value
+                    minutes:
+                    - displayTime: example-value
+                      minute: 30
+                      color: example-value
+                      dbz: 42.0
+                      precipitationType: example-value
+        '400':
+          description: Query parameter was missing or empty
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    MeasurementDisplayType:
+      enum:
+      - Metric
+      - Imperial
+      - Hybrid
+      type: string
+    MinuteCastMinute:
+      type: object
+      properties:
+        displayTime:
+          type: string
+          nullable: true
+        minute:
+          type: integer
+          format: int32
+        color:
+          type: string
+          nullable: true
+        dbz:
+          type: number
+          format: float
+          nullable: true
+        precipitationType:
+          type: string
+          nullable: true
+      additionalProperties: false
+    MinuteCastForecast:
+      type: object
+      properties:
+        summary60:
+          type: string
+          nullable: true
+        minutes:
+          type: array
+          items:
+            $ref: '#/components/schemas/MinuteCastMinute'
+          nullable: true
+      additionalProperties: false
+    ThemeType:
+      enum:
+      - Light
+      - Dark
+      - System
+      type: string
+    WindDirectionDisplayType:
+      enum:
+      - Cardinal
+      - Degrees
+      type: string

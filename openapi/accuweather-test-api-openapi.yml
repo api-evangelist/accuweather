@@ -1,0 +1,87 @@
+openapi: 3.0.1
+info:
+  title: AccuWeather One Active Storms Test API
+  description: AccuWeather's internal product API for the One platform.
+  version: v1
+tags:
+- name: Test
+paths:
+  /api/test/linked-scope:
+    get:
+      tags:
+      - Test
+      summary: AccuWeather Example of a Simple Scope and Linked Scope
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RecentLocation'
+              examples:
+                _api_test_linked-scope200Example:
+                  summary: Default _api_test_linked-scope 200 response
+                  x-microcks-default: true
+                  value:
+                    id: '500123'
+                    key: '347628'
+                    name: New York
+                    longName: New York
+                    displayName: New York
+                    localTime: example-value
+                    displayTemperature: example-value
+                    icon: 6
+                    color: example-value
+                    isBefore7PM: true
+                    isDayTime: true
+                    latitude: 40.7128
+                    longitude: -74.006
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    RecentLocation:
+      type: object
+      properties:
+        id:
+          type: string
+          nullable: true
+        key:
+          type: string
+          nullable: true
+        name:
+          type: string
+          nullable: true
+        longName:
+          type: string
+          nullable: true
+        displayName:
+          type: string
+          nullable: true
+        localTime:
+          type: string
+          nullable: true
+        displayTemperature:
+          type: string
+          nullable: true
+        icon:
+          type: integer
+          format: int32
+          nullable: true
+        color:
+          type: string
+          nullable: true
+        isBefore7PM:
+          type: boolean
+        isDayTime:
+          type: boolean
+        latitude:
+          type: number
+          format: double
+          nullable: true
+        longitude:
+          type: number
+          format: double
+          nullable: true
+      additionalProperties: false

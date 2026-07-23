@@ -1,0 +1,326 @@
+openapi: 3.0.1
+info:
+  title: AccuWeather One Active Storms Ads API
+  description: AccuWeather's internal product API for the One platform.
+  version: v1
+tags:
+- name: Ads
+paths:
+  /api/ads/{locationKey}:
+    get:
+      tags:
+      - Ads
+      summary: AccuWeather Get the Data for Given Ad Slots
+      parameters:
+      - name: locationKey
+        in: path
+        description: AccuWeather location key
+        required: true
+        schema:
+          type: string
+        example: '347628'
+      - name: page
+        in: query
+        description: Page id
+        schema:
+          type: string
+        example: example-value
+      - name: slots
+        in: query
+        description: Comma seperated list of ad slots
+        schema:
+          type: string
+        example: example-value
+      responses:
+        '200':
+          description: Ad data success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AdData'
+              examples:
+                _api_ads_locationKey200Example:
+                  summary: Default _api_ads_locationKey 200 response
+                  x-microcks-default: true
+                  value:
+                    globalAdConfig:
+                      prebidTimeout: 1
+                      awxTimeout: 1
+                      bundleUrl: https://www.accuweather.com/en/us/new-york-ny/10007/weather-forecast/347628
+                      bundleId: '500123'
+                      gptEnableSingleRequest: true
+                      gptLazyLoading: example-value
+                      buyItNowSkipGoogleAdManager: true
+                      testVariant: example-value
+                      deviceClass: example-value
+                      disableInitialAdLoad: true
+                      javascriptHead: example-value
+                      javascriptBody: example-value
+                    ortbConfig:
+                      name: New York
+                      domain: example-value
+                      categories:
+                      - example-value
+                      sectionCategories:
+                      - example-value
+                      pageCategories:
+                      - example-value
+                      keywords: '347628'
+                      pageUrl: https://www.accuweather.com/en/us/new-york-ny/10007/weather-forecast/347628
+                      referrerUrl: https://www.accuweather.com/en/us/new-york-ny/10007/weather-forecast/347628
+                      isOptimizedForMobile: true
+                      hasPrivacyPolicy: true
+                      publisher:
+                        name: New York
+                        domain: example-value
+                        categories:
+                        - null
+                      content:
+                        title: example-value
+                        url: https://www.accuweather.com/en/us/new-york-ny/10007/weather-forecast/347628
+                        categories:
+                        - null
+                        productQuality: example-value
+                        context: Partly cloudy
+                        keywords: '347628'
+                        sourceRelationship: Indirect
+                        language: example-value
+                        data:
+                          name: null
+                          extensions: null
+                          segments: null
+                    adPageInfo: {}
+                    adSlots: {}
+                    adInfo: {}
+                    uspString: example-value
+                    ppid: '500123'
+                    isPrebidDisabled: true
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    OrtbSegment:
+      type: object
+      properties:
+        name:
+          type: string
+          nullable: true
+        value:
+          type: string
+          nullable: true
+      additionalProperties: false
+    OrtbSite:
+      type: object
+      properties:
+        name:
+          type: string
+          nullable: true
+        domain:
+          type: string
+          nullable: true
+        categories:
+          type: array
+          items:
+            type: string
+          nullable: true
+        sectionCategories:
+          type: array
+          items:
+            type: string
+          nullable: true
+        pageCategories:
+          type: array
+          items:
+            type: string
+          nullable: true
+        keywords:
+          type: string
+          nullable: true
+        pageUrl:
+          type: string
+          nullable: true
+        referrerUrl:
+          type: string
+          nullable: true
+        isOptimizedForMobile:
+          type: boolean
+        hasPrivacyPolicy:
+          type: boolean
+        publisher:
+          $ref: '#/components/schemas/OrtbPublisher'
+        content:
+          $ref: '#/components/schemas/OrtbContent'
+      additionalProperties: false
+    OrtbRelationshipType:
+      enum:
+      - Indirect
+      - Direct
+      type: string
+    Ad:
+      type: object
+      properties:
+        slot:
+          type: string
+          nullable: true
+        adDivId:
+          type: string
+          nullable: true
+        adUnitCode:
+          type: string
+          nullable: true
+        bidders:
+          type: array
+          items:
+            $ref: '#/components/schemas/Bid'
+          nullable: true
+        upr:
+          type: number
+          format: float
+          nullable: true
+      additionalProperties: false
+    AdPageInfo:
+      type: object
+      additionalProperties: false
+    PrebidTimeoutOutVars:
+      type: object
+      properties:
+        prebidTimeout:
+          type: integer
+          format: int32
+        awxTimeout:
+          type: integer
+          format: int32
+        bundleUrl:
+          type: string
+          nullable: true
+          deprecated: true
+        bundleId:
+          type: string
+          nullable: true
+        gptEnableSingleRequest:
+          type: boolean
+        gptLazyLoading:
+          type: string
+          nullable: true
+        buyItNowSkipGoogleAdManager:
+          type: boolean
+        testVariant:
+          type: string
+          nullable: true
+        deviceClass:
+          type: string
+          nullable: true
+        disableInitialAdLoad:
+          type: boolean
+        javascriptHead:
+          type: string
+          nullable: true
+        javascriptBody:
+          type: string
+          nullable: true
+      additionalProperties: false
+    OrtbPublisher:
+      type: object
+      properties:
+        name:
+          type: string
+          nullable: true
+        domain:
+          type: string
+          nullable: true
+        categories:
+          type: array
+          items:
+            type: string
+          nullable: true
+      additionalProperties: false
+    Bid:
+      type: object
+      properties:
+        bidder:
+          type: string
+          nullable: true
+        params:
+          type: object
+          additionalProperties: {}
+          nullable: true
+        isBuyItNow:
+          type: boolean
+      additionalProperties: false
+    OrtbData:
+      type: object
+      properties:
+        name:
+          type: string
+          nullable: true
+        extensions:
+          type: object
+          additionalProperties:
+            nullable: true
+          nullable: true
+        segments:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrtbSegment'
+          nullable: true
+      additionalProperties: false
+    OrtbContent:
+      type: object
+      properties:
+        title:
+          type: string
+          nullable: true
+        url:
+          type: string
+          nullable: true
+        categories:
+          type: array
+          items:
+            type: string
+          nullable: true
+        productQuality:
+          type: string
+          nullable: true
+        context:
+          type: string
+          nullable: true
+        keywords:
+          type: string
+          nullable: true
+        sourceRelationship:
+          $ref: '#/components/schemas/OrtbRelationshipType'
+        language:
+          type: string
+          nullable: true
+        data:
+          $ref: '#/components/schemas/OrtbData'
+      additionalProperties: false
+    AdData:
+      type: object
+      properties:
+        globalAdConfig:
+          $ref: '#/components/schemas/PrebidTimeoutOutVars'
+        ortbConfig:
+          $ref: '#/components/schemas/OrtbSite'
+        adPageInfo:
+          $ref: '#/components/schemas/AdPageInfo'
+        adSlots:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/Ad'
+          nullable: true
+        adInfo:
+          type: object
+          additionalProperties:
+            type: string
+          nullable: true
+        uspString:
+          type: string
+          nullable: true
+        ppid:
+          type: string
+          nullable: true
+        isPrebidDisabled:
+          type: boolean
+      additionalProperties: false

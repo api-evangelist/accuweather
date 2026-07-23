@@ -1,0 +1,214 @@
+openapi: 3.0.1
+info:
+  title: AccuWeather One Active Storms Tropical API
+  description: AccuWeather's internal product API for the One platform.
+  version: v1
+tags:
+- name: Tropical
+paths:
+  /api/tropical/{locationKey}:
+    get:
+      tags:
+      - Tropical
+      summary: AccuWeather Retrieves a the Latest Weather Tropical for a Location
+      parameters:
+      - name: locationKey
+        in: path
+        description: The location key to retrieve tropical conditions for
+        required: true
+        schema:
+          type: string
+        example: '347628'
+      - name: Locale
+        in: query
+        description: ISO 639-2 and ISO 3166-1 code for the locale
+        schema:
+          type: string
+          example: en-us
+        example: en-us
+      - name: MeasurementDisplay
+        in: query
+        description: Display type for weather conditions and distance
+        schema:
+          $ref: '#/components/schemas/MeasurementDisplayType'
+        example: Imperial
+      - name: WindUnit
+        in: query
+        description: Additional display type for wind direction
+        schema:
+          $ref: '#/components/schemas/WindDirectionDisplayType'
+        example: Cardinal
+      - name: Theme
+        in: query
+        description: Theme for the application
+        schema:
+          $ref: '#/components/schemas/ThemeType'
+        example: System
+      responses:
+        '200':
+          description: Wintercast found
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/EventConfidence'
+              examples:
+                _api_tropical_locationKey200Example:
+                  summary: Default _api_tropical_locationKey 200 response
+                  x-microcks-default: true
+                  value:
+                  - startDate: '2026-04-19T10:00:00Z'
+                    epochStartDate: 1
+                    endDate: '2026-04-19T10:00:00Z'
+                    epochEndDate: 1
+                    event: Ice
+                    eventKey: '347628'
+                    eventName: New York
+                    forecastRanges:
+                      lower:
+                        displayAmount: null
+                        low: null
+                        high: null
+                        probability: null
+                        phrase: null
+                      low:
+                        displayAmount: null
+                        low: null
+                        high: null
+                        probability: null
+                        phrase: null
+                      likely:
+                        displayAmount: null
+                        low: null
+                        high: null
+                        probability: null
+                        phrase: null
+                      high:
+                        displayAmount: null
+                        low: null
+                        high: null
+                        probability: null
+                        phrase: null
+                      higher:
+                        displayAmount: null
+                        low: null
+                        high: null
+                        probability: null
+                        phrase: null
+        '400':
+          description: Query parameter was missing or empty
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    ConfidenceRange:
+      type: object
+      properties:
+        lower:
+          $ref: '#/components/schemas/QuantityRangeEstimate'
+        low:
+          $ref: '#/components/schemas/QuantityRangeEstimate'
+        likely:
+          $ref: '#/components/schemas/QuantityRangeEstimate'
+        high:
+          $ref: '#/components/schemas/QuantityRangeEstimate'
+        higher:
+          $ref: '#/components/schemas/QuantityRangeEstimate'
+      additionalProperties: false
+    MeasurementDisplayType:
+      enum:
+      - Metric
+      - Imperial
+      - Hybrid
+      type: string
+    QuantityRangeEstimate:
+      type: object
+      properties:
+        displayAmount:
+          type: string
+          nullable: true
+        low:
+          $ref: '#/components/schemas/ConfidenceQuantity'
+        high:
+          $ref: '#/components/schemas/ConfidenceQuantity'
+        probability:
+          type: integer
+          format: int32
+          nullable: true
+        phrase:
+          type: string
+          nullable: true
+      additionalProperties: false
+    WeatherEventType:
+      enum:
+      - Ice
+      - Rain
+      - SevereThunderstorm
+      - Snow
+      - SustainedWind
+      - Thunderstorm
+      - Tornado
+      - Tropical
+      - Wind
+      - WindGust
+      - Unknown
+      - Hail
+      - Flooding
+      - FlashFlooding
+      - CoastalFlooding
+      - RiverFlooding
+      - Winter
+      type: string
+    ThemeType:
+      enum:
+      - Light
+      - Dark
+      - System
+      type: string
+    WindDirectionDisplayType:
+      enum:
+      - Cardinal
+      - Degrees
+      type: string
+    EventConfidence:
+      type: object
+      properties:
+        startDate:
+          type: string
+          format: date-time
+        epochStartDate:
+          type: integer
+          format: int32
+        endDate:
+          type: string
+          format: date-time
+        epochEndDate:
+          type: integer
+          format: int32
+        event:
+          $ref: '#/components/schemas/WeatherEventType'
+        eventKey:
+          type: string
+          nullable: true
+        eventName:
+          type: string
+          nullable: true
+        forecastRanges:
+          $ref: '#/components/schemas/ConfidenceRange'
+      additionalProperties: false
+    ConfidenceQuantity:
+      type: object
+      properties:
+        value:
+          type: number
+          format: float
+          nullable: true
+        unit:
+          type: string
+          nullable: true
+        unitType:
+          type: integer
+          format: int32
+      additionalProperties: false

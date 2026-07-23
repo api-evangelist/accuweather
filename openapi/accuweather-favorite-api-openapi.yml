@@ -1,0 +1,289 @@
+openapi: 3.0.1
+info:
+  title: AccuWeather One Active Storms Favorite API
+  description: AccuWeather's internal product API for the One platform.
+  version: v1
+tags:
+- name: Favorite
+paths:
+  /api/favorite:
+    get:
+      tags:
+      - Favorite
+      summary: AccuWeather Resolves and Updates the Favorite Location Cookie
+      parameters:
+      - name: LocationType
+        in: query
+        description: The type of location to resolve. Eg. address, postalCode, place, locality
+        schema:
+          type: string
+          example: city
+        example: city
+      - name: PostalCode
+        in: query
+        description: The postal code of the location to resolve.
+        schema:
+          type: string
+          example: SW1A 1AA
+        example: SW1A 1AA
+      - name: City
+        in: query
+        description: The city of the location to resolve.
+        schema:
+          type: string
+          example: London
+        example: London
+      - name: AdminCode
+        in: query
+        description: The admin code for the location.
+        schema:
+          type: string
+          example: PA
+        example: PA
+      - name: CountryCode
+        in: query
+        description: The country code for the location.
+        schema:
+          type: string
+          example: US
+        example: US
+      - name: Position
+        in: query
+        description: Comma separated position of the location to resolve. Longitude, Latitude.
+        schema:
+          type: string
+          example: 51.500321,-0.145433
+        example: 51.500321,-0.145433
+      - name: Name
+        in: query
+        description: Simple name for a location, such as the name of a city
+        schema:
+          type: string
+          example: State Collage
+        example: State Collage
+      - name: LongName
+        in: query
+        description: Full name for a location, such as the name of an Admin or address
+        schema:
+          type: string
+          example: 385 Science Park Rd, State College, PA
+        example: 385 Science Park Rd, State College, PA
+      - name: LocationKey
+        in: query
+        description: AccuWeather Location key
+        schema:
+          type: string
+          example: '335315'
+        example: '335315'
+      - name: IsCurrent
+        in: query
+        description: if 'use current location' was selected
+        schema:
+          type: boolean
+          example: true
+        example: true
+      - name: RecentId
+        in: query
+        description: recent location's guid
+        schema:
+          type: string
+          example: tru4fa4496d-fca1-4c30-8784-fb612a45ee52e
+        example: tru4fa4496d-fca1-4c30-8784-fb612a45ee52e
+      - name: FavoriteId
+        in: query
+        description: favorite location's guid (Used for Edit)
+        schema:
+          type: string
+          example: tru4fa4496d-fca1-4c30-8784-fb612a45ee52e
+        example: tru4fa4496d-fca1-4c30-8784-fb612a45ee52e
+      - name: Language
+        in: query
+        description: Language for the query to use for the response.
+        schema:
+          type: string
+          example: en-us
+        example: en-us
+      - name: Locale
+        in: query
+        description: ISO 639-2 and ISO 3166-1 code for the locale
+        schema:
+          type: string
+          example: en-us
+        example: en-us
+      - name: MeasurementDisplay
+        in: query
+        description: Display type for weather conditions and distance
+        schema:
+          $ref: '#/components/schemas/MeasurementDisplayType'
+        example: Imperial
+      - name: WindUnit
+        in: query
+        description: Additional display type for wind direction
+        schema:
+          $ref: '#/components/schemas/WindDirectionDisplayType'
+        example: Cardinal
+      - name: Theme
+        in: query
+        description: Theme for the application
+        schema:
+          $ref: '#/components/schemas/ThemeType'
+        example: System
+      responses:
+        '200':
+          description: resolved location
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FavoriteLocation'
+              examples:
+                _api_favorite200Example:
+                  summary: Default _api_favorite 200 response
+                  x-microcks-default: true
+                  value:
+                    id: '500123'
+                    key: '347628'
+                    name: New York
+                    longName: New York
+                    displayName: New York
+                    displayTemperature: example-value
+                    displayHighTemperature: example-value
+                    displayLowTemperature: example-value
+                    displayRealFeel: example-value
+                    displayRealFeelShade: example-value
+                    icon: 6
+                    conditions: example-value
+                    localTime: example-value
+                    color: example-value
+                    isBefore7PM: true
+                    isDayTime: true
+                    minuteCastForecast:
+                      summary60: example-value
+                      minutes:
+                      - displayTime: null
+                        minute: null
+                        color: null
+                        dbz: null
+                        precipitationType: null
+                    numberOfAlerts: 1
+                    latitude: 40.7128
+                    longitude: -74.006
+        '400':
+          description: Query parameter was missing or empty
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    MeasurementDisplayType:
+      enum:
+      - Metric
+      - Imperial
+      - Hybrid
+      type: string
+    MinuteCastMinute:
+      type: object
+      properties:
+        displayTime:
+          type: string
+          nullable: true
+        minute:
+          type: integer
+          format: int32
+        color:
+          type: string
+          nullable: true
+        dbz:
+          type: number
+          format: float
+          nullable: true
+        precipitationType:
+          type: string
+          nullable: true
+      additionalProperties: false
+    MinuteCastForecast:
+      type: object
+      properties:
+        summary60:
+          type: string
+          nullable: true
+        minutes:
+          type: array
+          items:
+            $ref: '#/components/schemas/MinuteCastMinute'
+          nullable: true
+      additionalProperties: false
+    ThemeType:
+      enum:
+      - Light
+      - Dark
+      - System
+      type: string
+    WindDirectionDisplayType:
+      enum:
+      - Cardinal
+      - Degrees
+      type: string
+    FavoriteLocation:
+      type: object
+      properties:
+        id:
+          type: string
+          nullable: true
+        key:
+          type: string
+          nullable: true
+        name:
+          type: string
+          nullable: true
+        longName:
+          type: string
+          nullable: true
+        displayName:
+          type: string
+          nullable: true
+        displayTemperature:
+          type: string
+          nullable: true
+        displayHighTemperature:
+          type: string
+          nullable: true
+        displayLowTemperature:
+          type: string
+          nullable: true
+        displayRealFeel:
+          type: string
+          nullable: true
+        displayRealFeelShade:
+          type: string
+          nullable: true
+        icon:
+          type: integer
+          format: int32
+        conditions:
+          type: string
+          nullable: true
+        localTime:
+          type: string
+          nullable: true
+        color:
+          type: string
+          nullable: true
+        isBefore7PM:
+          type: boolean
+        isDayTime:
+          type: boolean
+        minuteCastForecast:
+          $ref: '#/components/schemas/MinuteCastForecast'
+        numberOfAlerts:
+          type: integer
+          format: int32
+          nullable: true
+        latitude:
+          type: number
+          format: double
+          nullable: true
+        longitude:
+          type: number
+          format: double
+          nullable: true
+      additionalProperties: false

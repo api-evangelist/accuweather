@@ -1,0 +1,62 @@
+openapi: 3.0.1
+info:
+  title: AccuWeather One Active Storms Partner API
+  description: AccuWeather's internal product API for the One platform.
+  version: v1
+tags:
+- name: Partner
+paths:
+  /api/partner/{locationKey}:
+    get:
+      tags:
+      - Partner
+      summary: AccuWeather Retrieve the Partner for a Specific Location
+      parameters:
+      - name: locationKey
+        in: path
+        description: The location key to retrieve parnter
+        required: true
+        schema:
+          type: string
+        example: '347628'
+      - name: language
+        in: query
+        description: The language for the user.
+        schema:
+          type: string
+        example: example-value
+      responses:
+        '200':
+          description: Partner found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Partner'
+              examples:
+                _api_partner_locationKey200Example:
+                  summary: Default _api_partner_locationKey 200 response
+                  x-microcks-default: true
+                  value:
+                    siteName: New York
+                    logo: example-value
+                    link: example-value
+        '400':
+          description: Query parameter was missing or empty
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    Partner:
+      type: object
+      properties:
+        siteName:
+          type: string
+          nullable: true
+        logo:
+          type: string
+          nullable: true
+        link:
+          type: string
+          nullable: true
+      additionalProperties: false
