@@ -2,7 +2,19 @@ aid: accuweather
 url: https://raw.githubusercontent.com/api-evangelist/accuweather/refs/heads/main/apis.yml
 name: AccuWeather
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Freemium
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/accuweather.png
 tags:
 - Weather
 - Forecasts
@@ -20,39 +32,469 @@ created: '2023-11-22'
 modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
-- aid: accuweather:accuweather-api
-  name: AccuWeather API
-  description: The AccuWeather One Platform API provides comprehensive weather data
-    including current conditions, hourly and daily forecasts, MinuteCast minute-by-minute
-    precipitation, air quality indices, tropical storm tracking, weather alarms, lifestyle
-    indices, and radar/satellite imagery. Covers 3.5 million+ locations globally with
-    250+ weather data parameters.
+- aid: accuweather:accuweather-active-storms-api
+  name: AccuWeather Active Storms API
+  description: The Active Storms API from AccuWeather — 1 operation(s) for active storms.
   humanURL: https://developer.accuweather.com/
   baseURL: https://dataservice.accuweather.com
   tags:
-  - Weather
-  - Forecasts
-  - Air Quality
-  - Storms
-  - MinuteCast
-  - Location
+  - Active Storms
   properties:
+  - type: OpenAPI
+    url: openapi/accuweather-active-storms-api-openapi.yml
   - type: Documentation
     url: https://developer.accuweather.com/apis
-  - type: OpenAPI
-    url: https://raw.githubusercontent.com/api-evangelist/accuweather/refs/heads/main/openapi/accuweather-openapi-original.yml
   - type: Authentication
     url: https://developer.accuweather.com/
-    title: API Key (query parameter)
   - type: GettingStarted
     url: https://developer.accuweather.com/
-    title: 14-Day Free Trial
   - type: X-NaftikoCapability
     url: capabilities/accuweather-general.yaml
   - type: X-NaftikoCapability
     url: capabilities/accuweather-test.yaml
-  - url: graphql/accuweather-graphql.md
-    type: GraphQL
+  - type: GraphQL
+    url: graphql/accuweather-graphql.md
+- aid: accuweather:accuweather-ads-api
+  name: AccuWeather Ads API
+  description: The Ads API from AccuWeather — 1 operation(s) for ads.
+  humanURL: https://developer.accuweather.com/
+  baseURL: https://dataservice.accuweather.com
+  tags:
+  - Ads
+  properties:
+  - type: OpenAPI
+    url: openapi/accuweather-ads-api-openapi.yml
+  - type: Documentation
+    url: https://developer.accuweather.com/apis
+  - type: Authentication
+    url: https://developer.accuweather.com/
+  - type: GettingStarted
+    url: https://developer.accuweather.com/
+  - type: X-NaftikoCapability
+    url: capabilities/accuweather-general.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/accuweather-test.yaml
+  - type: GraphQL
+    url: graphql/accuweather-graphql.md
+- aid: accuweather:accuweather-airquality-api
+  name: AccuWeather AirQuality API
+  description: The AirQuality API from AccuWeather — 1 operation(s) for airquality.
+  humanURL: https://developer.accuweather.com/
+  baseURL: https://dataservice.accuweather.com
+  tags:
+  - AirQuality
+  properties:
+  - type: OpenAPI
+    url: openapi/accuweather-airquality-api-openapi.yml
+  - type: Documentation
+    url: https://developer.accuweather.com/apis
+  - type: Authentication
+    url: https://developer.accuweather.com/
+  - type: GettingStarted
+    url: https://developer.accuweather.com/
+  - type: X-NaftikoCapability
+    url: capabilities/accuweather-general.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/accuweather-test.yaml
+  - type: GraphQL
+    url: graphql/accuweather-graphql.md
+- aid: accuweather:accuweather-autocomplete-api
+  name: AccuWeather Autocomplete API
+  description: The Autocomplete API from AccuWeather — 1 operation(s) for autocomplete.
+  humanURL: https://developer.accuweather.com/
+  baseURL: https://dataservice.accuweather.com
+  tags:
+  - Autocomplete
+  properties:
+  - type: OpenAPI
+    url: openapi/accuweather-autocomplete-api-openapi.yml
+  - type: Documentation
+    url: https://developer.accuweather.com/apis
+  - type: Authentication
+    url: https://developer.accuweather.com/
+  - type: GettingStarted
+    url: https://developer.accuweather.com/
+  - type: X-NaftikoCapability
+    url: capabilities/accuweather-general.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/accuweather-test.yaml
+  - type: GraphQL
+    url: graphql/accuweather-graphql.md
+- aid: accuweather:accuweather-current-api
+  name: AccuWeather Current API
+  description: The Current API from AccuWeather — 1 operation(s) for current.
+  humanURL: https://developer.accuweather.com/
+  baseURL: https://dataservice.accuweather.com
+  tags:
+  - Current
+  properties:
+  - type: OpenAPI
+    url: openapi/accuweather-current-api-openapi.yml
+  - type: Documentation
+    url: https://developer.accuweather.com/apis
+  - type: Authentication
+    url: https://developer.accuweather.com/
+  - type: GettingStarted
+    url: https://developer.accuweather.com/
+  - type: X-NaftikoCapability
+    url: capabilities/accuweather-general.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/accuweather-test.yaml
+  - type: GraphQL
+    url: graphql/accuweather-graphql.md
+- aid: accuweather:accuweather-current-conditions-api
+  name: AccuWeather Current Conditions API
+  description: The Current Conditions API from AccuWeather — 1 operation(s) for current conditions.
+  humanURL: https://developer.accuweather.com/
+  baseURL: https://dataservice.accuweather.com
+  tags:
+  - Current Conditions
+  properties:
+  - type: OpenAPI
+    url: openapi/accuweather-current-conditions-api-openapi.yml
+  - type: Documentation
+    url: https://developer.accuweather.com/apis
+  - type: Authentication
+    url: https://developer.accuweather.com/
+  - type: GettingStarted
+    url: https://developer.accuweather.com/
+  - type: X-NaftikoCapability
+    url: capabilities/accuweather-general.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/accuweather-test.yaml
+  - type: GraphQL
+    url: graphql/accuweather-graphql.md
+- aid: accuweather:accuweather-daily-api
+  name: AccuWeather Daily API
+  description: The Daily API from AccuWeather — 1 operation(s) for daily.
+  humanURL: https://developer.accuweather.com/
+  baseURL: https://dataservice.accuweather.com
+  tags:
+  - Daily
+  properties:
+  - type: OpenAPI
+    url: openapi/accuweather-daily-api-openapi.yml
+  - type: Documentation
+    url: https://developer.accuweather.com/apis
+  - type: Authentication
+    url: https://developer.accuweather.com/
+  - type: GettingStarted
+    url: https://developer.accuweather.com/
+  - type: X-NaftikoCapability
+    url: capabilities/accuweather-general.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/accuweather-test.yaml
+  - type: GraphQL
+    url: graphql/accuweather-graphql.md
+- aid: accuweather:accuweather-daily-indices-api
+  name: AccuWeather Daily Indices API
+  description: The Daily Indices API from AccuWeather — 1 operation(s) for daily indices.
+  humanURL: https://developer.accuweather.com/
+  baseURL: https://dataservice.accuweather.com
+  tags:
+  - Daily Indices
+  properties:
+  - type: OpenAPI
+    url: openapi/accuweather-daily-indices-api-openapi.yml
+  - type: Documentation
+    url: https://developer.accuweather.com/apis
+  - type: Authentication
+    url: https://developer.accuweather.com/
+  - type: GettingStarted
+    url: https://developer.accuweather.com/
+  - type: X-NaftikoCapability
+    url: capabilities/accuweather-general.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/accuweather-test.yaml
+  - type: GraphQL
+    url: graphql/accuweather-graphql.md
+- aid: accuweather:accuweather-favorite-api
+  name: AccuWeather Favorite API
+  description: The Favorite API from AccuWeather — 1 operation(s) for favorite.
+  humanURL: https://developer.accuweather.com/
+  baseURL: https://dataservice.accuweather.com
+  tags:
+  - Favorite
+  properties:
+  - type: OpenAPI
+    url: openapi/accuweather-favorite-api-openapi.yml
+  - type: Documentation
+    url: https://developer.accuweather.com/apis
+  - type: Authentication
+    url: https://developer.accuweather.com/
+  - type: GettingStarted
+    url: https://developer.accuweather.com/
+  - type: X-NaftikoCapability
+    url: capabilities/accuweather-general.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/accuweather-test.yaml
+  - type: GraphQL
+    url: graphql/accuweather-graphql.md
+- aid: accuweather:accuweather-hourly-api
+  name: AccuWeather Hourly API
+  description: The Hourly API from AccuWeather — 1 operation(s) for hourly.
+  humanURL: https://developer.accuweather.com/
+  baseURL: https://dataservice.accuweather.com
+  tags:
+  - Hourly
+  properties:
+  - type: OpenAPI
+    url: openapi/accuweather-hourly-api-openapi.yml
+  - type: Documentation
+    url: https://developer.accuweather.com/apis
+  - type: Authentication
+    url: https://developer.accuweather.com/
+  - type: GettingStarted
+    url: https://developer.accuweather.com/
+  - type: X-NaftikoCapability
+    url: capabilities/accuweather-general.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/accuweather-test.yaml
+  - type: GraphQL
+    url: graphql/accuweather-graphql.md
+- aid: accuweather:accuweather-hourlyaq-api
+  name: AccuWeather Hourlyaq API
+  description: The Hourlyaq API from AccuWeather — 1 operation(s) for hourlyaq.
+  humanURL: https://developer.accuweather.com/
+  baseURL: https://dataservice.accuweather.com
+  tags:
+  - Hourlyaq
+  properties:
+  - type: OpenAPI
+    url: openapi/accuweather-hourlyaq-api-openapi.yml
+  - type: Documentation
+    url: https://developer.accuweather.com/apis
+  - type: Authentication
+    url: https://developer.accuweather.com/
+  - type: GettingStarted
+    url: https://developer.accuweather.com/
+  - type: X-NaftikoCapability
+    url: capabilities/accuweather-general.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/accuweather-test.yaml
+  - type: GraphQL
+    url: graphql/accuweather-graphql.md
+- aid: accuweather:accuweather-minutecast-api
+  name: AccuWeather Minutecast API
+  description: The Minutecast API from AccuWeather — 1 operation(s) for minutecast.
+  humanURL: https://developer.accuweather.com/
+  baseURL: https://dataservice.accuweather.com
+  tags:
+  - Minutecast
+  properties:
+  - type: OpenAPI
+    url: openapi/accuweather-minutecast-api-openapi.yml
+  - type: Documentation
+    url: https://developer.accuweather.com/apis
+  - type: Authentication
+    url: https://developer.accuweather.com/
+  - type: GettingStarted
+    url: https://developer.accuweather.com/
+  - type: X-NaftikoCapability
+    url: capabilities/accuweather-general.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/accuweather-test.yaml
+  - type: GraphQL
+    url: graphql/accuweather-graphql.md
+- aid: accuweather:accuweather-partner-api
+  name: AccuWeather Partner API
+  description: The Partner API from AccuWeather — 1 operation(s) for partner.
+  humanURL: https://developer.accuweather.com/
+  baseURL: https://dataservice.accuweather.com
+  tags:
+  - Partner
+  properties:
+  - type: OpenAPI
+    url: openapi/accuweather-partner-api-openapi.yml
+  - type: Documentation
+    url: https://developer.accuweather.com/apis
+  - type: Authentication
+    url: https://developer.accuweather.com/
+  - type: GettingStarted
+    url: https://developer.accuweather.com/
+  - type: X-NaftikoCapability
+    url: capabilities/accuweather-general.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/accuweather-test.yaml
+  - type: GraphQL
+    url: graphql/accuweather-graphql.md
+- aid: accuweather:accuweather-raine-api
+  name: AccuWeather Raine API
+  description: The Raine API from AccuWeather — 1 operation(s) for raine.
+  humanURL: https://developer.accuweather.com/
+  baseURL: https://dataservice.accuweather.com
+  tags:
+  - Raine
+  properties:
+  - type: OpenAPI
+    url: openapi/accuweather-raine-api-openapi.yml
+  - type: Documentation
+    url: https://developer.accuweather.com/apis
+  - type: Authentication
+    url: https://developer.accuweather.com/
+  - type: GettingStarted
+    url: https://developer.accuweather.com/
+  - type: X-NaftikoCapability
+    url: capabilities/accuweather-general.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/accuweather-test.yaml
+  - type: GraphQL
+    url: graphql/accuweather-graphql.md
+- aid: accuweather:accuweather-resolve-location-api
+  name: AccuWeather Resolve Location API
+  description: The Resolve Location API from AccuWeather — 1 operation(s) for resolve location.
+  humanURL: https://developer.accuweather.com/
+  baseURL: https://dataservice.accuweather.com
+  tags:
+  - Resolve Location
+  properties:
+  - type: OpenAPI
+    url: openapi/accuweather-resolve-location-api-openapi.yml
+  - type: Documentation
+    url: https://developer.accuweather.com/apis
+  - type: Authentication
+    url: https://developer.accuweather.com/
+  - type: GettingStarted
+    url: https://developer.accuweather.com/
+  - type: X-NaftikoCapability
+    url: capabilities/accuweather-general.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/accuweather-test.yaml
+  - type: GraphQL
+    url: graphql/accuweather-graphql.md
+- aid: accuweather:accuweather-resolve-location-redirect-api
+  name: AccuWeather Resolve Location Redirect API
+  description: >-
+    The Resolve Location Redirect API from AccuWeather — 1 operation(s) for resolve location redirect.
+  humanURL: https://developer.accuweather.com/
+  baseURL: https://dataservice.accuweather.com
+  tags:
+  - Resolve Location Redirect
+  properties:
+  - type: OpenAPI
+    url: openapi/accuweather-resolve-location-redirect-api-openapi.yml
+  - type: Documentation
+    url: https://developer.accuweather.com/apis
+  - type: Authentication
+    url: https://developer.accuweather.com/
+  - type: GettingStarted
+    url: https://developer.accuweather.com/
+  - type: X-NaftikoCapability
+    url: capabilities/accuweather-general.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/accuweather-test.yaml
+  - type: GraphQL
+    url: graphql/accuweather-graphql.md
+- aid: accuweather:accuweather-staticmap-api
+  name: AccuWeather StaticMap API
+  description: The StaticMap API from AccuWeather — 1 operation(s) for staticmap.
+  humanURL: https://developer.accuweather.com/
+  baseURL: https://dataservice.accuweather.com
+  tags:
+  - StaticMap
+  properties:
+  - type: OpenAPI
+    url: openapi/accuweather-staticmap-api-openapi.yml
+  - type: Documentation
+    url: https://developer.accuweather.com/apis
+  - type: Authentication
+    url: https://developer.accuweather.com/
+  - type: GettingStarted
+    url: https://developer.accuweather.com/
+  - type: X-NaftikoCapability
+    url: capabilities/accuweather-general.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/accuweather-test.yaml
+  - type: GraphQL
+    url: graphql/accuweather-graphql.md
+- aid: accuweather:accuweather-storm-api
+  name: AccuWeather Storm API
+  description: The Storm API from AccuWeather — 1 operation(s) for storm.
+  humanURL: https://developer.accuweather.com/
+  baseURL: https://dataservice.accuweather.com
+  tags:
+  - Storm
+  properties:
+  - type: OpenAPI
+    url: openapi/accuweather-storm-api-openapi.yml
+  - type: Documentation
+    url: https://developer.accuweather.com/apis
+  - type: Authentication
+    url: https://developer.accuweather.com/
+  - type: GettingStarted
+    url: https://developer.accuweather.com/
+  - type: X-NaftikoCapability
+    url: capabilities/accuweather-general.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/accuweather-test.yaml
+  - type: GraphQL
+    url: graphql/accuweather-graphql.md
+- aid: accuweather:accuweather-test-api
+  name: AccuWeather Test API
+  description: The Test API from AccuWeather — 1 operation(s) for test.
+  humanURL: https://developer.accuweather.com/
+  baseURL: https://dataservice.accuweather.com
+  tags:
+  - Test
+  properties:
+  - type: OpenAPI
+    url: openapi/accuweather-test-api-openapi.yml
+  - type: Documentation
+    url: https://developer.accuweather.com/apis
+  - type: Authentication
+    url: https://developer.accuweather.com/
+  - type: GettingStarted
+    url: https://developer.accuweather.com/
+  - type: X-NaftikoCapability
+    url: capabilities/accuweather-general.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/accuweather-test.yaml
+  - type: GraphQL
+    url: graphql/accuweather-graphql.md
+- aid: accuweather:accuweather-tropical-api
+  name: AccuWeather Tropical API
+  description: The Tropical API from AccuWeather — 1 operation(s) for tropical.
+  humanURL: https://developer.accuweather.com/
+  baseURL: https://dataservice.accuweather.com
+  tags:
+  - Tropical
+  properties:
+  - type: OpenAPI
+    url: openapi/accuweather-tropical-api-openapi.yml
+  - type: Documentation
+    url: https://developer.accuweather.com/apis
+  - type: Authentication
+    url: https://developer.accuweather.com/
+  - type: GettingStarted
+    url: https://developer.accuweather.com/
+  - type: X-NaftikoCapability
+    url: capabilities/accuweather-general.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/accuweather-test.yaml
+  - type: GraphQL
+    url: graphql/accuweather-graphql.md
+- aid: accuweather:accuweather-wintercast-api
+  name: AccuWeather Wintercast API
+  description: The Wintercast API from AccuWeather — 1 operation(s) for wintercast.
+  humanURL: https://developer.accuweather.com/
+  baseURL: https://dataservice.accuweather.com
+  tags:
+  - Wintercast
+  properties:
+  - type: OpenAPI
+    url: openapi/accuweather-wintercast-api-openapi.yml
+  - type: Documentation
+    url: https://developer.accuweather.com/apis
+  - type: Authentication
+    url: https://developer.accuweather.com/
+  - type: GettingStarted
+    url: https://developer.accuweather.com/
+  - type: X-NaftikoCapability
+    url: capabilities/accuweather-general.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/accuweather-test.yaml
+  - type: GraphQL
+    url: graphql/accuweather-graphql.md
 common:
 - type: AgenticAccess
   url: agentic-access/accuweather-agentic-access.yml
