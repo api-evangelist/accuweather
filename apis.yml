@@ -48,10 +48,6 @@ apis:
     url: https://developer.accuweather.com/
   - type: GettingStarted
     url: https://developer.accuweather.com/
-  - type: X-NaftikoCapability
-    url: capabilities/accuweather-general.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/accuweather-test.yaml
   - type: GraphQL
     url: graphql/accuweather-graphql.md
 - aid: accuweather:accuweather-ads-api
@@ -70,10 +66,6 @@ apis:
     url: https://developer.accuweather.com/
   - type: GettingStarted
     url: https://developer.accuweather.com/
-  - type: X-NaftikoCapability
-    url: capabilities/accuweather-general.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/accuweather-test.yaml
   - type: GraphQL
     url: graphql/accuweather-graphql.md
 - aid: accuweather:accuweather-airquality-api
@@ -92,10 +84,6 @@ apis:
     url: https://developer.accuweather.com/
   - type: GettingStarted
     url: https://developer.accuweather.com/
-  - type: X-NaftikoCapability
-    url: capabilities/accuweather-general.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/accuweather-test.yaml
   - type: GraphQL
     url: graphql/accuweather-graphql.md
 - aid: accuweather:accuweather-autocomplete-api
@@ -114,10 +102,6 @@ apis:
     url: https://developer.accuweather.com/
   - type: GettingStarted
     url: https://developer.accuweather.com/
-  - type: X-NaftikoCapability
-    url: capabilities/accuweather-general.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/accuweather-test.yaml
   - type: GraphQL
     url: graphql/accuweather-graphql.md
 - aid: accuweather:accuweather-current-api
@@ -136,10 +120,6 @@ apis:
     url: https://developer.accuweather.com/
   - type: GettingStarted
     url: https://developer.accuweather.com/
-  - type: X-NaftikoCapability
-    url: capabilities/accuweather-general.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/accuweather-test.yaml
   - type: GraphQL
     url: graphql/accuweather-graphql.md
 - aid: accuweather:accuweather-current-conditions-api
@@ -158,10 +138,6 @@ apis:
     url: https://developer.accuweather.com/
   - type: GettingStarted
     url: https://developer.accuweather.com/
-  - type: X-NaftikoCapability
-    url: capabilities/accuweather-general.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/accuweather-test.yaml
   - type: GraphQL
     url: graphql/accuweather-graphql.md
 - aid: accuweather:accuweather-daily-api
@@ -180,10 +156,6 @@ apis:
     url: https://developer.accuweather.com/
   - type: GettingStarted
     url: https://developer.accuweather.com/
-  - type: X-NaftikoCapability
-    url: capabilities/accuweather-general.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/accuweather-test.yaml
   - type: GraphQL
     url: graphql/accuweather-graphql.md
 - aid: accuweather:accuweather-daily-indices-api
@@ -202,10 +174,6 @@ apis:
     url: https://developer.accuweather.com/
   - type: GettingStarted
     url: https://developer.accuweather.com/
-  - type: X-NaftikoCapability
-    url: capabilities/accuweather-general.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/accuweather-test.yaml
   - type: GraphQL
     url: graphql/accuweather-graphql.md
 - aid: accuweather:accuweather-favorite-api
@@ -224,10 +192,6 @@ apis:
     url: https://developer.accuweather.com/
   - type: GettingStarted
     url: https://developer.accuweather.com/
-  - type: X-NaftikoCapability
-    url: capabilities/accuweather-general.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/accuweather-test.yaml
   - type: GraphQL
     url: graphql/accuweather-graphql.md
 - aid: accuweather:accuweather-hourly-api
@@ -246,10 +210,6 @@ apis:
     url: https://developer.accuweather.com/
   - type: GettingStarted
     url: https://developer.accuweather.com/
-  - type: X-NaftikoCapability
-    url: capabilities/accuweather-general.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/accuweather-test.yaml
   - type: GraphQL
     url: graphql/accuweather-graphql.md
 - aid: accuweather:accuweather-hourlyaq-api
@@ -268,10 +228,6 @@ apis:
     url: https://developer.accuweather.com/
   - type: GettingStarted
     url: https://developer.accuweather.com/
-  - type: X-NaftikoCapability
-    url: capabilities/accuweather-general.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/accuweather-test.yaml
   - type: GraphQL
     url: graphql/accuweather-graphql.md
 - aid: accuweather:accuweather-minutecast-api
@@ -290,10 +246,6 @@ apis:
     url: https://developer.accuweather.com/
   - type: GettingStarted
     url: https://developer.accuweather.com/
-  - type: X-NaftikoCapability
-    url: capabilities/accuweather-general.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/accuweather-test.yaml
   - type: GraphQL
     url: graphql/accuweather-graphql.md
 - aid: accuweather:accuweather-partner-api
@@ -312,10 +264,6 @@ apis:
     url: https://developer.accuweather.com/
   - type: GettingStarted
     url: https://developer.accuweather.com/
-  - type: X-NaftikoCapability
-    url: capabilities/accuweather-general.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/accuweather-test.yaml
   - type: GraphQL
     url: graphql/accuweather-graphql.md
 - aid: accuweather:accuweather-raine-api
@@ -334,10 +282,6 @@ apis:
     url: https://developer.accuweather.com/
   - type: GettingStarted
     url: https://developer.accuweather.com/
-  - type: X-NaftikoCapability
-    url: capabilities/accuweather-general.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/accuweather-test.yaml
   - type: GraphQL
     url: graphql/accuweather-graphql.md
 - aid: accuweather:accuweather-resolve-location-api
@@ -356,10 +300,6 @@ apis:
     url: https://developer.accuweather.com/
   - type: GettingStarted
     url: https://developer.accuweather.com/
-  - type: X-NaftikoCapability
-    url: capabilities/accuweather-general.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/accuweather-test.yaml
   - type: GraphQL
     url: graphql/accuweather-graphql.md
 - aid: accuweather:accuweather-resolve-location-redirect-api
@@ -379,10 +319,6 @@ apis:
     url: https://developer.accuweather.com/
   - type: GettingStarted
     url: https://developer.accuweather.com/
-  - type: X-NaftikoCapability
-    url: capabilities/accuweather-general.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/accuweather-test.yaml
   - type: GraphQL
     url: graphql/accuweather-graphql.md
 - aid: accuweather:accuweather-staticmap-api
@@ -401,10 +337,6 @@ apis:
     url: https://developer.accuweather.com/
   - type: GettingStarted
     url: https://developer.accuweather.com/
-  - type: X-NaftikoCapability
-    url: capabilities/accuweather-general.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/accuweather-test.yaml
   - type: GraphQL
     url: graphql/accuweather-graphql.md
 - aid: accuweather:accuweather-storm-api
@@ -423,10 +355,6 @@ apis:
     url: https://developer.accuweather.com/
   - type: GettingStarted
     url: https://developer.accuweather.com/
-  - type: X-NaftikoCapability
-    url: capabilities/accuweather-general.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/accuweather-test.yaml
   - type: GraphQL
     url: graphql/accuweather-graphql.md
 - aid: accuweather:accuweather-test-api
@@ -445,10 +373,6 @@ apis:
     url: https://developer.accuweather.com/
   - type: GettingStarted
     url: https://developer.accuweather.com/
-  - type: X-NaftikoCapability
-    url: capabilities/accuweather-general.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/accuweather-test.yaml
   - type: GraphQL
     url: graphql/accuweather-graphql.md
 - aid: accuweather:accuweather-tropical-api
@@ -467,10 +391,6 @@ apis:
     url: https://developer.accuweather.com/
   - type: GettingStarted
     url: https://developer.accuweather.com/
-  - type: X-NaftikoCapability
-    url: capabilities/accuweather-general.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/accuweather-test.yaml
   - type: GraphQL
     url: graphql/accuweather-graphql.md
 - aid: accuweather:accuweather-wintercast-api
@@ -489,10 +409,6 @@ apis:
     url: https://developer.accuweather.com/
   - type: GettingStarted
     url: https://developer.accuweather.com/
-  - type: X-NaftikoCapability
-    url: capabilities/accuweather-general.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/accuweather-test.yaml
   - type: GraphQL
     url: graphql/accuweather-graphql.md
 common:
