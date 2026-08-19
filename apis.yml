@@ -30,7 +30,7 @@ description: AccuWeather provides the world's most sophisticated weather intelli
   daily.
 created: '2023-11-22'
 modified: '2026-05-19'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
 - aid: accuweather:accuweather-active-storms-api
   name: AccuWeather Active Storms API
