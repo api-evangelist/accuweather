@@ -1,0 +1,49 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AccuWeather One Active Storms Ads API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Ads",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "AccuWeather Get the Data for Given Ad Slots",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://dataservice.accuweather.com/api/ads/:locationKey",
+            "params": [
+              {
+                "name": "locationKey",
+                "value": "347628",
+                "type": "path",
+                "description": "AccuWeather location key"
+              },
+              {
+                "name": "page",
+                "value": "example-value",
+                "type": "query",
+                "description": "Page id"
+              },
+              {
+                "name": "slots",
+                "value": "example-value",
+                "type": "query",
+                "description": "Comma seperated list of ad slots"
+              }
+            ]
+          },
+          "docs": "AccuWeather Get the Data for Given Ad Slots"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

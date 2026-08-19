@@ -1,0 +1,49 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AccuWeather One Active Storms Wintercast API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Wintercast",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "AccuWeather Retrieves a the Latest Weather Wintercast for a Location",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://dataservice.accuweather.com/api/wintercast/:locationKey",
+            "params": [
+              {
+                "name": "locationKey",
+                "value": "347628",
+                "type": "path",
+                "description": "The location key to retrieve weather conditions for"
+              },
+              {
+                "name": "language",
+                "value": "example-value",
+                "type": "query",
+                "description": "The language to retrieve the information in"
+              },
+              {
+                "name": "isMetric",
+                "value": "true",
+                "type": "query",
+                "description": "The units to retrieve the information in"
+              }
+            ]
+          },
+          "docs": "AccuWeather Retrieves a the Latest Weather Wintercast for a Location"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

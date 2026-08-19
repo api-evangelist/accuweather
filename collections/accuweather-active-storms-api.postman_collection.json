@@ -1,0 +1,181 @@
+{
+  "item": [
+    {
+      "id": "7fb4b80e-c9aa-4140-8150-5485e5ba9d46",
+      "name": "Active Storms",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "62becb44-2833-4b7f-9ddd-2f65ec5d1b33",
+          "name": "AccuWeather Retrieves All Active Global Storms",
+          "request": {
+            "name": "AccuWeather Retrieves All Active Global Storms",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "active-storms",
+                ":locationKey"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "Locale",
+                  "value": "<string>",
+                  "description": "ISO 639-2 and ISO 3166-1 code for the locale"
+                },
+                {
+                  "disabled": false,
+                  "key": "MeasurementDisplay",
+                  "value": "<string>",
+                  "description": "Display type for weather conditions and distance"
+                },
+                {
+                  "disabled": false,
+                  "key": "WindUnit",
+                  "value": "<string>",
+                  "description": "Additional display type for wind direction"
+                },
+                {
+                  "disabled": false,
+                  "key": "Theme",
+                  "value": "<string>",
+                  "description": "Theme for the application"
+                },
+                {
+                  "disabled": false,
+                  "key": "gmtOffset",
+                  "value": "<float>",
+                  "description": "The GMT offset for the user"
+                },
+                {
+                  "disabled": false,
+                  "key": "timeZone",
+                  "value": "<string>",
+                  "description": "The time zone for the user"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "locationKey",
+                  "description": "(Required) The location key to retrieve tropical conditions for"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "46f4cf2e-7935-4553-9520-bc6f6249380e",
+              "name": "Storms found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "active-storms",
+                    ":locationKey"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Locale",
+                      "value": "en-us"
+                    },
+                    {
+                      "key": "MeasurementDisplay",
+                      "value": "Imperial"
+                    },
+                    {
+                      "key": "WindUnit",
+                      "value": "Cardinal"
+                    },
+                    {
+                      "key": "Theme",
+                      "value": "System"
+                    },
+                    {
+                      "key": "gmtOffset",
+                      "value": "42"
+                    },
+                    {
+                      "key": "timeZone",
+                      "value": "example-value"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "locationKey",
+                      "description": "(Required) The location key to retrieve tropical conditions for"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"accuId\": 1,\n    \"eventKey\": \"347628\",\n    \"isActive\": true,\n    \"basin\": \"example-value\",\n    \"basinId\": \"AL\",\n    \"basinSlug\": \"example-value\",\n    \"governmentId\": 1,\n    \"level\": \"example-value\",\n    \"name\": \"New York\",\n    \"updatedStormName\": \"New York\",\n    \"stormPositions\": [\n      {\n        \"coordinates\": null,\n        \"dateTime\": null,\n        \"localDate\": null,\n        \"localDayOfWeek\": null,\n        \"dateTimeLabelShort\": null,\n        \"dateTimeLabel\": null,\n        \"shortDateShortTimeLabel\": null,\n        \"direction\": null,\n        \"isCurrent\": null,\n        \"isHistorical\": null,\n        \"isMarked\": null,\n        \"isPeak\": null,\n        \"latitude\": null,\n        \"longitude\": null,\n        \"maximumSustainedWind\": null,\n        \"maximumSustainedWindValue\": null,\n        \"maximumWindGust\": null,\n        \"maximumWindGustValue\": null,\n        \"windDegrees\": null,\n        \"minimumPressure\": null,\n        \"position\": null,\n        \"speed\": null,\n        \"status\": null,\n        \"localizedStatus\": null,\n        \"statusName\": null,\n        \"statusIcon\": null,\n        \"statusIconString\": null,\n        \"landmarkReferences\": null,\n        \"eventKey\": null\n      }\n    ],\n    \"peakPosition\": {\n      \"coordinates\": {\n        \"type\": null,\n        \"coordinates\": null\n      },\n      \"dateTime\": \"2026-04-19T10:00:00Z\",\n      \"localDate\": \"2026-04-19T10:00:00Z\",\n      \"localDayOfWeek\": \"example-value\",\n      \"dateTimeLabelShort\": \"example-value\",\n      \"dateTimeLabel\": \"example-value\",\n      \"shortDateShortTimeLabel\": \"example-value\",\n      \"direction\": \"example-value\",\n      \"isCurrent\": true,\n      \"isHistorical\": true,\n      \"isMarked\": true,\n      \"isPeak\": true,\n      \"latitude\": 40.7128,\n      \"longitude\": -74.006,\n      \"maximumSustainedWind\": \"example-value\",\n      \"maximumSustainedWindValue\": 12.5,\n      \"maximumWindGust\": \"example-value\",\n      \"maximumWindGustValue\": 12.5,\n      \"windDegrees\": 12.5,\n      \"minimumPressure\": \"example-value\",\n      \"position\": \"example-value\",\n      \"speed\": \"example-value\",\n      \"status\": \"example-value\",\n      \"localizedStatus\": \"example-value\",\n      \"statusName\": \"New York\",\n      \"statusIcon\": \"ExtratropicalStorm\",\n      \"statusIconString\": \"6\",\n      \"landmarkReferences\": [\n        null\n      ],\n      \"eventKey\": \"347628\"\n    },\n    \"start\": \"2026-04-19T10:00:00Z\",\n    \"startEpoch\": 1,\n    \"end\": \"2026-04-19T10:00:00Z\",\n    \"localStart\": \"2026-04-19T10:00:00Z\",\n    \"localEnd\": \"2026-04-19T10:00:00Z\",\n    \"year\": 1,\n    \"isFuture\": true,\n    \"stormLink\": \"example-value\",\n    \"localizedStartDate\": \"example-value\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://dataservice.accuweather.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "afbe1426-851e-4d30-a6b7-0ca0aeb6489d",
+    "name": "AccuWeather One Active Storms API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "AccuWeather's internal product API for the One platform.",
+      "type": "text/plain"
+    }
+  }
+}

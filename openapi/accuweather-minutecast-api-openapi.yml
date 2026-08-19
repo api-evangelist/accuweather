@@ -119,3 +119,6 @@ components:
       - Cardinal
       - Degrees
       type: string
+servers:
+- url: https://dataservice.accuweather.com
+  description: Base URL reconciled from apis.yml

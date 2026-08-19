@@ -1,0 +1,316 @@
+{
+  "item": [
+    {
+      "id": "41d4eefe-9abc-4853-851e-4ff91f195834",
+      "name": "Resolve Location",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4eda8675-ac3d-4c97-a975-cc46d59d4117",
+          "name": "AccuWeather Takes in a Location as a Query Parameter",
+          "request": {
+            "name": "AccuWeather Takes in a Location as a Query Parameter",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "resolve-location"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "LocationType",
+                  "value": "<string>",
+                  "description": "The type of location to resolve. Eg. address, postalCode, place, locality"
+                },
+                {
+                  "disabled": false,
+                  "key": "PostalCode",
+                  "value": "<string>",
+                  "description": "The postal code of the location to resolve."
+                },
+                {
+                  "disabled": false,
+                  "key": "City",
+                  "value": "<string>",
+                  "description": "The city of the location to resolve."
+                },
+                {
+                  "disabled": false,
+                  "key": "AdminCode",
+                  "value": "<string>",
+                  "description": "The admin code for the location."
+                },
+                {
+                  "disabled": false,
+                  "key": "CountryCode",
+                  "value": "<string>",
+                  "description": "The country code for the location."
+                },
+                {
+                  "disabled": false,
+                  "key": "Position",
+                  "value": "<string>",
+                  "description": "Comma separated position of the location to resolve. Longitude, Latitude."
+                },
+                {
+                  "disabled": false,
+                  "key": "Name",
+                  "value": "<string>",
+                  "description": "Simple name for a location, such as the name of a city"
+                },
+                {
+                  "disabled": false,
+                  "key": "LongName",
+                  "value": "<string>",
+                  "description": "Full name for a location, such as the name of an Admin or address"
+                },
+                {
+                  "disabled": false,
+                  "key": "LocationKey",
+                  "value": "<string>",
+                  "description": "AccuWeather Location key"
+                },
+                {
+                  "disabled": false,
+                  "key": "IsCurrent",
+                  "value": "<boolean>",
+                  "description": "if 'use current location' was selected"
+                },
+                {
+                  "disabled": false,
+                  "key": "RecentId",
+                  "value": "<string>",
+                  "description": "recent location's guid"
+                },
+                {
+                  "disabled": false,
+                  "key": "FavoriteId",
+                  "value": "<string>",
+                  "description": "favorite location's guid (Used for Edit)"
+                },
+                {
+                  "disabled": false,
+                  "key": "Language",
+                  "value": "<string>",
+                  "description": "Language for the query to use for the response."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a2c89361-2657-4a96-baf2-979b05d12c1b",
+              "name": "Location resolved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "resolve-location"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "LocationType",
+                      "value": "city"
+                    },
+                    {
+                      "key": "PostalCode",
+                      "value": "SW1A 1AA"
+                    },
+                    {
+                      "key": "City",
+                      "value": "London"
+                    },
+                    {
+                      "key": "AdminCode",
+                      "value": "PA"
+                    },
+                    {
+                      "key": "CountryCode",
+                      "value": "US"
+                    },
+                    {
+                      "key": "Position",
+                      "value": "51.500321,-0.145433"
+                    },
+                    {
+                      "key": "Name",
+                      "value": "State Collage"
+                    },
+                    {
+                      "key": "LongName",
+                      "value": "385 Science Park Rd, State College, PA"
+                    },
+                    {
+                      "key": "LocationKey",
+                      "value": "335315"
+                    },
+                    {
+                      "key": "IsCurrent",
+                      "value": "true"
+                    },
+                    {
+                      "key": "RecentId",
+                      "value": "tru4fa4496d-fca1-4c30-8784-fb612a45ee52e"
+                    },
+                    {
+                      "key": "FavoriteId",
+                      "value": "tru4fa4496d-fca1-4c30-8784-fb612a45ee52e"
+                    },
+                    {
+                      "key": "Language",
+                      "value": "en-us"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"locationType\": \"address\",\n  \"city\": \"London\",\n  \"adminCode\": \"PA\",\n  \"countryCode\": \"US\",\n  \"postalCode\": \"example-value\",\n  \"position\": [\n    51.50032,\n    -0.145433\n  ],\n  \"name\": \"Buckingham Palace\",\n  \"longName\": \"Buckingham Palace, Westminster, London, Greater London GBR\",\n  \"locationSettingsInfo\": {\n    \"id\": \"50603e3f-5433-4d14-9b5f-01c8cf619d9b\",\n    \"locationKey\": \"328328\",\n    \"name\": \"State Collage\",\n    \"longName\": \"385 Science Park Rd, State College, PA\",\n    \"displayName\": \"385 Science Park Rd, State College, PA or Eureka, CA USA\",\n    \"stationCode\": \"EGRB\",\n    \"supportedDataSets\": [\n      \"AirQualityCurrentConditions\",\n      \"AirQualityForecasts\",\n      \"Alerts\",\n      \"DailyAirQualityForecast\",\n      \"DailyPollenForecast\",\n      \"ForecastConfidence\",\n      \"FutureRadar\",\n      \"MinuteCast\",\n      \"ProximityNotification-Lightning\",\n      \"Radar\"\n    ],\n    \"supportsMinuteCast\": true,\n    \"latitude\": 40.7128,\n    \"longitude\": -74.006,\n    \"supportsEventConfidence\": true\n  },\n  \"source\": \"AccuWeather\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "59ace856-45b5-4abb-a5fa-8de199b53638",
+              "name": "Location was unable to be resolved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "resolve-location"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "LocationType",
+                      "value": "city"
+                    },
+                    {
+                      "key": "PostalCode",
+                      "value": "SW1A 1AA"
+                    },
+                    {
+                      "key": "City",
+                      "value": "London"
+                    },
+                    {
+                      "key": "AdminCode",
+                      "value": "PA"
+                    },
+                    {
+                      "key": "CountryCode",
+                      "value": "US"
+                    },
+                    {
+                      "key": "Position",
+                      "value": "51.500321,-0.145433"
+                    },
+                    {
+                      "key": "Name",
+                      "value": "State Collage"
+                    },
+                    {
+                      "key": "LongName",
+                      "value": "385 Science Park Rd, State College, PA"
+                    },
+                    {
+                      "key": "LocationKey",
+                      "value": "335315"
+                    },
+                    {
+                      "key": "IsCurrent",
+                      "value": "true"
+                    },
+                    {
+                      "key": "RecentId",
+                      "value": "tru4fa4496d-fca1-4c30-8784-fb612a45ee52e"
+                    },
+                    {
+                      "key": "FavoriteId",
+                      "value": "tru4fa4496d-fca1-4c30-8784-fb612a45ee52e"
+                    },
+                    {
+                      "key": "Language",
+                      "value": "en-us"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://dataservice.accuweather.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "a0af80b3-eff4-49ca-a6e4-dad7a10aebfd",
+    "name": "AccuWeather One Active Storms Resolve Location API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "AccuWeather's internal product API for the One platform.",
+      "type": "text/plain"
+    }
+  }
+}

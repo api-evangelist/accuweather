@@ -1,0 +1,43 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AccuWeather One Active Storms Partner API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Partner",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "AccuWeather Retrieve the Partner for a Specific Location",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://dataservice.accuweather.com/api/partner/:locationKey",
+            "params": [
+              {
+                "name": "locationKey",
+                "value": "347628",
+                "type": "path",
+                "description": "The location key to retrieve parnter"
+              },
+              {
+                "name": "language",
+                "value": "example-value",
+                "type": "query",
+                "description": "The language for the user."
+              }
+            ]
+          },
+          "docs": "AccuWeather Retrieve the Partner for a Specific Location"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -149,7 +149,9 @@ components:
           example: 385 Science Park Rd, State College, PA
         displayName:
           type: string
-          description: "Name used to display to the user as the placeholder\r\nThis differece from the LongName since will be sometimes display location name from\r\nthe AW API (Non-english/direct location key serach)"
+          description: "Name used to display to the user as the placeholder\r\nThis differece from the\
+            \ LongName since will be sometimes display location name from\r\nthe AW API (Non-english/direct\
+            \ location key serach)"
           nullable: true
           example: 385 Science Park Rd, State College, PA or Eureka, CA USA
         stationCode:
@@ -208,7 +210,8 @@ components:
           example: address
         city:
           type: string
-          description: City name of the location, usually used for display purposes when sourcing weather data.
+          description: City name of the location, usually used for display purposes when sourcing weather
+            data.
           nullable: true
           example: London
         adminCode:
@@ -223,14 +226,16 @@ components:
           example: US
         postalCode:
           type: string
-          description: Postal Code of the location, usually used for display purposes when sourcing weather data.
+          description: Postal Code of the location, usually used for display purposes when sourcing weather
+            data.
           nullable: true
         position:
           type: array
           items:
             type: number
             format: double
-          description: City name of the location, usually used for display purposes when sourcing weather data.
+          description: City name of the location, usually used for display purposes when sourcing weather
+            data.
           nullable: true
           example:
           - 51.50032
@@ -251,3 +256,6 @@ components:
           $ref: '#/components/schemas/LocationSources'
       additionalProperties: false
       description: A location that can be used to plot on a map.
+servers:
+- url: https://dataservice.accuweather.com
+  description: Base URL reconciled from apis.yml

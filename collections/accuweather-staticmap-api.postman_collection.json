@@ -1,0 +1,217 @@
+{
+  "item": [
+    {
+      "id": "cdc2a985-db35-4739-9402-4131a943798c",
+      "name": "StaticMap",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "95bfc12e-60b3-4dcc-a6c1-9ade4413fbbb",
+          "name": "AccuWeather Retrieves a the Latest Static Map for a Location",
+          "request": {
+            "name": "AccuWeather Retrieves a the Latest Static Map for a Location",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "staticMap",
+                ":locationKey"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "Locale",
+                  "value": "<string>",
+                  "description": "ISO 639-2 and ISO 3166-1 code for the locale"
+                },
+                {
+                  "disabled": false,
+                  "key": "MeasurementDisplay",
+                  "value": "<string>",
+                  "description": "Display type for weather conditions and distance"
+                },
+                {
+                  "disabled": false,
+                  "key": "WindUnit",
+                  "value": "<string>",
+                  "description": "Additional display type for wind direction"
+                },
+                {
+                  "disabled": false,
+                  "key": "Theme",
+                  "value": "<string>",
+                  "description": "Theme for the application"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "locationKey",
+                  "description": "(Required) The location key to retrieve static map for"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ac53f577-85fd-418d-9862-833db62bd473",
+              "name": "Static map found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "staticMap",
+                    ":locationKey"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Locale",
+                      "value": "en-us"
+                    },
+                    {
+                      "key": "MeasurementDisplay",
+                      "value": "Imperial"
+                    },
+                    {
+                      "key": "WindUnit",
+                      "value": "Cardinal"
+                    },
+                    {
+                      "key": "Theme",
+                      "value": "System"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "locationKey",
+                      "description": "(Required) The location key to retrieve static map for"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"startDate\": \"2026-04-19T10:00:00Z\",\n    \"epochStartDate\": 1,\n    \"endDate\": \"2026-04-19T10:00:00Z\",\n    \"epochEndDate\": 1,\n    \"event\": \"Ice\",\n    \"eventKey\": \"347628\",\n    \"eventName\": \"New York\",\n    \"forecastRanges\": {\n      \"lower\": {\n        \"displayAmount\": null,\n        \"low\": null,\n        \"high\": null,\n        \"probability\": null,\n        \"phrase\": null\n      },\n      \"low\": {\n        \"displayAmount\": null,\n        \"low\": null,\n        \"high\": null,\n        \"probability\": null,\n        \"phrase\": null\n      },\n      \"likely\": {\n        \"displayAmount\": null,\n        \"low\": null,\n        \"high\": null,\n        \"probability\": null,\n        \"phrase\": null\n      },\n      \"high\": {\n        \"displayAmount\": null,\n        \"low\": null,\n        \"high\": null,\n        \"probability\": null,\n        \"phrase\": null\n      },\n      \"higher\": {\n        \"displayAmount\": null,\n        \"low\": null,\n        \"high\": null,\n        \"probability\": null,\n        \"phrase\": null\n      }\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "653e7b05-c73d-4e3d-a61a-f7cef8023cc2",
+              "name": "Query parameter was missing or empty",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "staticMap",
+                    ":locationKey"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Locale",
+                      "value": "en-us"
+                    },
+                    {
+                      "key": "MeasurementDisplay",
+                      "value": "Imperial"
+                    },
+                    {
+                      "key": "WindUnit",
+                      "value": "Cardinal"
+                    },
+                    {
+                      "key": "Theme",
+                      "value": "System"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "locationKey",
+                      "description": "(Required) The location key to retrieve static map for"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://dataservice.accuweather.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "874855ef-dc5c-4e6b-95fc-3215cd988e44",
+    "name": "AccuWeather One Active Storms StaticMap API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "AccuWeather's internal product API for the One platform.",
+      "type": "text/plain"
+    }
+  }
+}

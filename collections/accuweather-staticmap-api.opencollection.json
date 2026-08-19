@@ -1,0 +1,61 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AccuWeather One Active Storms StaticMap API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "StaticMap",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "AccuWeather Retrieves a the Latest Static Map for a Location",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://dataservice.accuweather.com/api/staticMap/:locationKey",
+            "params": [
+              {
+                "name": "locationKey",
+                "value": "347628",
+                "type": "path",
+                "description": "The location key to retrieve static map for"
+              },
+              {
+                "name": "Locale",
+                "value": "en-us",
+                "type": "query",
+                "description": "ISO 639-2 and ISO 3166-1 code for the locale"
+              },
+              {
+                "name": "MeasurementDisplay",
+                "value": "Imperial",
+                "type": "query",
+                "description": "Display type for weather conditions and distance"
+              },
+              {
+                "name": "WindUnit",
+                "value": "Cardinal",
+                "type": "query",
+                "description": "Additional display type for wind direction"
+              },
+              {
+                "name": "Theme",
+                "value": "System",
+                "type": "query",
+                "description": "Theme for the application"
+              }
+            ]
+          },
+          "docs": "AccuWeather Retrieves a the Latest Static Map for a Location"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

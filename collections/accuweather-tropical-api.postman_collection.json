@@ -1,0 +1,217 @@
+{
+  "item": [
+    {
+      "id": "437bece4-f378-4f7c-bd47-9660261ec9e5",
+      "name": "Tropical",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7e8b9568-e080-462e-aaad-b81e8c28c6f1",
+          "name": "AccuWeather Retrieves a the Latest Weather Tropical for a Location",
+          "request": {
+            "name": "AccuWeather Retrieves a the Latest Weather Tropical for a Location",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "tropical",
+                ":locationKey"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "Locale",
+                  "value": "<string>",
+                  "description": "ISO 639-2 and ISO 3166-1 code for the locale"
+                },
+                {
+                  "disabled": false,
+                  "key": "MeasurementDisplay",
+                  "value": "<string>",
+                  "description": "Display type for weather conditions and distance"
+                },
+                {
+                  "disabled": false,
+                  "key": "WindUnit",
+                  "value": "<string>",
+                  "description": "Additional display type for wind direction"
+                },
+                {
+                  "disabled": false,
+                  "key": "Theme",
+                  "value": "<string>",
+                  "description": "Theme for the application"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "locationKey",
+                  "description": "(Required) The location key to retrieve tropical conditions for"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6332782d-4102-41f8-ae40-a9c336d59fe3",
+              "name": "Wintercast found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tropical",
+                    ":locationKey"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Locale",
+                      "value": "en-us"
+                    },
+                    {
+                      "key": "MeasurementDisplay",
+                      "value": "Imperial"
+                    },
+                    {
+                      "key": "WindUnit",
+                      "value": "Cardinal"
+                    },
+                    {
+                      "key": "Theme",
+                      "value": "System"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "locationKey",
+                      "description": "(Required) The location key to retrieve tropical conditions for"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"startDate\": \"2026-04-19T10:00:00Z\",\n    \"epochStartDate\": 1,\n    \"endDate\": \"2026-04-19T10:00:00Z\",\n    \"epochEndDate\": 1,\n    \"event\": \"Ice\",\n    \"eventKey\": \"347628\",\n    \"eventName\": \"New York\",\n    \"forecastRanges\": {\n      \"lower\": {\n        \"displayAmount\": null,\n        \"low\": null,\n        \"high\": null,\n        \"probability\": null,\n        \"phrase\": null\n      },\n      \"low\": {\n        \"displayAmount\": null,\n        \"low\": null,\n        \"high\": null,\n        \"probability\": null,\n        \"phrase\": null\n      },\n      \"likely\": {\n        \"displayAmount\": null,\n        \"low\": null,\n        \"high\": null,\n        \"probability\": null,\n        \"phrase\": null\n      },\n      \"high\": {\n        \"displayAmount\": null,\n        \"low\": null,\n        \"high\": null,\n        \"probability\": null,\n        \"phrase\": null\n      },\n      \"higher\": {\n        \"displayAmount\": null,\n        \"low\": null,\n        \"high\": null,\n        \"probability\": null,\n        \"phrase\": null\n      }\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4eb6f366-34ff-469e-9673-bdb7e1c57be6",
+              "name": "Query parameter was missing or empty",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tropical",
+                    ":locationKey"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Locale",
+                      "value": "en-us"
+                    },
+                    {
+                      "key": "MeasurementDisplay",
+                      "value": "Imperial"
+                    },
+                    {
+                      "key": "WindUnit",
+                      "value": "Cardinal"
+                    },
+                    {
+                      "key": "Theme",
+                      "value": "System"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "locationKey",
+                      "description": "(Required) The location key to retrieve tropical conditions for"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://dataservice.accuweather.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "e3ab8aa4-9d7a-45af-9d45-67285c7e3502",
+    "name": "AccuWeather One Active Storms Tropical API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "AccuWeather's internal product API for the One platform.",
+      "type": "text/plain"
+    }
+  }
+}

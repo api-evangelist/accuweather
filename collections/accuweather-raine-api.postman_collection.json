@@ -1,0 +1,232 @@
+{
+  "item": [
+    {
+      "id": "d4677ed0-c52c-448b-ba84-85b54a82dbc4",
+      "name": "Raine",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e481b32a-9fea-4fe5-bf1f-ab7d5d377786",
+          "name": "AccuWeather Retreives the Raine Configuration for a Page",
+          "request": {
+            "name": "AccuWeather Retreives the Raine Configuration for a Page",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "raine"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "Locale",
+                  "value": "<string>",
+                  "description": "ISO 639-2 and ISO 3166-1 code for the locale"
+                },
+                {
+                  "disabled": false,
+                  "key": "MeasurementDisplay",
+                  "value": "<string>",
+                  "description": "Display type for weather conditions and distance"
+                },
+                {
+                  "disabled": false,
+                  "key": "WindUnit",
+                  "value": "<string>",
+                  "description": "Additional display type for wind direction"
+                },
+                {
+                  "disabled": false,
+                  "key": "Theme",
+                  "value": "<string>",
+                  "description": "Theme for the application"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageGroup",
+                  "value": "<string>",
+                  "description": "The page group name."
+                },
+                {
+                  "disabled": false,
+                  "key": "platform",
+                  "value": "one",
+                  "description": "The platform name."
+                },
+                {
+                  "disabled": false,
+                  "key": "locationKey",
+                  "value": "",
+                  "description": "The location key to retrieve weather location."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1d994331-2983-4e82-97b6-bbf0c8f51901",
+              "name": "Page View response received",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "raine"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Locale",
+                      "value": "en-us"
+                    },
+                    {
+                      "key": "MeasurementDisplay",
+                      "value": "Imperial"
+                    },
+                    {
+                      "key": "WindUnit",
+                      "value": "Cardinal"
+                    },
+                    {
+                      "key": "Theme",
+                      "value": "System"
+                    },
+                    {
+                      "key": "pageGroup",
+                      "value": "example-value"
+                    },
+                    {
+                      "key": "platform",
+                      "value": "example-value"
+                    },
+                    {
+                      "key": "locationKey",
+                      "value": "347628"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"500123\",\n  \"test\": \"example-value\",\n  \"platform\": \"example-value\",\n  \"version\": \"example-value\",\n  \"page\": {\n    \"group\": \"example-value\",\n    \"url\": \"https://www.accuweather.com/en/us/new-york-ny/10007/weather-forecast/347628\",\n    \"referrer\": \"example-value\"\n  },\n  \"ads\": {\n    \"code\": \"example-value\",\n    \"status\": \"example-value\",\n    \"cookie3p\": \"example-value\"\n  },\n  \"session\": {\n    \"id\": \"500123\",\n    \"partner\": \"example-value\",\n    \"utm\": {\n      \"source\": \"AccuWeather\",\n      \"medium\": \"example-value\",\n      \"campaign\": \"example-value\",\n      \"term\": \"example-value\"\n    }\n  },\n  \"user\": {\n    \"id\": \"500123\",\n    \"language\": \"example-value\",\n    \"country\": \"example-value\",\n    \"region\": \"example-value\",\n    \"city\": \"example-value\",\n    \"dma\": \"example-value\",\n    \"start\": \"example-value\",\n    \"offset\": \"example-value\"\n  },\n  \"network\": {\n    \"throughput\": \"example-value\",\n    \"network\": \"example-value\",\n    \"type\": \"example-value\"\n  },\n  \"device\": {\n    \"name\": \"New York\",\n    \"brand\": \"example-value\",\n    \"version\": \"example-value\",\n    \"category\": \"example-value\"\n  },\n  \"weather\": {\n    \"key\": \"347628\"\n  },\n  \"bot\": true,\n  \"time\": \"example-value\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "31445d44-0caf-4f3c-99c8-0356f0f9e19c",
+              "name": "Parameters are bad, details in body.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "raine"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Locale",
+                      "value": "en-us"
+                    },
+                    {
+                      "key": "MeasurementDisplay",
+                      "value": "Imperial"
+                    },
+                    {
+                      "key": "WindUnit",
+                      "value": "Cardinal"
+                    },
+                    {
+                      "key": "Theme",
+                      "value": "System"
+                    },
+                    {
+                      "key": "pageGroup",
+                      "value": "example-value"
+                    },
+                    {
+                      "key": "platform",
+                      "value": "example-value"
+                    },
+                    {
+                      "key": "locationKey",
+                      "value": "347628"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://dataservice.accuweather.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "87f233b1-b2ae-4fe4-85f1-431bea849f41",
+    "name": "AccuWeather One Active Storms Raine API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "AccuWeather's internal product API for the One platform.",
+      "type": "text/plain"
+    }
+  }
+}

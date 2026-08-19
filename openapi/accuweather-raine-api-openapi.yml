@@ -173,7 +173,8 @@ components:
           nullable: true
         offset:
           type: string
-          description: "Valid string of the user's current UTC offset in hh:mm:ss format.\r\nEx. -05:00 or 05:00"
+          description: "Valid string of the user's current UTC offset in hh:mm:ss format.\r\nEx. -05:00\
+            \ or 05:00"
           nullable: true
       additionalProperties: false
     RainePageView:
@@ -242,11 +243,13 @@ components:
           nullable: true
         status:
           type: string
-          description: "One of 'active', 'missing', or 'restricted' indicating a user's ID status\r\nDefault missing."
+          description: "One of 'active', 'missing', or 'restricted' indicating a user's ID status\r\n\
+            Default missing."
           nullable: true
         cookie3p:
           type: string
-          description: "One of 'active', 'missing', or 'restricted' indicating a user can access 3rd party cookies or not.\r\nDefault missing."
+          description: "One of 'active', 'missing', or 'restricted' indicating a user can access 3rd party\
+            \ cookies or not.\r\nDefault missing."
           nullable: true
       additionalProperties: false
     SessionInfo:
@@ -318,3 +321,6 @@ components:
           description: "Surefind location key for the user's weather location\r\nEg. 335315"
           nullable: true
       additionalProperties: false
+servers:
+- url: https://dataservice.accuweather.com
+  description: Base URL reconciled from apis.yml

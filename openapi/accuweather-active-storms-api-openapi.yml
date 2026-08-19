@@ -397,3 +397,6 @@ components:
           type: string
           nullable: true
       additionalProperties: false
+servers:
+- url: https://dataservice.accuweather.com
+  description: Base URL reconciled from apis.yml

@@ -1,0 +1,133 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AccuWeather One Active Storms Favorite API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Favorite",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "AccuWeather Resolves and Updates the Favorite Location Cookie",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://dataservice.accuweather.com/api/favorite",
+            "params": [
+              {
+                "name": "LocationType",
+                "value": "city",
+                "type": "query",
+                "description": "The type of location to resolve. Eg. address, postalCode, place, locality"
+              },
+              {
+                "name": "PostalCode",
+                "value": "SW1A 1AA",
+                "type": "query",
+                "description": "The postal code of the location to resolve."
+              },
+              {
+                "name": "City",
+                "value": "London",
+                "type": "query",
+                "description": "The city of the location to resolve."
+              },
+              {
+                "name": "AdminCode",
+                "value": "PA",
+                "type": "query",
+                "description": "The admin code for the location."
+              },
+              {
+                "name": "CountryCode",
+                "value": "US",
+                "type": "query",
+                "description": "The country code for the location."
+              },
+              {
+                "name": "Position",
+                "value": "51.500321,-0.145433",
+                "type": "query",
+                "description": "Comma separated position of the location to resolve. Longitude, Latitude."
+              },
+              {
+                "name": "Name",
+                "value": "State Collage",
+                "type": "query",
+                "description": "Simple name for a location, such as the name of a city"
+              },
+              {
+                "name": "LongName",
+                "value": "385 Science Park Rd, State College, PA",
+                "type": "query",
+                "description": "Full name for a location, such as the name of an Admin or address"
+              },
+              {
+                "name": "LocationKey",
+                "value": "335315",
+                "type": "query",
+                "description": "AccuWeather Location key"
+              },
+              {
+                "name": "IsCurrent",
+                "value": "true",
+                "type": "query",
+                "description": "if 'use current location' was selected"
+              },
+              {
+                "name": "RecentId",
+                "value": "tru4fa4496d-fca1-4c30-8784-fb612a45ee52e",
+                "type": "query",
+                "description": "recent location's guid"
+              },
+              {
+                "name": "FavoriteId",
+                "value": "tru4fa4496d-fca1-4c30-8784-fb612a45ee52e",
+                "type": "query",
+                "description": "favorite location's guid (Used for Edit)"
+              },
+              {
+                "name": "Language",
+                "value": "en-us",
+                "type": "query",
+                "description": "Language for the query to use for the response."
+              },
+              {
+                "name": "Locale",
+                "value": "en-us",
+                "type": "query",
+                "description": "ISO 639-2 and ISO 3166-1 code for the locale"
+              },
+              {
+                "name": "MeasurementDisplay",
+                "value": "Imperial",
+                "type": "query",
+                "description": "Display type for weather conditions and distance"
+              },
+              {
+                "name": "WindUnit",
+                "value": "Cardinal",
+                "type": "query",
+                "description": "Additional display type for wind direction"
+              },
+              {
+                "name": "Theme",
+                "value": "System",
+                "type": "query",
+                "description": "Theme for the application"
+              }
+            ]
+          },
+          "docs": "AccuWeather Resolves and Updates the Favorite Location Cookie"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

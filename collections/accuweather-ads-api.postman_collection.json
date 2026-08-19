@@ -1,0 +1,141 @@
+{
+  "item": [
+    {
+      "id": "e7a6f7dd-bd7d-4214-9c11-35846ea9c48e",
+      "name": "Ads",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c59f417f-d97f-4be3-a86c-c6ef377da3a3",
+          "name": "AccuWeather Get the Data for Given Ad Slots",
+          "request": {
+            "name": "AccuWeather Get the Data for Given Ad Slots",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "ads",
+                ":locationKey"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<string>",
+                  "description": "Page id"
+                },
+                {
+                  "disabled": false,
+                  "key": "slots",
+                  "value": "<string>",
+                  "description": "Comma seperated list of ad slots"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "locationKey",
+                  "description": "(Required) AccuWeather location key"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "46ee9820-e61e-4fb6-8c78-1c768a204805",
+              "name": "Ad data success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "ads",
+                    ":locationKey"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "example-value"
+                    },
+                    {
+                      "key": "slots",
+                      "value": "example-value"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "locationKey",
+                      "description": "(Required) AccuWeather location key"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"globalAdConfig\": {\n    \"prebidTimeout\": 1,\n    \"awxTimeout\": 1,\n    \"bundleUrl\": \"https://www.accuweather.com/en/us/new-york-ny/10007/weather-forecast/347628\",\n    \"bundleId\": \"500123\",\n    \"gptEnableSingleRequest\": true,\n    \"gptLazyLoading\": \"example-value\",\n    \"buyItNowSkipGoogleAdManager\": true,\n    \"testVariant\": \"example-value\",\n    \"deviceClass\": \"example-value\",\n    \"disableInitialAdLoad\": true,\n    \"javascriptHead\": \"example-value\",\n    \"javascriptBody\": \"example-value\"\n  },\n  \"ortbConfig\": {\n    \"name\": \"New York\",\n    \"domain\": \"example-value\",\n    \"categories\": [\n      \"example-value\"\n    ],\n    \"sectionCategories\": [\n      \"example-value\"\n    ],\n    \"pageCategories\": [\n      \"example-value\"\n    ],\n    \"keywords\": \"347628\",\n    \"pageUrl\": \"https://www.accuweather.com/en/us/new-york-ny/10007/weather-forecast/347628\",\n    \"referrerUrl\": \"https://www.accuweather.com/en/us/new-york-ny/10007/weather-forecast/347628\",\n    \"isOptimizedForMobile\": true,\n    \"hasPrivacyPolicy\": true,\n    \"publisher\": {\n      \"name\": \"New York\",\n      \"domain\": \"example-value\",\n      \"categories\": [\n        null\n      ]\n    },\n    \"content\": {\n      \"title\": \"example-value\",\n      \"url\": \"https://www.accuweather.com/en/us/new-york-ny/10007/weather-forecast/347628\",\n      \"categories\": [\n        null\n      ],\n      \"productQuality\": \"example-value\",\n      \"context\": \"Partly cloudy\",\n      \"keywords\": \"347628\",\n      \"sourceRelationship\": \"Indirect\",\n      \"language\": \"example-value\",\n      \"data\": {\n        \"name\": null,\n        \"extensions\": null,\n        \"segments\": null\n      }\n    }\n  },\n  \"adPageInfo\": {},\n  \"adSlots\": {},\n  \"adInfo\": {},\n  \"uspString\": \"example-value\",\n  \"ppid\": \"500123\",\n  \"isPrebidDisabled\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://dataservice.accuweather.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "f8cfdd40-fcfd-4901-814a-536ff58c9949",
+    "name": "AccuWeather One Active Storms Ads API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "AccuWeather's internal product API for the One platform.",
+      "type": "text/plain"
+    }
+  }
+}

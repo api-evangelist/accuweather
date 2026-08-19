@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AccuWeather One Active Storms Test API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Test",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "AccuWeather Example of a Simple Scope and Linked Scope",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://dataservice.accuweather.com/api/test/linked-scope"
+          },
+          "docs": "AccuWeather Example of a Simple Scope and Linked Scope"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

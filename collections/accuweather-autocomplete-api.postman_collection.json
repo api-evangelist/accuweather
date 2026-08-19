@@ -1,0 +1,232 @@
+{
+  "item": [
+    {
+      "id": "1ebabbd9-b796-44e8-a0a7-a155c943c622",
+      "name": "Autocomplete",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "17c5be1d-7691-4921-a7e0-24131756ffd6",
+          "name": "AccuWeather Retrieves a List of Locations Matching the Specified Query",
+          "request": {
+            "name": "AccuWeather Retrieves a List of Locations Matching the Specified Query",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "autocomplete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "Query",
+                  "value": "<string>",
+                  "description": "(Required) The partial query to search against. Eg. 'New' to get things like New York or New Market"
+                },
+                {
+                  "disabled": false,
+                  "key": "Latitude",
+                  "value": "<double>",
+                  "description": "The latitude where responses will be biased."
+                },
+                {
+                  "disabled": false,
+                  "key": "Longitude",
+                  "value": "<double>",
+                  "description": "The longitude where responses will be biased."
+                },
+                {
+                  "disabled": false,
+                  "key": "Locale",
+                  "value": "<string>",
+                  "description": "ISO 639-2 and ISO 3166-1 code for the locale"
+                },
+                {
+                  "disabled": false,
+                  "key": "MeasurementDisplay",
+                  "value": "<string>",
+                  "description": "Display type for weather conditions and distance"
+                },
+                {
+                  "disabled": false,
+                  "key": "WindUnit",
+                  "value": "<string>",
+                  "description": "Additional display type for wind direction"
+                },
+                {
+                  "disabled": false,
+                  "key": "Theme",
+                  "value": "<string>",
+                  "description": "Theme for the application"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "434ddaa9-4566-41dc-9b33-fadd2b768dce",
+              "name": "Locations found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "autocomplete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Query",
+                      "value": "New"
+                    },
+                    {
+                      "key": "Latitude",
+                      "value": "40.7128"
+                    },
+                    {
+                      "key": "Longitude",
+                      "value": "-74.006"
+                    },
+                    {
+                      "key": "Locale",
+                      "value": "en-us"
+                    },
+                    {
+                      "key": "MeasurementDisplay",
+                      "value": "Imperial"
+                    },
+                    {
+                      "key": "WindUnit",
+                      "value": "Cardinal"
+                    },
+                    {
+                      "key": "Theme",
+                      "value": "System"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"locationType\": \"address\",\n    \"city\": \"London\",\n    \"adminCode\": \"PA\",\n    \"countryCode\": \"US\",\n    \"postalCode\": \"example-value\",\n    \"position\": [\n      51.50032,\n      -0.145433\n    ],\n    \"name\": \"Buckingham Palace\",\n    \"longName\": \"Buckingham Palace, Westminster, London, Greater London GBR\",\n    \"locationSettingsInfo\": {\n      \"id\": \"50603e3f-5433-4d14-9b5f-01c8cf619d9b\",\n      \"locationKey\": \"328328\",\n      \"name\": \"State Collage\",\n      \"longName\": \"385 Science Park Rd, State College, PA\",\n      \"displayName\": \"385 Science Park Rd, State College, PA or Eureka, CA USA\",\n      \"stationCode\": \"EGRB\",\n      \"supportedDataSets\": [\n        \"AirQualityCurrentConditions\",\n        \"AirQualityForecasts\",\n        \"Alerts\",\n        \"DailyAirQualityForecast\",\n        \"DailyPollenForecast\",\n        \"ForecastConfidence\",\n        \"FutureRadar\",\n        \"MinuteCast\",\n        \"ProximityNotification-Lightning\",\n        \"Radar\"\n      ],\n      \"supportsMinuteCast\": true,\n      \"latitude\": 40.7128,\n      \"longitude\": -74.006,\n      \"supportsEventConfidence\": true\n    },\n    \"source\": \"AccuWeather\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "98ae214b-3a69-42fb-a6ab-f4e95a61e967",
+              "name": "Parameters are bad, details in body.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "autocomplete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Query",
+                      "value": "New"
+                    },
+                    {
+                      "key": "Latitude",
+                      "value": "40.7128"
+                    },
+                    {
+                      "key": "Longitude",
+                      "value": "-74.006"
+                    },
+                    {
+                      "key": "Locale",
+                      "value": "en-us"
+                    },
+                    {
+                      "key": "MeasurementDisplay",
+                      "value": "Imperial"
+                    },
+                    {
+                      "key": "WindUnit",
+                      "value": "Cardinal"
+                    },
+                    {
+                      "key": "Theme",
+                      "value": "System"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://dataservice.accuweather.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "91ff80e0-8f6a-4d1b-897b-1a4cd44891ac",
+    "name": "AccuWeather One Active Storms Autocomplete API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "AccuWeather's internal product API for the One platform.",
+      "type": "text/plain"
+    }
+  }
+}

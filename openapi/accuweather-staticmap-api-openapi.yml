@@ -212,3 +212,6 @@ components:
           type: integer
           format: int32
       additionalProperties: false
+servers:
+- url: https://dataservice.accuweather.com
+  description: Base URL reconciled from apis.yml

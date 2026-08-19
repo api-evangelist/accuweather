@@ -324,3 +324,6 @@ components:
         isPrebidDisabled:
           type: boolean
       additionalProperties: false
+servers:
+- url: https://dataservice.accuweather.com
+  description: Base URL reconciled from apis.yml

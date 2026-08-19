@@ -1,0 +1,85 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AccuWeather One Active Storms Storm API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Storm",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "AccuWeather Retrieves Data About a Specific Storm",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://dataservice.accuweather.com/api/storm/:year/:basinId/:depressionNumber",
+            "params": [
+              {
+                "name": "year",
+                "value": "1",
+                "type": "path",
+                "description": "The year of the storm."
+              },
+              {
+                "name": "basinId",
+                "value": "500123",
+                "type": "path",
+                "description": "The id of the basin for the storm."
+              },
+              {
+                "name": "depressionNumber",
+                "value": "1",
+                "type": "path",
+                "description": "The the number given to the storm."
+              },
+              {
+                "name": "includePositions",
+                "value": "true",
+                "type": "query",
+                "description": "A flag for whether to get all of the storms positions"
+              },
+              {
+                "name": "Locale",
+                "value": "en-us",
+                "type": "query",
+                "description": "ISO 639-2 and ISO 3166-1 code for the locale"
+              },
+              {
+                "name": "MeasurementDisplay",
+                "value": "Imperial",
+                "type": "query",
+                "description": "Display type for weather conditions and distance"
+              },
+              {
+                "name": "WindUnit",
+                "value": "Cardinal",
+                "type": "query",
+                "description": "Additional display type for wind direction"
+              },
+              {
+                "name": "Theme",
+                "value": "System",
+                "type": "query",
+                "description": "Theme for the application"
+              },
+              {
+                "name": "locationKey",
+                "value": "347628",
+                "type": "query",
+                "description": "The location key to retrieve tropical conditions for"
+              }
+            ]
+          },
+          "docs": "AccuWeather Retrieves Data About a Specific Storm"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,231 @@
+{
+  "item": [
+    {
+      "id": "a6721687-5ab7-4e12-9330-bd757dbd6a59",
+      "name": "Daily",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "59b52ef1-9414-4879-b8c4-9823dfc3c9f1",
+          "name": "AccuWeather Retrieves the Latest Daily Forecast for a Location",
+          "request": {
+            "name": "AccuWeather Retrieves the Latest Daily Forecast for a Location",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "daily",
+                ":locationKey"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "Locale",
+                  "value": "<string>",
+                  "description": "ISO 639-2 and ISO 3166-1 code for the locale"
+                },
+                {
+                  "disabled": false,
+                  "key": "MeasurementDisplay",
+                  "value": "<string>",
+                  "description": "Display type for weather conditions and distance"
+                },
+                {
+                  "disabled": false,
+                  "key": "WindUnit",
+                  "value": "<string>",
+                  "description": "Additional display type for wind direction"
+                },
+                {
+                  "disabled": false,
+                  "key": "Theme",
+                  "value": "<string>",
+                  "description": "Theme for the application"
+                },
+                {
+                  "disabled": false,
+                  "key": "dayCount",
+                  "value": "15",
+                  "description": "The number of hour to retrieve"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "locationKey",
+                  "description": "(Required) The location key to retrieve weather conditions for"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "13a717bd-9deb-4540-a24f-74bd096f5b48",
+              "name": "Daily Forecast found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "daily",
+                    ":locationKey"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Locale",
+                      "value": "en-us"
+                    },
+                    {
+                      "key": "MeasurementDisplay",
+                      "value": "Imperial"
+                    },
+                    {
+                      "key": "WindUnit",
+                      "value": "Cardinal"
+                    },
+                    {
+                      "key": "Theme",
+                      "value": "System"
+                    },
+                    {
+                      "key": "dayCount",
+                      "value": "5"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "locationKey",
+                      "description": "(Required) The location key to retrieve weather conditions for"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"dayOfWeek\": \"example-value\",\n    \"shortDayOfWeek\": \"example-value\",\n    \"fullDayOfWeek\": \"example-value\",\n    \"epoch\": 1,\n    \"dateTime\": \"example-value\",\n    \"displayDate\": \"example-value\",\n    \"longDisplayDate\": \"example-value\",\n    \"hasAlert\": true,\n    \"day\": {\n      \"temperature\": 72.5,\n      \"displayTemperature\": \"example-value\",\n      \"icon\": 6,\n      \"iconPhrase\": \"6\",\n      \"phrase\": \"Partly cloudy\",\n      \"longPhrase\": \"Partly cloudy\",\n      \"precip\": \"example-value\",\n      \"realFeelValue\": 42\n    },\n    \"night\": {\n      \"temperature\": 72.5,\n      \"displayTemperature\": \"example-value\",\n      \"icon\": 6,\n      \"iconPhrase\": \"6\",\n      \"phrase\": \"Partly cloudy\",\n      \"longPhrase\": \"Partly cloudy\",\n      \"precip\": \"example-value\",\n      \"realFeelValue\": 42\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "afda7ae4-75e9-41b9-ba47-4877be01d427",
+              "name": "Query parameter was missing or empty",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "daily",
+                    ":locationKey"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Locale",
+                      "value": "en-us"
+                    },
+                    {
+                      "key": "MeasurementDisplay",
+                      "value": "Imperial"
+                    },
+                    {
+                      "key": "WindUnit",
+                      "value": "Cardinal"
+                    },
+                    {
+                      "key": "Theme",
+                      "value": "System"
+                    },
+                    {
+                      "key": "dayCount",
+                      "value": "5"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "locationKey",
+                      "description": "(Required) The location key to retrieve weather conditions for"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://dataservice.accuweather.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "fb501bc3-57e1-4a22-a03d-5dd174ef3141",
+    "name": "AccuWeather One Active Storms Daily API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "AccuWeather's internal product API for the One platform.",
+      "type": "text/plain"
+    }
+  }
+}

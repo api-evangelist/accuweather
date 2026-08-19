@@ -1,0 +1,189 @@
+{
+  "item": [
+    {
+      "id": "b8339ec7-d766-4a53-b9c2-4aee0bc04db3",
+      "name": "Wintercast",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c64c8a49-86a1-4930-9a6e-c5b4b4131648",
+          "name": "AccuWeather Retrieves a the Latest Weather Wintercast for a Location",
+          "request": {
+            "name": "AccuWeather Retrieves a the Latest Weather Wintercast for a Location",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "wintercast",
+                ":locationKey"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "en-us",
+                  "description": "The language to retrieve the information in"
+                },
+                {
+                  "disabled": false,
+                  "key": "isMetric",
+                  "value": "false",
+                  "description": "The units to retrieve the information in"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "locationKey",
+                  "description": "(Required) The location key to retrieve weather conditions for"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f77eed51-07d3-415b-a68d-af96f634f704",
+              "name": "Wintercast found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "wintercast",
+                    ":locationKey"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "language",
+                      "value": "example-value"
+                    },
+                    {
+                      "key": "isMetric",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "locationKey",
+                      "description": "(Required) The location key to retrieve weather conditions for"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"startDate\": \"2026-04-19T10:00:00Z\",\n    \"epochStartDate\": 1,\n    \"endDate\": \"2026-04-19T10:00:00Z\",\n    \"epochEndDate\": 1,\n    \"event\": \"Ice\",\n    \"eventKey\": \"347628\",\n    \"eventName\": \"New York\",\n    \"forecastRanges\": {\n      \"lower\": {\n        \"displayAmount\": null,\n        \"low\": null,\n        \"high\": null,\n        \"probability\": null,\n        \"phrase\": null\n      },\n      \"low\": {\n        \"displayAmount\": null,\n        \"low\": null,\n        \"high\": null,\n        \"probability\": null,\n        \"phrase\": null\n      },\n      \"likely\": {\n        \"displayAmount\": null,\n        \"low\": null,\n        \"high\": null,\n        \"probability\": null,\n        \"phrase\": null\n      },\n      \"high\": {\n        \"displayAmount\": null,\n        \"low\": null,\n        \"high\": null,\n        \"probability\": null,\n        \"phrase\": null\n      },\n      \"higher\": {\n        \"displayAmount\": null,\n        \"low\": null,\n        \"high\": null,\n        \"probability\": null,\n        \"phrase\": null\n      }\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e9b15f41-928b-498b-afb9-a52f20d016b2",
+              "name": "Query parameter was missing or empty",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "wintercast",
+                    ":locationKey"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "language",
+                      "value": "example-value"
+                    },
+                    {
+                      "key": "isMetric",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "locationKey",
+                      "description": "(Required) The location key to retrieve weather conditions for"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://dataservice.accuweather.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "1bff6376-ef64-4fe7-9b94-42173d220e4b",
+    "name": "AccuWeather One Active Storms Wintercast API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "AccuWeather's internal product API for the One platform.",
+      "type": "text/plain"
+    }
+  }
+}
