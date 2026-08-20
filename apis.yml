@@ -17,6 +17,13 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/accuweather.png
 tags:
 - Weather
+- Forecast
+- Meteorology
+- Location Services
+- Air Quality
+- Storms
+tags_raw:
+- Weather
 - Forecasts
 - Meteorology
 - Location Services
@@ -74,6 +81,8 @@ apis:
   humanURL: https://developer.accuweather.com/
   baseURL: https://dataservice.accuweather.com
   tags:
+  - Air Quality
+  tags_raw:
   - AirQuality
   properties:
   - type: OpenAPI
@@ -182,6 +191,8 @@ apis:
   humanURL: https://developer.accuweather.com/
   baseURL: https://dataservice.accuweather.com
   tags:
+  - favorite
+  tags_raw:
   - Favorite
   properties:
   - type: OpenAPI
@@ -327,6 +338,8 @@ apis:
   humanURL: https://developer.accuweather.com/
   baseURL: https://dataservice.accuweather.com
   tags:
+  - Static Map
+  tags_raw:
   - StaticMap
   properties:
   - type: OpenAPI
@@ -362,7 +375,8 @@ apis:
   description: The Test API from AccuWeather — 1 operation(s) for test.
   humanURL: https://developer.accuweather.com/
   baseURL: https://dataservice.accuweather.com
-  tags:
+  tags: []
+  tags_raw:
   - Test
   properties:
   - type: OpenAPI
