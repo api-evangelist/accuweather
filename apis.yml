@@ -93,7 +93,7 @@ apis:
   humanURL: https://developer.accuweather.com/
   baseURL: https://dataservice.accuweather.com
   tags:
-  - AirQuality
+  - Air Quality
   tags_raw:
   - AirQuality
   properties:
@@ -203,7 +203,7 @@ apis:
   humanURL: https://developer.accuweather.com/
   baseURL: https://dataservice.accuweather.com
   tags:
-  - favorite
+  - Favorite
   tags_raw:
   - Favorite
   properties:
@@ -350,7 +350,7 @@ apis:
   humanURL: https://developer.accuweather.com/
   baseURL: https://dataservice.accuweather.com
   tags:
-  - StaticMap
+  - Static Map
   tags_raw:
   - StaticMap
   properties:
