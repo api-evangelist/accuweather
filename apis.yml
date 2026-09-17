@@ -85,26 +85,6 @@ apis:
     url: https://developer.accuweather.com/
   - type: GraphQL
     url: graphql/accuweather-graphql.md
-- aid: accuweather:accuweather-airquality-api
-  name: AccuWeather AirQuality API
-  description: The AirQuality API from AccuWeather — 1 operation(s) for airquality.
-  humanURL: https://developer.accuweather.com/
-  baseURL: https://dataservice.accuweather.com
-  tags:
-  - Air Quality
-  tags_raw:
-  - AirQuality
-  properties:
-  - type: OpenAPI
-    url: openapi/accuweather-airquality-api-openapi.yml
-  - type: Documentation
-    url: https://developer.accuweather.com/apis
-  - type: Authentication
-    url: https://developer.accuweather.com/
-  - type: GettingStarted
-    url: https://developer.accuweather.com/
-  - type: GraphQL
-    url: graphql/accuweather-graphql.md
 - aid: accuweather:accuweather-autocomplete-api
   name: AccuWeather Autocomplete API
   description: The Autocomplete API from AccuWeather — 1 operation(s) for autocomplete.
@@ -325,8 +305,8 @@ apis:
     url: graphql/accuweather-graphql.md
 - aid: accuweather:accuweather-resolve-location-redirect-api
   name: AccuWeather Resolve Location Redirect API
-  description: The Resolve Location Redirect API from AccuWeather — 1 operation(s) for resolve location
-    redirect.
+  description: >-
+    The Resolve Location Redirect API from AccuWeather — 1 operation(s) for resolve location redirect.
   humanURL: https://developer.accuweather.com/
   baseURL: https://dataservice.accuweather.com
   tags:
@@ -427,6 +407,24 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/accuweather-wintercast-api-openapi.yml
+  - type: Documentation
+    url: https://developer.accuweather.com/apis
+  - type: Authentication
+    url: https://developer.accuweather.com/
+  - type: GettingStarted
+    url: https://developer.accuweather.com/
+  - type: GraphQL
+    url: graphql/accuweather-graphql.md
+- aid: accuweather:accuweather-air-quality-api
+  name: AccuWeather Air Quality API
+  description: The Air Quality API from AccuWeather — 1 operation(s) for air quality.
+  humanURL: https://developer.accuweather.com/
+  baseURL: https://dataservice.accuweather.com
+  tags:
+  - Air Quality
+  properties:
+  - type: OpenAPI
+    url: openapi/accuweather-air-quality-api-openapi.yml
   - type: Documentation
     url: https://developer.accuweather.com/apis
   - type: Authentication
