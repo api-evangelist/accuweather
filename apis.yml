@@ -27,6 +27,9 @@ accessModel:
   generated: '2026-07-22'
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/accuweather.png
+x-docs-platform: zudoku
+x-docs-platform-confidence: medium
+x-docs-platform-checked: 2026-09-17
 tags:
 - Weather
 - Forecast
@@ -255,6 +258,8 @@ apis:
   humanURL: https://developer.accuweather.com/
   baseURL: https://dataservice.accuweather.com
   tags:
+  - Partners
+  tags_raw:
   - Partner
   properties:
   - type: OpenAPI
