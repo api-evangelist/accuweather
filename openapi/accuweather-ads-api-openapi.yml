@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: AccuWeather One Active Storms Ads API
+  title: AccuWeather One Ads API
   description: AccuWeather's internal product API for the One platform.
   version: v1
 tags:
@@ -98,51 +98,78 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+      operationId: getApiAdsByLocationKey
+      x-operation-id-source: derived
 components:
   schemas:
-    OrtbSegment:
+    Ad:
       type: object
       properties:
-        name:
-          type: string
-          nullable: true
-        value:
-          type: string
-          nullable: true
+        slot:
+          type:
+          - string
+          - 'null'
+        adDivId:
+          type:
+          - string
+          - 'null'
+        adUnitCode:
+          type:
+          - string
+          - 'null'
+        bidders:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Bid'
+        upr:
+          type:
+          - number
+          - 'null'
+          format: float
       additionalProperties: false
     OrtbSite:
       type: object
       properties:
         name:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         domain:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         categories:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
             type: string
-          nullable: true
         sectionCategories:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
             type: string
-          nullable: true
         pageCategories:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
             type: string
-          nullable: true
         keywords:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         pageUrl:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         referrerUrl:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         isOptimizedForMobile:
           type: boolean
         hasPrivacyPolicy:
@@ -152,35 +179,91 @@ components:
         content:
           $ref: '#/components/schemas/OrtbContent'
       additionalProperties: false
-    OrtbRelationshipType:
-      enum:
-      - Indirect
-      - Direct
-      type: string
-    Ad:
+    OrtbContent:
       type: object
       properties:
-        slot:
-          type: string
-          nullable: true
-        adDivId:
-          type: string
-          nullable: true
-        adUnitCode:
-          type: string
-          nullable: true
-        bidders:
-          type: array
+        title:
+          type:
+          - string
+          - 'null'
+        url:
+          type:
+          - string
+          - 'null'
+        categories:
+          type:
+          - array
+          - 'null'
           items:
-            $ref: '#/components/schemas/Bid'
-          nullable: true
-        upr:
-          type: number
-          format: float
-          nullable: true
+            type: string
+        productQuality:
+          type:
+          - string
+          - 'null'
+        context:
+          type:
+          - string
+          - 'null'
+        keywords:
+          type:
+          - string
+          - 'null'
+        sourceRelationship:
+          $ref: '#/components/schemas/OrtbRelationshipType'
+        language:
+          type:
+          - string
+          - 'null'
+        data:
+          $ref: '#/components/schemas/OrtbData'
+      additionalProperties: false
+    OrtbPublisher:
+      type: object
+      properties:
+        name:
+          type:
+          - string
+          - 'null'
+        domain:
+          type:
+          - string
+          - 'null'
+        categories:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
       additionalProperties: false
     AdPageInfo:
       type: object
+      additionalProperties: false
+    Bid:
+      type: object
+      properties:
+        bidder:
+          type:
+          - string
+          - 'null'
+        params:
+          type:
+          - object
+          - 'null'
+          additionalProperties: {}
+        isBuyItNow:
+          type: boolean
+      additionalProperties: false
+    OrtbSegment:
+      type: object
+      properties:
+        name:
+          type:
+          - string
+          - 'null'
+        value:
+          type:
+          - string
+          - 'null'
       additionalProperties: false
     PrebidTimeoutOutVars:
       type: object
@@ -192,110 +275,65 @@ components:
           type: integer
           format: int32
         bundleUrl:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           deprecated: true
         bundleId:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         gptEnableSingleRequest:
           type: boolean
         gptLazyLoading:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         buyItNowSkipGoogleAdManager:
           type: boolean
         testVariant:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         deviceClass:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         disableInitialAdLoad:
           type: boolean
         javascriptHead:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         javascriptBody:
-          type: string
-          nullable: true
-      additionalProperties: false
-    OrtbPublisher:
-      type: object
-      properties:
-        name:
-          type: string
-          nullable: true
-        domain:
-          type: string
-          nullable: true
-        categories:
-          type: array
-          items:
-            type: string
-          nullable: true
-      additionalProperties: false
-    Bid:
-      type: object
-      properties:
-        bidder:
-          type: string
-          nullable: true
-        params:
-          type: object
-          additionalProperties: {}
-          nullable: true
-        isBuyItNow:
-          type: boolean
+          type:
+          - string
+          - 'null'
       additionalProperties: false
     OrtbData:
       type: object
       properties:
         name:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         extensions:
-          type: object
-          additionalProperties:
-            nullable: true
-          nullable: true
+          type:
+          - object
+          - 'null'
+          additionalProperties: {}
         segments:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
             $ref: '#/components/schemas/OrtbSegment'
-          nullable: true
       additionalProperties: false
-    OrtbContent:
-      type: object
-      properties:
-        title:
-          type: string
-          nullable: true
-        url:
-          type: string
-          nullable: true
-        categories:
-          type: array
-          items:
-            type: string
-          nullable: true
-        productQuality:
-          type: string
-          nullable: true
-        context:
-          type: string
-          nullable: true
-        keywords:
-          type: string
-          nullable: true
-        sourceRelationship:
-          $ref: '#/components/schemas/OrtbRelationshipType'
-        language:
-          type: string
-          nullable: true
-        data:
-          $ref: '#/components/schemas/OrtbData'
-      additionalProperties: false
+    OrtbRelationshipType:
+      enum:
+      - Indirect
+      - Direct
+      type: string
     AdData:
       type: object
       properties:
@@ -306,24 +344,25 @@ components:
         adPageInfo:
           $ref: '#/components/schemas/AdPageInfo'
         adSlots:
-          type: object
+          type:
+          - object
+          - 'null'
           additionalProperties:
             $ref: '#/components/schemas/Ad'
-          nullable: true
         adInfo:
-          type: object
+          type:
+          - object
+          - 'null'
           additionalProperties:
             type: string
-          nullable: true
         uspString:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         ppid:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         isPrebidDisabled:
           type: boolean
       additionalProperties: false
-servers:
-- url: https://dataservice.accuweather.com
-  description: Base URL reconciled from apis.yml

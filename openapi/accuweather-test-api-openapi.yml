@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: AccuWeather One Active Storms Test API
+  title: AccuWeather One Test API
   description: AccuWeather's internal product API for the One platform.
   version: v1
 tags:
@@ -39,52 +39,62 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+      operationId: getApiTestLinkedScope
+      x-operation-id-source: derived
 components:
   schemas:
     RecentLocation:
       type: object
       properties:
         id:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         key:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         name:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         longName:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         displayName:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         localTime:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         displayTemperature:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         icon:
-          type: integer
+          type:
+          - integer
+          - 'null'
           format: int32
-          nullable: true
         color:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         isBefore7PM:
           type: boolean
         isDayTime:
           type: boolean
         latitude:
-          type: number
+          type:
+          - number
+          - 'null'
           format: double
-          nullable: true
         longitude:
-          type: number
+          type:
+          - number
+          - 'null'
           format: double
-          nullable: true
       additionalProperties: false
-servers:
-- url: https://dataservice.accuweather.com
-  description: Base URL reconciled from apis.yml

@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: AccuWeather One Active Storms Daily Indices API
+  title: AccuWeather One Daily Indices API
   description: AccuWeather's internal product API for the One platform.
   version: v1
 tags:
@@ -69,8 +69,98 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+      operationId: getApiDailyIndicesByLocationKey
+      x-operation-id-source: derived
 components:
   schemas:
+    MeasurementDisplayType:
+      enum:
+      - Metric
+      - Imperial
+      - Hybrid
+      type: string
+    ThemeType:
+      enum:
+      - Light
+      - Dark
+      - System
+      type: string
+    IndexDay:
+      type: object
+      properties:
+        dayOfWeek:
+          type:
+          - string
+          - 'null'
+        shortDayOfWeek:
+          type:
+          - string
+          - 'null'
+        fullDayOfWeek:
+          type:
+          - string
+          - 'null'
+        epoch:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        dateTime:
+          type:
+          - string
+          - 'null'
+        displayDate:
+          type:
+          - string
+          - 'null'
+        longDisplayDate:
+          type:
+          - string
+          - 'null'
+        value:
+          type: integer
+          format: int32
+        category:
+          type:
+          - string
+          - 'null'
+        color:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    WindDirectionDisplayType:
+      enum:
+      - Cardinal
+      - Degrees
+      type: string
+    LifestyleCategory:
+      enum:
+      - Allergies
+      - Health
+      - OutdoorActivities
+      - TravelCommute
+      - HomeGarden
+      - Pests
+      type: string
+    DailyIndex:
+      type: object
+      properties:
+        indexName:
+          type:
+          - string
+          - 'null'
+        indexType:
+          $ref: '#/components/schemas/IndexType'
+        days:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/IndexDay'
+        activityType:
+          $ref: '#/components/schemas/LifestyleCategory'
+      additionalProperties: false
     IndexType:
       enum:
       - Unknown
@@ -190,83 +280,3 @@ components:
       - FlightDelay
       - IndoorActivity
       type: string
-    MeasurementDisplayType:
-      enum:
-      - Metric
-      - Imperial
-      - Hybrid
-      type: string
-    LifestyleCategory:
-      enum:
-      - Allergies
-      - Health
-      - OutdoorActivities
-      - TravelCommute
-      - HomeGarden
-      - Pests
-      type: string
-    ThemeType:
-      enum:
-      - Light
-      - Dark
-      - System
-      type: string
-    WindDirectionDisplayType:
-      enum:
-      - Cardinal
-      - Degrees
-      type: string
-    DailyIndex:
-      type: object
-      properties:
-        indexName:
-          type: string
-          nullable: true
-        indexType:
-          $ref: '#/components/schemas/IndexType'
-        days:
-          type: array
-          items:
-            $ref: '#/components/schemas/IndexDay'
-          nullable: true
-        activityType:
-          $ref: '#/components/schemas/LifestyleCategory'
-      additionalProperties: false
-    IndexDay:
-      type: object
-      properties:
-        dayOfWeek:
-          type: string
-          nullable: true
-        shortDayOfWeek:
-          type: string
-          nullable: true
-        fullDayOfWeek:
-          type: string
-          nullable: true
-        epoch:
-          type: integer
-          format: int32
-          nullable: true
-        dateTime:
-          type: string
-          nullable: true
-        displayDate:
-          type: string
-          nullable: true
-        longDisplayDate:
-          type: string
-          nullable: true
-        value:
-          type: integer
-          format: int32
-        category:
-          type: string
-          nullable: true
-        color:
-          type: string
-          nullable: true
-      additionalProperties: false
-servers:
-- url: https://dataservice.accuweather.com
-  description: Base URL reconciled from apis.yml

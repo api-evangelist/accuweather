@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: AccuWeather One Active Storms Wintercast API
+  title: AccuWeather One Wintercast API
   description: AccuWeather's internal product API for the One platform.
   version: v1
 tags:
@@ -90,8 +90,75 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+      operationId: getApiWintercastByLocationKey
+      x-operation-id-source: derived
 components:
   schemas:
+    ConfidenceQuantity:
+      type: object
+      properties:
+        value:
+          type:
+          - number
+          - 'null'
+          format: float
+        unit:
+          type:
+          - string
+          - 'null'
+        unitType:
+          type: integer
+          format: int32
+      additionalProperties: false
+    QuantityRangeEstimate:
+      type: object
+      properties:
+        displayAmount:
+          type:
+          - string
+          - 'null'
+        low:
+          $ref: '#/components/schemas/ConfidenceQuantity'
+        high:
+          $ref: '#/components/schemas/ConfidenceQuantity'
+        probability:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        phrase:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    EventConfidence:
+      type: object
+      properties:
+        startDate:
+          type: string
+          format: date-time
+        epochStartDate:
+          type: integer
+          format: int32
+        endDate:
+          type: string
+          format: date-time
+        epochEndDate:
+          type: integer
+          format: int32
+        event:
+          $ref: '#/components/schemas/WeatherEventType'
+        eventKey:
+          type:
+          - string
+          - 'null'
+        eventName:
+          type:
+          - string
+          - 'null'
+        forecastRanges:
+          $ref: '#/components/schemas/ConfidenceRange'
+      additionalProperties: false
     ConfidenceRange:
       type: object
       properties:
@@ -105,24 +172,6 @@ components:
           $ref: '#/components/schemas/QuantityRangeEstimate'
         higher:
           $ref: '#/components/schemas/QuantityRangeEstimate'
-      additionalProperties: false
-    QuantityRangeEstimate:
-      type: object
-      properties:
-        displayAmount:
-          type: string
-          nullable: true
-        low:
-          $ref: '#/components/schemas/ConfidenceQuantity'
-        high:
-          $ref: '#/components/schemas/ConfidenceQuantity'
-        probability:
-          type: integer
-          format: int32
-          nullable: true
-        phrase:
-          type: string
-          nullable: true
       additionalProperties: false
     WeatherEventType:
       enum:
@@ -144,46 +193,3 @@ components:
       - RiverFlooding
       - Winter
       type: string
-    EventConfidence:
-      type: object
-      properties:
-        startDate:
-          type: string
-          format: date-time
-        epochStartDate:
-          type: integer
-          format: int32
-        endDate:
-          type: string
-          format: date-time
-        epochEndDate:
-          type: integer
-          format: int32
-        event:
-          $ref: '#/components/schemas/WeatherEventType'
-        eventKey:
-          type: string
-          nullable: true
-        eventName:
-          type: string
-          nullable: true
-        forecastRanges:
-          $ref: '#/components/schemas/ConfidenceRange'
-      additionalProperties: false
-    ConfidenceQuantity:
-      type: object
-      properties:
-        value:
-          type: number
-          format: float
-          nullable: true
-        unit:
-          type: string
-          nullable: true
-        unitType:
-          type: integer
-          format: int32
-      additionalProperties: false
-servers:
-- url: https://dataservice.accuweather.com
-  description: Base URL reconciled from apis.yml

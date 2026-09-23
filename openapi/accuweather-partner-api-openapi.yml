@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: AccuWeather One Active Storms Partner API
+  title: AccuWeather One Partner API
   description: AccuWeather's internal product API for the One platform.
   version: v1
 tags:
@@ -45,21 +45,23 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+      operationId: getApiPartnerByLocationKey
+      x-operation-id-source: derived
 components:
   schemas:
     Partner:
       type: object
       properties:
         siteName:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         logo:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         link:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
       additionalProperties: false
-servers:
-- url: https://dataservice.accuweather.com
-  description: Base URL reconciled from apis.yml

@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: AccuWeather One Active Storms Minutecast API
+  title: AccuWeather One Minutecast API
   description: AccuWeather's internal product API for the One platform.
   version: v1
 tags:
@@ -68,6 +68,8 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+      operationId: getApiMinutecastByLocationKey
+      x-operation-id-source: derived
 components:
   schemas:
     MeasurementDisplayType:
@@ -76,38 +78,6 @@ components:
       - Imperial
       - Hybrid
       type: string
-    MinuteCastMinute:
-      type: object
-      properties:
-        displayTime:
-          type: string
-          nullable: true
-        minute:
-          type: integer
-          format: int32
-        color:
-          type: string
-          nullable: true
-        dbz:
-          type: number
-          format: float
-          nullable: true
-        precipitationType:
-          type: string
-          nullable: true
-      additionalProperties: false
-    MinuteCastForecast:
-      type: object
-      properties:
-        summary60:
-          type: string
-          nullable: true
-        minutes:
-          type: array
-          items:
-            $ref: '#/components/schemas/MinuteCastMinute'
-          nullable: true
-      additionalProperties: false
     ThemeType:
       enum:
       - Light
@@ -119,6 +89,41 @@ components:
       - Cardinal
       - Degrees
       type: string
-servers:
-- url: https://dataservice.accuweather.com
-  description: Base URL reconciled from apis.yml
+    MinuteCastForecast:
+      type: object
+      properties:
+        summary60:
+          type:
+          - string
+          - 'null'
+        minutes:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/MinuteCastMinute'
+      additionalProperties: false
+    MinuteCastMinute:
+      type: object
+      properties:
+        displayTime:
+          type:
+          - string
+          - 'null'
+        minute:
+          type: integer
+          format: int32
+        color:
+          type:
+          - string
+          - 'null'
+        dbz:
+          type:
+          - number
+          - 'null'
+          format: float
+        precipitationType:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false

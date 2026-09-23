@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: AccuWeather One Active Storms Daily API
+  title: AccuWeather One Daily API
   description: AccuWeather's internal product API for the One platform.
   version: v1
 tags:
@@ -97,6 +97,8 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+      operationId: getApiDailyByLocationKey
+      x-operation-id-source: derived
 components:
   schemas:
     MeasurementDisplayType:
@@ -105,72 +107,44 @@ components:
       - Imperial
       - Hybrid
       type: string
-    HalfDayForecast:
-      type: object
-      properties:
-        temperature:
-          type: number
-          format: float
-          nullable: true
-        displayTemperature:
-          type: string
-          nullable: true
-        icon:
-          type: integer
-          format: int32
-        iconPhrase:
-          type: string
-          nullable: true
-        phrase:
-          type: string
-          nullable: true
-        longPhrase:
-          type: string
-          nullable: true
-        precip:
-          type: string
-          nullable: true
-        realFeelValue:
-          type: number
-          format: float
-          nullable: true
-      additionalProperties: false
     ThemeType:
       enum:
       - Light
       - Dark
       - System
       type: string
-    WindDirectionDisplayType:
-      enum:
-      - Cardinal
-      - Degrees
-      type: string
     DailyForecast:
       type: object
       properties:
         dayOfWeek:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         shortDayOfWeek:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         fullDayOfWeek:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         epoch:
-          type: integer
+          type:
+          - integer
+          - 'null'
           format: int32
-          nullable: true
         dateTime:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         displayDate:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         longDisplayDate:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         hasAlert:
           type: boolean
         day:
@@ -178,6 +152,45 @@ components:
         night:
           $ref: '#/components/schemas/HalfDayForecast'
       additionalProperties: false
-servers:
-- url: https://dataservice.accuweather.com
-  description: Base URL reconciled from apis.yml
+    WindDirectionDisplayType:
+      enum:
+      - Cardinal
+      - Degrees
+      type: string
+    HalfDayForecast:
+      type: object
+      properties:
+        temperature:
+          type:
+          - number
+          - 'null'
+          format: float
+        displayTemperature:
+          type:
+          - string
+          - 'null'
+        icon:
+          type: integer
+          format: int32
+        iconPhrase:
+          type:
+          - string
+          - 'null'
+        phrase:
+          type:
+          - string
+          - 'null'
+        longPhrase:
+          type:
+          - string
+          - 'null'
+        precip:
+          type:
+          - string
+          - 'null'
+        realFeelValue:
+          type:
+          - number
+          - 'null'
+          format: float
+      additionalProperties: false

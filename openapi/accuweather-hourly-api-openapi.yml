@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: AccuWeather One Active Storms Hourly API
+  title: AccuWeather One Hourly API
   description: AccuWeather's internal product API for the One platform.
   version: v1
 tags:
@@ -131,6 +131,8 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+      operationId: getApiHourlyByLocationKey
+      x-operation-id-source: derived
 components:
   schemas:
     MeasurementDisplayType:
@@ -139,51 +141,69 @@ components:
       - Imperial
       - Hybrid
       type: string
+    ThemeType:
+      enum:
+      - Light
+      - Dark
+      - System
+      type: string
     HourlyForecast:
       type: object
       properties:
         dayOfWeek:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         shortDayOfWeek:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         fullDayOfWeek:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         epoch:
-          type: integer
+          type:
+          - integer
+          - 'null'
           format: int32
-          nullable: true
         dateTime:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         displayDate:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         longDisplayDate:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         hasAlert:
           type: boolean
         icon:
           type: integer
           format: int32
         temperature:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         precip:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         phrase:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         realFeel:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         realFeelShade:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         isDayLight:
           type: boolean
         extended:
@@ -191,151 +211,204 @@ components:
         airQuality:
           $ref: '#/components/schemas/AirQuality'
       additionalProperties: false
-    PrecipitationSummary:
-      type: object
-      properties:
-        past12Hours:
-          type: string
-          nullable: true
-        past18Hours:
-          type: string
-          nullable: true
-        past24Hours:
-          type: string
-          nullable: true
-        past3Hours:
-          type: string
-          nullable: true
-        past6Hours:
-          type: string
-          nullable: true
-        past9Hours:
-          type: string
-          nullable: true
-        pastHour:
-          type: string
-          nullable: true
-      additionalProperties: false
-    UVIndex:
-      type: object
-      properties:
-        category:
-          type: string
-          nullable: true
-        value:
-          type: number
-          format: float
-      additionalProperties: false
-    ExtendedForecastInformation:
-      type: object
-      properties:
-        ceiling:
-          type: string
-          nullable: true
-        cloudCover:
-          type: string
-          nullable: true
-        dewPoint:
-          type: string
-          nullable: true
-        gusts:
-          type: string
-          nullable: true
-        wind:
-          type: string
-          nullable: true
-        windValue:
-          type: number
-          format: double
-          nullable: true
-        windDegrees:
-          type: number
-          format: double
-          nullable: true
-        windDirection:
-          type: string
-          nullable: true
-        humidity:
-          type: string
-          nullable: true
-        humidityValue:
-          type: integer
-          format: int32
-          nullable: true
-        indoorHumidity:
-          type: string
-          nullable: true
-        indoorHumidityCategory:
-          type: string
-          nullable: true
-        precipitation:
-          type: string
-          nullable: true
-        pressure:
-          type: string
-          nullable: true
-        ice:
-          type: string
-          nullable: true
-        rain:
-          type: string
-          nullable: true
-        snow:
-          type: string
-          nullable: true
-        thunderstormProbability:
-          type: string
-          nullable: true
-        uv:
-          $ref: '#/components/schemas/UVIndex'
-        visibility:
-          type: string
-          nullable: true
-        precipSummary:
-          $ref: '#/components/schemas/PrecipitationSummary'
-      additionalProperties: false
-    ThemeType:
-      enum:
-      - Light
-      - Dark
-      - System
-      type: string
     WindDirectionDisplayType:
       enum:
       - Cardinal
       - Degrees
       type: string
+    UVIndex:
+      type: object
+      properties:
+        category:
+          type:
+          - string
+          - 'null'
+        value:
+          type: number
+          format: float
+      additionalProperties: false
+    PrecipitationSummary:
+      type: object
+      properties:
+        past12Hours:
+          type:
+          - string
+          - 'null'
+        past18Hours:
+          type:
+          - string
+          - 'null'
+        past24Hours:
+          type:
+          - string
+          - 'null'
+        past3Hours:
+          type:
+          - string
+          - 'null'
+        past6Hours:
+          type:
+          - string
+          - 'null'
+        past9Hours:
+          type:
+          - string
+          - 'null'
+        pastHour:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    Pollutant:
+      type: object
+      properties:
+        concentration:
+          type:
+          - string
+          - 'null'
+        index:
+          type: number
+          format: double
+        name:
+          type:
+          - string
+          - 'null'
+        source:
+          type:
+          - string
+          - 'null'
+        type:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    ExtendedForecastInformation:
+      type: object
+      properties:
+        ceiling:
+          type:
+          - string
+          - 'null'
+        cloudCover:
+          type:
+          - string
+          - 'null'
+        dewPoint:
+          type:
+          - string
+          - 'null'
+        gusts:
+          type:
+          - string
+          - 'null'
+        wind:
+          type:
+          - string
+          - 'null'
+        windValue:
+          type:
+          - number
+          - 'null'
+          format: double
+        windDegrees:
+          type:
+          - number
+          - 'null'
+          format: double
+        windDirection:
+          type:
+          - string
+          - 'null'
+        humidity:
+          type:
+          - string
+          - 'null'
+        humidityValue:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        indoorHumidity:
+          type:
+          - string
+          - 'null'
+        indoorHumidityCategory:
+          type:
+          - string
+          - 'null'
+        precipitation:
+          type:
+          - string
+          - 'null'
+        pressure:
+          type:
+          - string
+          - 'null'
+        ice:
+          type:
+          - string
+          - 'null'
+        rain:
+          type:
+          - string
+          - 'null'
+        snow:
+          type:
+          - string
+          - 'null'
+        thunderstormProbability:
+          type:
+          - string
+          - 'null'
+        uv:
+          $ref: '#/components/schemas/UVIndex'
+        visibility:
+          type:
+          - string
+          - 'null'
+        precipSummary:
+          $ref: '#/components/schemas/PrecipitationSummary'
+      additionalProperties: false
     AirQuality:
       type: object
       properties:
         category:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         categoryColor:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         date:
-          type: string
+          type:
+          - string
+          - 'null'
           format: date-time
-          nullable: true
         dayOfWeek:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         dayOfWeekAbbreviated:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         displayDate:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         displayTime:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         dominantPollutant:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         hazardStatement:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         overallIndex:
           type: number
           format: double
@@ -343,30 +416,9 @@ components:
           type: number
           format: double
         pollutants:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
             $ref: '#/components/schemas/Pollutant'
-          nullable: true
       additionalProperties: false
-    Pollutant:
-      type: object
-      properties:
-        concentration:
-          type: string
-          nullable: true
-        index:
-          type: number
-          format: double
-        name:
-          type: string
-          nullable: true
-        source:
-          type: string
-          nullable: true
-        type:
-          type: string
-          nullable: true
-      additionalProperties: false
-servers:
-- url: https://dataservice.accuweather.com
-  description: Base URL reconciled from apis.yml

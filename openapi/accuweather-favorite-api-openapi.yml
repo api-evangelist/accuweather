@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: AccuWeather One Active Storms Favorite API
+  title: AccuWeather One Favorite API
   description: AccuWeather's internal product API for the One platform.
   version: v1
 tags:
@@ -172,6 +172,8 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+      operationId: getApiFavorite
+      x-operation-id-source: derived
 components:
   schemas:
     MeasurementDisplayType:
@@ -180,38 +182,6 @@ components:
       - Imperial
       - Hybrid
       type: string
-    MinuteCastMinute:
-      type: object
-      properties:
-        displayTime:
-          type: string
-          nullable: true
-        minute:
-          type: integer
-          format: int32
-        color:
-          type: string
-          nullable: true
-        dbz:
-          type: number
-          format: float
-          nullable: true
-        precipitationType:
-          type: string
-          nullable: true
-      additionalProperties: false
-    MinuteCastForecast:
-      type: object
-      properties:
-        summary60:
-          type: string
-          nullable: true
-        minutes:
-          type: array
-          items:
-            $ref: '#/components/schemas/MinuteCastMinute'
-          nullable: true
-      additionalProperties: false
     ThemeType:
       enum:
       - Light
@@ -223,51 +193,78 @@ components:
       - Cardinal
       - Degrees
       type: string
+    MinuteCastForecast:
+      type: object
+      properties:
+        summary60:
+          type:
+          - string
+          - 'null'
+        minutes:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/MinuteCastMinute'
+      additionalProperties: false
     FavoriteLocation:
       type: object
       properties:
         id:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         key:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         name:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         longName:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         displayName:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         displayTemperature:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         displayHighTemperature:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         displayLowTemperature:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         displayRealFeel:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         displayRealFeelShade:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         icon:
           type: integer
           format: int32
         conditions:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         localTime:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         color:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         isBefore7PM:
           type: boolean
         isDayTime:
@@ -275,18 +272,42 @@ components:
         minuteCastForecast:
           $ref: '#/components/schemas/MinuteCastForecast'
         numberOfAlerts:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        latitude:
+          type:
+          - number
+          - 'null'
+          format: double
+        longitude:
+          type:
+          - number
+          - 'null'
+          format: double
+      additionalProperties: false
+    MinuteCastMinute:
+      type: object
+      properties:
+        displayTime:
+          type:
+          - string
+          - 'null'
+        minute:
           type: integer
           format: int32
-          nullable: true
-        latitude:
-          type: number
-          format: double
-          nullable: true
-        longitude:
-          type: number
-          format: double
-          nullable: true
+        color:
+          type:
+          - string
+          - 'null'
+        dbz:
+          type:
+          - number
+          - 'null'
+          format: float
+        precipitationType:
+          type:
+          - string
+          - 'null'
       additionalProperties: false
-servers:
-- url: https://dataservice.accuweather.com
-  description: Base URL reconciled from apis.yml
