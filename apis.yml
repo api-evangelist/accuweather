@@ -68,8 +68,6 @@ apis:
     url: https://developer.accuweather.com/
   - type: GettingStarted
     url: https://developer.accuweather.com/
-  - type: GraphQL
-    url: graphql/accuweather-graphql.md
 - aid: accuweather:accuweather-ads-api
   name: AccuWeather Ads API
   description: The Ads API from AccuWeather — 1 operation(s) for ads.
@@ -86,8 +84,6 @@ apis:
     url: https://developer.accuweather.com/
   - type: GettingStarted
     url: https://developer.accuweather.com/
-  - type: GraphQL
-    url: graphql/accuweather-graphql.md
 - aid: accuweather:accuweather-autocomplete-api
   name: AccuWeather Autocomplete API
   description: The Autocomplete API from AccuWeather — 1 operation(s) for autocomplete.
@@ -104,8 +100,6 @@ apis:
     url: https://developer.accuweather.com/
   - type: GettingStarted
     url: https://developer.accuweather.com/
-  - type: GraphQL
-    url: graphql/accuweather-graphql.md
 - aid: accuweather:accuweather-current-api
   name: AccuWeather Current API
   description: The Current API from AccuWeather — 1 operation(s) for current.
@@ -122,8 +116,6 @@ apis:
     url: https://developer.accuweather.com/
   - type: GettingStarted
     url: https://developer.accuweather.com/
-  - type: GraphQL
-    url: graphql/accuweather-graphql.md
 - aid: accuweather:accuweather-current-conditions-api
   name: AccuWeather Current Conditions API
   description: The Current Conditions API from AccuWeather — 1 operation(s) for current conditions.
@@ -140,8 +132,6 @@ apis:
     url: https://developer.accuweather.com/
   - type: GettingStarted
     url: https://developer.accuweather.com/
-  - type: GraphQL
-    url: graphql/accuweather-graphql.md
 - aid: accuweather:accuweather-daily-api
   name: AccuWeather Daily API
   description: The Daily API from AccuWeather — 1 operation(s) for daily.
@@ -158,8 +148,6 @@ apis:
     url: https://developer.accuweather.com/
   - type: GettingStarted
     url: https://developer.accuweather.com/
-  - type: GraphQL
-    url: graphql/accuweather-graphql.md
 - aid: accuweather:accuweather-daily-indices-api
   name: AccuWeather Daily Indices API
   description: The Daily Indices API from AccuWeather — 1 operation(s) for daily indices.
@@ -176,8 +164,6 @@ apis:
     url: https://developer.accuweather.com/
   - type: GettingStarted
     url: https://developer.accuweather.com/
-  - type: GraphQL
-    url: graphql/accuweather-graphql.md
 - aid: accuweather:accuweather-favorite-api
   name: AccuWeather Favorite API
   description: The Favorite API from AccuWeather — 1 operation(s) for favorite.
@@ -196,8 +182,6 @@ apis:
     url: https://developer.accuweather.com/
   - type: GettingStarted
     url: https://developer.accuweather.com/
-  - type: GraphQL
-    url: graphql/accuweather-graphql.md
 - aid: accuweather:accuweather-hourly-api
   name: AccuWeather Hourly API
   description: The Hourly API from AccuWeather — 1 operation(s) for hourly.
@@ -214,8 +198,6 @@ apis:
     url: https://developer.accuweather.com/
   - type: GettingStarted
     url: https://developer.accuweather.com/
-  - type: GraphQL
-    url: graphql/accuweather-graphql.md
 - aid: accuweather:accuweather-hourlyaq-api
   name: AccuWeather Hourlyaq API
   description: The Hourlyaq API from AccuWeather — 1 operation(s) for hourlyaq.
@@ -232,8 +214,6 @@ apis:
     url: https://developer.accuweather.com/
   - type: GettingStarted
     url: https://developer.accuweather.com/
-  - type: GraphQL
-    url: graphql/accuweather-graphql.md
 - aid: accuweather:accuweather-minutecast-api
   name: AccuWeather Minutecast API
   description: The Minutecast API from AccuWeather — 1 operation(s) for minutecast.
@@ -250,8 +230,6 @@ apis:
     url: https://developer.accuweather.com/
   - type: GettingStarted
     url: https://developer.accuweather.com/
-  - type: GraphQL
-    url: graphql/accuweather-graphql.md
 - aid: accuweather:accuweather-partner-api
   name: AccuWeather Partner API
   description: The Partner API from AccuWeather — 1 operation(s) for partner.
@@ -270,8 +248,6 @@ apis:
     url: https://developer.accuweather.com/
   - type: GettingStarted
     url: https://developer.accuweather.com/
-  - type: GraphQL
-    url: graphql/accuweather-graphql.md
 - aid: accuweather:accuweather-raine-api
   name: AccuWeather Raine API
   description: The Raine API from AccuWeather — 1 operation(s) for raine.
@@ -288,8 +264,6 @@ apis:
     url: https://developer.accuweather.com/
   - type: GettingStarted
     url: https://developer.accuweather.com/
-  - type: GraphQL
-    url: graphql/accuweather-graphql.md
 - aid: accuweather:accuweather-resolve-location-api
   name: AccuWeather Resolve Location API
   description: The Resolve Location API from AccuWeather — 1 operation(s) for resolve location.
@@ -306,8 +280,6 @@ apis:
     url: https://developer.accuweather.com/
   - type: GettingStarted
     url: https://developer.accuweather.com/
-  - type: GraphQL
-    url: graphql/accuweather-graphql.md
 - aid: accuweather:accuweather-resolve-location-redirect-api
   name: AccuWeather Resolve Location Redirect API
   description: >-
@@ -325,8 +297,6 @@ apis:
     url: https://developer.accuweather.com/
   - type: GettingStarted
     url: https://developer.accuweather.com/
-  - type: GraphQL
-    url: graphql/accuweather-graphql.md
 - aid: accuweather:accuweather-staticmap-api
   name: AccuWeather StaticMap API
   description: The StaticMap API from AccuWeather — 1 operation(s) for staticmap.
@@ -345,8 +315,6 @@ apis:
     url: https://developer.accuweather.com/
   - type: GettingStarted
     url: https://developer.accuweather.com/
-  - type: GraphQL
-    url: graphql/accuweather-graphql.md
 - aid: accuweather:accuweather-storm-api
   name: AccuWeather Storm API
   description: The Storm API from AccuWeather — 1 operation(s) for storm.
@@ -363,8 +331,6 @@ apis:
     url: https://developer.accuweather.com/
   - type: GettingStarted
     url: https://developer.accuweather.com/
-  - type: GraphQL
-    url: graphql/accuweather-graphql.md
 - aid: accuweather:accuweather-test-api
   name: AccuWeather Test API
   description: The Test API from AccuWeather — 1 operation(s) for test.
@@ -382,8 +348,6 @@ apis:
     url: https://developer.accuweather.com/
   - type: GettingStarted
     url: https://developer.accuweather.com/
-  - type: GraphQL
-    url: graphql/accuweather-graphql.md
 - aid: accuweather:accuweather-tropical-api
   name: AccuWeather Tropical API
   description: The Tropical API from AccuWeather — 1 operation(s) for tropical.
@@ -400,8 +364,6 @@ apis:
     url: https://developer.accuweather.com/
   - type: GettingStarted
     url: https://developer.accuweather.com/
-  - type: GraphQL
-    url: graphql/accuweather-graphql.md
 - aid: accuweather:accuweather-wintercast-api
   name: AccuWeather Wintercast API
   description: The Wintercast API from AccuWeather — 1 operation(s) for wintercast.
@@ -418,8 +380,6 @@ apis:
     url: https://developer.accuweather.com/
   - type: GettingStarted
     url: https://developer.accuweather.com/
-  - type: GraphQL
-    url: graphql/accuweather-graphql.md
 - aid: accuweather:accuweather-air-quality-api
   name: AccuWeather Air Quality API
   description: The Air Quality API from AccuWeather — 1 operation(s) for air quality.
@@ -436,8 +396,6 @@ apis:
     url: https://developer.accuweather.com/
   - type: GettingStarted
     url: https://developer.accuweather.com/
-  - type: GraphQL
-    url: graphql/accuweather-graphql.md
 common:
 - type: Website
   url: https://accuweather.com
