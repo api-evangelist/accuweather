@@ -101,18 +101,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    MeasurementDisplayType:
-      enum:
-      - Metric
-      - Imperial
-      - Hybrid
-      type: string
-    ThemeType:
-      enum:
-      - Light
-      - Dark
-      - System
-      type: string
     DailyForecast:
       type: object
       properties:
@@ -152,11 +140,6 @@ components:
         night:
           $ref: '#/components/schemas/HalfDayForecast'
       additionalProperties: false
-    WindDirectionDisplayType:
-      enum:
-      - Cardinal
-      - Degrees
-      type: string
     HalfDayForecast:
       type: object
       properties:
@@ -194,3 +177,20 @@ components:
           - 'null'
           format: float
       additionalProperties: false
+    WindDirectionDisplayType:
+      enum:
+      - Cardinal
+      - Degrees
+      type: string
+    MeasurementDisplayType:
+      enum:
+      - Metric
+      - Imperial
+      - Hybrid
+      type: string
+    ThemeType:
+      enum:
+      - Light
+      - Dark
+      - System
+      type: string

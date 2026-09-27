@@ -73,11 +73,10 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    MeasurementDisplayType:
+    WindDirectionDisplayType:
       enum:
-      - Metric
-      - Imperial
-      - Hybrid
+      - Cardinal
+      - Degrees
       type: string
     ThemeType:
       enum:
@@ -85,6 +84,30 @@ components:
       - Dark
       - System
       type: string
+    MeasurementDisplayType:
+      enum:
+      - Metric
+      - Imperial
+      - Hybrid
+      type: string
+    DailyIndex:
+      type: object
+      properties:
+        indexName:
+          type:
+          - string
+          - 'null'
+        indexType:
+          $ref: '#/components/schemas/IndexType'
+        days:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/IndexDay'
+        activityType:
+          $ref: '#/components/schemas/LifestyleCategory'
+      additionalProperties: false
     IndexDay:
       type: object
       properties:
@@ -129,11 +152,6 @@ components:
           - string
           - 'null'
       additionalProperties: false
-    WindDirectionDisplayType:
-      enum:
-      - Cardinal
-      - Degrees
-      type: string
     LifestyleCategory:
       enum:
       - Allergies
@@ -143,24 +161,6 @@ components:
       - HomeGarden
       - Pests
       type: string
-    DailyIndex:
-      type: object
-      properties:
-        indexName:
-          type:
-          - string
-          - 'null'
-        indexType:
-          $ref: '#/components/schemas/IndexType'
-        days:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/IndexDay'
-        activityType:
-          $ref: '#/components/schemas/LifestyleCategory'
-      additionalProperties: false
     IndexType:
       enum:
       - Unknown

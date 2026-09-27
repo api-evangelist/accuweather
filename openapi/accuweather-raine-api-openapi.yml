@@ -120,107 +120,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    AdInfo:
-      type: object
-      properties:
-        code:
-          type:
-          - string
-          - 'null'
-          description: 'Simplified ad code for ad slots on the page.
-
-            Eg. ''6581/web/us/*/news_info/country_home'''
-        status:
-          type:
-          - string
-          - 'null'
-          description: 'One of ''active'', ''missing'', or ''restricted'' indicating a user''s ID status
-
-            Default missing.'
-        cookie3p:
-          type:
-          - string
-          - 'null'
-          description: 'One of ''active'', ''missing'', or ''restricted'' indicating a user can access 3rd party cookies or not.
-
-            Default missing.'
-      additionalProperties: false
-    SessionInfo:
-      type: object
-      properties:
-        id:
-          type:
-          - string
-          - 'null'
-          description: Unique ID for the user's session (persistent to 10m after the last pageview)
-        partner:
-          type:
-          - string
-          - 'null'
-          description: Unique ID for the partner from the URL
-        utm:
-          $ref: '#/components/schemas/UTMInfo'
-      additionalProperties: false
-    MeasurementDisplayType:
-      enum:
-      - Metric
-      - Imperial
-      - Hybrid
-      type: string
-    ThemeType:
-      enum:
-      - Light
-      - Dark
-      - System
-      type: string
-    WindDirectionDisplayType:
-      enum:
-      - Cardinal
-      - Degrees
-      type: string
-    PageInfo:
-      type: object
-      properties:
-        group:
-          type:
-          - string
-          - 'null'
-          description: Page group like 'three-day' or 'hourly' designating the page category
-        url:
-          type:
-          - string
-          - 'null'
-          description: URL of the page
-        referrer:
-          type:
-          - string
-          - 'null'
-          description: Referrer of the page
-      additionalProperties: false
-    UTMInfo:
-      type: object
-      properties:
-        source:
-          type:
-          - string
-          - 'null'
-          description: utm_source from the URL
-        medium:
-          type:
-          - string
-          - 'null'
-          description: utm_medium from the URL
-        campaign:
-          type:
-          - string
-          - 'null'
-          description: utm_campaign from the URL
-        term:
-          type:
-          - string
-          - 'null'
-          description: utm_term from the URL
-      additionalProperties: false
     RainePageView:
       type: object
       properties:
@@ -264,6 +163,106 @@ components:
           - string
           - 'null'
       additionalProperties: false
+    UTMInfo:
+      type: object
+      properties:
+        source:
+          type:
+          - string
+          - 'null'
+          description: utm_source from the URL
+        medium:
+          type:
+          - string
+          - 'null'
+          description: utm_medium from the URL
+        campaign:
+          type:
+          - string
+          - 'null'
+          description: utm_campaign from the URL
+        term:
+          type:
+          - string
+          - 'null'
+          description: utm_term from the URL
+      additionalProperties: false
+    PageInfo:
+      type: object
+      properties:
+        group:
+          type:
+          - string
+          - 'null'
+          description: Page group like 'three-day' or 'hourly' designating the page category
+        url:
+          type:
+          - string
+          - 'null'
+          description: URL of the page
+        referrer:
+          type:
+          - string
+          - 'null'
+          description: Referrer of the page
+      additionalProperties: false
+    WeatherInfo:
+      type: object
+      properties:
+        key:
+          type:
+          - string
+          - 'null'
+          description: 'Surefind location key for the user''s weather location
+
+            Eg. 335315'
+      additionalProperties: false
+    SessionInfo:
+      type: object
+      properties:
+        id:
+          type:
+          - string
+          - 'null'
+          description: Unique ID for the user's session (persistent to 10m after the last pageview)
+        partner:
+          type:
+          - string
+          - 'null'
+          description: Unique ID for the partner from the URL
+        utm:
+          $ref: '#/components/schemas/UTMInfo'
+      additionalProperties: false
+    WindDirectionDisplayType:
+      enum:
+      - Cardinal
+      - Degrees
+      type: string
+    AdInfo:
+      type: object
+      properties:
+        code:
+          type:
+          - string
+          - 'null'
+          description: 'Simplified ad code for ad slots on the page.
+
+            Eg. ''6581/web/us/*/news_info/country_home'''
+        status:
+          type:
+          - string
+          - 'null'
+          description: 'One of ''active'', ''missing'', or ''restricted'' indicating a user''s ID status
+
+            Default missing.'
+        cookie3p:
+          type:
+          - string
+          - 'null'
+          description: 'One of ''active'', ''missing'', or ''restricted'' indicating a user can access 3rd party cookies or not.
+
+            Default missing.'
+      additionalProperties: false
     DeviceInfo:
       type: object
       properties:
@@ -294,6 +293,12 @@ components:
           - 'null'
           description: One of 'mobile', 'tablet', or 'desktop'
       additionalProperties: false
+    MeasurementDisplayType:
+      enum:
+      - Metric
+      - Imperial
+      - Hybrid
+      type: string
     UserInfo:
       type: object
       properties:
@@ -348,17 +353,12 @@ components:
 
             Ex. -05:00 or 05:00'
       additionalProperties: false
-    WeatherInfo:
-      type: object
-      properties:
-        key:
-          type:
-          - string
-          - 'null'
-          description: 'Surefind location key for the user''s weather location
-
-            Eg. 335315'
-      additionalProperties: false
+    ThemeType:
+      enum:
+      - Light
+      - Dark
+      - System
+      type: string
     UserNetwork:
       type: object
       properties:

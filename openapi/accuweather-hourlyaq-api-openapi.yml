@@ -90,46 +90,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    MeasurementDisplayType:
-      enum:
-      - Metric
-      - Imperial
-      - Hybrid
-      type: string
-    ThemeType:
-      enum:
-      - Light
-      - Dark
-      - System
-      type: string
-    WindDirectionDisplayType:
-      enum:
-      - Cardinal
-      - Degrees
-      type: string
-    Pollutant:
-      type: object
-      properties:
-        concentration:
-          type:
-          - string
-          - 'null'
-        index:
-          type: number
-          format: double
-        name:
-          type:
-          - string
-          - 'null'
-        source:
-          type:
-          - string
-          - 'null'
-        type:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
     AirQuality:
       type: object
       properties:
@@ -183,3 +143,43 @@ components:
           items:
             $ref: '#/components/schemas/Pollutant'
       additionalProperties: false
+    Pollutant:
+      type: object
+      properties:
+        concentration:
+          type:
+          - string
+          - 'null'
+        index:
+          type: number
+          format: double
+        name:
+          type:
+          - string
+          - 'null'
+        source:
+          type:
+          - string
+          - 'null'
+        type:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    WindDirectionDisplayType:
+      enum:
+      - Cardinal
+      - Degrees
+      type: string
+    MeasurementDisplayType:
+      enum:
+      - Metric
+      - Imperial
+      - Hybrid
+      type: string
+    ThemeType:
+      enum:
+      - Light
+      - Dark
+      - System
+      type: string

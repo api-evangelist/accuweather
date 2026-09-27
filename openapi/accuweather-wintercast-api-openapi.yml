@@ -110,6 +110,20 @@ components:
           type: integer
           format: int32
       additionalProperties: false
+    ConfidenceRange:
+      type: object
+      properties:
+        lower:
+          $ref: '#/components/schemas/QuantityRangeEstimate'
+        low:
+          $ref: '#/components/schemas/QuantityRangeEstimate'
+        likely:
+          $ref: '#/components/schemas/QuantityRangeEstimate'
+        high:
+          $ref: '#/components/schemas/QuantityRangeEstimate'
+        higher:
+          $ref: '#/components/schemas/QuantityRangeEstimate'
+      additionalProperties: false
     QuantityRangeEstimate:
       type: object
       properties:
@@ -158,20 +172,6 @@ components:
           - 'null'
         forecastRanges:
           $ref: '#/components/schemas/ConfidenceRange'
-      additionalProperties: false
-    ConfidenceRange:
-      type: object
-      properties:
-        lower:
-          $ref: '#/components/schemas/QuantityRangeEstimate'
-        low:
-          $ref: '#/components/schemas/QuantityRangeEstimate'
-        likely:
-          $ref: '#/components/schemas/QuantityRangeEstimate'
-        high:
-          $ref: '#/components/schemas/QuantityRangeEstimate'
-        higher:
-          $ref: '#/components/schemas/QuantityRangeEstimate'
       additionalProperties: false
     WeatherEventType:
       enum:

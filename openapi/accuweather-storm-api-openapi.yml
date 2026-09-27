@@ -178,12 +178,127 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    MeasurementDisplayType:
+    StormIcon:
       enum:
-      - Metric
-      - Imperial
-      - Hybrid
+      - ExtratropicalStorm
+      - Subtropical
+      - Category0
+      - Category1
+      - Category2
+      - Category3
+      - Category4
+      - Category5
+      - TropicalRainStorm
+      - TropicalDepression
       type: string
+    Storm:
+      type: object
+      properties:
+        accuId:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        eventKey:
+          type:
+          - string
+          - 'null'
+        isActive:
+          type: boolean
+        basin:
+          type:
+          - string
+          - 'null'
+          readOnly: true
+        basinId:
+          $ref: '#/components/schemas/BasinId'
+        basinSlug:
+          type:
+          - string
+          - 'null'
+        governmentId:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        level:
+          type:
+          - string
+          - 'null'
+        name:
+          type:
+          - string
+          - 'null'
+        updatedStormName:
+          type:
+          - string
+          - 'null'
+        stormPositions:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/StormPosition'
+        peakPosition:
+          $ref: '#/components/schemas/StormPosition'
+        start:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        startEpoch:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        end:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        localStart:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        localEnd:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        year:
+          type: integer
+          format: int32
+        isFuture:
+          type: boolean
+        stormLink:
+          type:
+          - string
+          - 'null'
+        localizedStartDate:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    Polygon:
+      type: object
+      properties:
+        type:
+          type:
+          - string
+          - 'null'
+        coordinates:
+          type:
+          - array
+          - 'null'
+          items:
+            type: array
+            items:
+              type: array
+              items:
+                type: number
+                format: double
+      additionalProperties: false
     BasinId:
       enum:
       - AL
@@ -193,6 +308,11 @@ components:
       - CP
       - NP
       - SP
+      type: string
+    WindDirectionDisplayType:
+      enum:
+      - Cardinal
+      - Degrees
       type: string
     LandmarkReference:
       type: object
@@ -206,6 +326,12 @@ components:
           - string
           - 'null'
       additionalProperties: false
+    MeasurementDisplayType:
+      enum:
+      - Metric
+      - Imperial
+      - Hybrid
+      type: string
     ThemeType:
       enum:
       - Light
@@ -333,132 +459,6 @@ components:
           items:
             $ref: '#/components/schemas/LandmarkReference'
         eventKey:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    Polygon:
-      type: object
-      properties:
-        type:
-          type:
-          - string
-          - 'null'
-        coordinates:
-          type:
-          - array
-          - 'null'
-          items:
-            type: array
-            items:
-              type: array
-              items:
-                type: number
-                format: double
-      additionalProperties: false
-    StormIcon:
-      enum:
-      - ExtratropicalStorm
-      - Subtropical
-      - Category0
-      - Category1
-      - Category2
-      - Category3
-      - Category4
-      - Category5
-      - TropicalRainStorm
-      - TropicalDepression
-      type: string
-    WindDirectionDisplayType:
-      enum:
-      - Cardinal
-      - Degrees
-      type: string
-    Storm:
-      type: object
-      properties:
-        accuId:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        eventKey:
-          type:
-          - string
-          - 'null'
-        isActive:
-          type: boolean
-        basin:
-          type:
-          - string
-          - 'null'
-          readOnly: true
-        basinId:
-          $ref: '#/components/schemas/BasinId'
-        basinSlug:
-          type:
-          - string
-          - 'null'
-        governmentId:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        level:
-          type:
-          - string
-          - 'null'
-        name:
-          type:
-          - string
-          - 'null'
-        updatedStormName:
-          type:
-          - string
-          - 'null'
-        stormPositions:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/StormPosition'
-        peakPosition:
-          $ref: '#/components/schemas/StormPosition'
-        start:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        startEpoch:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        end:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        localStart:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        localEnd:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        year:
-          type: integer
-          format: int32
-        isFuture:
-          type: boolean
-        stormLink:
-          type:
-          - string
-          - 'null'
-        localizedStartDate:
           type:
           - string
           - 'null'

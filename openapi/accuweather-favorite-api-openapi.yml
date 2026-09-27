@@ -176,23 +176,30 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    MeasurementDisplayType:
-      enum:
-      - Metric
-      - Imperial
-      - Hybrid
-      type: string
-    ThemeType:
-      enum:
-      - Light
-      - Dark
-      - System
-      type: string
-    WindDirectionDisplayType:
-      enum:
-      - Cardinal
-      - Degrees
-      type: string
+    MinuteCastMinute:
+      type: object
+      properties:
+        displayTime:
+          type:
+          - string
+          - 'null'
+        minute:
+          type: integer
+          format: int32
+        color:
+          type:
+          - string
+          - 'null'
+        dbz:
+          type:
+          - number
+          - 'null'
+          format: float
+        precipitationType:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
     MinuteCastForecast:
       type: object
       properties:
@@ -207,6 +214,23 @@ components:
           items:
             $ref: '#/components/schemas/MinuteCastMinute'
       additionalProperties: false
+    WindDirectionDisplayType:
+      enum:
+      - Cardinal
+      - Degrees
+      type: string
+    MeasurementDisplayType:
+      enum:
+      - Metric
+      - Imperial
+      - Hybrid
+      type: string
+    ThemeType:
+      enum:
+      - Light
+      - Dark
+      - System
+      type: string
     FavoriteLocation:
       type: object
       properties:
@@ -286,28 +310,4 @@ components:
           - number
           - 'null'
           format: double
-      additionalProperties: false
-    MinuteCastMinute:
-      type: object
-      properties:
-        displayTime:
-          type:
-          - string
-          - 'null'
-        minute:
-          type: integer
-          format: int32
-        color:
-          type:
-          - string
-          - 'null'
-        dbz:
-          type:
-          - number
-          - 'null'
-          format: float
-        precipitationType:
-          type:
-          - string
-          - 'null'
       additionalProperties: false

@@ -110,23 +110,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    MeasurementDisplayType:
-      enum:
-      - Metric
-      - Imperial
-      - Hybrid
-      type: string
-    ThemeType:
-      enum:
-      - Light
-      - Dark
-      - System
-      type: string
-    WindDirectionDisplayType:
-      enum:
-      - Cardinal
-      - Degrees
-      type: string
     CurrentConditions:
       type: object
       properties:
@@ -191,17 +174,11 @@ components:
           - 'null'
           format: float
       additionalProperties: false
-    UVIndex:
-      type: object
-      properties:
-        category:
-          type:
-          - string
-          - 'null'
-        value:
-          type: number
-          format: float
-      additionalProperties: false
+    WindDirectionDisplayType:
+      enum:
+      - Cardinal
+      - Degrees
+      type: string
     PrecipitationSummary:
       type: object
       properties:
@@ -234,6 +211,29 @@ components:
           - string
           - 'null'
       additionalProperties: false
+    MeasurementDisplayType:
+      enum:
+      - Metric
+      - Imperial
+      - Hybrid
+      type: string
+    UVIndex:
+      type: object
+      properties:
+        category:
+          type:
+          - string
+          - 'null'
+        value:
+          type: number
+          format: float
+      additionalProperties: false
+    ThemeType:
+      enum:
+      - Light
+      - Dark
+      - System
+      type: string
     ExtendedForecastInformation:
       type: object
       properties:
