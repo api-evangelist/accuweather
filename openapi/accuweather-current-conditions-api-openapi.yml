@@ -110,129 +110,22 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    CurrentConditions:
-      type: object
-      properties:
-        extended:
-          $ref: '#/components/schemas/ExtendedForecastInformation'
-        isDayTime:
-          type: boolean
-        iconCode:
-          type: integer
-          format: int32
-        now:
-          type:
-          - string
-          - 'null'
-        phrase:
-          type:
-          - string
-          - 'null'
-        realFeel:
-          type:
-          - string
-          - 'null'
-        realFeelShade:
-          type:
-          - string
-          - 'null'
-        temperature:
-          type:
-          - string
-          - 'null'
-        temperatureValue:
-          type:
-          - number
-          - 'null'
-          format: float
-        realFeelValue:
-          type:
-          - number
-          - 'null'
-          format: float
-        realFeelShadeValue:
-          type:
-          - number
-          - 'null'
-          format: float
-        realFeelPhrase:
-          type:
-          - string
-          - 'null'
-        realFeelShadePhrase:
-          type:
-          - string
-          - 'null'
-        apparentTempImperial:
-          type:
-          - number
-          - 'null'
-          format: float
-        windSpeedImperial:
-          type:
-          - number
-          - 'null'
-          format: float
-      additionalProperties: false
     WindDirectionDisplayType:
       enum:
       - Cardinal
       - Degrees
       type: string
-    PrecipitationSummary:
-      type: object
-      properties:
-        past12Hours:
-          type:
-          - string
-          - 'null'
-        past18Hours:
-          type:
-          - string
-          - 'null'
-        past24Hours:
-          type:
-          - string
-          - 'null'
-        past3Hours:
-          type:
-          - string
-          - 'null'
-        past6Hours:
-          type:
-          - string
-          - 'null'
-        past9Hours:
-          type:
-          - string
-          - 'null'
-        pastHour:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    MeasurementDisplayType:
-      enum:
-      - Metric
-      - Imperial
-      - Hybrid
-      type: string
-    UVIndex:
-      type: object
-      properties:
-        category:
-          type:
-          - string
-          - 'null'
-        value:
-          type: number
-          format: float
-      additionalProperties: false
     ThemeType:
       enum:
       - Light
       - Dark
       - System
+      type: string
+    MeasurementDisplayType:
+      enum:
+      - Metric
+      - Imperial
+      - Hybrid
       type: string
     ExtendedForecastInformation:
       type: object
@@ -320,4 +213,111 @@ components:
           - 'null'
         precipSummary:
           $ref: '#/components/schemas/PrecipitationSummary'
+      additionalProperties: false
+    UVIndex:
+      type: object
+      properties:
+        category:
+          type:
+          - string
+          - 'null'
+        value:
+          type: number
+          format: float
+      additionalProperties: false
+    PrecipitationSummary:
+      type: object
+      properties:
+        past12Hours:
+          type:
+          - string
+          - 'null'
+        past18Hours:
+          type:
+          - string
+          - 'null'
+        past24Hours:
+          type:
+          - string
+          - 'null'
+        past3Hours:
+          type:
+          - string
+          - 'null'
+        past6Hours:
+          type:
+          - string
+          - 'null'
+        past9Hours:
+          type:
+          - string
+          - 'null'
+        pastHour:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    CurrentConditions:
+      type: object
+      properties:
+        extended:
+          $ref: '#/components/schemas/ExtendedForecastInformation'
+        isDayTime:
+          type: boolean
+        iconCode:
+          type: integer
+          format: int32
+        now:
+          type:
+          - string
+          - 'null'
+        phrase:
+          type:
+          - string
+          - 'null'
+        realFeel:
+          type:
+          - string
+          - 'null'
+        realFeelShade:
+          type:
+          - string
+          - 'null'
+        temperature:
+          type:
+          - string
+          - 'null'
+        temperatureValue:
+          type:
+          - number
+          - 'null'
+          format: float
+        realFeelValue:
+          type:
+          - number
+          - 'null'
+          format: float
+        realFeelShadeValue:
+          type:
+          - number
+          - 'null'
+          format: float
+        realFeelPhrase:
+          type:
+          - string
+          - 'null'
+        realFeelShadePhrase:
+          type:
+          - string
+          - 'null'
+        apparentTempImperial:
+          type:
+          - number
+          - 'null'
+          format: float
+        windSpeedImperial:
+          type:
+          - number
+          - 'null'
+          format: float
       additionalProperties: false

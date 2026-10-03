@@ -135,6 +135,34 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    WindDirectionDisplayType:
+      enum:
+      - Cardinal
+      - Degrees
+      type: string
+    Pollutant:
+      type: object
+      properties:
+        concentration:
+          type:
+          - string
+          - 'null'
+        index:
+          type: number
+          format: double
+        name:
+          type:
+          - string
+          - 'null'
+        source:
+          type:
+          - string
+          - 'null'
+        type:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
     AirQuality:
       type: object
       properties:
@@ -188,34 +216,6 @@ components:
           items:
             $ref: '#/components/schemas/Pollutant'
       additionalProperties: false
-    Pollutant:
-      type: object
-      properties:
-        concentration:
-          type:
-          - string
-          - 'null'
-        index:
-          type: number
-          format: double
-        name:
-          type:
-          - string
-          - 'null'
-        source:
-          type:
-          - string
-          - 'null'
-        type:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    WindDirectionDisplayType:
-      enum:
-      - Cardinal
-      - Degrees
-      type: string
     HourlyForecast:
       type: object
       properties:
@@ -280,38 +280,12 @@ components:
         airQuality:
           $ref: '#/components/schemas/AirQuality'
       additionalProperties: false
-    PrecipitationSummary:
-      type: object
-      properties:
-        past12Hours:
-          type:
-          - string
-          - 'null'
-        past18Hours:
-          type:
-          - string
-          - 'null'
-        past24Hours:
-          type:
-          - string
-          - 'null'
-        past3Hours:
-          type:
-          - string
-          - 'null'
-        past6Hours:
-          type:
-          - string
-          - 'null'
-        past9Hours:
-          type:
-          - string
-          - 'null'
-        pastHour:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
+    ThemeType:
+      enum:
+      - Light
+      - Dark
+      - System
+      type: string
     MeasurementDisplayType:
       enum:
       - Metric
@@ -329,12 +303,6 @@ components:
           type: number
           format: float
       additionalProperties: false
-    ThemeType:
-      enum:
-      - Light
-      - Dark
-      - System
-      type: string
     ExtendedForecastInformation:
       type: object
       properties:
@@ -421,4 +389,36 @@ components:
           - 'null'
         precipSummary:
           $ref: '#/components/schemas/PrecipitationSummary'
+      additionalProperties: false
+    PrecipitationSummary:
+      type: object
+      properties:
+        past12Hours:
+          type:
+          - string
+          - 'null'
+        past18Hours:
+          type:
+          - string
+          - 'null'
+        past24Hours:
+          type:
+          - string
+          - 'null'
+        past3Hours:
+          type:
+          - string
+          - 'null'
+        past6Hours:
+          type:
+          - string
+          - 'null'
+        past9Hours:
+          type:
+          - string
+          - 'null'
+        pastHour:
+          type:
+          - string
+          - 'null'
       additionalProperties: false

@@ -94,22 +94,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    ConfidenceQuantity:
-      type: object
-      properties:
-        value:
-          type:
-          - number
-          - 'null'
-          format: float
-        unit:
-          type:
-          - string
-          - 'null'
-        unitType:
-          type: integer
-          format: int32
-      additionalProperties: false
     ConfidenceRange:
       type: object
       properties:
@@ -124,6 +108,26 @@ components:
         higher:
           $ref: '#/components/schemas/QuantityRangeEstimate'
       additionalProperties: false
+    WeatherEventType:
+      enum:
+      - Ice
+      - Rain
+      - SevereThunderstorm
+      - Snow
+      - SustainedWind
+      - Thunderstorm
+      - Tornado
+      - Tropical
+      - Wind
+      - WindGust
+      - Unknown
+      - Hail
+      - Flooding
+      - FlashFlooding
+      - CoastalFlooding
+      - RiverFlooding
+      - Winter
+      type: string
     QuantityRangeEstimate:
       type: object
       properties:
@@ -173,23 +177,19 @@ components:
         forecastRanges:
           $ref: '#/components/schemas/ConfidenceRange'
       additionalProperties: false
-    WeatherEventType:
-      enum:
-      - Ice
-      - Rain
-      - SevereThunderstorm
-      - Snow
-      - SustainedWind
-      - Thunderstorm
-      - Tornado
-      - Tropical
-      - Wind
-      - WindGust
-      - Unknown
-      - Hail
-      - Flooding
-      - FlashFlooding
-      - CoastalFlooding
-      - RiverFlooding
-      - Winter
-      type: string
+    ConfidenceQuantity:
+      type: object
+      properties:
+        value:
+          type:
+          - number
+          - 'null'
+          format: float
+        unit:
+          type:
+          - string
+          - 'null'
+        unitType:
+          type: integer
+          format: int32
+      additionalProperties: false

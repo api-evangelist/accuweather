@@ -115,6 +115,18 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    WindDirectionDisplayType:
+      enum:
+      - Cardinal
+      - Degrees
+      type: string
+    LocationSources:
+      enum:
+      - AccuWeather
+      - Radar
+      - Unknown
+      type: string
+      description: The parent provider of the location.
     AutocompleteLocation:
       type: object
       properties:
@@ -176,6 +188,18 @@ components:
           $ref: '#/components/schemas/LocationSources'
       additionalProperties: false
       description: A location that can be used to plot on a map.
+    ThemeType:
+      enum:
+      - Light
+      - Dark
+      - System
+      type: string
+    MeasurementDisplayType:
+      enum:
+      - Metric
+      - Imperial
+      - Hybrid
+      type: string
     LocationSettingsInfo:
       type: object
       properties:
@@ -265,27 +289,3 @@ components:
           example: true
       additionalProperties: false
       description: Detailed keys for the location from AccuWeather to aid in weather data retrieval.
-    WindDirectionDisplayType:
-      enum:
-      - Cardinal
-      - Degrees
-      type: string
-    LocationSources:
-      enum:
-      - AccuWeather
-      - Radar
-      - Unknown
-      type: string
-      description: The parent provider of the location.
-    MeasurementDisplayType:
-      enum:
-      - Metric
-      - Imperial
-      - Hybrid
-      type: string
-    ThemeType:
-      enum:
-      - Light
-      - Dark
-      - System
-      type: string
