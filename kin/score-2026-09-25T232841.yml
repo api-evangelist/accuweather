@@ -1,31 +1,29 @@
-# Kin Score artifact — accuweather — 2026-08-24T064859
+# Kin Score artifact — accuweather — 2026-09-25T232841
 # The API Evangelist rating (https://github.com/api-evangelist/kin-score). Generated; do not edit.
 ---
 kin_score:
   slug: accuweather
-  schema_version: 0.12.1
-  scored_at: '2026-08-24'
-  run_ts: 2026-08-24T064859
-  composite: 42.6
+  schema_version: 0.23.0
+  scored_at: '2026-09-25'
+  run_ts: 2026-09-25T232841
+  composite: 43.8
   band: developing
   facets:
-    discoverability: 74.1
-    contract_quality: 59.7
-    governance: 28.8
+    discoverability: 66.1
+    contract_quality: 45.9
+    contract_governance: 27.3
     operational_transparency: 23.7
-    developer_ergonomics: 21.4
-    commercial_clarity: 47.4
-    contract_governance: 28.8
+    developer_ergonomics: 42.9
     access_clarity: 47.4
   agent_readiness:
-    score: 31.6
-    band: agent-aware
+    score: 28.7
+    band: agent-ready
     dimensions:
       spec_presence: true
       agentic_access: derived
       reversibility_documented: na
       mcp_server: false
-      auth_clarity: false
+      auth_clarity: bearer
       idempotency: na
       error_semantics: false
       openapi_examples: verified
@@ -36,10 +34,20 @@ kin_score:
       consent_identity: false
       agent_card: false
       dry_run_mode: na
+      delegated_identity: false
+      protected_resource_metadata: false
+      dynamic_client_registration: false
+      agentic_commerce: false
+  regulatory:
+    applies: true
+    regime: Horizontal (data, software, accessibility, platform)
+    regime_id: horizontal
+    score: 24.5
+    matched_via: fallback
   provenance:
     agentic_access: derived
     contracts:
       total: 21
       derived: 0
       coverage: 0.0
-      callable: 100.0
+      callable: 0.0
