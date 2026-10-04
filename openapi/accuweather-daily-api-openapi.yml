@@ -101,6 +101,12 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    ThemeType:
+      enum:
+      - Light
+      - Dark
+      - System
+      type: string
     WindDirectionDisplayType:
       enum:
       - Cardinal
@@ -143,12 +149,6 @@ components:
           - 'null'
           format: float
       additionalProperties: false
-    ThemeType:
-      enum:
-      - Light
-      - Dark
-      - System
-      type: string
     MeasurementDisplayType:
       enum:
       - Metric

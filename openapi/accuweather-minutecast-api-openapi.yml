@@ -72,11 +72,37 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    ThemeType:
+      enum:
+      - Light
+      - Dark
+      - System
+      type: string
     WindDirectionDisplayType:
       enum:
       - Cardinal
       - Degrees
       type: string
+    MeasurementDisplayType:
+      enum:
+      - Metric
+      - Imperial
+      - Hybrid
+      type: string
+    MinuteCastForecast:
+      type: object
+      properties:
+        summary60:
+          type:
+          - string
+          - 'null'
+        minutes:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/MinuteCastMinute'
+      additionalProperties: false
     MinuteCastMinute:
       type: object
       properties:
@@ -100,30 +126,4 @@ components:
           type:
           - string
           - 'null'
-      additionalProperties: false
-    ThemeType:
-      enum:
-      - Light
-      - Dark
-      - System
-      type: string
-    MeasurementDisplayType:
-      enum:
-      - Metric
-      - Imperial
-      - Hybrid
-      type: string
-    MinuteCastForecast:
-      type: object
-      properties:
-        summary60:
-          type:
-          - string
-          - 'null'
-        minutes:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/MinuteCastMinute'
       additionalProperties: false

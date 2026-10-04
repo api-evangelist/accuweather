@@ -105,6 +105,28 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    ThemeType:
+      enum:
+      - Light
+      - Dark
+      - System
+      type: string
+    ConfidenceQuantity:
+      type: object
+      properties:
+        value:
+          type:
+          - number
+          - 'null'
+          format: float
+        unit:
+          type:
+          - string
+          - 'null'
+        unitType:
+          type: integer
+          format: int32
+      additionalProperties: false
     ConfidenceRange:
       type: object
       properties:
@@ -143,12 +165,6 @@ components:
       - CoastalFlooding
       - RiverFlooding
       - Winter
-      type: string
-    ThemeType:
-      enum:
-      - Light
-      - Dark
-      - System
       type: string
     MeasurementDisplayType:
       enum:
@@ -204,20 +220,4 @@ components:
           - 'null'
         forecastRanges:
           $ref: '#/components/schemas/ConfidenceRange'
-      additionalProperties: false
-    ConfidenceQuantity:
-      type: object
-      properties:
-        value:
-          type:
-          - number
-          - 'null'
-          format: float
-        unit:
-          type:
-          - string
-          - 'null'
-        unitType:
-          type: integer
-          format: int32
       additionalProperties: false

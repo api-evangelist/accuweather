@@ -120,54 +120,12 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    WindDirectionDisplayType:
+    ThemeType:
       enum:
-      - Cardinal
-      - Degrees
+      - Light
+      - Dark
+      - System
       type: string
-    RainePageView:
-      type: object
-      properties:
-        id:
-          type:
-          - string
-          - 'null'
-        test:
-          type:
-          - string
-          - 'null'
-        platform:
-          type:
-          - string
-          - 'null'
-        version:
-          type:
-          - string
-          - 'null'
-        page:
-          $ref: '#/components/schemas/PageInfo'
-        ads:
-          $ref: '#/components/schemas/AdInfo'
-        session:
-          $ref: '#/components/schemas/SessionInfo'
-        user:
-          $ref: '#/components/schemas/UserInfo'
-        network:
-          $ref: '#/components/schemas/UserNetwork'
-        device:
-          $ref: '#/components/schemas/DeviceInfo'
-        weather:
-          $ref: '#/components/schemas/WeatherInfo'
-        bot:
-          type:
-          - boolean
-          - 'null'
-          description: True if X-Akamai-Bot header is filled; default false
-        time:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
     WeatherInfo:
       type: object
       properties:
@@ -179,96 +137,64 @@ components:
 
             Eg. 335315'
       additionalProperties: false
-    UserNetwork:
-      type: object
-      properties:
-        throughput:
-          type:
-          - string
-          - 'null'
-          description: Category of 'network speed' for the user. Eg. 'vhigh'
-        network:
-          type:
-          - string
-          - 'null'
-          description: Name of the network for the user. Eg. 'comcast'
-        type:
-          type:
-          - string
-          - 'null'
-          description: Type of network for the user. Eg. 'cable'
-      additionalProperties: false
-    PageInfo:
-      type: object
-      properties:
-        group:
-          type:
-          - string
-          - 'null'
-          description: Page group like 'three-day' or 'hourly' designating the page category
-        url:
-          type:
-          - string
-          - 'null'
-          description: URL of the page
-        referrer:
-          type:
-          - string
-          - 'null'
-          description: Referrer of the page
-      additionalProperties: false
-    ThemeType:
+    WindDirectionDisplayType:
       enum:
-      - Light
-      - Dark
-      - System
+      - Cardinal
+      - Degrees
       type: string
-    MeasurementDisplayType:
-      enum:
-      - Metric
-      - Imperial
-      - Hybrid
-      type: string
-    SessionInfo:
+    UserInfo:
       type: object
       properties:
         id:
           type:
           - string
           - 'null'
-          description: Unique ID for the user's session (persistent to 10m after the last pageview)
-        partner:
+          description: Unique ID for the user (persistent across sessions)
+        language:
           type:
           - string
           - 'null'
-          description: Unique ID for the partner from the URL
-        utm:
-          $ref: '#/components/schemas/UTMInfo'
-      additionalProperties: false
-    AdInfo:
-      type: object
-      properties:
-        code:
+          description: Language code set for the product for the user (en-us, en-gb, etc.)
+        country:
           type:
           - string
           - 'null'
-          description: 'Simplified ad code for ad slots on the page.
+          description: 'Country code for the user''s location.
 
-            Eg. ''6581/web/us/*/news_info/country_home'''
-        status:
+            Eg. US'
+        region:
           type:
           - string
           - 'null'
-          description: 'One of ''active'', ''missing'', or ''restricted'' indicating a user''s ID status
+          description: 'Region code for the user''s location.
 
-            Default missing.'
-        cookie3p:
+            Eg. PA'
+        city:
           type:
           - string
           - 'null'
-          description: 'One of ''active'', ''missing'', or ''restricted'' indicating a user can access 3rd party cookies or not.
+          description: City for the location
+        dma:
+          type:
+          - string
+          - 'null'
+          description: 'DMA for the user''s location.
 
-            Default missing.'
+            Eg. 566. Not available outside of the US.'
+        start:
+          type:
+          - string
+          - 'null'
+          description: 'Date of the user''s first visit.
+
+            I.e. Cookie creation date'
+        offset:
+          type:
+          - string
+          - 'null'
+          description: 'Valid string of the user''s current UTC offset in hh:mm:ss format.
+
+            Ex. -05:00 or 05:00'
       additionalProperties: false
     UTMInfo:
       type: object
@@ -324,57 +250,131 @@ components:
           - 'null'
           description: One of 'mobile', 'tablet', or 'desktop'
       additionalProperties: false
-    UserInfo:
+    AdInfo:
+      type: object
+      properties:
+        code:
+          type:
+          - string
+          - 'null'
+          description: 'Simplified ad code for ad slots on the page.
+
+            Eg. ''6581/web/us/*/news_info/country_home'''
+        status:
+          type:
+          - string
+          - 'null'
+          description: 'One of ''active'', ''missing'', or ''restricted'' indicating a user''s ID status
+
+            Default missing.'
+        cookie3p:
+          type:
+          - string
+          - 'null'
+          description: 'One of ''active'', ''missing'', or ''restricted'' indicating a user can access 3rd party cookies or not.
+
+            Default missing.'
+      additionalProperties: false
+    UserNetwork:
+      type: object
+      properties:
+        throughput:
+          type:
+          - string
+          - 'null'
+          description: Category of 'network speed' for the user. Eg. 'vhigh'
+        network:
+          type:
+          - string
+          - 'null'
+          description: Name of the network for the user. Eg. 'comcast'
+        type:
+          type:
+          - string
+          - 'null'
+          description: Type of network for the user. Eg. 'cable'
+      additionalProperties: false
+    MeasurementDisplayType:
+      enum:
+      - Metric
+      - Imperial
+      - Hybrid
+      type: string
+    SessionInfo:
       type: object
       properties:
         id:
           type:
           - string
           - 'null'
-          description: Unique ID for the user (persistent across sessions)
-        language:
+          description: Unique ID for the user's session (persistent to 10m after the last pageview)
+        partner:
           type:
           - string
           - 'null'
-          description: Language code set for the product for the user (en-us, en-gb, etc.)
-        country:
+          description: Unique ID for the partner from the URL
+        utm:
+          $ref: '#/components/schemas/UTMInfo'
+      additionalProperties: false
+    PageInfo:
+      type: object
+      properties:
+        group:
           type:
           - string
           - 'null'
-          description: 'Country code for the user''s location.
-
-            Eg. US'
-        region:
+          description: Page group like 'three-day' or 'hourly' designating the page category
+        url:
           type:
           - string
           - 'null'
-          description: 'Region code for the user''s location.
-
-            Eg. PA'
-        city:
+          description: URL of the page
+        referrer:
           type:
           - string
           - 'null'
-          description: City for the location
-        dma:
+          description: Referrer of the page
+      additionalProperties: false
+    RainePageView:
+      type: object
+      properties:
+        id:
           type:
           - string
           - 'null'
-          description: 'DMA for the user''s location.
-
-            Eg. 566. Not available outside of the US.'
-        start:
+        test:
           type:
           - string
           - 'null'
-          description: 'Date of the user''s first visit.
-
-            I.e. Cookie creation date'
-        offset:
+        platform:
           type:
           - string
           - 'null'
-          description: 'Valid string of the user''s current UTC offset in hh:mm:ss format.
-
-            Ex. -05:00 or 05:00'
+        version:
+          type:
+          - string
+          - 'null'
+        page:
+          $ref: '#/components/schemas/PageInfo'
+        ads:
+          $ref: '#/components/schemas/AdInfo'
+        session:
+          $ref: '#/components/schemas/SessionInfo'
+        user:
+          $ref: '#/components/schemas/UserInfo'
+        network:
+          $ref: '#/components/schemas/UserNetwork'
+        device:
+          $ref: '#/components/schemas/DeviceInfo'
+        weather:
+          $ref: '#/components/schemas/WeatherInfo'
+        bot:
+          type:
+          - boolean
+          - 'null'
+          description: True if X-Akamai-Bot header is filled; default false
+        time:
+          type:
+          - string
+          - 'null'
       additionalProperties: false

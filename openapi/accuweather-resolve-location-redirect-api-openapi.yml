@@ -119,6 +119,13 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    LocationSources:
+      enum:
+      - AccuWeather
+      - Radar
+      - Unknown
+      type: string
+      description: The parent provider of the location.
     AutocompleteLocation:
       type: object
       properties:
@@ -180,13 +187,6 @@ components:
           $ref: '#/components/schemas/LocationSources'
       additionalProperties: false
       description: A location that can be used to plot on a map.
-    LocationSources:
-      enum:
-      - AccuWeather
-      - Radar
-      - Unknown
-      type: string
-      description: The parent provider of the location.
     LocationSettingsInfo:
       type: object
       properties:

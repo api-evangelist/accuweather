@@ -176,34 +176,36 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    ThemeType:
+      enum:
+      - Light
+      - Dark
+      - System
+      type: string
     WindDirectionDisplayType:
       enum:
       - Cardinal
       - Degrees
       type: string
-    MinuteCastMinute:
+    MeasurementDisplayType:
+      enum:
+      - Metric
+      - Imperial
+      - Hybrid
+      type: string
+    MinuteCastForecast:
       type: object
       properties:
-        displayTime:
+        summary60:
           type:
           - string
           - 'null'
-        minute:
-          type: integer
-          format: int32
-        color:
+        minutes:
           type:
-          - string
+          - array
           - 'null'
-        dbz:
-          type:
-          - number
-          - 'null'
-          format: float
-        precipitationType:
-          type:
-          - string
-          - 'null'
+          items:
+            $ref: '#/components/schemas/MinuteCastMinute'
       additionalProperties: false
     FavoriteLocation:
       type: object
@@ -285,29 +287,27 @@ components:
           - 'null'
           format: double
       additionalProperties: false
-    ThemeType:
-      enum:
-      - Light
-      - Dark
-      - System
-      type: string
-    MeasurementDisplayType:
-      enum:
-      - Metric
-      - Imperial
-      - Hybrid
-      type: string
-    MinuteCastForecast:
+    MinuteCastMinute:
       type: object
       properties:
-        summary60:
+        displayTime:
           type:
           - string
           - 'null'
-        minutes:
+        minute:
+          type: integer
+          format: int32
+        color:
           type:
-          - array
+          - string
           - 'null'
-          items:
-            $ref: '#/components/schemas/MinuteCastMinute'
+        dbz:
+          type:
+          - number
+          - 'null'
+          format: float
+        precipitationType:
+          type:
+          - string
+          - 'null'
       additionalProperties: false

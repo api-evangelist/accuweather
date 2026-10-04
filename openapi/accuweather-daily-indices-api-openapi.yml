@@ -73,10 +73,11 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    WindDirectionDisplayType:
+    ThemeType:
       enum:
-      - Cardinal
-      - Degrees
+      - Light
+      - Dark
+      - System
       type: string
     LifestyleCategory:
       enum:
@@ -206,35 +207,10 @@ components:
       - FlightDelay
       - IndoorActivity
       type: string
-    DailyIndex:
-      type: object
-      properties:
-        indexName:
-          type:
-          - string
-          - 'null'
-        indexType:
-          $ref: '#/components/schemas/IndexType'
-        days:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/IndexDay'
-        activityType:
-          $ref: '#/components/schemas/LifestyleCategory'
-      additionalProperties: false
-    ThemeType:
+    WindDirectionDisplayType:
       enum:
-      - Light
-      - Dark
-      - System
-      type: string
-    MeasurementDisplayType:
-      enum:
-      - Metric
-      - Imperial
-      - Hybrid
+      - Cardinal
+      - Degrees
       type: string
     IndexDay:
       type: object
@@ -280,3 +256,27 @@ components:
           - string
           - 'null'
       additionalProperties: false
+    DailyIndex:
+      type: object
+      properties:
+        indexName:
+          type:
+          - string
+          - 'null'
+        indexType:
+          $ref: '#/components/schemas/IndexType'
+        days:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/IndexDay'
+        activityType:
+          $ref: '#/components/schemas/LifestyleCategory'
+      additionalProperties: false
+    MeasurementDisplayType:
+      enum:
+      - Metric
+      - Imperial
+      - Hybrid
+      type: string

@@ -135,87 +135,12 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    WindDirectionDisplayType:
+    ThemeType:
       enum:
-      - Cardinal
-      - Degrees
+      - Light
+      - Dark
+      - System
       type: string
-    Pollutant:
-      type: object
-      properties:
-        concentration:
-          type:
-          - string
-          - 'null'
-        index:
-          type: number
-          format: double
-        name:
-          type:
-          - string
-          - 'null'
-        source:
-          type:
-          - string
-          - 'null'
-        type:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    AirQuality:
-      type: object
-      properties:
-        category:
-          type:
-          - string
-          - 'null'
-        categoryColor:
-          type:
-          - string
-          - 'null'
-        date:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        dayOfWeek:
-          type:
-          - string
-          - 'null'
-        dayOfWeekAbbreviated:
-          type:
-          - string
-          - 'null'
-        displayDate:
-          type:
-          - string
-          - 'null'
-        displayTime:
-          type:
-          - string
-          - 'null'
-        dominantPollutant:
-          type:
-          - string
-          - 'null'
-        hazardStatement:
-          type:
-          - string
-          - 'null'
-        overallIndex:
-          type: number
-          format: double
-        overallPlumeLabsIndex:
-          type: number
-          format: double
-        pollutants:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Pollutant'
-      additionalProperties: false
     HourlyForecast:
       type: object
       properties:
@@ -280,18 +205,64 @@ components:
         airQuality:
           $ref: '#/components/schemas/AirQuality'
       additionalProperties: false
-    ThemeType:
+    WindDirectionDisplayType:
       enum:
-      - Light
-      - Dark
-      - System
+      - Cardinal
+      - Degrees
       type: string
-    MeasurementDisplayType:
-      enum:
-      - Metric
-      - Imperial
-      - Hybrid
-      type: string
+    AirQuality:
+      type: object
+      properties:
+        category:
+          type:
+          - string
+          - 'null'
+        categoryColor:
+          type:
+          - string
+          - 'null'
+        date:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        dayOfWeek:
+          type:
+          - string
+          - 'null'
+        dayOfWeekAbbreviated:
+          type:
+          - string
+          - 'null'
+        displayDate:
+          type:
+          - string
+          - 'null'
+        displayTime:
+          type:
+          - string
+          - 'null'
+        dominantPollutant:
+          type:
+          - string
+          - 'null'
+        hazardStatement:
+          type:
+          - string
+          - 'null'
+        overallIndex:
+          type: number
+          format: double
+        overallPlumeLabsIndex:
+          type: number
+          format: double
+        pollutants:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Pollutant'
+      additionalProperties: false
     UVIndex:
       type: object
       properties:
@@ -303,6 +274,12 @@ components:
           type: number
           format: float
       additionalProperties: false
+    MeasurementDisplayType:
+      enum:
+      - Metric
+      - Imperial
+      - Hybrid
+      type: string
     ExtendedForecastInformation:
       type: object
       properties:
@@ -418,6 +395,29 @@ components:
           - string
           - 'null'
         pastHour:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    Pollutant:
+      type: object
+      properties:
+        concentration:
+          type:
+          - string
+          - 'null'
+        index:
+          type: number
+          format: double
+        name:
+          type:
+          - string
+          - 'null'
+        source:
+          type:
+          - string
+          - 'null'
+        type:
           type:
           - string
           - 'null'
