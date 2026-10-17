@@ -105,94 +105,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    ThemeType:
-      enum:
-      - Light
-      - Dark
-      - System
-      type: string
-    ConfidenceQuantity:
-      type: object
-      properties:
-        value:
-          type:
-          - number
-          - 'null'
-          format: float
-        unit:
-          type:
-          - string
-          - 'null'
-        unitType:
-          type: integer
-          format: int32
-      additionalProperties: false
-    ConfidenceRange:
-      type: object
-      properties:
-        lower:
-          $ref: '#/components/schemas/QuantityRangeEstimate'
-        low:
-          $ref: '#/components/schemas/QuantityRangeEstimate'
-        likely:
-          $ref: '#/components/schemas/QuantityRangeEstimate'
-        high:
-          $ref: '#/components/schemas/QuantityRangeEstimate'
-        higher:
-          $ref: '#/components/schemas/QuantityRangeEstimate'
-      additionalProperties: false
-    WindDirectionDisplayType:
-      enum:
-      - Cardinal
-      - Degrees
-      type: string
-    WeatherEventType:
-      enum:
-      - Ice
-      - Rain
-      - SevereThunderstorm
-      - Snow
-      - SustainedWind
-      - Thunderstorm
-      - Tornado
-      - Tropical
-      - Wind
-      - WindGust
-      - Unknown
-      - Hail
-      - Flooding
-      - FlashFlooding
-      - CoastalFlooding
-      - RiverFlooding
-      - Winter
-      type: string
-    MeasurementDisplayType:
-      enum:
-      - Metric
-      - Imperial
-      - Hybrid
-      type: string
-    QuantityRangeEstimate:
-      type: object
-      properties:
-        displayAmount:
-          type:
-          - string
-          - 'null'
-        low:
-          $ref: '#/components/schemas/ConfidenceQuantity'
-        high:
-          $ref: '#/components/schemas/ConfidenceQuantity'
-        probability:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        phrase:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
     EventConfidence:
       type: object
       properties:
@@ -221,3 +133,91 @@ components:
         forecastRanges:
           $ref: '#/components/schemas/ConfidenceRange'
       additionalProperties: false
+    ThemeType:
+      enum:
+      - Light
+      - Dark
+      - System
+      type: string
+    ConfidenceRange:
+      type: object
+      properties:
+        lower:
+          $ref: '#/components/schemas/QuantityRangeEstimate'
+        low:
+          $ref: '#/components/schemas/QuantityRangeEstimate'
+        likely:
+          $ref: '#/components/schemas/QuantityRangeEstimate'
+        high:
+          $ref: '#/components/schemas/QuantityRangeEstimate'
+        higher:
+          $ref: '#/components/schemas/QuantityRangeEstimate'
+      additionalProperties: false
+    MeasurementDisplayType:
+      enum:
+      - Metric
+      - Imperial
+      - Hybrid
+      type: string
+    QuantityRangeEstimate:
+      type: object
+      properties:
+        displayAmount:
+          type:
+          - string
+          - 'null'
+        low:
+          $ref: '#/components/schemas/ConfidenceQuantity'
+        high:
+          $ref: '#/components/schemas/ConfidenceQuantity'
+        probability:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        phrase:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    ConfidenceQuantity:
+      type: object
+      properties:
+        value:
+          type:
+          - number
+          - 'null'
+          format: float
+        unit:
+          type:
+          - string
+          - 'null'
+        unitType:
+          type: integer
+          format: int32
+      additionalProperties: false
+    WeatherEventType:
+      enum:
+      - Ice
+      - Rain
+      - SevereThunderstorm
+      - Snow
+      - SustainedWind
+      - Thunderstorm
+      - Tornado
+      - Tropical
+      - Wind
+      - WindGust
+      - Unknown
+      - Hail
+      - Flooding
+      - FlashFlooding
+      - CoastalFlooding
+      - RiverFlooding
+      - Winter
+      type: string
+    WindDirectionDisplayType:
+      enum:
+      - Cardinal
+      - Degrees
+      type: string

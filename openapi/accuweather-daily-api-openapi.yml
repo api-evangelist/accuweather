@@ -107,48 +107,6 @@ components:
       - Dark
       - System
       type: string
-    WindDirectionDisplayType:
-      enum:
-      - Cardinal
-      - Degrees
-      type: string
-    HalfDayForecast:
-      type: object
-      properties:
-        temperature:
-          type:
-          - number
-          - 'null'
-          format: float
-        displayTemperature:
-          type:
-          - string
-          - 'null'
-        icon:
-          type: integer
-          format: int32
-        iconPhrase:
-          type:
-          - string
-          - 'null'
-        phrase:
-          type:
-          - string
-          - 'null'
-        longPhrase:
-          type:
-          - string
-          - 'null'
-        precip:
-          type:
-          - string
-          - 'null'
-        realFeelValue:
-          type:
-          - number
-          - 'null'
-          format: float
-      additionalProperties: false
     MeasurementDisplayType:
       enum:
       - Metric
@@ -193,4 +151,46 @@ components:
           $ref: '#/components/schemas/HalfDayForecast'
         night:
           $ref: '#/components/schemas/HalfDayForecast'
+      additionalProperties: false
+    WindDirectionDisplayType:
+      enum:
+      - Cardinal
+      - Degrees
+      type: string
+    HalfDayForecast:
+      type: object
+      properties:
+        temperature:
+          type:
+          - number
+          - 'null'
+          format: float
+        displayTemperature:
+          type:
+          - string
+          - 'null'
+        icon:
+          type: integer
+          format: int32
+        iconPhrase:
+          type:
+          - string
+          - 'null'
+        phrase:
+          type:
+          - string
+          - 'null'
+        longPhrase:
+          type:
+          - string
+          - 'null'
+        precip:
+          type:
+          - string
+          - 'null'
+        realFeelValue:
+          type:
+          - number
+          - 'null'
+          format: float
       additionalProperties: false

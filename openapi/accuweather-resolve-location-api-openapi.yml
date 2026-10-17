@@ -157,13 +157,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    LocationSources:
-      enum:
-      - AccuWeather
-      - Radar
-      - Unknown
-      type: string
-      description: The parent provider of the location.
     AutocompleteLocation:
       type: object
       properties:
@@ -314,3 +307,10 @@ components:
           example: true
       additionalProperties: false
       description: Detailed keys for the location from AccuWeather to aid in weather data retrieval.
+    LocationSources:
+      enum:
+      - AccuWeather
+      - Radar
+      - Unknown
+      type: string
+      description: The parent provider of the location.

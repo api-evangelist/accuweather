@@ -78,11 +78,6 @@ components:
       - Dark
       - System
       type: string
-    WindDirectionDisplayType:
-      enum:
-      - Cardinal
-      - Degrees
-      type: string
     MeasurementDisplayType:
       enum:
       - Metric
@@ -127,3 +122,8 @@ components:
           - string
           - 'null'
       additionalProperties: false
+    WindDirectionDisplayType:
+      enum:
+      - Cardinal
+      - Degrees
+      type: string

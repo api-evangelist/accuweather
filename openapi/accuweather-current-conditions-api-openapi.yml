@@ -116,28 +116,44 @@ components:
       - Dark
       - System
       type: string
-    WindDirectionDisplayType:
-      enum:
-      - Cardinal
-      - Degrees
-      type: string
-    UVIndex:
-      type: object
-      properties:
-        category:
-          type:
-          - string
-          - 'null'
-        value:
-          type: number
-          format: float
-      additionalProperties: false
     MeasurementDisplayType:
       enum:
       - Metric
       - Imperial
       - Hybrid
       type: string
+    PrecipitationSummary:
+      type: object
+      properties:
+        past12Hours:
+          type:
+          - string
+          - 'null'
+        past18Hours:
+          type:
+          - string
+          - 'null'
+        past24Hours:
+          type:
+          - string
+          - 'null'
+        past3Hours:
+          type:
+          - string
+          - 'null'
+        past6Hours:
+          type:
+          - string
+          - 'null'
+        past9Hours:
+          type:
+          - string
+          - 'null'
+        pastHour:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
     ExtendedForecastInformation:
       type: object
       properties:
@@ -225,38 +241,6 @@ components:
         precipSummary:
           $ref: '#/components/schemas/PrecipitationSummary'
       additionalProperties: false
-    PrecipitationSummary:
-      type: object
-      properties:
-        past12Hours:
-          type:
-          - string
-          - 'null'
-        past18Hours:
-          type:
-          - string
-          - 'null'
-        past24Hours:
-          type:
-          - string
-          - 'null'
-        past3Hours:
-          type:
-          - string
-          - 'null'
-        past6Hours:
-          type:
-          - string
-          - 'null'
-        past9Hours:
-          type:
-          - string
-          - 'null'
-        pastHour:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
     CurrentConditions:
       type: object
       properties:
@@ -319,5 +303,21 @@ components:
           type:
           - number
           - 'null'
+          format: float
+      additionalProperties: false
+    WindDirectionDisplayType:
+      enum:
+      - Cardinal
+      - Degrees
+      type: string
+    UVIndex:
+      type: object
+      properties:
+        category:
+          type:
+          - string
+          - 'null'
+        value:
+          type: number
           format: float
       additionalProperties: false

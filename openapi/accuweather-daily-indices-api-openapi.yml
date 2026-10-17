@@ -79,15 +79,24 @@ components:
       - Dark
       - System
       type: string
-    LifestyleCategory:
-      enum:
-      - Allergies
-      - Health
-      - OutdoorActivities
-      - TravelCommute
-      - HomeGarden
-      - Pests
-      type: string
+    DailyIndex:
+      type: object
+      properties:
+        indexName:
+          type:
+          - string
+          - 'null'
+        indexType:
+          $ref: '#/components/schemas/IndexType'
+        days:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/IndexDay'
+        activityType:
+          $ref: '#/components/schemas/LifestyleCategory'
+      additionalProperties: false
     IndexType:
       enum:
       - Unknown
@@ -207,10 +216,14 @@ components:
       - FlightDelay
       - IndoorActivity
       type: string
-    WindDirectionDisplayType:
+    LifestyleCategory:
       enum:
-      - Cardinal
-      - Degrees
+      - Allergies
+      - Health
+      - OutdoorActivities
+      - TravelCommute
+      - HomeGarden
+      - Pests
       type: string
     IndexDay:
       type: object
@@ -256,24 +269,11 @@ components:
           - string
           - 'null'
       additionalProperties: false
-    DailyIndex:
-      type: object
-      properties:
-        indexName:
-          type:
-          - string
-          - 'null'
-        indexType:
-          $ref: '#/components/schemas/IndexType'
-        days:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/IndexDay'
-        activityType:
-          $ref: '#/components/schemas/LifestyleCategory'
-      additionalProperties: false
+    WindDirectionDisplayType:
+      enum:
+      - Cardinal
+      - Degrees
+      type: string
     MeasurementDisplayType:
       enum:
       - Metric

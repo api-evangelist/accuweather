@@ -98,31 +98,6 @@ components:
       - Dark
       - System
       type: string
-    WindDirectionDisplayType:
-      enum:
-      - Cardinal
-      - Degrees
-      type: string
-    MeasurementDisplayType:
-      enum:
-      - Metric
-      - Imperial
-      - Hybrid
-      type: string
-    MinuteCastForecast:
-      type: object
-      properties:
-        summary60:
-          type:
-          - string
-          - 'null'
-        minutes:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/MinuteCastMinute'
-      additionalProperties: false
     FavoriteLocation:
       type: object
       properties:
@@ -203,6 +178,26 @@ components:
           - 'null'
           format: double
       additionalProperties: false
+    MeasurementDisplayType:
+      enum:
+      - Metric
+      - Imperial
+      - Hybrid
+      type: string
+    MinuteCastForecast:
+      type: object
+      properties:
+        summary60:
+          type:
+          - string
+          - 'null'
+        minutes:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/MinuteCastMinute'
+      additionalProperties: false
     MinuteCastMinute:
       type: object
       properties:
@@ -227,3 +222,8 @@ components:
           - string
           - 'null'
       additionalProperties: false
+    WindDirectionDisplayType:
+      enum:
+      - Cardinal
+      - Degrees
+      type: string

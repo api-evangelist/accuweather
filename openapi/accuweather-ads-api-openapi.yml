@@ -102,50 +102,8 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    PrebidTimeoutOutVars:
+    AdPageInfo:
       type: object
-      properties:
-        prebidTimeout:
-          type: integer
-          format: int32
-        awxTimeout:
-          type: integer
-          format: int32
-        bundleUrl:
-          type:
-          - string
-          - 'null'
-          deprecated: true
-        bundleId:
-          type:
-          - string
-          - 'null'
-        gptEnableSingleRequest:
-          type: boolean
-        gptLazyLoading:
-          type:
-          - string
-          - 'null'
-        buyItNowSkipGoogleAdManager:
-          type: boolean
-        testVariant:
-          type:
-          - string
-          - 'null'
-        deviceClass:
-          type:
-          - string
-          - 'null'
-        disableInitialAdLoad:
-          type: boolean
-        javascriptHead:
-          type:
-          - string
-          - 'null'
-        javascriptBody:
-          type:
-          - string
-          - 'null'
       additionalProperties: false
     OrtbSite:
       type: object
@@ -197,38 +155,6 @@ components:
         content:
           $ref: '#/components/schemas/OrtbContent'
       additionalProperties: false
-    AdData:
-      type: object
-      properties:
-        globalAdConfig:
-          $ref: '#/components/schemas/PrebidTimeoutOutVars'
-        ortbConfig:
-          $ref: '#/components/schemas/OrtbSite'
-        adPageInfo:
-          $ref: '#/components/schemas/AdPageInfo'
-        adSlots:
-          type:
-          - object
-          - 'null'
-          additionalProperties:
-            $ref: '#/components/schemas/Ad'
-        adInfo:
-          type:
-          - object
-          - 'null'
-          additionalProperties:
-            type: string
-        uspString:
-          type:
-          - string
-          - 'null'
-        ppid:
-          type:
-          - string
-          - 'null'
-        isPrebidDisabled:
-          type: boolean
-      additionalProperties: false
     OrtbContent:
       type: object
       properties:
@@ -267,8 +193,67 @@ components:
         data:
           $ref: '#/components/schemas/OrtbData'
       additionalProperties: false
-    AdPageInfo:
+    PrebidTimeoutOutVars:
       type: object
+      properties:
+        prebidTimeout:
+          type: integer
+          format: int32
+        awxTimeout:
+          type: integer
+          format: int32
+        bundleUrl:
+          type:
+          - string
+          - 'null'
+          deprecated: true
+        bundleId:
+          type:
+          - string
+          - 'null'
+        gptEnableSingleRequest:
+          type: boolean
+        gptLazyLoading:
+          type:
+          - string
+          - 'null'
+        buyItNowSkipGoogleAdManager:
+          type: boolean
+        testVariant:
+          type:
+          - string
+          - 'null'
+        deviceClass:
+          type:
+          - string
+          - 'null'
+        disableInitialAdLoad:
+          type: boolean
+        javascriptHead:
+          type:
+          - string
+          - 'null'
+        javascriptBody:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    OrtbRelationshipType:
+      enum:
+      - Indirect
+      - Direct
+      type: string
+    OrtbSegment:
+      type: object
+      properties:
+        name:
+          type:
+          - string
+          - 'null'
+        value:
+          type:
+          - string
+          - 'null'
       additionalProperties: false
     OrtbPublisher:
       type: object
@@ -287,6 +272,72 @@ components:
           - 'null'
           items:
             type: string
+      additionalProperties: false
+    Bid:
+      type: object
+      properties:
+        bidder:
+          type:
+          - string
+          - 'null'
+        params:
+          type:
+          - object
+          - 'null'
+          additionalProperties: {}
+        isBuyItNow:
+          type: boolean
+      additionalProperties: false
+    AdData:
+      type: object
+      properties:
+        globalAdConfig:
+          $ref: '#/components/schemas/PrebidTimeoutOutVars'
+        ortbConfig:
+          $ref: '#/components/schemas/OrtbSite'
+        adPageInfo:
+          $ref: '#/components/schemas/AdPageInfo'
+        adSlots:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            $ref: '#/components/schemas/Ad'
+        adInfo:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type: string
+        uspString:
+          type:
+          - string
+          - 'null'
+        ppid:
+          type:
+          - string
+          - 'null'
+        isPrebidDisabled:
+          type: boolean
+      additionalProperties: false
+    OrtbData:
+      type: object
+      properties:
+        name:
+          type:
+          - string
+          - 'null'
+        extensions:
+          type:
+          - object
+          - 'null'
+          additionalProperties: {}
+        segments:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/OrtbSegment'
       additionalProperties: false
     Ad:
       type: object
@@ -314,55 +365,4 @@ components:
           - number
           - 'null'
           format: float
-      additionalProperties: false
-    OrtbSegment:
-      type: object
-      properties:
-        name:
-          type:
-          - string
-          - 'null'
-        value:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    OrtbRelationshipType:
-      enum:
-      - Indirect
-      - Direct
-      type: string
-    Bid:
-      type: object
-      properties:
-        bidder:
-          type:
-          - string
-          - 'null'
-        params:
-          type:
-          - object
-          - 'null'
-          additionalProperties: {}
-        isBuyItNow:
-          type: boolean
-      additionalProperties: false
-    OrtbData:
-      type: object
-      properties:
-        name:
-          type:
-          - string
-          - 'null'
-        extensions:
-          type:
-          - object
-          - 'null'
-          additionalProperties: {}
-        segments:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/OrtbSegment'
       additionalProperties: false
