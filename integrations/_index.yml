@@ -52,3 +52,33 @@
     builder: Pipedream repo (component)
   status: not-a-workflow
   arazzo: null
+- slug: accuweather-databricks-marketplace
+  label: Databricks Marketplace
+  partner: databricks
+  partner_name: Databricks Marketplace
+  category: data product listing
+  type: marketplace
+  marketplace: databricks-marketplace
+  channel: distribution
+  evidence: https://marketplace.databricks.com/provider/f0a29bd4-946b-477e-a43a-1c3f2a6e6506
+  source: edge
+  relationship: distribution-channel
+  contract_reference:
+    register: Databricks Marketplace (marketplace.databricks.com/api/2.0/public-marketplace-providers + public-marketplace-listings)
+    spec_file: null
+    role: data-marketplace-seller
+    registered_name: AccuWeather
+    matched_domain: accuweather.com
+    matched_by: domain
+    listings: 10
+    sample_listings:
+    - 'AccuWeather: Lifestyle & Health Indices'
+    - Daily and Hourly Forecasts - U.S. Postal Codes Sample
+    - Demand Forecasting using Historical Weather - Demo
+    - Forecast Weather Data
+    - Historical Weather Data
+    signal_note: 'participation: the provider lists data products on this marketplace; counts are context'
+    detected_by: sweep-data-marketplaces.py
+    detected: '2026-10-20'
+  status: not-a-workflow
+  arazzo: null
