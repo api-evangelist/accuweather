@@ -397,6 +397,8 @@ apis:
   - type: GettingStarted
     url: https://developer.accuweather.com/
 common:
+- type: PostmanWorkspace
+  url: https://www.postman.com/kinlaneapi/accuweather/overview
 - type: Plans
   url: plans/accuweather-plans-pricing.yml
 - type: RateLimits
