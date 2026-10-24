@@ -1,189 +1,201 @@
 {
+  "info": {
+    "_postman_id": "f36ca457-d3b2-436f-adc7-8a1ee5cbda3f",
+    "name": "AccuWeather One Wintercast API",
+    "description": "AccuWeather's internal product API for the One platform.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:52:46.000Z",
+    "updatedAt": "2026-10-22T02:52:46.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-f36ca457-d3b2-436f-adc7-8a1ee5cbda3f"
+  },
   "item": [
     {
-      "id": "b8339ec7-d766-4a53-b9c2-4aee0bc04db3",
-      "name": "Wintercast",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "api",
       "item": [
         {
-          "id": "c64c8a49-86a1-4930-9a6e-c5b4b4131648",
-          "name": "AccuWeather Retrieves a the Latest Weather Wintercast for a Location",
-          "request": {
-            "name": "AccuWeather Retrieves a the Latest Weather Wintercast for a Location",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "wintercast",
-                ":locationKey"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "language",
-                  "value": "en-us",
-                  "description": "The language to retrieve the information in"
-                },
-                {
-                  "disabled": false,
-                  "key": "isMetric",
-                  "value": "false",
-                  "description": "The units to retrieve the information in"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "locationKey",
-                  "description": "(Required) The location key to retrieve weather conditions for"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "wintercast",
+          "item": [
             {
-              "id": "f77eed51-07d3-415b-a68d-af96f634f704",
-              "name": "Wintercast found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "wintercast",
-                    ":locationKey"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+              "name": "{locationKey}",
+              "item": [
+                {
+                  "name": "AccuWeather Retrieves a the Latest Weather Wintercast for a Location",
+                  "id": "2d3bc4c6-fe99-4ee9-b83f-1e03afdd9a65",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/wintercast/:locationKey?language=en-us&isMetric=false",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "wintercast",
+                        ":locationKey"
+                      ],
+                      "query": [
+                        {
+                          "description": "The language to retrieve the information in",
+                          "key": "language",
+                          "value": "en-us"
+                        },
+                        {
+                          "description": "The units to retrieve the information in",
+                          "key": "isMetric",
+                          "value": "false"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "69bc68c2-f39e-41f9-9790-e68608c89cec",
+                          "key": "locationKey",
+                          "value": "<string>",
+                          "description": "(Required) The location key to retrieve weather conditions for"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
                     {
-                      "key": "language",
-                      "value": "example-value"
+                      "id": "c15ccac2-e273-4288-8440-54469c2f1d0b",
+                      "name": "Wintercast found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/wintercast/:locationKey?language=en-us&isMetric=false",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "wintercast",
+                            ":locationKey"
+                          ],
+                          "query": [
+                            {
+                              "description": "The language to retrieve the information in",
+                              "key": "language",
+                              "value": "en-us"
+                            },
+                            {
+                              "description": "The units to retrieve the information in",
+                              "key": "isMetric",
+                              "value": "false"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "locationKey"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"startDate\": \"<dateTime>\",\n    \"epochStartDate\": \"<integer>\",\n    \"endDate\": \"<dateTime>\",\n    \"epochEndDate\": \"<integer>\",\n    \"event\": \"Unknown\",\n    \"eventKey\": \"<string,null>\",\n    \"eventName\": \"<string,null>\",\n    \"forecastRanges\": {\n      \"lower\": {\n        \"displayAmount\": \"<string,null>\",\n        \"low\": {\n          \"value\": \"<number,null-float>\",\n          \"unit\": \"<string,null>\",\n          \"unitType\": \"<integer>\"\n        },\n        \"high\": {\n          \"value\": \"<number,null-float>\",\n          \"unit\": \"<string,null>\",\n          \"unitType\": \"<integer>\"\n        },\n        \"probability\": \"<integer,null>\",\n        \"phrase\": \"<string,null>\"\n      },\n      \"low\": {\n        \"displayAmount\": \"<string,null>\",\n        \"low\": {\n          \"value\": \"<number,null-float>\",\n          \"unit\": \"<string,null>\",\n          \"unitType\": \"<integer>\"\n        },\n        \"high\": {\n          \"value\": \"<number,null-float>\",\n          \"unit\": \"<string,null>\",\n          \"unitType\": \"<integer>\"\n        },\n        \"probability\": \"<integer,null>\",\n        \"phrase\": \"<string,null>\"\n      },\n      \"likely\": {\n        \"displayAmount\": \"<string,null>\",\n        \"low\": {\n          \"value\": \"<number,null-float>\",\n          \"unit\": \"<string,null>\",\n          \"unitType\": \"<integer>\"\n        },\n        \"high\": {\n          \"value\": \"<number,null-float>\",\n          \"unit\": \"<string,null>\",\n          \"unitType\": \"<integer>\"\n        },\n        \"probability\": \"<integer,null>\",\n        \"phrase\": \"<string,null>\"\n      },\n      \"high\": {\n        \"displayAmount\": \"<string,null>\",\n        \"low\": {\n          \"value\": \"<number,null-float>\",\n          \"unit\": \"<string,null>\",\n          \"unitType\": \"<integer>\"\n        },\n        \"high\": {\n          \"value\": \"<number,null-float>\",\n          \"unit\": \"<string,null>\",\n          \"unitType\": \"<integer>\"\n        },\n        \"probability\": \"<integer,null>\",\n        \"phrase\": \"<string,null>\"\n      },\n      \"higher\": {\n        \"displayAmount\": \"<string,null>\",\n        \"low\": {\n          \"value\": \"<number,null-float>\",\n          \"unit\": \"<string,null>\",\n          \"unitType\": \"<integer>\"\n        },\n        \"high\": {\n          \"value\": \"<number,null-float>\",\n          \"unit\": \"<string,null>\",\n          \"unitType\": \"<integer>\"\n        },\n        \"probability\": \"<integer,null>\",\n        \"phrase\": \"<string,null>\"\n      }\n    }\n  },\n  {\n    \"startDate\": \"<dateTime>\",\n    \"epochStartDate\": \"<integer>\",\n    \"endDate\": \"<dateTime>\",\n    \"epochEndDate\": \"<integer>\",\n    \"event\": \"WindGust\",\n    \"eventKey\": \"<string,null>\",\n    \"eventName\": \"<string,null>\",\n    \"forecastRanges\": {\n      \"lower\": {\n        \"displayAmount\": \"<string,null>\",\n        \"low\": {\n          \"value\": \"<number,null-float>\",\n          \"unit\": \"<string,null>\",\n          \"unitType\": \"<integer>\"\n        },\n        \"high\": {\n          \"value\": \"<number,null-float>\",\n          \"unit\": \"<string,null>\",\n          \"unitType\": \"<integer>\"\n        },\n        \"probability\": \"<integer,null>\",\n        \"phrase\": \"<string,null>\"\n      },\n      \"low\": {\n        \"displayAmount\": \"<string,null>\",\n        \"low\": {\n          \"value\": \"<number,null-float>\",\n          \"unit\": \"<string,null>\",\n          \"unitType\": \"<integer>\"\n        },\n        \"high\": {\n          \"value\": \"<number,null-float>\",\n          \"unit\": \"<string,null>\",\n          \"unitType\": \"<integer>\"\n        },\n        \"probability\": \"<integer,null>\",\n        \"phrase\": \"<string,null>\"\n      },\n      \"likely\": {\n        \"displayAmount\": \"<string,null>\",\n        \"low\": {\n          \"value\": \"<number,null-float>\",\n          \"unit\": \"<string,null>\",\n          \"unitType\": \"<integer>\"\n        },\n        \"high\": {\n          \"value\": \"<number,null-float>\",\n          \"unit\": \"<string,null>\",\n          \"unitType\": \"<integer>\"\n        },\n        \"probability\": \"<integer,null>\",\n        \"phrase\": \"<string,null>\"\n      },\n      \"high\": {\n        \"displayAmount\": \"<string,null>\",\n        \"low\": {\n          \"value\": \"<number,null-float>\",\n          \"unit\": \"<string,null>\",\n          \"unitType\": \"<integer>\"\n        },\n        \"high\": {\n          \"value\": \"<number,null-float>\",\n          \"unit\": \"<string,null>\",\n          \"unitType\": \"<integer>\"\n        },\n        \"probability\": \"<integer,null>\",\n        \"phrase\": \"<string,null>\"\n      },\n      \"higher\": {\n        \"displayAmount\": \"<string,null>\",\n        \"low\": {\n          \"value\": \"<number,null-float>\",\n          \"unit\": \"<string,null>\",\n          \"unitType\": \"<integer>\"\n        },\n        \"high\": {\n          \"value\": \"<number,null-float>\",\n          \"unit\": \"<string,null>\",\n          \"unitType\": \"<integer>\"\n        },\n        \"probability\": \"<integer,null>\",\n        \"phrase\": \"<string,null>\"\n      }\n    }\n  }\n]",
+                      "createdAt": "2026-10-22T02:52:46.000Z",
+                      "updatedAt": "2026-10-22T02:52:46.000Z",
+                      "uid": "35240-c15ccac2-e273-4288-8440-54469c2f1d0b"
                     },
                     {
-                      "key": "isMetric",
-                      "value": "true"
+                      "id": "b3aa3bfb-be3f-49ed-a444-f0fd1b21aa48",
+                      "name": "Query parameter was missing or empty",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/wintercast/:locationKey?language=en-us&isMetric=false",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "wintercast",
+                            ":locationKey"
+                          ],
+                          "query": [
+                            {
+                              "description": "The language to retrieve the information in",
+                              "key": "language",
+                              "value": "en-us"
+                            },
+                            {
+                              "description": "The units to retrieve the information in",
+                              "key": "isMetric",
+                              "value": "false"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "locationKey"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:52:46.000Z",
+                      "updatedAt": "2026-10-22T02:52:46.000Z",
+                      "uid": "35240-b3aa3bfb-be3f-49ed-a444-f0fd1b21aa48"
                     }
                   ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "locationKey",
-                      "description": "(Required) The location key to retrieve weather conditions for"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "createdAt": "2026-10-22T02:52:46.000Z",
+                  "updatedAt": "2026-10-22T02:52:46.000Z",
+                  "uid": "35240-2d3bc4c6-fe99-4ee9-b83f-1e03afdd9a65"
                 }
               ],
-              "body": "[\n  {\n    \"startDate\": \"2026-04-19T10:00:00Z\",\n    \"epochStartDate\": 1,\n    \"endDate\": \"2026-04-19T10:00:00Z\",\n    \"epochEndDate\": 1,\n    \"event\": \"Ice\",\n    \"eventKey\": \"347628\",\n    \"eventName\": \"New York\",\n    \"forecastRanges\": {\n      \"lower\": {\n        \"displayAmount\": null,\n        \"low\": null,\n        \"high\": null,\n        \"probability\": null,\n        \"phrase\": null\n      },\n      \"low\": {\n        \"displayAmount\": null,\n        \"low\": null,\n        \"high\": null,\n        \"probability\": null,\n        \"phrase\": null\n      },\n      \"likely\": {\n        \"displayAmount\": null,\n        \"low\": null,\n        \"high\": null,\n        \"probability\": null,\n        \"phrase\": null\n      },\n      \"high\": {\n        \"displayAmount\": null,\n        \"low\": null,\n        \"high\": null,\n        \"probability\": null,\n        \"phrase\": null\n      },\n      \"higher\": {\n        \"displayAmount\": null,\n        \"low\": null,\n        \"high\": null,\n        \"probability\": null,\n        \"phrase\": null\n      }\n    }\n  }\n]",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "e9b15f41-928b-498b-afb9-a52f20d016b2",
-              "name": "Query parameter was missing or empty",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "wintercast",
-                    ":locationKey"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "language",
-                      "value": "example-value"
-                    },
-                    {
-                      "key": "isMetric",
-                      "value": "true"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "locationKey",
-                      "description": "(Required) The location key to retrieve weather conditions for"
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "id": "302e86d0-02b4-4ce5-9e53-59ac26cd3efa",
+              "createdAt": "2026-10-22T02:52:46.000Z",
+              "updatedAt": "2026-10-22T02:52:46.000Z",
+              "uid": "35240-302e86d0-02b4-4ce5-9e53-59ac26cd3efa"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "90ab46b1-ee7e-454b-a185-dfe06fa1b7eb",
+          "createdAt": "2026-10-22T02:52:46.000Z",
+          "updatedAt": "2026-10-22T02:52:46.000Z",
+          "uid": "35240-90ab46b1-ee7e-454b-a185-dfe06fa1b7eb"
         }
       ],
-      "event": []
+      "id": "e46e3fcf-c297-424c-b025-4faf5be9fb13",
+      "createdAt": "2026-10-22T02:52:46.000Z",
+      "updatedAt": "2026-10-22T02:52:46.000Z",
+      "uid": "35240-e46e3fcf-c297-424c-b025-4faf5be9fb13"
     }
   ],
-  "event": [],
   "variable": [
     {
-      "type": "string",
-      "value": "https://dataservice.accuweather.com",
-      "key": "baseUrl"
+      "key": "baseUrl",
+      "value": "/"
     }
-  ],
-  "info": {
-    "_postman_id": "1bff6376-ef64-4fe7-9b94-42173d220e4b",
-    "name": "AccuWeather One Active Storms Wintercast API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "AccuWeather's internal product API for the One platform.",
-      "type": "text/plain"
-    }
-  }
+  ]
 }

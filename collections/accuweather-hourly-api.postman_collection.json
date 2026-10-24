@@ -1,231 +1,246 @@
 {
+  "info": {
+    "_postman_id": "85ec7263-59c3-403b-aa98-0ac9d4d41fcc",
+    "name": "AccuWeather One Hourly API",
+    "description": "AccuWeather's internal product API for the One platform.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:51:38.000Z",
+    "updatedAt": "2026-10-22T02:51:38.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-85ec7263-59c3-403b-aa98-0ac9d4d41fcc"
+  },
   "item": [
     {
-      "id": "7ea1e68c-7f37-4c72-98ee-6c68b3664a9d",
-      "name": "Hourly",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "api",
       "item": [
         {
-          "id": "f69fecbe-8012-4bfb-9985-1ed61e4b82e6",
-          "name": "AccuWeather Retrieves the Latest Hourly Forecast for a Location",
-          "request": {
-            "name": "AccuWeather Retrieves the Latest Hourly Forecast for a Location",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "hourly",
-                ":locationKey"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "Locale",
-                  "value": "<string>",
-                  "description": "ISO 639-2 and ISO 3166-1 code for the locale"
-                },
-                {
-                  "disabled": false,
-                  "key": "MeasurementDisplay",
-                  "value": "<string>",
-                  "description": "Display type for weather conditions and distance"
-                },
-                {
-                  "disabled": false,
-                  "key": "WindUnit",
-                  "value": "<string>",
-                  "description": "Additional display type for wind direction"
-                },
-                {
-                  "disabled": false,
-                  "key": "Theme",
-                  "value": "<string>",
-                  "description": "Theme for the application"
-                },
-                {
-                  "disabled": false,
-                  "key": "hourCount",
-                  "value": "24",
-                  "description": "The number of hour to retrieve"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "locationKey",
-                  "description": "(Required) The location key to retrieve weather conditions for"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "hourly",
+          "item": [
             {
-              "id": "23bc3396-9f94-4b38-a10b-9439fbb37dcb",
-              "name": "Hourly Forecast found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "hourly",
-                    ":locationKey"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "Locale",
-                      "value": "en-us"
-                    },
-                    {
-                      "key": "MeasurementDisplay",
-                      "value": "Imperial"
-                    },
-                    {
-                      "key": "WindUnit",
-                      "value": "Cardinal"
-                    },
-                    {
-                      "key": "Theme",
-                      "value": "System"
-                    },
-                    {
-                      "key": "hourCount",
-                      "value": "12"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "locationKey",
-                      "description": "(Required) The location key to retrieve weather conditions for"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "{locationKey}",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "AccuWeather Retrieves the Latest Hourly Forecast for a Location",
+                  "id": "452fda27-7d1f-4d7f-aa65-bc9be1d02c4e",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/hourly/:locationKey?Locale=<string>&MeasurementDisplay=Imperial&WindUnit=Cardinal&Theme=Light&hourCount=24",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "hourly",
+                        ":locationKey"
+                      ],
+                      "query": [
+                        {
+                          "description": "ISO 639-2 and ISO 3166-1 code for the locale",
+                          "key": "Locale",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Display type for weather conditions and distance",
+                          "key": "MeasurementDisplay",
+                          "value": "Imperial"
+                        },
+                        {
+                          "description": "Additional display type for wind direction",
+                          "key": "WindUnit",
+                          "value": "Cardinal"
+                        },
+                        {
+                          "description": "Theme for the application",
+                          "key": "Theme",
+                          "value": "Light"
+                        },
+                        {
+                          "description": "The number of hour to retrieve",
+                          "key": "hourCount",
+                          "value": "24"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "a276c53e-c259-416e-beb7-a6206928a6c8",
+                          "key": "locationKey",
+                          "value": "<string>",
+                          "description": "(Required) The location key to retrieve weather conditions for"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "912dad02-a7d6-4617-a6de-878a8549e8f6",
+                      "name": "Hourly Forecast found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/hourly/:locationKey?Locale=<string>&MeasurementDisplay=Imperial&WindUnit=Cardinal&Theme=Light&hourCount=24",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "hourly",
+                            ":locationKey"
+                          ],
+                          "query": [
+                            {
+                              "description": "ISO 639-2 and ISO 3166-1 code for the locale",
+                              "key": "Locale",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Display type for weather conditions and distance",
+                              "key": "MeasurementDisplay",
+                              "value": "Imperial"
+                            },
+                            {
+                              "description": "Additional display type for wind direction",
+                              "key": "WindUnit",
+                              "value": "Cardinal"
+                            },
+                            {
+                              "description": "Theme for the application",
+                              "key": "Theme",
+                              "value": "Light"
+                            },
+                            {
+                              "description": "The number of hour to retrieve",
+                              "key": "hourCount",
+                              "value": "24"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "locationKey"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"dayOfWeek\": \"<string,null>\",\n    \"shortDayOfWeek\": \"<string,null>\",\n    \"fullDayOfWeek\": \"<string,null>\",\n    \"epoch\": \"<integer,null>\",\n    \"dateTime\": \"<string,null>\",\n    \"displayDate\": \"<string,null>\",\n    \"longDisplayDate\": \"<string,null>\",\n    \"hasAlert\": \"<boolean>\",\n    \"icon\": \"<integer>\",\n    \"temperature\": \"<string,null>\",\n    \"precip\": \"<string,null>\",\n    \"phrase\": \"<string,null>\",\n    \"realFeel\": \"<string,null>\",\n    \"realFeelShade\": \"<string,null>\",\n    \"isDayLight\": \"<boolean>\",\n    \"extended\": {\n      \"ceiling\": \"<string,null>\",\n      \"cloudCover\": \"<string,null>\",\n      \"dewPoint\": \"<string,null>\",\n      \"gusts\": \"<string,null>\",\n      \"wind\": \"<string,null>\",\n      \"windValue\": \"<number,null-double>\",\n      \"windDegrees\": \"<number,null-double>\",\n      \"windDirection\": \"<string,null>\",\n      \"humidity\": \"<string,null>\",\n      \"humidityValue\": \"<integer,null>\",\n      \"indoorHumidity\": \"<string,null>\",\n      \"indoorHumidityCategory\": \"<string,null>\",\n      \"precipitation\": \"<string,null>\",\n      \"pressure\": \"<string,null>\",\n      \"ice\": \"<string,null>\",\n      \"rain\": \"<string,null>\",\n      \"snow\": \"<string,null>\",\n      \"thunderstormProbability\": \"<string,null>\",\n      \"uv\": {\n        \"category\": \"<string,null>\",\n        \"value\": \"<float>\"\n      },\n      \"visibility\": \"<string,null>\",\n      \"precipSummary\": {\n        \"past12Hours\": \"<string,null>\",\n        \"past18Hours\": \"<string,null>\",\n        \"past24Hours\": \"<string,null>\",\n        \"past3Hours\": \"<string,null>\",\n        \"past6Hours\": \"<string,null>\",\n        \"past9Hours\": \"<string,null>\",\n        \"pastHour\": \"<string,null>\"\n      }\n    },\n    \"airQuality\": {\n      \"category\": \"<string,null>\",\n      \"categoryColor\": \"<string,null>\",\n      \"date\": \"<string,null-date-time>\",\n      \"dayOfWeek\": \"<string,null>\",\n      \"dayOfWeekAbbreviated\": \"<string,null>\",\n      \"displayDate\": \"<string,null>\",\n      \"displayTime\": \"<string,null>\",\n      \"dominantPollutant\": \"<string,null>\",\n      \"hazardStatement\": \"<string,null>\",\n      \"overallIndex\": \"<double>\",\n      \"overallPlumeLabsIndex\": \"<double>\",\n      \"pollutants\": \"<array,null>\"\n    }\n  },\n  {\n    \"dayOfWeek\": \"<string,null>\",\n    \"shortDayOfWeek\": \"<string,null>\",\n    \"fullDayOfWeek\": \"<string,null>\",\n    \"epoch\": \"<integer,null>\",\n    \"dateTime\": \"<string,null>\",\n    \"displayDate\": \"<string,null>\",\n    \"longDisplayDate\": \"<string,null>\",\n    \"hasAlert\": \"<boolean>\",\n    \"icon\": \"<integer>\",\n    \"temperature\": \"<string,null>\",\n    \"precip\": \"<string,null>\",\n    \"phrase\": \"<string,null>\",\n    \"realFeel\": \"<string,null>\",\n    \"realFeelShade\": \"<string,null>\",\n    \"isDayLight\": \"<boolean>\",\n    \"extended\": {\n      \"ceiling\": \"<string,null>\",\n      \"cloudCover\": \"<string,null>\",\n      \"dewPoint\": \"<string,null>\",\n      \"gusts\": \"<string,null>\",\n      \"wind\": \"<string,null>\",\n      \"windValue\": \"<number,null-double>\",\n      \"windDegrees\": \"<number,null-double>\",\n      \"windDirection\": \"<string,null>\",\n      \"humidity\": \"<string,null>\",\n      \"humidityValue\": \"<integer,null>\",\n      \"indoorHumidity\": \"<string,null>\",\n      \"indoorHumidityCategory\": \"<string,null>\",\n      \"precipitation\": \"<string,null>\",\n      \"pressure\": \"<string,null>\",\n      \"ice\": \"<string,null>\",\n      \"rain\": \"<string,null>\",\n      \"snow\": \"<string,null>\",\n      \"thunderstormProbability\": \"<string,null>\",\n      \"uv\": {\n        \"category\": \"<string,null>\",\n        \"value\": \"<float>\"\n      },\n      \"visibility\": \"<string,null>\",\n      \"precipSummary\": {\n        \"past12Hours\": \"<string,null>\",\n        \"past18Hours\": \"<string,null>\",\n        \"past24Hours\": \"<string,null>\",\n        \"past3Hours\": \"<string,null>\",\n        \"past6Hours\": \"<string,null>\",\n        \"past9Hours\": \"<string,null>\",\n        \"pastHour\": \"<string,null>\"\n      }\n    },\n    \"airQuality\": {\n      \"category\": \"<string,null>\",\n      \"categoryColor\": \"<string,null>\",\n      \"date\": \"<string,null-date-time>\",\n      \"dayOfWeek\": \"<string,null>\",\n      \"dayOfWeekAbbreviated\": \"<string,null>\",\n      \"displayDate\": \"<string,null>\",\n      \"displayTime\": \"<string,null>\",\n      \"dominantPollutant\": \"<string,null>\",\n      \"hazardStatement\": \"<string,null>\",\n      \"overallIndex\": \"<double>\",\n      \"overallPlumeLabsIndex\": \"<double>\",\n      \"pollutants\": \"<array,null>\"\n    }\n  }\n]",
+                      "createdAt": "2026-10-22T02:51:39.000Z",
+                      "updatedAt": "2026-10-22T02:51:39.000Z",
+                      "uid": "35240-912dad02-a7d6-4617-a6de-878a8549e8f6"
+                    },
+                    {
+                      "id": "ba24f97e-0767-41f1-a727-a7fbf0d8bccf",
+                      "name": "Query parameter was missing or empty",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/hourly/:locationKey?Locale=<string>&MeasurementDisplay=Imperial&WindUnit=Cardinal&Theme=Light&hourCount=24",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "hourly",
+                            ":locationKey"
+                          ],
+                          "query": [
+                            {
+                              "description": "ISO 639-2 and ISO 3166-1 code for the locale",
+                              "key": "Locale",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Display type for weather conditions and distance",
+                              "key": "MeasurementDisplay",
+                              "value": "Imperial"
+                            },
+                            {
+                              "description": "Additional display type for wind direction",
+                              "key": "WindUnit",
+                              "value": "Cardinal"
+                            },
+                            {
+                              "description": "Theme for the application",
+                              "key": "Theme",
+                              "value": "Light"
+                            },
+                            {
+                              "description": "The number of hour to retrieve",
+                              "key": "hourCount",
+                              "value": "24"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "locationKey"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:51:39.000Z",
+                      "updatedAt": "2026-10-22T02:51:39.000Z",
+                      "uid": "35240-ba24f97e-0767-41f1-a727-a7fbf0d8bccf"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:51:39.000Z",
+                  "updatedAt": "2026-10-22T02:51:39.000Z",
+                  "uid": "35240-452fda27-7d1f-4d7f-aa65-bc9be1d02c4e"
                 }
               ],
-              "body": "[\n  {\n    \"dayOfWeek\": \"example-value\",\n    \"shortDayOfWeek\": \"example-value\",\n    \"fullDayOfWeek\": \"example-value\",\n    \"epoch\": 1,\n    \"dateTime\": \"example-value\",\n    \"displayDate\": \"example-value\",\n    \"longDisplayDate\": \"example-value\",\n    \"hasAlert\": true,\n    \"icon\": 6,\n    \"temperature\": \"example-value\",\n    \"precip\": \"example-value\",\n    \"phrase\": \"Partly cloudy\",\n    \"realFeel\": \"example-value\",\n    \"realFeelShade\": \"example-value\",\n    \"isDayLight\": true,\n    \"extended\": {\n      \"ceiling\": \"example-value\",\n      \"cloudCover\": \"example-value\",\n      \"dewPoint\": \"example-value\",\n      \"gusts\": \"example-value\",\n      \"wind\": \"example-value\",\n      \"windValue\": 12.5,\n      \"windDegrees\": 12.5,\n      \"windDirection\": \"example-value\",\n      \"humidity\": \"500123\",\n      \"humidityValue\": 1,\n      \"indoorHumidity\": \"500123\",\n      \"indoorHumidityCategory\": \"500123\",\n      \"precipitation\": \"example-value\",\n      \"pressure\": \"example-value\",\n      \"ice\": \"example-value\",\n      \"rain\": \"example-value\",\n      \"snow\": \"example-value\",\n      \"thunderstormProbability\": \"example-value\",\n      \"uv\": {\n        \"category\": null,\n        \"value\": null\n      },\n      \"visibility\": \"example-value\",\n      \"precipSummary\": {\n        \"past12Hours\": null,\n        \"past18Hours\": null,\n        \"past24Hours\": null,\n        \"past3Hours\": null,\n        \"past6Hours\": null,\n        \"past9Hours\": null,\n        \"pastHour\": null\n      }\n    },\n    \"airQuality\": {\n      \"category\": \"example-value\",\n      \"categoryColor\": \"example-value\",\n      \"date\": \"2026-04-19T10:00:00Z\",\n      \"dayOfWeek\": \"example-value\",\n      \"dayOfWeekAbbreviated\": \"example-value\",\n      \"displayDate\": \"example-value\",\n      \"displayTime\": \"example-value\",\n      \"dominantPollutant\": \"example-value\",\n      \"hazardStatement\": \"example-value\",\n      \"overallIndex\": 42,\n      \"overallPlumeLabsIndex\": 42,\n      \"pollutants\": [\n        null\n      ]\n    }\n  }\n]",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "0340fae2-7f07-4f44-8c6a-89ec18c9a546",
-              "name": "Query parameter was missing or empty",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "hourly",
-                    ":locationKey"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "Locale",
-                      "value": "en-us"
-                    },
-                    {
-                      "key": "MeasurementDisplay",
-                      "value": "Imperial"
-                    },
-                    {
-                      "key": "WindUnit",
-                      "value": "Cardinal"
-                    },
-                    {
-                      "key": "Theme",
-                      "value": "System"
-                    },
-                    {
-                      "key": "hourCount",
-                      "value": "12"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "locationKey",
-                      "description": "(Required) The location key to retrieve weather conditions for"
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "id": "bb67f225-24d3-4023-a840-01022f994ecb",
+              "createdAt": "2026-10-22T02:51:39.000Z",
+              "updatedAt": "2026-10-22T02:51:39.000Z",
+              "uid": "35240-bb67f225-24d3-4023-a840-01022f994ecb"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "0abd43a3-8c0c-43c8-9cf1-42c2138b8e89",
+          "createdAt": "2026-10-22T02:51:39.000Z",
+          "updatedAt": "2026-10-22T02:51:39.000Z",
+          "uid": "35240-0abd43a3-8c0c-43c8-9cf1-42c2138b8e89"
         }
       ],
-      "event": []
+      "id": "21a6c5a9-c6cd-48fc-a803-293e689342bc",
+      "createdAt": "2026-10-22T02:51:39.000Z",
+      "updatedAt": "2026-10-22T02:51:39.000Z",
+      "uid": "35240-21a6c5a9-c6cd-48fc-a803-293e689342bc"
     }
   ],
-  "event": [],
   "variable": [
     {
-      "type": "string",
-      "value": "https://dataservice.accuweather.com",
-      "key": "baseUrl"
+      "key": "baseUrl",
+      "value": "/"
     }
-  ],
-  "info": {
-    "_postman_id": "0f37a634-dc37-4f06-a4a7-c6c7a52fc340",
-    "name": "AccuWeather One Active Storms Hourly API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "AccuWeather's internal product API for the One platform.",
-      "type": "text/plain"
-    }
-  }
+  ]
 }

@@ -1,232 +1,246 @@
 {
+  "info": {
+    "_postman_id": "1ce97d6b-f319-4a67-a887-6586d35e77b1",
+    "name": "AccuWeather One Autocomplete API",
+    "description": "AccuWeather's internal product API for the One platform.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:50:59.000Z",
+    "updatedAt": "2026-10-22T02:50:59.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-1ce97d6b-f319-4a67-a887-6586d35e77b1"
+  },
   "item": [
     {
-      "id": "1ebabbd9-b796-44e8-a0a7-a155c943c622",
-      "name": "Autocomplete",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "api",
       "item": [
         {
-          "id": "17c5be1d-7691-4921-a7e0-24131756ffd6",
-          "name": "AccuWeather Retrieves a List of Locations Matching the Specified Query",
-          "request": {
-            "name": "AccuWeather Retrieves a List of Locations Matching the Specified Query",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "autocomplete"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "Query",
-                  "value": "<string>",
-                  "description": "(Required) The partial query to search against. Eg. 'New' to get things like New York or New Market"
-                },
-                {
-                  "disabled": false,
-                  "key": "Latitude",
-                  "value": "<double>",
-                  "description": "The latitude where responses will be biased."
-                },
-                {
-                  "disabled": false,
-                  "key": "Longitude",
-                  "value": "<double>",
-                  "description": "The longitude where responses will be biased."
-                },
-                {
-                  "disabled": false,
-                  "key": "Locale",
-                  "value": "<string>",
-                  "description": "ISO 639-2 and ISO 3166-1 code for the locale"
-                },
-                {
-                  "disabled": false,
-                  "key": "MeasurementDisplay",
-                  "value": "<string>",
-                  "description": "Display type for weather conditions and distance"
-                },
-                {
-                  "disabled": false,
-                  "key": "WindUnit",
-                  "value": "<string>",
-                  "description": "Additional display type for wind direction"
-                },
-                {
-                  "disabled": false,
-                  "key": "Theme",
-                  "value": "<string>",
-                  "description": "Theme for the application"
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "autocomplete",
+          "item": [
             {
-              "id": "434ddaa9-4566-41dc-9b33-fadd2b768dce",
-              "name": "Locations found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "autocomplete"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "Query",
-                      "value": "New"
-                    },
-                    {
-                      "key": "Latitude",
-                      "value": "40.7128"
-                    },
-                    {
-                      "key": "Longitude",
-                      "value": "-74.006"
-                    },
-                    {
-                      "key": "Locale",
-                      "value": "en-us"
-                    },
-                    {
-                      "key": "MeasurementDisplay",
-                      "value": "Imperial"
-                    },
-                    {
-                      "key": "WindUnit",
-                      "value": "Cardinal"
-                    },
-                    {
-                      "key": "Theme",
-                      "value": "System"
-                    }
-                  ],
-                  "variable": []
-                },
+              "name": "AccuWeather Retrieves a List of Locations Matching the Specified Query",
+              "id": "d2744905-6201-44a1-bc47-4798827025fe",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
                 "header": [
                   {
                     "key": "Accept",
                     "value": "application/json"
                   }
                 ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "[\n  {\n    \"locationType\": \"address\",\n    \"city\": \"London\",\n    \"adminCode\": \"PA\",\n    \"countryCode\": \"US\",\n    \"postalCode\": \"example-value\",\n    \"position\": [\n      51.50032,\n      -0.145433\n    ],\n    \"name\": \"Buckingham Palace\",\n    \"longName\": \"Buckingham Palace, Westminster, London, Greater London GBR\",\n    \"locationSettingsInfo\": {\n      \"id\": \"50603e3f-5433-4d14-9b5f-01c8cf619d9b\",\n      \"locationKey\": \"328328\",\n      \"name\": \"State Collage\",\n      \"longName\": \"385 Science Park Rd, State College, PA\",\n      \"displayName\": \"385 Science Park Rd, State College, PA or Eureka, CA USA\",\n      \"stationCode\": \"EGRB\",\n      \"supportedDataSets\": [\n        \"AirQualityCurrentConditions\",\n        \"AirQualityForecasts\",\n        \"Alerts\",\n        \"DailyAirQualityForecast\",\n        \"DailyPollenForecast\",\n        \"ForecastConfidence\",\n        \"FutureRadar\",\n        \"MinuteCast\",\n        \"ProximityNotification-Lightning\",\n        \"Radar\"\n      ],\n      \"supportsMinuteCast\": true,\n      \"latitude\": 40.7128,\n      \"longitude\": -74.006,\n      \"supportsEventConfidence\": true\n    },\n    \"source\": \"AccuWeather\"\n  }\n]",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "98ae214b-3a69-42fb-a6ab-f4e95a61e967",
-              "name": "Parameters are bad, details in body.",
-              "originalRequest": {
                 "url": {
+                  "raw": "{{baseUrl}}/api/autocomplete?Query=<string>&Latitude=<double>&Longitude=<double>&Locale=<string>&MeasurementDisplay=Imperial&WindUnit=Degrees&Theme=Light",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
                   "path": [
                     "api",
                     "autocomplete"
                   ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
                   "query": [
                     {
+                      "description": "(Required) The partial query to search against. Eg. 'New' to get things like New York or New Market",
                       "key": "Query",
-                      "value": "New"
+                      "value": "<string>"
                     },
                     {
+                      "description": "The latitude where responses will be biased.",
                       "key": "Latitude",
-                      "value": "40.7128"
+                      "value": "<double>"
                     },
                     {
+                      "description": "The longitude where responses will be biased.",
                       "key": "Longitude",
-                      "value": "-74.006"
+                      "value": "<double>"
                     },
                     {
+                      "description": "ISO 639-2 and ISO 3166-1 code for the locale",
                       "key": "Locale",
-                      "value": "en-us"
+                      "value": "<string>"
                     },
                     {
+                      "description": "Display type for weather conditions and distance",
                       "key": "MeasurementDisplay",
                       "value": "Imperial"
                     },
                     {
+                      "description": "Additional display type for wind direction",
                       "key": "WindUnit",
-                      "value": "Cardinal"
+                      "value": "Degrees"
                     },
                     {
+                      "description": "Theme for the application",
                       "key": "Theme",
-                      "value": "System"
+                      "value": "Light"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "67e0912e-c507-467c-9906-7f2a449ce552",
+                  "name": "Locations found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/autocomplete?Query=<string>&Latitude=<double>&Longitude=<double>&Locale=<string>&MeasurementDisplay=Imperial&WindUnit=Degrees&Theme=Light",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "autocomplete"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The partial query to search against. Eg. 'New' to get things like New York or New Market",
+                          "key": "Query",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The latitude where responses will be biased.",
+                          "key": "Latitude",
+                          "value": "<double>"
+                        },
+                        {
+                          "description": "The longitude where responses will be biased.",
+                          "key": "Longitude",
+                          "value": "<double>"
+                        },
+                        {
+                          "description": "ISO 639-2 and ISO 3166-1 code for the locale",
+                          "key": "Locale",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Display type for weather conditions and distance",
+                          "key": "MeasurementDisplay",
+                          "value": "Imperial"
+                        },
+                        {
+                          "description": "Additional display type for wind direction",
+                          "key": "WindUnit",
+                          "value": "Degrees"
+                        },
+                        {
+                          "description": "Theme for the application",
+                          "key": "Theme",
+                          "value": "Light"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
                     }
                   ],
-                  "variable": []
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"locationType\": \"<string,null>\",\n    \"city\": \"<string,null>\",\n    \"adminCode\": \"<string,null>\",\n    \"countryCode\": \"<string,null>\",\n    \"postalCode\": \"<string,null>\",\n    \"position\": \"<array,null>\",\n    \"name\": \"<string,null>\",\n    \"longName\": \"<string,null>\",\n    \"locationSettingsInfo\": {\n      \"id\": \"<string,null>\",\n      \"locationKey\": \"<string,null>\",\n      \"name\": \"<string,null>\",\n      \"longName\": \"<string,null>\",\n      \"displayName\": \"<string,null>\",\n      \"stationCode\": \"<string,null>\",\n      \"supportedDataSets\": \"<array,null>\",\n      \"supportsMinuteCast\": \"<boolean,null>\",\n      \"latitude\": \"<number,null-double>\",\n      \"longitude\": \"<number,null-double>\",\n      \"supportsEventConfidence\": \"<boolean,null>\"\n    },\n    \"source\": \"Unknown\"\n  },\n  {\n    \"locationType\": \"<string,null>\",\n    \"city\": \"<string,null>\",\n    \"adminCode\": \"<string,null>\",\n    \"countryCode\": \"<string,null>\",\n    \"postalCode\": \"<string,null>\",\n    \"position\": \"<array,null>\",\n    \"name\": \"<string,null>\",\n    \"longName\": \"<string,null>\",\n    \"locationSettingsInfo\": {\n      \"id\": \"<string,null>\",\n      \"locationKey\": \"<string,null>\",\n      \"name\": \"<string,null>\",\n      \"longName\": \"<string,null>\",\n      \"displayName\": \"<string,null>\",\n      \"stationCode\": \"<string,null>\",\n      \"supportedDataSets\": \"<array,null>\",\n      \"supportsMinuteCast\": \"<boolean,null>\",\n      \"latitude\": \"<number,null-double>\",\n      \"longitude\": \"<number,null-double>\",\n      \"supportsEventConfidence\": \"<boolean,null>\"\n    },\n    \"source\": \"Unknown\"\n  }\n]",
+                  "createdAt": "2026-10-22T02:50:59.000Z",
+                  "updatedAt": "2026-10-22T02:50:59.000Z",
+                  "uid": "35240-67e0912e-c507-467c-9906-7f2a449ce552"
                 },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
                 {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                  "id": "a9cf722d-d4c2-4c3e-84cc-109aacdec67e",
+                  "name": "Parameters are bad, details in body.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/autocomplete?Query=<string>&Latitude=<double>&Longitude=<double>&Locale=<string>&MeasurementDisplay=Imperial&WindUnit=Degrees&Theme=Light",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "autocomplete"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The partial query to search against. Eg. 'New' to get things like New York or New Market",
+                          "key": "Query",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The latitude where responses will be biased.",
+                          "key": "Latitude",
+                          "value": "<double>"
+                        },
+                        {
+                          "description": "The longitude where responses will be biased.",
+                          "key": "Longitude",
+                          "value": "<double>"
+                        },
+                        {
+                          "description": "ISO 639-2 and ISO 3166-1 code for the locale",
+                          "key": "Locale",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Display type for weather conditions and distance",
+                          "key": "MeasurementDisplay",
+                          "value": "Imperial"
+                        },
+                        {
+                          "description": "Additional display type for wind direction",
+                          "key": "WindUnit",
+                          "value": "Degrees"
+                        },
+                        {
+                          "description": "Theme for the application",
+                          "key": "Theme",
+                          "value": "Light"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T02:50:59.000Z",
+                  "updatedAt": "2026-10-22T02:50:59.000Z",
+                  "uid": "35240-a9cf722d-d4c2-4c3e-84cc-109aacdec67e"
                 }
               ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "createdAt": "2026-10-22T02:50:59.000Z",
+              "updatedAt": "2026-10-22T02:50:59.000Z",
+              "uid": "35240-d2744905-6201-44a1-bc47-4798827025fe"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "ca98dd7b-94d3-4978-b7ef-2619b2045bc3",
+          "createdAt": "2026-10-22T02:50:59.000Z",
+          "updatedAt": "2026-10-22T02:50:59.000Z",
+          "uid": "35240-ca98dd7b-94d3-4978-b7ef-2619b2045bc3"
         }
       ],
-      "event": []
+      "id": "1c087635-1861-4d60-b806-d24594c9569f",
+      "createdAt": "2026-10-22T02:50:59.000Z",
+      "updatedAt": "2026-10-22T02:50:59.000Z",
+      "uid": "35240-1c087635-1861-4d60-b806-d24594c9569f"
     }
   ],
-  "event": [],
   "variable": [
     {
-      "type": "string",
-      "value": "https://dataservice.accuweather.com",
-      "key": "baseUrl"
+      "key": "baseUrl",
+      "value": "/"
     }
-  ],
-  "info": {
-    "_postman_id": "91ff80e0-8f6a-4d1b-897b-1a4cd44891ac",
-    "name": "AccuWeather One Active Storms Autocomplete API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "AccuWeather's internal product API for the One platform.",
-      "type": "text/plain"
-    }
-  }
+  ]
 }

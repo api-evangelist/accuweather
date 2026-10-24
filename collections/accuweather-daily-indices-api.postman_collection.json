@@ -1,231 +1,246 @@
 {
+  "info": {
+    "_postman_id": "a576eb96-f83f-4e01-a149-43cb44fb9ef6",
+    "name": "AccuWeather One Daily Indices API",
+    "description": "AccuWeather's internal product API for the One platform.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:51:29.000Z",
+    "updatedAt": "2026-10-22T02:51:29.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-a576eb96-f83f-4e01-a149-43cb44fb9ef6"
+  },
   "item": [
     {
-      "id": "1e678512-60b9-4f86-950d-0eaaa2215e74",
-      "name": "Daily Indices",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "api",
       "item": [
         {
-          "id": "d2ef8638-7abe-4048-b771-4d375f051082",
-          "name": "AccuWeather Retrieves a the Daily Indices for a Location",
-          "request": {
-            "name": "AccuWeather Retrieves a the Daily Indices for a Location",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "daily-indices",
-                ":locationKey"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "Locale",
-                  "value": "<string>",
-                  "description": "ISO 639-2 and ISO 3166-1 code for the locale"
-                },
-                {
-                  "disabled": false,
-                  "key": "MeasurementDisplay",
-                  "value": "<string>",
-                  "description": "Display type for weather conditions and distance"
-                },
-                {
-                  "disabled": false,
-                  "key": "WindUnit",
-                  "value": "<string>",
-                  "description": "Additional display type for wind direction"
-                },
-                {
-                  "disabled": false,
-                  "key": "Theme",
-                  "value": "<string>",
-                  "description": "Theme for the application"
-                },
-                {
-                  "disabled": false,
-                  "key": "category",
-                  "value": "<string>",
-                  "description": "The index category to get the indices for."
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "locationKey",
-                  "description": "(Required) The location key to retrieve weather conditions for"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "daily-indices",
+          "item": [
             {
-              "id": "04a8d3ae-662c-466a-8f44-07e5a129ef36",
-              "name": "Indices found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "daily-indices",
-                    ":locationKey"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "Locale",
-                      "value": "en-us"
-                    },
-                    {
-                      "key": "MeasurementDisplay",
-                      "value": "Imperial"
-                    },
-                    {
-                      "key": "WindUnit",
-                      "value": "Cardinal"
-                    },
-                    {
-                      "key": "Theme",
-                      "value": "System"
-                    },
-                    {
-                      "key": "category",
-                      "value": "Allergies"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "locationKey",
-                      "description": "(Required) The location key to retrieve weather conditions for"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "{locationKey}",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "AccuWeather Retrieves a the Daily Indices for a Location",
+                  "id": "41547cce-71fc-490c-93e9-c5114b702fbc",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/daily-indices/:locationKey?Locale=<string>&MeasurementDisplay=Metric&WindUnit=Cardinal&Theme=Light&category=OutdoorActivities",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "daily-indices",
+                        ":locationKey"
+                      ],
+                      "query": [
+                        {
+                          "description": "ISO 639-2 and ISO 3166-1 code for the locale",
+                          "key": "Locale",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Display type for weather conditions and distance",
+                          "key": "MeasurementDisplay",
+                          "value": "Metric"
+                        },
+                        {
+                          "description": "Additional display type for wind direction",
+                          "key": "WindUnit",
+                          "value": "Cardinal"
+                        },
+                        {
+                          "description": "Theme for the application",
+                          "key": "Theme",
+                          "value": "Light"
+                        },
+                        {
+                          "description": "The index category to get the indices for.",
+                          "key": "category",
+                          "value": "OutdoorActivities"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "9fd6a124-c60a-4084-8db4-a622fd3b51f4",
+                          "key": "locationKey",
+                          "value": "<string>",
+                          "description": "(Required) The location key to retrieve weather conditions for"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "35b0954d-d51a-498f-a54c-a418c52ab44d",
+                      "name": "Indices found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/daily-indices/:locationKey?Locale=<string>&MeasurementDisplay=Metric&WindUnit=Cardinal&Theme=Light&category=OutdoorActivities",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "daily-indices",
+                            ":locationKey"
+                          ],
+                          "query": [
+                            {
+                              "description": "ISO 639-2 and ISO 3166-1 code for the locale",
+                              "key": "Locale",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Display type for weather conditions and distance",
+                              "key": "MeasurementDisplay",
+                              "value": "Metric"
+                            },
+                            {
+                              "description": "Additional display type for wind direction",
+                              "key": "WindUnit",
+                              "value": "Cardinal"
+                            },
+                            {
+                              "description": "Theme for the application",
+                              "key": "Theme",
+                              "value": "Light"
+                            },
+                            {
+                              "description": "The index category to get the indices for.",
+                              "key": "category",
+                              "value": "OutdoorActivities"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "locationKey"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"dolorc71\": {\n    \"indexName\": \"<string,null>\",\n    \"indexType\": \"SnowDays\",\n    \"days\": \"<array,null>\",\n    \"activityType\": \"Pests\"\n  },\n  \"mollit_1\": {\n    \"indexName\": \"<string,null>\",\n    \"indexType\": \"WindChillDescending\",\n    \"days\": \"<array,null>\",\n    \"activityType\": \"HomeGarden\"\n  },\n  \"dolor28\": {\n    \"indexName\": \"<string,null>\",\n    \"indexType\": \"CarWashing\",\n    \"days\": \"<array,null>\",\n    \"activityType\": \"TravelCommute\"\n  }\n}",
+                      "createdAt": "2026-10-22T02:51:29.000Z",
+                      "updatedAt": "2026-10-22T02:51:29.000Z",
+                      "uid": "35240-35b0954d-d51a-498f-a54c-a418c52ab44d"
+                    },
+                    {
+                      "id": "dd295cdf-6d84-4c00-b828-d784a334ca32",
+                      "name": "Query parameter was missing or empty",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/daily-indices/:locationKey?Locale=<string>&MeasurementDisplay=Metric&WindUnit=Cardinal&Theme=Light&category=OutdoorActivities",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "daily-indices",
+                            ":locationKey"
+                          ],
+                          "query": [
+                            {
+                              "description": "ISO 639-2 and ISO 3166-1 code for the locale",
+                              "key": "Locale",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Display type for weather conditions and distance",
+                              "key": "MeasurementDisplay",
+                              "value": "Metric"
+                            },
+                            {
+                              "description": "Additional display type for wind direction",
+                              "key": "WindUnit",
+                              "value": "Cardinal"
+                            },
+                            {
+                              "description": "Theme for the application",
+                              "key": "Theme",
+                              "value": "Light"
+                            },
+                            {
+                              "description": "The index category to get the indices for.",
+                              "key": "category",
+                              "value": "OutdoorActivities"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "locationKey"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:51:29.000Z",
+                      "updatedAt": "2026-10-22T02:51:29.000Z",
+                      "uid": "35240-dd295cdf-6d84-4c00-b828-d784a334ca32"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:51:29.000Z",
+                  "updatedAt": "2026-10-22T02:51:29.000Z",
+                  "uid": "35240-41547cce-71fc-490c-93e9-c5114b702fbc"
                 }
               ],
-              "body": "{}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "9990c2b8-7859-4520-a2e2-d3a1dfc5d779",
-              "name": "Query parameter was missing or empty",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "daily-indices",
-                    ":locationKey"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "Locale",
-                      "value": "en-us"
-                    },
-                    {
-                      "key": "MeasurementDisplay",
-                      "value": "Imperial"
-                    },
-                    {
-                      "key": "WindUnit",
-                      "value": "Cardinal"
-                    },
-                    {
-                      "key": "Theme",
-                      "value": "System"
-                    },
-                    {
-                      "key": "category",
-                      "value": "Allergies"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "locationKey",
-                      "description": "(Required) The location key to retrieve weather conditions for"
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "id": "b5618f66-1f85-4bcc-bc07-fbc6107290d9",
+              "createdAt": "2026-10-22T02:51:29.000Z",
+              "updatedAt": "2026-10-22T02:51:29.000Z",
+              "uid": "35240-b5618f66-1f85-4bcc-bc07-fbc6107290d9"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "7a5a2af2-a20f-4acb-84c3-fa3a784bd2ba",
+          "createdAt": "2026-10-22T02:51:29.000Z",
+          "updatedAt": "2026-10-22T02:51:29.000Z",
+          "uid": "35240-7a5a2af2-a20f-4acb-84c3-fa3a784bd2ba"
         }
       ],
-      "event": []
+      "id": "832f1664-39d4-4408-965f-f2f49bfa72a0",
+      "createdAt": "2026-10-22T02:51:29.000Z",
+      "updatedAt": "2026-10-22T02:51:29.000Z",
+      "uid": "35240-832f1664-39d4-4408-965f-f2f49bfa72a0"
     }
   ],
-  "event": [],
   "variable": [
     {
-      "type": "string",
-      "value": "https://dataservice.accuweather.com",
-      "key": "baseUrl"
+      "key": "baseUrl",
+      "value": "/"
     }
-  ],
-  "info": {
-    "_postman_id": "68435c4a-6660-4131-938c-486db5302435",
-    "name": "AccuWeather One Active Storms Daily Indices API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "AccuWeather's internal product API for the One platform.",
-      "type": "text/plain"
-    }
-  }
+  ]
 }

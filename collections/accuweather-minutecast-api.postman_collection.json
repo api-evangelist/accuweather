@@ -1,217 +1,231 @@
 {
+  "info": {
+    "_postman_id": "659f44bb-97a3-4f14-8111-7b78e4b1912e",
+    "name": "AccuWeather One Minutecast API",
+    "description": "AccuWeather's internal product API for the One platform.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:51:49.000Z",
+    "updatedAt": "2026-10-22T02:51:50.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-659f44bb-97a3-4f14-8111-7b78e4b1912e"
+  },
   "item": [
     {
-      "id": "7f5de5d5-b5b1-4e47-832f-6497d0fcf591",
-      "name": "Minutecast",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "api",
       "item": [
         {
-          "id": "957686da-f329-4bc8-808d-7068b21f11d2",
-          "name": "AccuWeather Retrieves the Latest Minute by Minute Forecast for a Location",
-          "request": {
-            "name": "AccuWeather Retrieves the Latest Minute by Minute Forecast for a Location",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "minutecast",
-                ":locationKey"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "Locale",
-                  "value": "<string>",
-                  "description": "ISO 639-2 and ISO 3166-1 code for the locale"
-                },
-                {
-                  "disabled": false,
-                  "key": "MeasurementDisplay",
-                  "value": "<string>",
-                  "description": "Display type for weather conditions and distance"
-                },
-                {
-                  "disabled": false,
-                  "key": "WindUnit",
-                  "value": "<string>",
-                  "description": "Additional display type for wind direction"
-                },
-                {
-                  "disabled": false,
-                  "key": "Theme",
-                  "value": "<string>",
-                  "description": "Theme for the application"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "locationKey",
-                  "description": "(Required) The location key to retrieve weather conditions for"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "minutecast",
+          "item": [
             {
-              "id": "2974d871-2261-4fe5-bf62-e5addc58dd71",
-              "name": "MinuteCast Forecast found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "minutecast",
-                    ":locationKey"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "Locale",
-                      "value": "en-us"
-                    },
-                    {
-                      "key": "MeasurementDisplay",
-                      "value": "Imperial"
-                    },
-                    {
-                      "key": "WindUnit",
-                      "value": "Cardinal"
-                    },
-                    {
-                      "key": "Theme",
-                      "value": "System"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "locationKey",
-                      "description": "(Required) The location key to retrieve weather conditions for"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "{locationKey}",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "AccuWeather Retrieves the Latest Minute by Minute Forecast for a Location",
+                  "id": "dca79706-0a77-42d8-85cf-b246dd298770",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/minutecast/:locationKey?Locale=<string>&MeasurementDisplay=Hybrid&WindUnit=Degrees&Theme=Light",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "minutecast",
+                        ":locationKey"
+                      ],
+                      "query": [
+                        {
+                          "description": "ISO 639-2 and ISO 3166-1 code for the locale",
+                          "key": "Locale",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Display type for weather conditions and distance",
+                          "key": "MeasurementDisplay",
+                          "value": "Hybrid"
+                        },
+                        {
+                          "description": "Additional display type for wind direction",
+                          "key": "WindUnit",
+                          "value": "Degrees"
+                        },
+                        {
+                          "description": "Theme for the application",
+                          "key": "Theme",
+                          "value": "Light"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "c5b64a06-e5f1-40f7-8f1c-d13365e230da",
+                          "key": "locationKey",
+                          "value": "<string>",
+                          "description": "(Required) The location key to retrieve weather conditions for"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "d4434da2-2d2d-45c5-be05-626ba7aefe59",
+                      "name": "MinuteCast Forecast found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/minutecast/:locationKey?Locale=<string>&MeasurementDisplay=Hybrid&WindUnit=Degrees&Theme=Light",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "minutecast",
+                            ":locationKey"
+                          ],
+                          "query": [
+                            {
+                              "description": "ISO 639-2 and ISO 3166-1 code for the locale",
+                              "key": "Locale",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Display type for weather conditions and distance",
+                              "key": "MeasurementDisplay",
+                              "value": "Hybrid"
+                            },
+                            {
+                              "description": "Additional display type for wind direction",
+                              "key": "WindUnit",
+                              "value": "Degrees"
+                            },
+                            {
+                              "description": "Theme for the application",
+                              "key": "Theme",
+                              "value": "Light"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "locationKey"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"summary60\": \"<string,null>\",\n  \"minutes\": \"<array,null>\"\n}",
+                      "createdAt": "2026-10-22T02:51:50.000Z",
+                      "updatedAt": "2026-10-22T02:51:50.000Z",
+                      "uid": "35240-d4434da2-2d2d-45c5-be05-626ba7aefe59"
+                    },
+                    {
+                      "id": "44f0952e-aa0c-413a-a9c9-a8760321aa0c",
+                      "name": "Query parameter was missing or empty",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/minutecast/:locationKey?Locale=<string>&MeasurementDisplay=Hybrid&WindUnit=Degrees&Theme=Light",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "minutecast",
+                            ":locationKey"
+                          ],
+                          "query": [
+                            {
+                              "description": "ISO 639-2 and ISO 3166-1 code for the locale",
+                              "key": "Locale",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Display type for weather conditions and distance",
+                              "key": "MeasurementDisplay",
+                              "value": "Hybrid"
+                            },
+                            {
+                              "description": "Additional display type for wind direction",
+                              "key": "WindUnit",
+                              "value": "Degrees"
+                            },
+                            {
+                              "description": "Theme for the application",
+                              "key": "Theme",
+                              "value": "Light"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "locationKey"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:51:50.000Z",
+                      "updatedAt": "2026-10-22T02:51:50.000Z",
+                      "uid": "35240-44f0952e-aa0c-413a-a9c9-a8760321aa0c"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:51:50.000Z",
+                  "updatedAt": "2026-10-22T02:51:50.000Z",
+                  "uid": "35240-dca79706-0a77-42d8-85cf-b246dd298770"
                 }
               ],
-              "body": "{\n  \"summary60\": \"example-value\",\n  \"minutes\": [\n    {\n      \"displayTime\": \"example-value\",\n      \"minute\": 30,\n      \"color\": \"example-value\",\n      \"dbz\": 42,\n      \"precipitationType\": \"example-value\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "7751e558-bcab-4d97-8564-7f589f7b0948",
-              "name": "Query parameter was missing or empty",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "minutecast",
-                    ":locationKey"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "Locale",
-                      "value": "en-us"
-                    },
-                    {
-                      "key": "MeasurementDisplay",
-                      "value": "Imperial"
-                    },
-                    {
-                      "key": "WindUnit",
-                      "value": "Cardinal"
-                    },
-                    {
-                      "key": "Theme",
-                      "value": "System"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "locationKey",
-                      "description": "(Required) The location key to retrieve weather conditions for"
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "id": "19944f38-7bb6-4c62-aed7-d7cd2aff45ed",
+              "createdAt": "2026-10-22T02:51:50.000Z",
+              "updatedAt": "2026-10-22T02:51:50.000Z",
+              "uid": "35240-19944f38-7bb6-4c62-aed7-d7cd2aff45ed"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "38fb3a01-3189-478d-b89a-debf940026b2",
+          "createdAt": "2026-10-22T02:51:50.000Z",
+          "updatedAt": "2026-10-22T02:51:50.000Z",
+          "uid": "35240-38fb3a01-3189-478d-b89a-debf940026b2"
         }
       ],
-      "event": []
+      "id": "2f720198-e38d-49cd-b044-91f2efa00297",
+      "createdAt": "2026-10-22T02:51:50.000Z",
+      "updatedAt": "2026-10-22T02:51:50.000Z",
+      "uid": "35240-2f720198-e38d-49cd-b044-91f2efa00297"
     }
   ],
-  "event": [],
   "variable": [
     {
-      "type": "string",
-      "value": "https://dataservice.accuweather.com",
-      "key": "baseUrl"
+      "key": "baseUrl",
+      "value": "/"
     }
-  ],
-  "info": {
-    "_postman_id": "2730124c-2f4c-4987-baff-0de5a6eb031f",
-    "name": "AccuWeather One Active Storms Minutecast API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "AccuWeather's internal product API for the One platform.",
-      "type": "text/plain"
-    }
-  }
+  ]
 }

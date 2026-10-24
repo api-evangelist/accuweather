@@ -1,0 +1,231 @@
+{
+  "info": {
+    "_postman_id": "70c06c88-e66a-40b6-b293-3fe6a52f7cf8",
+    "name": "AccuWeather One Air Quality API",
+    "description": "AccuWeather's internal product API for the One platform.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:52:50.000Z",
+    "updatedAt": "2026-10-22T02:52:50.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-70c06c88-e66a-40b6-b293-3fe6a52f7cf8"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "airQuality",
+          "item": [
+            {
+              "name": "{locationKey}",
+              "item": [
+                {
+                  "name": "AccuWeather Retrieves the Current Air Quality for a Given Location",
+                  "id": "830816c2-4fe2-454d-ada6-519e99117ed0",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/airQuality/:locationKey?Locale=<string>&MeasurementDisplay=Hybrid&WindUnit=Degrees&Theme=Light",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "airQuality",
+                        ":locationKey"
+                      ],
+                      "query": [
+                        {
+                          "description": "ISO 639-2 and ISO 3166-1 code for the locale",
+                          "key": "Locale",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Display type for weather conditions and distance",
+                          "key": "MeasurementDisplay",
+                          "value": "Hybrid"
+                        },
+                        {
+                          "description": "Additional display type for wind direction",
+                          "key": "WindUnit",
+                          "value": "Degrees"
+                        },
+                        {
+                          "description": "Theme for the application",
+                          "key": "Theme",
+                          "value": "Light"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "2e817ef3-c8f9-4ce6-bf5b-70d79e5a627b",
+                          "key": "locationKey",
+                          "value": "<string>",
+                          "description": "(Required) The location key to retrieve Air Quality for"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "0f9bf2f2-11d7-4133-9d32-4de0836908db",
+                      "name": "Current AirQuality found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/airQuality/:locationKey?Locale=<string>&MeasurementDisplay=Hybrid&WindUnit=Degrees&Theme=Light",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "airQuality",
+                            ":locationKey"
+                          ],
+                          "query": [
+                            {
+                              "description": "ISO 639-2 and ISO 3166-1 code for the locale",
+                              "key": "Locale",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Display type for weather conditions and distance",
+                              "key": "MeasurementDisplay",
+                              "value": "Hybrid"
+                            },
+                            {
+                              "description": "Additional display type for wind direction",
+                              "key": "WindUnit",
+                              "value": "Degrees"
+                            },
+                            {
+                              "description": "Theme for the application",
+                              "key": "Theme",
+                              "value": "Light"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "locationKey"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"category\": \"<string,null>\",\n  \"categoryColor\": \"<string,null>\",\n  \"date\": \"<string,null-date-time>\",\n  \"dayOfWeek\": \"<string,null>\",\n  \"dayOfWeekAbbreviated\": \"<string,null>\",\n  \"displayDate\": \"<string,null>\",\n  \"displayTime\": \"<string,null>\",\n  \"dominantPollutant\": \"<string,null>\",\n  \"hazardStatement\": \"<string,null>\",\n  \"overallIndex\": \"<double>\",\n  \"overallPlumeLabsIndex\": \"<double>\",\n  \"pollutants\": \"<array,null>\"\n}",
+                      "createdAt": "2026-10-22T02:52:50.000Z",
+                      "updatedAt": "2026-10-22T02:52:50.000Z",
+                      "uid": "35240-0f9bf2f2-11d7-4133-9d32-4de0836908db"
+                    },
+                    {
+                      "id": "684256c0-54f8-450a-b435-144ca9a598d8",
+                      "name": "Query parameter was missing or empty",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/airQuality/:locationKey?Locale=<string>&MeasurementDisplay=Hybrid&WindUnit=Degrees&Theme=Light",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "airQuality",
+                            ":locationKey"
+                          ],
+                          "query": [
+                            {
+                              "description": "ISO 639-2 and ISO 3166-1 code for the locale",
+                              "key": "Locale",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Display type for weather conditions and distance",
+                              "key": "MeasurementDisplay",
+                              "value": "Hybrid"
+                            },
+                            {
+                              "description": "Additional display type for wind direction",
+                              "key": "WindUnit",
+                              "value": "Degrees"
+                            },
+                            {
+                              "description": "Theme for the application",
+                              "key": "Theme",
+                              "value": "Light"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "locationKey"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:52:50.000Z",
+                      "updatedAt": "2026-10-22T02:52:50.000Z",
+                      "uid": "35240-684256c0-54f8-450a-b435-144ca9a598d8"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:52:50.000Z",
+                  "updatedAt": "2026-10-22T02:52:50.000Z",
+                  "uid": "35240-830816c2-4fe2-454d-ada6-519e99117ed0"
+                }
+              ],
+              "id": "52a948a5-fafc-4967-ade2-91a6ed94523a",
+              "createdAt": "2026-10-22T02:52:50.000Z",
+              "updatedAt": "2026-10-22T02:52:50.000Z",
+              "uid": "35240-52a948a5-fafc-4967-ade2-91a6ed94523a"
+            }
+          ],
+          "id": "1ba27687-843a-4d87-a9b3-8d15a171cd7e",
+          "createdAt": "2026-10-22T02:52:50.000Z",
+          "updatedAt": "2026-10-22T02:52:50.000Z",
+          "uid": "35240-1ba27687-843a-4d87-a9b3-8d15a171cd7e"
+        }
+      ],
+      "id": "c2740625-13fa-4b87-91b2-f2e9ab709344",
+      "createdAt": "2026-10-22T02:52:50.000Z",
+      "updatedAt": "2026-10-22T02:52:50.000Z",
+      "uid": "35240-c2740625-13fa-4b87-91b2-f2e9ab709344"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

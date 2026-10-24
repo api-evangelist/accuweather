@@ -1,175 +1,186 @@
 {
+  "info": {
+    "_postman_id": "bf472831-0392-4063-9dcc-bcec66eaa2c1",
+    "name": "AccuWeather One Partner API",
+    "description": "AccuWeather's internal product API for the One platform.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:51:55.000Z",
+    "updatedAt": "2026-10-22T02:51:55.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-bf472831-0392-4063-9dcc-bcec66eaa2c1"
+  },
   "item": [
     {
-      "id": "3d056568-4327-4f58-8eae-7a7fbd920d06",
-      "name": "Partner",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "api",
       "item": [
         {
-          "id": "c515623a-bf61-4510-97a7-587b73c3a044",
-          "name": "AccuWeather Retrieve the Partner for a Specific Location",
-          "request": {
-            "name": "AccuWeather Retrieve the Partner for a Specific Location",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "partner",
-                ":locationKey"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "language",
-                  "value": "<string>",
-                  "description": "The language for the user."
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "locationKey",
-                  "description": "(Required) The location key to retrieve parnter"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "partner",
+          "item": [
             {
-              "id": "044bfaf1-1c0e-4a25-b559-299db9cd4d1c",
-              "name": "Partner found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "partner",
-                    ":locationKey"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "language",
-                      "value": "example-value"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "locationKey",
-                      "description": "(Required) The location key to retrieve parnter"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "{locationKey}",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "AccuWeather Retrieve the Partner for a Specific Location",
+                  "id": "8049901b-2fb8-4636-bbcb-651528c70f6c",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/partner/:locationKey?language=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "partner",
+                        ":locationKey"
+                      ],
+                      "query": [
+                        {
+                          "description": "The language for the user.",
+                          "key": "language",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "6eab2f3a-63b1-4697-8657-cb6deb489ba6",
+                          "key": "locationKey",
+                          "value": "<string>",
+                          "description": "(Required) The location key to retrieve parnter"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "7a5fa506-67be-4949-8e36-e42c94b088e7",
+                      "name": "Partner found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/partner/:locationKey?language=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "partner",
+                            ":locationKey"
+                          ],
+                          "query": [
+                            {
+                              "description": "The language for the user.",
+                              "key": "language",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "locationKey"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"siteName\": \"<string,null>\",\n  \"logo\": \"<string,null>\",\n  \"link\": \"<string,null>\"\n}",
+                      "createdAt": "2026-10-22T02:51:55.000Z",
+                      "updatedAt": "2026-10-22T02:51:55.000Z",
+                      "uid": "35240-7a5fa506-67be-4949-8e36-e42c94b088e7"
+                    },
+                    {
+                      "id": "068c26f9-7e9c-4e1d-8b7b-69911cbdac12",
+                      "name": "Query parameter was missing or empty",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/partner/:locationKey?language=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "partner",
+                            ":locationKey"
+                          ],
+                          "query": [
+                            {
+                              "description": "The language for the user.",
+                              "key": "language",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "locationKey"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:51:55.000Z",
+                      "updatedAt": "2026-10-22T02:51:55.000Z",
+                      "uid": "35240-068c26f9-7e9c-4e1d-8b7b-69911cbdac12"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:51:55.000Z",
+                  "updatedAt": "2026-10-22T02:51:55.000Z",
+                  "uid": "35240-8049901b-2fb8-4636-bbcb-651528c70f6c"
                 }
               ],
-              "body": "{\n  \"siteName\": \"New York\",\n  \"logo\": \"example-value\",\n  \"link\": \"example-value\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "1c93bae0-c824-4592-bcfc-ff90ccc0c5e5",
-              "name": "Query parameter was missing or empty",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "partner",
-                    ":locationKey"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "language",
-                      "value": "example-value"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "locationKey",
-                      "description": "(Required) The location key to retrieve parnter"
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "id": "ee5a16f2-38a6-4795-bc7f-867e354f8fc1",
+              "createdAt": "2026-10-22T02:51:55.000Z",
+              "updatedAt": "2026-10-22T02:51:55.000Z",
+              "uid": "35240-ee5a16f2-38a6-4795-bc7f-867e354f8fc1"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "14f2e0e8-61ea-4b5b-9a9f-f450275f5bb5",
+          "createdAt": "2026-10-22T02:51:55.000Z",
+          "updatedAt": "2026-10-22T02:51:55.000Z",
+          "uid": "35240-14f2e0e8-61ea-4b5b-9a9f-f450275f5bb5"
         }
       ],
-      "event": []
+      "id": "6590c786-c1ce-49aa-b845-618f7c649760",
+      "createdAt": "2026-10-22T02:51:55.000Z",
+      "updatedAt": "2026-10-22T02:51:55.000Z",
+      "uid": "35240-6590c786-c1ce-49aa-b845-618f7c649760"
     }
   ],
-  "event": [],
   "variable": [
     {
-      "type": "string",
-      "value": "https://dataservice.accuweather.com",
-      "key": "baseUrl"
+      "key": "baseUrl",
+      "value": "/"
     }
-  ],
-  "info": {
-    "_postman_id": "698180b8-bdb5-478e-92e3-915326d016a6",
-    "name": "AccuWeather One Active Storms Partner API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "AccuWeather's internal product API for the One platform.",
-      "type": "text/plain"
-    }
-  }
+  ]
 }

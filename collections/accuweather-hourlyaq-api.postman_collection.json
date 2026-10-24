@@ -1,231 +1,246 @@
 {
+  "info": {
+    "_postman_id": "e8b215d4-9c86-44b0-bc6a-f7317b7136f9",
+    "name": "AccuWeather One Hourlyaq API",
+    "description": "AccuWeather's internal product API for the One platform.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:51:44.000Z",
+    "updatedAt": "2026-10-22T02:51:44.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-e8b215d4-9c86-44b0-bc6a-f7317b7136f9"
+  },
   "item": [
     {
-      "id": "53d856b4-ed7d-42cc-a7b0-df45aa22ff4a",
-      "name": "Hourlyaq",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "api",
       "item": [
         {
-          "id": "1649fe98-b003-4b4d-8f10-a1b5fa1c720c",
-          "name": "AccuWeather Retrieves the Hourly Air Quality Forcast for a Given Location",
-          "request": {
-            "name": "AccuWeather Retrieves the Hourly Air Quality Forcast for a Given Location",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "hourlyaq",
-                ":locationKey"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "Locale",
-                  "value": "<string>",
-                  "description": "ISO 639-2 and ISO 3166-1 code for the locale"
-                },
-                {
-                  "disabled": false,
-                  "key": "MeasurementDisplay",
-                  "value": "<string>",
-                  "description": "Display type for weather conditions and distance"
-                },
-                {
-                  "disabled": false,
-                  "key": "WindUnit",
-                  "value": "<string>",
-                  "description": "Additional display type for wind direction"
-                },
-                {
-                  "disabled": false,
-                  "key": "Theme",
-                  "value": "<string>",
-                  "description": "Theme for the application"
-                },
-                {
-                  "disabled": false,
-                  "key": "hourCount",
-                  "value": "24",
-                  "description": "The Number of hours of air quality data to return"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "locationKey",
-                  "description": "(Required) The location key to retrieve Air Quality for"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "hourlyaq",
+          "item": [
             {
-              "id": "627c4e76-ed65-461f-ac01-15dd10d76be2",
-              "name": "Air Quality found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "hourlyaq",
-                    ":locationKey"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "Locale",
-                      "value": "en-us"
-                    },
-                    {
-                      "key": "MeasurementDisplay",
-                      "value": "Imperial"
-                    },
-                    {
-                      "key": "WindUnit",
-                      "value": "Cardinal"
-                    },
-                    {
-                      "key": "Theme",
-                      "value": "System"
-                    },
-                    {
-                      "key": "hourCount",
-                      "value": "12"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "locationKey",
-                      "description": "(Required) The location key to retrieve Air Quality for"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "{locationKey}",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "AccuWeather Retrieves the Hourly Air Quality Forcast for a Given Location",
+                  "id": "68a800a6-3454-4c77-8271-fb5d09dbc031",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/hourlyaq/:locationKey?Locale=<string>&MeasurementDisplay=Metric&WindUnit=Degrees&Theme=System&hourCount=24",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "hourlyaq",
+                        ":locationKey"
+                      ],
+                      "query": [
+                        {
+                          "description": "ISO 639-2 and ISO 3166-1 code for the locale",
+                          "key": "Locale",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Display type for weather conditions and distance",
+                          "key": "MeasurementDisplay",
+                          "value": "Metric"
+                        },
+                        {
+                          "description": "Additional display type for wind direction",
+                          "key": "WindUnit",
+                          "value": "Degrees"
+                        },
+                        {
+                          "description": "Theme for the application",
+                          "key": "Theme",
+                          "value": "System"
+                        },
+                        {
+                          "description": "The Number of hours of air quality data to return",
+                          "key": "hourCount",
+                          "value": "24"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "28ec1a1c-7e23-4d69-a22b-a308894cfc93",
+                          "key": "locationKey",
+                          "value": "<string>",
+                          "description": "(Required) The location key to retrieve Air Quality for"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "087ccc32-7df3-438d-a3b7-be0efd549465",
+                      "name": "Air Quality found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/hourlyaq/:locationKey?Locale=<string>&MeasurementDisplay=Metric&WindUnit=Degrees&Theme=System&hourCount=24",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "hourlyaq",
+                            ":locationKey"
+                          ],
+                          "query": [
+                            {
+                              "description": "ISO 639-2 and ISO 3166-1 code for the locale",
+                              "key": "Locale",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Display type for weather conditions and distance",
+                              "key": "MeasurementDisplay",
+                              "value": "Metric"
+                            },
+                            {
+                              "description": "Additional display type for wind direction",
+                              "key": "WindUnit",
+                              "value": "Degrees"
+                            },
+                            {
+                              "description": "Theme for the application",
+                              "key": "Theme",
+                              "value": "System"
+                            },
+                            {
+                              "description": "The Number of hours of air quality data to return",
+                              "key": "hourCount",
+                              "value": "24"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "locationKey"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"category\": \"<string,null>\",\n  \"categoryColor\": \"<string,null>\",\n  \"date\": \"<string,null-date-time>\",\n  \"dayOfWeek\": \"<string,null>\",\n  \"dayOfWeekAbbreviated\": \"<string,null>\",\n  \"displayDate\": \"<string,null>\",\n  \"displayTime\": \"<string,null>\",\n  \"dominantPollutant\": \"<string,null>\",\n  \"hazardStatement\": \"<string,null>\",\n  \"overallIndex\": \"<double>\",\n  \"overallPlumeLabsIndex\": \"<double>\",\n  \"pollutants\": \"<array,null>\"\n}",
+                      "createdAt": "2026-10-22T02:51:44.000Z",
+                      "updatedAt": "2026-10-22T02:51:44.000Z",
+                      "uid": "35240-087ccc32-7df3-438d-a3b7-be0efd549465"
+                    },
+                    {
+                      "id": "185aaf56-921c-4a1b-a044-5c6cad18f36b",
+                      "name": "Query parameter was missing or empty",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/hourlyaq/:locationKey?Locale=<string>&MeasurementDisplay=Metric&WindUnit=Degrees&Theme=System&hourCount=24",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "hourlyaq",
+                            ":locationKey"
+                          ],
+                          "query": [
+                            {
+                              "description": "ISO 639-2 and ISO 3166-1 code for the locale",
+                              "key": "Locale",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Display type for weather conditions and distance",
+                              "key": "MeasurementDisplay",
+                              "value": "Metric"
+                            },
+                            {
+                              "description": "Additional display type for wind direction",
+                              "key": "WindUnit",
+                              "value": "Degrees"
+                            },
+                            {
+                              "description": "Theme for the application",
+                              "key": "Theme",
+                              "value": "System"
+                            },
+                            {
+                              "description": "The Number of hours of air quality data to return",
+                              "key": "hourCount",
+                              "value": "24"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "locationKey"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:51:44.000Z",
+                      "updatedAt": "2026-10-22T02:51:44.000Z",
+                      "uid": "35240-185aaf56-921c-4a1b-a044-5c6cad18f36b"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:51:44.000Z",
+                  "updatedAt": "2026-10-22T02:51:44.000Z",
+                  "uid": "35240-68a800a6-3454-4c77-8271-fb5d09dbc031"
                 }
               ],
-              "body": "{\n  \"category\": \"example-value\",\n  \"categoryColor\": \"example-value\",\n  \"date\": \"2026-04-19T10:00:00Z\",\n  \"dayOfWeek\": \"example-value\",\n  \"dayOfWeekAbbreviated\": \"example-value\",\n  \"displayDate\": \"example-value\",\n  \"displayTime\": \"example-value\",\n  \"dominantPollutant\": \"example-value\",\n  \"hazardStatement\": \"example-value\",\n  \"overallIndex\": 42,\n  \"overallPlumeLabsIndex\": 42,\n  \"pollutants\": [\n    {\n      \"concentration\": \"example-value\",\n      \"index\": 42,\n      \"name\": \"New York\",\n      \"source\": \"AccuWeather\",\n      \"type\": \"example-value\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "06e6772e-d95e-44fb-843c-d64b48609abd",
-              "name": "Query parameter was missing or empty",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "hourlyaq",
-                    ":locationKey"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "Locale",
-                      "value": "en-us"
-                    },
-                    {
-                      "key": "MeasurementDisplay",
-                      "value": "Imperial"
-                    },
-                    {
-                      "key": "WindUnit",
-                      "value": "Cardinal"
-                    },
-                    {
-                      "key": "Theme",
-                      "value": "System"
-                    },
-                    {
-                      "key": "hourCount",
-                      "value": "12"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "locationKey",
-                      "description": "(Required) The location key to retrieve Air Quality for"
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "id": "590a65ff-cb5b-4137-9bf1-eeecbab08a51",
+              "createdAt": "2026-10-22T02:51:44.000Z",
+              "updatedAt": "2026-10-22T02:51:44.000Z",
+              "uid": "35240-590a65ff-cb5b-4137-9bf1-eeecbab08a51"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "358b7bbd-1916-48fa-a148-594d642d6538",
+          "createdAt": "2026-10-22T02:51:44.000Z",
+          "updatedAt": "2026-10-22T02:51:44.000Z",
+          "uid": "35240-358b7bbd-1916-48fa-a148-594d642d6538"
         }
       ],
-      "event": []
+      "id": "c0490f4c-fe52-460a-a21a-ed0aee525af9",
+      "createdAt": "2026-10-22T02:51:44.000Z",
+      "updatedAt": "2026-10-22T02:51:44.000Z",
+      "uid": "35240-c0490f4c-fe52-460a-a21a-ed0aee525af9"
     }
   ],
-  "event": [],
   "variable": [
     {
-      "type": "string",
-      "value": "https://dataservice.accuweather.com",
-      "key": "baseUrl"
+      "key": "baseUrl",
+      "value": "/"
     }
-  ],
-  "info": {
-    "_postman_id": "0812b209-ba3d-4b76-b45c-6ea4717c0a63",
-    "name": "AccuWeather One Active Storms Hourlyaq API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "AccuWeather's internal product API for the One platform.",
-      "type": "text/plain"
-    }
-  }
+  ]
 }

@@ -1,103 +1,118 @@
 {
+  "info": {
+    "_postman_id": "338ad98a-6b6c-40a6-8ad5-f20991489ce9",
+    "name": "AccuWeather One Test API",
+    "description": "AccuWeather's internal product API for the One platform.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:52:33.000Z",
+    "updatedAt": "2026-10-22T02:52:33.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-338ad98a-6b6c-40a6-8ad5-f20991489ce9"
+  },
   "item": [
     {
-      "id": "07446716-286d-4f1b-a6e0-12075a5058e0",
-      "name": "Test",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "api",
       "item": [
         {
-          "id": "6b441ea3-6a45-4d27-aa9b-ce5206504e97",
-          "name": "AccuWeather Example of a Simple Scope and Linked Scope",
-          "request": {
-            "name": "AccuWeather Example of a Simple Scope and Linked Scope",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "test",
-                "linked-scope"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "test",
+          "item": [
             {
-              "id": "2792f618-e6e2-4db8-9cce-76852a4d4ea1",
-              "name": "Success",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "test",
-                    "linked-scope"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "linked-scope",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "AccuWeather Example of a Simple Scope and Linked Scope",
+                  "id": "f5fd5572-a524-442e-a37d-8749bf3d2ba1",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/test/linked-scope",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "test",
+                        "linked-scope"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "a6e2de37-efb3-4ba1-bbc9-ee5c01f3295c",
+                      "name": "Success",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/test/linked-scope",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "test",
+                            "linked-scope"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string,null>\",\n  \"key\": \"<string,null>\",\n  \"name\": \"<string,null>\",\n  \"longName\": \"<string,null>\",\n  \"displayName\": \"<string,null>\",\n  \"localTime\": \"<string,null>\",\n  \"displayTemperature\": \"<string,null>\",\n  \"icon\": \"<integer,null>\",\n  \"color\": \"<string,null>\",\n  \"isBefore7PM\": \"<boolean>\",\n  \"isDayTime\": \"<boolean>\",\n  \"latitude\": \"<number,null-double>\",\n  \"longitude\": \"<number,null-double>\"\n}",
+                      "createdAt": "2026-10-22T02:52:33.000Z",
+                      "updatedAt": "2026-10-22T02:52:33.000Z",
+                      "uid": "35240-a6e2de37-efb3-4ba1-bbc9-ee5c01f3295c"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:52:33.000Z",
+                  "updatedAt": "2026-10-22T02:52:33.000Z",
+                  "uid": "35240-f5fd5572-a524-442e-a37d-8749bf3d2ba1"
                 }
               ],
-              "body": "{\n  \"id\": \"500123\",\n  \"key\": \"347628\",\n  \"name\": \"New York\",\n  \"longName\": \"New York\",\n  \"displayName\": \"New York\",\n  \"localTime\": \"example-value\",\n  \"displayTemperature\": \"example-value\",\n  \"icon\": 6,\n  \"color\": \"example-value\",\n  \"isBefore7PM\": true,\n  \"isDayTime\": true,\n  \"latitude\": 40.7128,\n  \"longitude\": -74.006\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "60bd03c5-9db6-4485-9aa3-e61d8edd0be9",
+              "createdAt": "2026-10-22T02:52:33.000Z",
+              "updatedAt": "2026-10-22T02:52:33.000Z",
+              "uid": "35240-60bd03c5-9db6-4485-9aa3-e61d8edd0be9"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "4222cd04-7e2f-4994-b393-4a8001cef7f0",
+          "createdAt": "2026-10-22T02:52:33.000Z",
+          "updatedAt": "2026-10-22T02:52:33.000Z",
+          "uid": "35240-4222cd04-7e2f-4994-b393-4a8001cef7f0"
         }
       ],
-      "event": []
+      "id": "de299096-5617-4cb3-b8b3-caeaf6f893ca",
+      "createdAt": "2026-10-22T02:52:33.000Z",
+      "updatedAt": "2026-10-22T02:52:33.000Z",
+      "uid": "35240-de299096-5617-4cb3-b8b3-caeaf6f893ca"
     }
   ],
-  "event": [],
   "variable": [
     {
-      "type": "string",
-      "value": "https://dataservice.accuweather.com",
-      "key": "baseUrl"
+      "key": "baseUrl",
+      "value": "/"
     }
-  ],
-  "info": {
-    "_postman_id": "1f830874-598a-4214-aaf7-a4457e2f695c",
-    "name": "AccuWeather One Active Storms Test API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "AccuWeather's internal product API for the One platform.",
-      "type": "text/plain"
-    }
-  }
+  ]
 }

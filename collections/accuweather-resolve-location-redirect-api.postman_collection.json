@@ -1,316 +1,336 @@
 {
+  "info": {
+    "_postman_id": "2c901e67-afac-4cc5-abce-cd4e823a650b",
+    "name": "AccuWeather One Resolve Location Redirect API",
+    "description": "AccuWeather's internal product API for the One platform.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:52:15.000Z",
+    "updatedAt": "2026-10-22T02:52:15.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-2c901e67-afac-4cc5-abce-cd4e823a650b"
+  },
   "item": [
     {
-      "id": "5c8f7a27-fb33-4fc4-b22d-2fd820d34319",
-      "name": "Resolve Location Redirect",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "api",
       "item": [
         {
-          "id": "1e0ac17d-a479-41e2-9d4f-37be7d640a20",
-          "name": "AccuWeather Takes in a Location as a Query Parameter",
-          "request": {
-            "name": "AccuWeather Takes in a Location as a Query Parameter",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "resolve-location-redirect"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "LocationType",
-                  "value": "<string>",
-                  "description": "The type of location to resolve. Eg. address, postalCode, place, locality"
-                },
-                {
-                  "disabled": false,
-                  "key": "PostalCode",
-                  "value": "<string>",
-                  "description": "The postal code of the location to resolve."
-                },
-                {
-                  "disabled": false,
-                  "key": "City",
-                  "value": "<string>",
-                  "description": "The city of the location to resolve."
-                },
-                {
-                  "disabled": false,
-                  "key": "AdminCode",
-                  "value": "<string>",
-                  "description": "The admin code for the location."
-                },
-                {
-                  "disabled": false,
-                  "key": "CountryCode",
-                  "value": "<string>",
-                  "description": "The country code for the location."
-                },
-                {
-                  "disabled": false,
-                  "key": "Position",
-                  "value": "<string>",
-                  "description": "Comma separated position of the location to resolve. Longitude, Latitude."
-                },
-                {
-                  "disabled": false,
-                  "key": "Name",
-                  "value": "<string>",
-                  "description": "Simple name for a location, such as the name of a city"
-                },
-                {
-                  "disabled": false,
-                  "key": "LongName",
-                  "value": "<string>",
-                  "description": "Full name for a location, such as the name of an Admin or address"
-                },
-                {
-                  "disabled": false,
-                  "key": "LocationKey",
-                  "value": "<string>",
-                  "description": "AccuWeather Location key"
-                },
-                {
-                  "disabled": false,
-                  "key": "IsCurrent",
-                  "value": "<boolean>",
-                  "description": "if 'use current location' was selected"
-                },
-                {
-                  "disabled": false,
-                  "key": "RecentId",
-                  "value": "<string>",
-                  "description": "recent location's guid"
-                },
-                {
-                  "disabled": false,
-                  "key": "FavoriteId",
-                  "value": "<string>",
-                  "description": "favorite location's guid (Used for Edit)"
-                },
-                {
-                  "disabled": false,
-                  "key": "Language",
-                  "value": "<string>",
-                  "description": "Language for the query to use for the response."
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/html"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "resolve-location-redirect",
+          "item": [
             {
-              "id": "72c16bdb-4070-4810-96d0-de8a3a00c68f",
-              "name": "Location resolved",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "resolve-location-redirect"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "LocationType",
-                      "value": "city"
-                    },
-                    {
-                      "key": "PostalCode",
-                      "value": "SW1A 1AA"
-                    },
-                    {
-                      "key": "City",
-                      "value": "London"
-                    },
-                    {
-                      "key": "AdminCode",
-                      "value": "PA"
-                    },
-                    {
-                      "key": "CountryCode",
-                      "value": "US"
-                    },
-                    {
-                      "key": "Position",
-                      "value": "51.500321,-0.145433"
-                    },
-                    {
-                      "key": "Name",
-                      "value": "State Collage"
-                    },
-                    {
-                      "key": "LongName",
-                      "value": "385 Science Park Rd, State College, PA"
-                    },
-                    {
-                      "key": "LocationKey",
-                      "value": "335315"
-                    },
-                    {
-                      "key": "IsCurrent",
-                      "value": "true"
-                    },
-                    {
-                      "key": "RecentId",
-                      "value": "tru4fa4496d-fca1-4c30-8784-fb612a45ee52e"
-                    },
-                    {
-                      "key": "FavoriteId",
-                      "value": "tru4fa4496d-fca1-4c30-8784-fb612a45ee52e"
-                    },
-                    {
-                      "key": "Language",
-                      "value": "en-us"
-                    }
-                  ],
-                  "variable": []
-                },
+              "name": "AccuWeather Takes in a Location as a Query Parameter",
+              "id": "fc6128bb-bafb-48ee-8590-25099fb4a41f",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
                 "header": [
                   {
                     "key": "Accept",
                     "value": "application/html"
                   }
                 ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/html"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "8f66df8c-c2de-40a0-a8a7-59a67e6df177",
-              "name": "Location was unable to be resolved",
-              "originalRequest": {
                 "url": {
+                  "raw": "{{baseUrl}}/api/resolve-location-redirect?LocationType=<string>&PostalCode=<string>&City=<string>&AdminCode=<string>&CountryCode=<string>&Position=<string>&Name=<string>&LongName=<string>&LocationKey=<string>&IsCurrent=<boolean>&RecentId=<string>&FavoriteId=<string>&Language=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
                   "path": [
                     "api",
                     "resolve-location-redirect"
                   ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
                   "query": [
                     {
+                      "description": "The type of location to resolve. Eg. address, postalCode, place, locality",
                       "key": "LocationType",
-                      "value": "city"
+                      "value": "<string>"
                     },
                     {
+                      "description": "The postal code of the location to resolve.",
                       "key": "PostalCode",
-                      "value": "SW1A 1AA"
+                      "value": "<string>"
                     },
                     {
+                      "description": "The city of the location to resolve.",
                       "key": "City",
-                      "value": "London"
+                      "value": "<string>"
                     },
                     {
+                      "description": "The admin code for the location.",
                       "key": "AdminCode",
-                      "value": "PA"
+                      "value": "<string>"
                     },
                     {
+                      "description": "The country code for the location.",
                       "key": "CountryCode",
-                      "value": "US"
+                      "value": "<string>"
                     },
                     {
+                      "description": "Comma separated position of the location to resolve. Longitude, Latitude.",
                       "key": "Position",
-                      "value": "51.500321,-0.145433"
+                      "value": "<string>"
                     },
                     {
+                      "description": "Simple name for a location, such as the name of a city",
                       "key": "Name",
-                      "value": "State Collage"
+                      "value": "<string>"
                     },
                     {
+                      "description": "Full name for a location, such as the name of an Admin or address",
                       "key": "LongName",
-                      "value": "385 Science Park Rd, State College, PA"
+                      "value": "<string>"
                     },
                     {
+                      "description": "AccuWeather Location key",
                       "key": "LocationKey",
-                      "value": "335315"
+                      "value": "<string>"
                     },
                     {
+                      "description": "if 'use current location' was selected",
                       "key": "IsCurrent",
-                      "value": "true"
+                      "value": "<boolean>"
                     },
                     {
+                      "description": "recent location's guid",
                       "key": "RecentId",
-                      "value": "tru4fa4496d-fca1-4c30-8784-fb612a45ee52e"
+                      "value": "<string>"
                     },
                     {
+                      "description": "favorite location's guid (Used for Edit)",
                       "key": "FavoriteId",
-                      "value": "tru4fa4496d-fca1-4c30-8784-fb612a45ee52e"
+                      "value": "<string>"
                     },
                     {
+                      "description": "Language for the query to use for the response.",
                       "key": "Language",
-                      "value": "en-us"
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "380948f5-d352-41b0-bc1c-802deab56a3f",
+                  "name": "Location resolved",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/html"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/resolve-location-redirect?LocationType=<string>&PostalCode=<string>&City=<string>&AdminCode=<string>&CountryCode=<string>&Position=<string>&Name=<string>&LongName=<string>&LocationKey=<string>&IsCurrent=<boolean>&RecentId=<string>&FavoriteId=<string>&Language=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "resolve-location-redirect"
+                      ],
+                      "query": [
+                        {
+                          "description": "The type of location to resolve. Eg. address, postalCode, place, locality",
+                          "key": "LocationType",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The postal code of the location to resolve.",
+                          "key": "PostalCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The city of the location to resolve.",
+                          "key": "City",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The admin code for the location.",
+                          "key": "AdminCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The country code for the location.",
+                          "key": "CountryCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Comma separated position of the location to resolve. Longitude, Latitude.",
+                          "key": "Position",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Simple name for a location, such as the name of a city",
+                          "key": "Name",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Full name for a location, such as the name of an Admin or address",
+                          "key": "LongName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "AccuWeather Location key",
+                          "key": "LocationKey",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "if 'use current location' was selected",
+                          "key": "IsCurrent",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "recent location's guid",
+                          "key": "RecentId",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "favorite location's guid (Used for Edit)",
+                          "key": "FavoriteId",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Language for the query to use for the response.",
+                          "key": "Language",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/html"
                     }
                   ],
-                  "variable": []
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"locationType\": \"<string,null>\",\n  \"city\": \"<string,null>\",\n  \"adminCode\": \"<string,null>\",\n  \"countryCode\": \"<string,null>\",\n  \"postalCode\": \"<string,null>\",\n  \"position\": \"<array,null>\",\n  \"name\": \"<string,null>\",\n  \"longName\": \"<string,null>\",\n  \"locationSettingsInfo\": {\n    \"id\": \"<string,null>\",\n    \"locationKey\": \"<string,null>\",\n    \"name\": \"<string,null>\",\n    \"longName\": \"<string,null>\",\n    \"displayName\": \"<string,null>\",\n    \"stationCode\": \"<string,null>\",\n    \"supportedDataSets\": \"<array,null>\",\n    \"supportsMinuteCast\": \"<boolean,null>\",\n    \"latitude\": \"<number,null-double>\",\n    \"longitude\": \"<number,null-double>\",\n    \"supportsEventConfidence\": \"<boolean,null>\"\n  },\n  \"source\": \"Unknown\"\n}",
+                  "createdAt": "2026-10-22T02:52:15.000Z",
+                  "updatedAt": "2026-10-22T02:52:15.000Z",
+                  "uid": "35240-380948f5-d352-41b0-bc1c-802deab56a3f"
                 },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
                 {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                  "id": "6f9437ea-72c7-4080-91a2-140cac413c4b",
+                  "name": "Location was unable to be resolved",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/resolve-location-redirect?LocationType=<string>&PostalCode=<string>&City=<string>&AdminCode=<string>&CountryCode=<string>&Position=<string>&Name=<string>&LongName=<string>&LocationKey=<string>&IsCurrent=<boolean>&RecentId=<string>&FavoriteId=<string>&Language=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "resolve-location-redirect"
+                      ],
+                      "query": [
+                        {
+                          "description": "The type of location to resolve. Eg. address, postalCode, place, locality",
+                          "key": "LocationType",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The postal code of the location to resolve.",
+                          "key": "PostalCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The city of the location to resolve.",
+                          "key": "City",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The admin code for the location.",
+                          "key": "AdminCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The country code for the location.",
+                          "key": "CountryCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Comma separated position of the location to resolve. Longitude, Latitude.",
+                          "key": "Position",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Simple name for a location, such as the name of a city",
+                          "key": "Name",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Full name for a location, such as the name of an Admin or address",
+                          "key": "LongName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "AccuWeather Location key",
+                          "key": "LocationKey",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "if 'use current location' was selected",
+                          "key": "IsCurrent",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "recent location's guid",
+                          "key": "RecentId",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "favorite location's guid (Used for Edit)",
+                          "key": "FavoriteId",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Language for the query to use for the response.",
+                          "key": "Language",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T02:52:15.000Z",
+                  "updatedAt": "2026-10-22T02:52:15.000Z",
+                  "uid": "35240-6f9437ea-72c7-4080-91a2-140cac413c4b"
                 }
               ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "createdAt": "2026-10-22T02:52:15.000Z",
+              "updatedAt": "2026-10-22T02:52:15.000Z",
+              "uid": "35240-fc6128bb-bafb-48ee-8590-25099fb4a41f"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "7c7b2042-bc76-4a2d-8e21-d5ddc38188f7",
+          "createdAt": "2026-10-22T02:52:15.000Z",
+          "updatedAt": "2026-10-22T02:52:15.000Z",
+          "uid": "35240-7c7b2042-bc76-4a2d-8e21-d5ddc38188f7"
         }
       ],
-      "event": []
+      "id": "d6c64027-1e97-44c4-9a07-6ad0153dfcb8",
+      "createdAt": "2026-10-22T02:52:15.000Z",
+      "updatedAt": "2026-10-22T02:52:15.000Z",
+      "uid": "35240-d6c64027-1e97-44c4-9a07-6ad0153dfcb8"
     }
   ],
-  "event": [],
   "variable": [
     {
-      "type": "string",
-      "value": "https://dataservice.accuweather.com",
-      "key": "baseUrl"
+      "key": "baseUrl",
+      "value": "/"
     }
-  ],
-  "info": {
-    "_postman_id": "70a1a2b6-759d-43f4-9f63-b8b2a65a43f0",
-    "name": "AccuWeather One Active Storms Resolve Location Redirect API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "AccuWeather's internal product API for the One platform.",
-      "type": "text/plain"
-    }
-  }
+  ]
 }

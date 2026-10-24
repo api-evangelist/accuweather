@@ -1,217 +1,231 @@
 {
+  "info": {
+    "_postman_id": "d006cfb1-c03a-4a71-aa9f-0dd7caaf7b73",
+    "name": "AccuWeather One Current API",
+    "description": "AccuWeather's internal product API for the One platform.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:51:05.000Z",
+    "updatedAt": "2026-10-22T02:51:05.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-d006cfb1-c03a-4a71-aa9f-0dd7caaf7b73"
+  },
   "item": [
     {
-      "id": "8e78f1ae-7b82-402c-8c07-2bade28026cd",
-      "name": "Current",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "api",
       "item": [
         {
-          "id": "8d3b630a-0d41-4efb-a3ad-0a442b36f626",
-          "name": "AccuWeather Retrieves a the Latest Weather Conditions for a Location",
-          "request": {
-            "name": "AccuWeather Retrieves a the Latest Weather Conditions for a Location",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "current",
-                ":locationKey"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "Locale",
-                  "value": "<string>",
-                  "description": "ISO 639-2 and ISO 3166-1 code for the locale"
-                },
-                {
-                  "disabled": false,
-                  "key": "MeasurementDisplay",
-                  "value": "<string>",
-                  "description": "Display type for weather conditions and distance"
-                },
-                {
-                  "disabled": false,
-                  "key": "WindUnit",
-                  "value": "<string>",
-                  "description": "Additional display type for wind direction"
-                },
-                {
-                  "disabled": false,
-                  "key": "Theme",
-                  "value": "<string>",
-                  "description": "Theme for the application"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "locationKey",
-                  "description": "(Required) The location key to retrieve weather conditions for"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "current",
+          "item": [
             {
-              "id": "0e3e1a03-0386-4e58-9377-3428b7f78838",
-              "name": "Current conditions found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "current",
-                    ":locationKey"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "Locale",
-                      "value": "en-us"
-                    },
-                    {
-                      "key": "MeasurementDisplay",
-                      "value": "Imperial"
-                    },
-                    {
-                      "key": "WindUnit",
-                      "value": "Cardinal"
-                    },
-                    {
-                      "key": "Theme",
-                      "value": "System"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "locationKey",
-                      "description": "(Required) The location key to retrieve weather conditions for"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "{locationKey}",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "AccuWeather Retrieves a the Latest Weather Conditions for a Location",
+                  "id": "4df57eef-68a8-49d7-9a34-63dd4d98be66",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/current/:locationKey?Locale=<string>&MeasurementDisplay=Imperial&WindUnit=Cardinal&Theme=System",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "current",
+                        ":locationKey"
+                      ],
+                      "query": [
+                        {
+                          "description": "ISO 639-2 and ISO 3166-1 code for the locale",
+                          "key": "Locale",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Display type for weather conditions and distance",
+                          "key": "MeasurementDisplay",
+                          "value": "Imperial"
+                        },
+                        {
+                          "description": "Additional display type for wind direction",
+                          "key": "WindUnit",
+                          "value": "Cardinal"
+                        },
+                        {
+                          "description": "Theme for the application",
+                          "key": "Theme",
+                          "value": "System"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "00a0cfdb-0fe6-430e-bbaf-244cedcb32ce",
+                          "key": "locationKey",
+                          "value": "<string>",
+                          "description": "(Required) The location key to retrieve weather conditions for"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "63020a68-a306-4920-a1c7-f698ea883bd4",
+                      "name": "Current conditions found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/current/:locationKey?Locale=<string>&MeasurementDisplay=Imperial&WindUnit=Cardinal&Theme=System",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "current",
+                            ":locationKey"
+                          ],
+                          "query": [
+                            {
+                              "description": "ISO 639-2 and ISO 3166-1 code for the locale",
+                              "key": "Locale",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Display type for weather conditions and distance",
+                              "key": "MeasurementDisplay",
+                              "value": "Imperial"
+                            },
+                            {
+                              "description": "Additional display type for wind direction",
+                              "key": "WindUnit",
+                              "value": "Cardinal"
+                            },
+                            {
+                              "description": "Theme for the application",
+                              "key": "Theme",
+                              "value": "System"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "locationKey"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string,null>\",\n  \"key\": \"<string,null>\",\n  \"name\": \"<string,null>\",\n  \"longName\": \"<string,null>\",\n  \"displayName\": \"<string,null>\",\n  \"displayTemperature\": \"<string,null>\",\n  \"displayHighTemperature\": \"<string,null>\",\n  \"displayLowTemperature\": \"<string,null>\",\n  \"displayRealFeel\": \"<string,null>\",\n  \"displayRealFeelShade\": \"<string,null>\",\n  \"icon\": \"<integer>\",\n  \"conditions\": \"<string,null>\",\n  \"localTime\": \"<string,null>\",\n  \"color\": \"<string,null>\",\n  \"isBefore7PM\": \"<boolean>\",\n  \"isDayTime\": \"<boolean>\",\n  \"minuteCastForecast\": {\n    \"summary60\": \"<string,null>\",\n    \"minutes\": \"<array,null>\"\n  },\n  \"numberOfAlerts\": \"<integer,null>\",\n  \"latitude\": \"<number,null-double>\",\n  \"longitude\": \"<number,null-double>\"\n}",
+                      "createdAt": "2026-10-22T02:51:06.000Z",
+                      "updatedAt": "2026-10-22T02:51:06.000Z",
+                      "uid": "35240-63020a68-a306-4920-a1c7-f698ea883bd4"
+                    },
+                    {
+                      "id": "2069c7ff-e553-4c5a-a033-6b725088a823",
+                      "name": "Response was missing or empty",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/current/:locationKey?Locale=<string>&MeasurementDisplay=Imperial&WindUnit=Cardinal&Theme=System",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "current",
+                            ":locationKey"
+                          ],
+                          "query": [
+                            {
+                              "description": "ISO 639-2 and ISO 3166-1 code for the locale",
+                              "key": "Locale",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Display type for weather conditions and distance",
+                              "key": "MeasurementDisplay",
+                              "value": "Imperial"
+                            },
+                            {
+                              "description": "Additional display type for wind direction",
+                              "key": "WindUnit",
+                              "value": "Cardinal"
+                            },
+                            {
+                              "description": "Theme for the application",
+                              "key": "Theme",
+                              "value": "System"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "locationKey"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:51:06.000Z",
+                      "updatedAt": "2026-10-22T02:51:06.000Z",
+                      "uid": "35240-2069c7ff-e553-4c5a-a033-6b725088a823"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:51:06.000Z",
+                  "updatedAt": "2026-10-22T02:51:06.000Z",
+                  "uid": "35240-4df57eef-68a8-49d7-9a34-63dd4d98be66"
                 }
               ],
-              "body": "{\n  \"id\": \"500123\",\n  \"key\": \"347628\",\n  \"name\": \"New York\",\n  \"longName\": \"New York\",\n  \"displayName\": \"New York\",\n  \"displayTemperature\": \"example-value\",\n  \"displayHighTemperature\": \"example-value\",\n  \"displayLowTemperature\": \"example-value\",\n  \"displayRealFeel\": \"example-value\",\n  \"displayRealFeelShade\": \"example-value\",\n  \"icon\": 6,\n  \"conditions\": \"example-value\",\n  \"localTime\": \"example-value\",\n  \"color\": \"example-value\",\n  \"isBefore7PM\": true,\n  \"isDayTime\": true,\n  \"minuteCastForecast\": {\n    \"summary60\": \"example-value\",\n    \"minutes\": [\n      {\n        \"displayTime\": null,\n        \"minute\": null,\n        \"color\": null,\n        \"dbz\": null,\n        \"precipitationType\": null\n      }\n    ]\n  },\n  \"numberOfAlerts\": 1,\n  \"latitude\": 40.7128,\n  \"longitude\": -74.006\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "37d5737b-c56f-48f6-ad9d-d971688fe449",
-              "name": "Response was missing or empty",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "current",
-                    ":locationKey"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "Locale",
-                      "value": "en-us"
-                    },
-                    {
-                      "key": "MeasurementDisplay",
-                      "value": "Imperial"
-                    },
-                    {
-                      "key": "WindUnit",
-                      "value": "Cardinal"
-                    },
-                    {
-                      "key": "Theme",
-                      "value": "System"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "locationKey",
-                      "description": "(Required) The location key to retrieve weather conditions for"
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "id": "c2fa0835-2fa8-4ed3-ae44-020330630309",
+              "createdAt": "2026-10-22T02:51:06.000Z",
+              "updatedAt": "2026-10-22T02:51:06.000Z",
+              "uid": "35240-c2fa0835-2fa8-4ed3-ae44-020330630309"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "bbc82df4-14f2-44af-aa4f-3622002d3483",
+          "createdAt": "2026-10-22T02:51:06.000Z",
+          "updatedAt": "2026-10-22T02:51:06.000Z",
+          "uid": "35240-bbc82df4-14f2-44af-aa4f-3622002d3483"
         }
       ],
-      "event": []
+      "id": "eb3848df-95a1-47de-9c27-e0b813416082",
+      "createdAt": "2026-10-22T02:51:06.000Z",
+      "updatedAt": "2026-10-22T02:51:06.000Z",
+      "uid": "35240-eb3848df-95a1-47de-9c27-e0b813416082"
     }
   ],
-  "event": [],
   "variable": [
     {
-      "type": "string",
-      "value": "https://dataservice.accuweather.com",
-      "key": "baseUrl"
+      "key": "baseUrl",
+      "value": "/"
     }
-  ],
-  "info": {
-    "_postman_id": "53e97894-bc95-4484-9255-e1264e593836",
-    "name": "AccuWeather One Active Storms Current API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "AccuWeather's internal product API for the One platform.",
-      "type": "text/plain"
-    }
-  }
+  ]
 }

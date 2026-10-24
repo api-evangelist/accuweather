@@ -1,372 +1,396 @@
 {
+  "info": {
+    "_postman_id": "f208adc3-7e0a-4e64-bdcb-094a56451e31",
+    "name": "AccuWeather One Favorite API",
+    "description": "AccuWeather's internal product API for the One platform.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:51:33.000Z",
+    "updatedAt": "2026-10-22T02:51:33.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-f208adc3-7e0a-4e64-bdcb-094a56451e31"
+  },
   "item": [
     {
-      "id": "c09a4cc0-fc36-4525-a0f5-099319f6a335",
-      "name": "Favorite",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "api",
       "item": [
         {
-          "id": "f419a66b-a158-4a55-a17f-737f828918df",
-          "name": "AccuWeather Resolves and Updates the Favorite Location Cookie",
-          "request": {
-            "name": "AccuWeather Resolves and Updates the Favorite Location Cookie",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "favorite"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "LocationType",
-                  "value": "<string>",
-                  "description": "The type of location to resolve. Eg. address, postalCode, place, locality"
-                },
-                {
-                  "disabled": false,
-                  "key": "PostalCode",
-                  "value": "<string>",
-                  "description": "The postal code of the location to resolve."
-                },
-                {
-                  "disabled": false,
-                  "key": "City",
-                  "value": "<string>",
-                  "description": "The city of the location to resolve."
-                },
-                {
-                  "disabled": false,
-                  "key": "AdminCode",
-                  "value": "<string>",
-                  "description": "The admin code for the location."
-                },
-                {
-                  "disabled": false,
-                  "key": "CountryCode",
-                  "value": "<string>",
-                  "description": "The country code for the location."
-                },
-                {
-                  "disabled": false,
-                  "key": "Position",
-                  "value": "<string>",
-                  "description": "Comma separated position of the location to resolve. Longitude, Latitude."
-                },
-                {
-                  "disabled": false,
-                  "key": "Name",
-                  "value": "<string>",
-                  "description": "Simple name for a location, such as the name of a city"
-                },
-                {
-                  "disabled": false,
-                  "key": "LongName",
-                  "value": "<string>",
-                  "description": "Full name for a location, such as the name of an Admin or address"
-                },
-                {
-                  "disabled": false,
-                  "key": "LocationKey",
-                  "value": "<string>",
-                  "description": "AccuWeather Location key"
-                },
-                {
-                  "disabled": false,
-                  "key": "IsCurrent",
-                  "value": "<boolean>",
-                  "description": "if 'use current location' was selected"
-                },
-                {
-                  "disabled": false,
-                  "key": "RecentId",
-                  "value": "<string>",
-                  "description": "recent location's guid"
-                },
-                {
-                  "disabled": false,
-                  "key": "FavoriteId",
-                  "value": "<string>",
-                  "description": "favorite location's guid (Used for Edit)"
-                },
-                {
-                  "disabled": false,
-                  "key": "Language",
-                  "value": "<string>",
-                  "description": "Language for the query to use for the response."
-                },
-                {
-                  "disabled": false,
-                  "key": "Locale",
-                  "value": "<string>",
-                  "description": "ISO 639-2 and ISO 3166-1 code for the locale"
-                },
-                {
-                  "disabled": false,
-                  "key": "MeasurementDisplay",
-                  "value": "<string>",
-                  "description": "Display type for weather conditions and distance"
-                },
-                {
-                  "disabled": false,
-                  "key": "WindUnit",
-                  "value": "<string>",
-                  "description": "Additional display type for wind direction"
-                },
-                {
-                  "disabled": false,
-                  "key": "Theme",
-                  "value": "<string>",
-                  "description": "Theme for the application"
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "favorite",
+          "item": [
             {
-              "id": "9aaba3e7-f57c-41da-b72e-82dd890a5ebc",
-              "name": "resolved location",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "favorite"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "LocationType",
-                      "value": "city"
-                    },
-                    {
-                      "key": "PostalCode",
-                      "value": "SW1A 1AA"
-                    },
-                    {
-                      "key": "City",
-                      "value": "London"
-                    },
-                    {
-                      "key": "AdminCode",
-                      "value": "PA"
-                    },
-                    {
-                      "key": "CountryCode",
-                      "value": "US"
-                    },
-                    {
-                      "key": "Position",
-                      "value": "51.500321,-0.145433"
-                    },
-                    {
-                      "key": "Name",
-                      "value": "State Collage"
-                    },
-                    {
-                      "key": "LongName",
-                      "value": "385 Science Park Rd, State College, PA"
-                    },
-                    {
-                      "key": "LocationKey",
-                      "value": "335315"
-                    },
-                    {
-                      "key": "IsCurrent",
-                      "value": "true"
-                    },
-                    {
-                      "key": "RecentId",
-                      "value": "tru4fa4496d-fca1-4c30-8784-fb612a45ee52e"
-                    },
-                    {
-                      "key": "FavoriteId",
-                      "value": "tru4fa4496d-fca1-4c30-8784-fb612a45ee52e"
-                    },
-                    {
-                      "key": "Language",
-                      "value": "en-us"
-                    },
-                    {
-                      "key": "Locale",
-                      "value": "en-us"
-                    },
-                    {
-                      "key": "MeasurementDisplay",
-                      "value": "Imperial"
-                    },
-                    {
-                      "key": "WindUnit",
-                      "value": "Cardinal"
-                    },
-                    {
-                      "key": "Theme",
-                      "value": "System"
-                    }
-                  ],
-                  "variable": []
-                },
+              "name": "AccuWeather Resolves and Updates the Favorite Location Cookie",
+              "id": "f505dc0c-de7c-4ae3-a516-fb2cdc5e9ea7",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
                 "header": [
                   {
                     "key": "Accept",
                     "value": "application/json"
                   }
                 ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"id\": \"500123\",\n  \"key\": \"347628\",\n  \"name\": \"New York\",\n  \"longName\": \"New York\",\n  \"displayName\": \"New York\",\n  \"displayTemperature\": \"example-value\",\n  \"displayHighTemperature\": \"example-value\",\n  \"displayLowTemperature\": \"example-value\",\n  \"displayRealFeel\": \"example-value\",\n  \"displayRealFeelShade\": \"example-value\",\n  \"icon\": 6,\n  \"conditions\": \"example-value\",\n  \"localTime\": \"example-value\",\n  \"color\": \"example-value\",\n  \"isBefore7PM\": true,\n  \"isDayTime\": true,\n  \"minuteCastForecast\": {\n    \"summary60\": \"example-value\",\n    \"minutes\": [\n      {\n        \"displayTime\": null,\n        \"minute\": null,\n        \"color\": null,\n        \"dbz\": null,\n        \"precipitationType\": null\n      }\n    ]\n  },\n  \"numberOfAlerts\": 1,\n  \"latitude\": 40.7128,\n  \"longitude\": -74.006\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "22084645-44d2-4640-a355-5f0101031395",
-              "name": "Query parameter was missing or empty",
-              "originalRequest": {
                 "url": {
+                  "raw": "{{baseUrl}}/api/favorite?LocationType=<string>&PostalCode=<string>&City=<string>&AdminCode=<string>&CountryCode=<string>&Position=<string>&Name=<string>&LongName=<string>&LocationKey=<string>&IsCurrent=<boolean>&RecentId=<string>&FavoriteId=<string>&Language=<string>&Locale=<string>&MeasurementDisplay=Metric&WindUnit=Degrees&Theme=Light",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
                   "path": [
                     "api",
                     "favorite"
                   ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
                   "query": [
                     {
+                      "description": "The type of location to resolve. Eg. address, postalCode, place, locality",
                       "key": "LocationType",
-                      "value": "city"
+                      "value": "<string>"
                     },
                     {
+                      "description": "The postal code of the location to resolve.",
                       "key": "PostalCode",
-                      "value": "SW1A 1AA"
+                      "value": "<string>"
                     },
                     {
+                      "description": "The city of the location to resolve.",
                       "key": "City",
-                      "value": "London"
+                      "value": "<string>"
                     },
                     {
+                      "description": "The admin code for the location.",
                       "key": "AdminCode",
-                      "value": "PA"
+                      "value": "<string>"
                     },
                     {
+                      "description": "The country code for the location.",
                       "key": "CountryCode",
-                      "value": "US"
+                      "value": "<string>"
                     },
                     {
+                      "description": "Comma separated position of the location to resolve. Longitude, Latitude.",
                       "key": "Position",
-                      "value": "51.500321,-0.145433"
+                      "value": "<string>"
                     },
                     {
+                      "description": "Simple name for a location, such as the name of a city",
                       "key": "Name",
-                      "value": "State Collage"
+                      "value": "<string>"
                     },
                     {
+                      "description": "Full name for a location, such as the name of an Admin or address",
                       "key": "LongName",
-                      "value": "385 Science Park Rd, State College, PA"
+                      "value": "<string>"
                     },
                     {
+                      "description": "AccuWeather Location key",
                       "key": "LocationKey",
-                      "value": "335315"
+                      "value": "<string>"
                     },
                     {
+                      "description": "if 'use current location' was selected",
                       "key": "IsCurrent",
-                      "value": "true"
+                      "value": "<boolean>"
                     },
                     {
+                      "description": "recent location's guid",
                       "key": "RecentId",
-                      "value": "tru4fa4496d-fca1-4c30-8784-fb612a45ee52e"
+                      "value": "<string>"
                     },
                     {
+                      "description": "favorite location's guid (Used for Edit)",
                       "key": "FavoriteId",
-                      "value": "tru4fa4496d-fca1-4c30-8784-fb612a45ee52e"
+                      "value": "<string>"
                     },
                     {
+                      "description": "Language for the query to use for the response.",
                       "key": "Language",
-                      "value": "en-us"
+                      "value": "<string>"
                     },
                     {
+                      "description": "ISO 639-2 and ISO 3166-1 code for the locale",
                       "key": "Locale",
-                      "value": "en-us"
+                      "value": "<string>"
                     },
                     {
+                      "description": "Display type for weather conditions and distance",
                       "key": "MeasurementDisplay",
-                      "value": "Imperial"
+                      "value": "Metric"
                     },
                     {
+                      "description": "Additional display type for wind direction",
                       "key": "WindUnit",
-                      "value": "Cardinal"
+                      "value": "Degrees"
                     },
                     {
+                      "description": "Theme for the application",
                       "key": "Theme",
-                      "value": "System"
+                      "value": "Light"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "3003446d-d3de-4e56-97ee-39bdc912afb9",
+                  "name": "resolved location",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/favorite?LocationType=<string>&PostalCode=<string>&City=<string>&AdminCode=<string>&CountryCode=<string>&Position=<string>&Name=<string>&LongName=<string>&LocationKey=<string>&IsCurrent=<boolean>&RecentId=<string>&FavoriteId=<string>&Language=<string>&Locale=<string>&MeasurementDisplay=Metric&WindUnit=Degrees&Theme=Light",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "favorite"
+                      ],
+                      "query": [
+                        {
+                          "description": "The type of location to resolve. Eg. address, postalCode, place, locality",
+                          "key": "LocationType",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The postal code of the location to resolve.",
+                          "key": "PostalCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The city of the location to resolve.",
+                          "key": "City",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The admin code for the location.",
+                          "key": "AdminCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The country code for the location.",
+                          "key": "CountryCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Comma separated position of the location to resolve. Longitude, Latitude.",
+                          "key": "Position",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Simple name for a location, such as the name of a city",
+                          "key": "Name",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Full name for a location, such as the name of an Admin or address",
+                          "key": "LongName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "AccuWeather Location key",
+                          "key": "LocationKey",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "if 'use current location' was selected",
+                          "key": "IsCurrent",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "recent location's guid",
+                          "key": "RecentId",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "favorite location's guid (Used for Edit)",
+                          "key": "FavoriteId",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Language for the query to use for the response.",
+                          "key": "Language",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "ISO 639-2 and ISO 3166-1 code for the locale",
+                          "key": "Locale",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Display type for weather conditions and distance",
+                          "key": "MeasurementDisplay",
+                          "value": "Metric"
+                        },
+                        {
+                          "description": "Additional display type for wind direction",
+                          "key": "WindUnit",
+                          "value": "Degrees"
+                        },
+                        {
+                          "description": "Theme for the application",
+                          "key": "Theme",
+                          "value": "Light"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
                     }
                   ],
-                  "variable": []
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string,null>\",\n  \"key\": \"<string,null>\",\n  \"name\": \"<string,null>\",\n  \"longName\": \"<string,null>\",\n  \"displayName\": \"<string,null>\",\n  \"displayTemperature\": \"<string,null>\",\n  \"displayHighTemperature\": \"<string,null>\",\n  \"displayLowTemperature\": \"<string,null>\",\n  \"displayRealFeel\": \"<string,null>\",\n  \"displayRealFeelShade\": \"<string,null>\",\n  \"icon\": \"<integer>\",\n  \"conditions\": \"<string,null>\",\n  \"localTime\": \"<string,null>\",\n  \"color\": \"<string,null>\",\n  \"isBefore7PM\": \"<boolean>\",\n  \"isDayTime\": \"<boolean>\",\n  \"minuteCastForecast\": {\n    \"summary60\": \"<string,null>\",\n    \"minutes\": \"<array,null>\"\n  },\n  \"numberOfAlerts\": \"<integer,null>\",\n  \"latitude\": \"<number,null-double>\",\n  \"longitude\": \"<number,null-double>\"\n}",
+                  "createdAt": "2026-10-22T02:51:34.000Z",
+                  "updatedAt": "2026-10-22T02:51:34.000Z",
+                  "uid": "35240-3003446d-d3de-4e56-97ee-39bdc912afb9"
                 },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
                 {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                  "id": "eabea38b-4879-4ede-bf48-6f5cf7baac80",
+                  "name": "Query parameter was missing or empty",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/favorite?LocationType=<string>&PostalCode=<string>&City=<string>&AdminCode=<string>&CountryCode=<string>&Position=<string>&Name=<string>&LongName=<string>&LocationKey=<string>&IsCurrent=<boolean>&RecentId=<string>&FavoriteId=<string>&Language=<string>&Locale=<string>&MeasurementDisplay=Metric&WindUnit=Degrees&Theme=Light",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "favorite"
+                      ],
+                      "query": [
+                        {
+                          "description": "The type of location to resolve. Eg. address, postalCode, place, locality",
+                          "key": "LocationType",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The postal code of the location to resolve.",
+                          "key": "PostalCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The city of the location to resolve.",
+                          "key": "City",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The admin code for the location.",
+                          "key": "AdminCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The country code for the location.",
+                          "key": "CountryCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Comma separated position of the location to resolve. Longitude, Latitude.",
+                          "key": "Position",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Simple name for a location, such as the name of a city",
+                          "key": "Name",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Full name for a location, such as the name of an Admin or address",
+                          "key": "LongName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "AccuWeather Location key",
+                          "key": "LocationKey",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "if 'use current location' was selected",
+                          "key": "IsCurrent",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "recent location's guid",
+                          "key": "RecentId",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "favorite location's guid (Used for Edit)",
+                          "key": "FavoriteId",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Language for the query to use for the response.",
+                          "key": "Language",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "ISO 639-2 and ISO 3166-1 code for the locale",
+                          "key": "Locale",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Display type for weather conditions and distance",
+                          "key": "MeasurementDisplay",
+                          "value": "Metric"
+                        },
+                        {
+                          "description": "Additional display type for wind direction",
+                          "key": "WindUnit",
+                          "value": "Degrees"
+                        },
+                        {
+                          "description": "Theme for the application",
+                          "key": "Theme",
+                          "value": "Light"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T02:51:34.000Z",
+                  "updatedAt": "2026-10-22T02:51:34.000Z",
+                  "uid": "35240-eabea38b-4879-4ede-bf48-6f5cf7baac80"
                 }
               ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "createdAt": "2026-10-22T02:51:34.000Z",
+              "updatedAt": "2026-10-22T02:51:34.000Z",
+              "uid": "35240-f505dc0c-de7c-4ae3-a516-fb2cdc5e9ea7"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "e96566b0-2671-4aa9-932e-e2049ffffe79",
+          "createdAt": "2026-10-22T02:51:34.000Z",
+          "updatedAt": "2026-10-22T02:51:34.000Z",
+          "uid": "35240-e96566b0-2671-4aa9-932e-e2049ffffe79"
         }
       ],
-      "event": []
+      "id": "1527df58-f918-4da0-99e5-78856d7a32c6",
+      "createdAt": "2026-10-22T02:51:34.000Z",
+      "updatedAt": "2026-10-22T02:51:34.000Z",
+      "uid": "35240-1527df58-f918-4da0-99e5-78856d7a32c6"
     }
   ],
-  "event": [],
   "variable": [
     {
-      "type": "string",
-      "value": "https://dataservice.accuweather.com",
-      "key": "baseUrl"
+      "key": "baseUrl",
+      "value": "/"
     }
-  ],
-  "info": {
-    "_postman_id": "ae26a0dc-cf9e-4a41-8967-85e1f79bbe10",
-    "name": "AccuWeather One Active Storms Favorite API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "AccuWeather's internal product API for the One platform.",
-      "type": "text/plain"
-    }
-  }
+  ]
 }
