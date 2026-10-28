@@ -1,4 +1,4 @@
-# AccuWeather (accuweather)
+# AccuWeather
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,135 +66,274 @@
 
 AccuWeather provides the world's most sophisticated weather intelligence to make lives simpler, safer, and better. Their mission is to save lives and protect property through accurate weather forecasting and data. The AccuWeather One Platform API delivers current conditions, forecasts (hourly, daily, minutecast), air quality, storm tracking, lifestyle indices, and imagery to tens of billions of API calls daily.
 
-**URL:** [Visit APIs.json](https://raw.githubusercontent.com/api-evangelist/accuweather/refs/heads/main/apis.yml)
+**Areas:** Weather · Forecast · Meteorology · Location Services · Air Quality · Storms
 
-**Run:** [Capabilities Using Naftiko](https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=company-api-evangelist&utm_content=repo)
+## AccuWeather on APIs.io
 
-## Tags:
+Everything profiled for AccuWeather is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/accuweather/](https://apis.io/providers/accuweather/)** — or go straight to one of the APIs or properties below.
 
- - Weather, Forecasts, Meteorology, Location Services, Air Quality, Storms
+### APIs (21)
 
-## Timestamps
+- [AccuWeather Active Storms API](https://apis.io/apis/accuweather/accuweather-active-storms-api/) — The Active Storms API from AccuWeather — 1 operation(s) for active storms.
+- [AccuWeather Ads API](https://apis.io/apis/accuweather/accuweather-ads-api/) — The Ads API from AccuWeather — 1 operation(s) for ads.
+- [AccuWeather Autocomplete API](https://apis.io/apis/accuweather/accuweather-autocomplete-api/) — The Autocomplete API from AccuWeather — 1 operation(s) for autocomplete.
+- [AccuWeather Current API](https://apis.io/apis/accuweather/accuweather-current-api/) — The Current API from AccuWeather — 1 operation(s) for current.
+- [AccuWeather Current Conditions API](https://apis.io/apis/accuweather/accuweather-current-conditions-api/) — The Current Conditions API from AccuWeather — 1 operation(s) for current conditions.
+- [AccuWeather Daily API](https://apis.io/apis/accuweather/accuweather-daily-api/) — The Daily API from AccuWeather — 1 operation(s) for daily.
+- [AccuWeather Daily Indices API](https://apis.io/apis/accuweather/accuweather-daily-indices-api/) — The Daily Indices API from AccuWeather — 1 operation(s) for daily indices.
+- [AccuWeather Favorite API](https://apis.io/apis/accuweather/accuweather-favorite-api/) — The Favorite API from AccuWeather — 1 operation(s) for favorite.
+- [AccuWeather Hourly API](https://apis.io/apis/accuweather/accuweather-hourly-api/) — The Hourly API from AccuWeather — 1 operation(s) for hourly.
+- [AccuWeather Hourlyaq API](https://apis.io/apis/accuweather/accuweather-hourlyaq-api/) — The Hourlyaq API from AccuWeather — 1 operation(s) for hourlyaq.
+- [AccuWeather Minutecast API](https://apis.io/apis/accuweather/accuweather-minutecast-api/) — The Minutecast API from AccuWeather — 1 operation(s) for minutecast.
+- [AccuWeather Partner API](https://apis.io/apis/accuweather/accuweather-partner-api/) — The Partner API from AccuWeather — 1 operation(s) for partner.
+- [AccuWeather Raine API](https://apis.io/apis/accuweather/accuweather-raine-api/) — The Raine API from AccuWeather — 1 operation(s) for raine.
+- [AccuWeather Resolve Location API](https://apis.io/apis/accuweather/accuweather-resolve-location-api/) — The Resolve Location API from AccuWeather — 1 operation(s) for resolve location.
+- [AccuWeather Resolve Location Redirect API](https://apis.io/apis/accuweather/accuweather-resolve-location-redirect-api/) — The Resolve Location Redirect API from AccuWeather — 1 operation(s) for resolve location redirect.
+- [AccuWeather StaticMap API](https://apis.io/apis/accuweather/accuweather-staticmap-api/) — The StaticMap API from AccuWeather — 1 operation(s) for staticmap.
+- [AccuWeather Storm API](https://apis.io/apis/accuweather/accuweather-storm-api/) — The Storm API from AccuWeather — 1 operation(s) for storm.
+- [AccuWeather Test API](https://apis.io/apis/accuweather/accuweather-test-api/) — The Test API from AccuWeather — 1 operation(s) for test.
+- [AccuWeather Tropical API](https://apis.io/apis/accuweather/accuweather-tropical-api/) — The Tropical API from AccuWeather — 1 operation(s) for tropical.
+- [AccuWeather Wintercast API](https://apis.io/apis/accuweather/accuweather-wintercast-api/) — The Wintercast API from AccuWeather — 1 operation(s) for wintercast.
+- [AccuWeather Air Quality API](https://apis.io/apis/accuweather/accuweather-air-quality-api/) — The Air Quality API from AccuWeather — 1 operation(s) for air quality.
 
-- **Created:** 2023-11-22
-- **Modified:** 2026-04-19
+### Published properties
 
-## APIs
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-### AccuWeather API
-The AccuWeather One Platform API provides comprehensive weather data including current conditions, hourly and daily forecasts, MinuteCast minute-by-minute precipitation, air quality indices, tropical storm tracking, weather alarms, lifestyle indices, and radar/satellite imagery. Covers 3.5 million+ locations globally with 250+ weather data parameters.
+#### GraphQL (1)
 
-**Human URL:** [https://developer.accuweather.com/](https://developer.accuweather.com/)
+GraphQL schemas.
 
-#### Tags:
+- [Moved to /providers/accuweather/](https://apis.io/graphqls/accuweather/accuweather-graphql/)
 
- - Weather, Forecasts, Air Quality, Storms, MinuteCast, Location
+#### Agentic access (1)
 
-#### Properties
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- [Documentation](https://developer.accuweather.com/apis)
-- [OpenAPI](openapi/accuweather-openapi-original.yml)
-- [Authentication](https://developer.accuweather.com/)
-- [14-Day Free Trial](https://developer.accuweather.com/)
+- [Accuweather Agentic Access](https://apis.io/agentic-access/accuweather/accuweather-agentic-access/)
 
-## Common Properties
+#### JSON Schema (57)
 
-- [Portal](https://developer.accuweather.com/)
-- [Getting Started](https://developer.accuweather.com/)
-- [Best Practices](https://developer.accuweather.com/best-practices)
-- [Status Page](https://status.accuweather.com/)
-- [Terms of Service](https://developer.accuweather.com/legal)
-- [FAQ](https://developer.accuweather.com/faq-page)
+The data models the API reads and writes.
+
+- [Ad](https://apis.io/schemas/accuweather/accuweather-ad/)
+- [AdData](https://apis.io/schemas/accuweather/accuweather-ad-data/)
+- [AdInfo](https://apis.io/schemas/accuweather/accuweather-ad-info/)
+- [AdPageInfo](https://apis.io/schemas/accuweather/accuweather-ad-page-info/)
+- [AirQuality](https://apis.io/schemas/accuweather/accuweather-air-quality/)
+- [AutocompleteLocation](https://apis.io/schemas/accuweather/accuweather-autocomplete-location/)
+- [BasinId](https://apis.io/schemas/accuweather/accuweather-basin-id/)
+- [Bid](https://apis.io/schemas/accuweather/accuweather-bid/)
+- [ConfidenceQuantity](https://apis.io/schemas/accuweather/accuweather-confidence-quantity/)
+- [ConfidenceRange](https://apis.io/schemas/accuweather/accuweather-confidence-range/)
+- [CurrentConditions](https://apis.io/schemas/accuweather/accuweather-current-conditions/)
+- [DailyForecast](https://apis.io/schemas/accuweather/accuweather-daily-forecast/)
+- [DailyIndex](https://apis.io/schemas/accuweather/accuweather-daily-index/)
+- [DefaultAppPageOptions](https://apis.io/schemas/accuweather/accuweather-default-app-page-options/)
+- [DeviceInfo](https://apis.io/schemas/accuweather/accuweather-device-info/)
+- [EventConfidence](https://apis.io/schemas/accuweather/accuweather-event-confidence/)
+- [ExtendedForecastInformation](https://apis.io/schemas/accuweather/accuweather-extended-forecast-information/)
+- [FavoriteLocation](https://apis.io/schemas/accuweather/accuweather-favorite-location/)
+- [HalfDayForecast](https://apis.io/schemas/accuweather/accuweather-half-day-forecast/)
+- [HourlyForecast](https://apis.io/schemas/accuweather/accuweather-hourly-forecast/)
+- [IndexDay](https://apis.io/schemas/accuweather/accuweather-index-day/)
+- [IndexType](https://apis.io/schemas/accuweather/accuweather-index-type/)
+- [LandmarkReference](https://apis.io/schemas/accuweather/accuweather-landmark-reference/)
+- [LifestyleCategory](https://apis.io/schemas/accuweather/accuweather-lifestyle-category/)
+- [LocationSettingsInfo](https://apis.io/schemas/accuweather/accuweather-location-settings-info/)
+- …and 32 more published on APIs.io
+
+#### JSON Structure (57)
+
+Data models expressed in JSON Structure.
+
+- [Accuweather Ad Data Structure](https://apis.io/json-structure/accuweather/accuweather-ad-data-structure/)
+- [Accuweather Ad Info Structure](https://apis.io/json-structure/accuweather/accuweather-ad-info-structure/)
+- [Accuweather Ad Page Info Structure](https://apis.io/json-structure/accuweather/accuweather-ad-page-info-structure/)
+- [Accuweather Ad Structure](https://apis.io/json-structure/accuweather/accuweather-ad-structure/)
+- [Accuweather Air Quality Structure](https://apis.io/json-structure/accuweather/accuweather-air-quality-structure/)
+- [Accuweather Autocomplete Location Structure](https://apis.io/json-structure/accuweather/accuweather-autocomplete-location-structure/)
+- [Accuweather Basin Id Structure](https://apis.io/json-structure/accuweather/accuweather-basin-id-structure/)
+- [Accuweather Bid Structure](https://apis.io/json-structure/accuweather/accuweather-bid-structure/)
+- [Accuweather Confidence Quantity Structure](https://apis.io/json-structure/accuweather/accuweather-confidence-quantity-structure/)
+- [Accuweather Confidence Range Structure](https://apis.io/json-structure/accuweather/accuweather-confidence-range-structure/)
+- [Accuweather Current Conditions Structure](https://apis.io/json-structure/accuweather/accuweather-current-conditions-structure/)
+- [Accuweather Daily Forecast Structure](https://apis.io/json-structure/accuweather/accuweather-daily-forecast-structure/)
+- [Accuweather Daily Index Structure](https://apis.io/json-structure/accuweather/accuweather-daily-index-structure/)
+- [Accuweather Default App Page Options Structure](https://apis.io/json-structure/accuweather/accuweather-default-app-page-options-structure/)
+- [Accuweather Device Info Structure](https://apis.io/json-structure/accuweather/accuweather-device-info-structure/)
+- [Accuweather Event Confidence Structure](https://apis.io/json-structure/accuweather/accuweather-event-confidence-structure/)
+- [Accuweather Extended Forecast Information Structure](https://apis.io/json-structure/accuweather/accuweather-extended-forecast-information-structure/)
+- [Accuweather Favorite Location Structure](https://apis.io/json-structure/accuweather/accuweather-favorite-location-structure/)
+- [Accuweather Half Day Forecast Structure](https://apis.io/json-structure/accuweather/accuweather-half-day-forecast-structure/)
+- [Accuweather Hourly Forecast Structure](https://apis.io/json-structure/accuweather/accuweather-hourly-forecast-structure/)
+- [Accuweather Index Day Structure](https://apis.io/json-structure/accuweather/accuweather-index-day-structure/)
+- [Accuweather Index Type Structure](https://apis.io/json-structure/accuweather/accuweather-index-type-structure/)
+- [Accuweather Landmark Reference Structure](https://apis.io/json-structure/accuweather/accuweather-landmark-reference-structure/)
+- [Accuweather Lifestyle Category Structure](https://apis.io/json-structure/accuweather/accuweather-lifestyle-category-structure/)
+- [Accuweather Location Settings Info Structure](https://apis.io/json-structure/accuweather/accuweather-location-settings-info-structure/)
+- …and 32 more published on APIs.io
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Accuweather Context](https://apis.io/jsonld/accuweather/accuweather-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [Accuweather Vocabulary](https://apis.io/vocabularies/accuweather/accuweather-vocabulary/)
+
+#### Examples (57)
+
+Example requests and responses.
+
+- [Accuweather Ad Data Example](https://apis.io/examples/accuweather/accuweather-ad-data-example/)
+- [Accuweather Ad Example](https://apis.io/examples/accuweather/accuweather-ad-example/)
+- [Accuweather Ad Info Example](https://apis.io/examples/accuweather/accuweather-ad-info-example/)
+- [Accuweather Ad Page Info Example](https://apis.io/examples/accuweather/accuweather-ad-page-info-example/)
+- [Accuweather Air Quality Example](https://apis.io/examples/accuweather/accuweather-air-quality-example/)
+- [Accuweather Autocomplete Location Example](https://apis.io/examples/accuweather/accuweather-autocomplete-location-example/)
+- [Accuweather Basin Id Example](https://apis.io/examples/accuweather/accuweather-basin-id-example/)
+- [Accuweather Bid Example](https://apis.io/examples/accuweather/accuweather-bid-example/)
+- [Accuweather Confidence Quantity Example](https://apis.io/examples/accuweather/accuweather-confidence-quantity-example/)
+- [Accuweather Confidence Range Example](https://apis.io/examples/accuweather/accuweather-confidence-range-example/)
+- [Accuweather Current Conditions Example](https://apis.io/examples/accuweather/accuweather-current-conditions-example/)
+- [Accuweather Daily Forecast Example](https://apis.io/examples/accuweather/accuweather-daily-forecast-example/)
+- [Accuweather Daily Index Example](https://apis.io/examples/accuweather/accuweather-daily-index-example/)
+- [Accuweather Default App Page Options Example](https://apis.io/examples/accuweather/accuweather-default-app-page-options-example/)
+- [Accuweather Device Info Example](https://apis.io/examples/accuweather/accuweather-device-info-example/)
+- [Accuweather Event Confidence Example](https://apis.io/examples/accuweather/accuweather-event-confidence-example/)
+- [Accuweather Extended Forecast Information Example](https://apis.io/examples/accuweather/accuweather-extended-forecast-information-example/)
+- [Accuweather Favorite Location Example](https://apis.io/examples/accuweather/accuweather-favorite-location-example/)
+- [Accuweather Half Day Forecast Example](https://apis.io/examples/accuweather/accuweather-half-day-forecast-example/)
+- [Accuweather Hourly Forecast Example](https://apis.io/examples/accuweather/accuweather-hourly-forecast-example/)
+- [Accuweather Index Day Example](https://apis.io/examples/accuweather/accuweather-index-day-example/)
+- [Accuweather Index Type Example](https://apis.io/examples/accuweather/accuweather-index-type-example/)
+- [Accuweather Landmark Reference Example](https://apis.io/examples/accuweather/accuweather-landmark-reference-example/)
+- [Accuweather Lifestyle Category Example](https://apis.io/examples/accuweather/accuweather-lifestyle-category-example/)
+- [Accuweather Location Settings Info Example](https://apis.io/examples/accuweather/accuweather-location-settings-info-example/)
+- …and 32 more published on APIs.io
+
+#### Collections (21)
+
+Postman and Open Collection request collections.
+
+- [AccuWeather One Active Storms API](https://apis.io/collections/accuweather/open-accuweather-active-storms-api/)
+- [AccuWeather One Active Storms Ads API](https://apis.io/collections/accuweather/open-accuweather-ads-api/)
+- [AccuWeather One Active Storms AirQuality API](https://apis.io/collections/accuweather/open-accuweather-airquality-api/)
+- [AccuWeather One Active Storms Autocomplete API](https://apis.io/collections/accuweather/open-accuweather-autocomplete-api/)
+- [AccuWeather One Active Storms Current API](https://apis.io/collections/accuweather/open-accuweather-current-api/)
+- [AccuWeather One Active Storms Current Conditions API](https://apis.io/collections/accuweather/open-accuweather-current-conditions-api/)
+- [AccuWeather One Active Storms Daily API](https://apis.io/collections/accuweather/open-accuweather-daily-api/)
+- [AccuWeather One Active Storms Daily Indices API](https://apis.io/collections/accuweather/open-accuweather-daily-indices-api/)
+- [AccuWeather One Active Storms Favorite API](https://apis.io/collections/accuweather/open-accuweather-favorite-api/)
+- [AccuWeather One Active Storms Hourly API](https://apis.io/collections/accuweather/open-accuweather-hourly-api/)
+- [AccuWeather One Active Storms Hourlyaq API](https://apis.io/collections/accuweather/open-accuweather-hourlyaq-api/)
+- [AccuWeather One Active Storms Minutecast API](https://apis.io/collections/accuweather/open-accuweather-minutecast-api/)
+- [AccuWeather One Active Storms Partner API](https://apis.io/collections/accuweather/open-accuweather-partner-api/)
+- [AccuWeather One Active Storms Raine API](https://apis.io/collections/accuweather/open-accuweather-raine-api/)
+- [AccuWeather One Active Storms Resolve Location API](https://apis.io/collections/accuweather/open-accuweather-resolve-location-api/)
+- [AccuWeather One Active Storms Resolve Location Redirect API](https://apis.io/collections/accuweather/open-accuweather-resolve-location-redirect-api/)
+- [AccuWeather One Active Storms StaticMap API](https://apis.io/collections/accuweather/open-accuweather-staticmap-api/)
+- [AccuWeather One Active Storms Storm API](https://apis.io/collections/accuweather/open-accuweather-storm-api/)
+- [AccuWeather One Active Storms Test API](https://apis.io/collections/accuweather/open-accuweather-test-api/)
+- [AccuWeather One Active Storms Tropical API](https://apis.io/collections/accuweather/open-accuweather-tropical-api/)
+- [AccuWeather One Active Storms Wintercast API](https://apis.io/collections/accuweather/open-accuweather-wintercast-api/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [AccuWeather — jsonschema rules](https://apis.io/rules/accuweather/accuweather-jsonschema-spectral-rules/)
+- [AccuWeather API Rules](https://apis.io/rules/accuweather/accuweather-spectral-rules/)
+
+#### Security (1)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Accuweather Domain Security](https://apis.io/security/accuweather/accuweather-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Accuweather Plans Pricing](https://apis.io/plans/accuweather/accuweather-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Accuweather Rate Limits](https://apis.io/rate-limits/accuweather/accuweather-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Accuweather Finops](https://apis.io/finops/accuweather/accuweather-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://accuweather.com)
+- [Getting started](https://developer.accuweather.com/)
 - [Pricing](https://developer.accuweather.com/packages)
-- [Privacy Policy](https://www.accuweather.com/en/privacy)
-- [AccuWeather Spectral Rules](rules/accuweather-spectral-rules.yml)
-- [AccuWeather JSON-LD Context](json-ld/accuweather-context.jsonld)
-- [AccuWeather Vocabulary](vocabulary/accuweather-vocabulary.yaml)
-- [Weather Intelligence Capability](capabilities/weather-intelligence.yaml)
+- [Terms of service](https://developer.accuweather.com/legal)
+- [Privacy policy](https://www.accuweather.com/en/privacy)
+- [Status](https://status.accuweather.com/)
 
-## Features
+## API Evangelist rating
 
-| Name | Description |
-|------|-------------|
-| Global Weather Coverage | Access weather data for 3.5 million+ locations worldwide with hyper-local precision pinpointed to exact latitude and longitude. |
-| MinuteCast Precipitation Forecasts | Proprietary minute-by-minute precipitation forecasts with start/stop timing for rain, snow, and ice at any location. |
-| 250+ Weather Data Parameters | Comprehensive data including RealFeel temperature, AccuLumen Brightness Index, 50+ lifestyle indices, and detailed atmospheric data. |
-| Air Quality Monitoring | Real-time and forecast air quality index (AQI) with pollutant breakdowns including PM2.5, PM10, ozone, NO2, SO2, and CO. |
-| Tropical Storm Tracking | Active storm tracking with positions, forecast tracks, and historical data for tropical cyclones in all global ocean basins. |
-| Weather Imagery | Radar and satellite imagery maps in multiple resolutions (480x480, 640x480, 1024x1024) for integration into applications. |
+**Kin Score 42.3** — developing · rubric 0.24.0 · scored 2026-10-17
 
-## Use Cases
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 45.9 |
+| Contract governance | 27.3 |
+| Operational transparency | 23.7 |
+| Developer ergonomics | 42.9 |
+| Access clarity | 39.5 |
 
-| Name | Description |
-|------|-------------|
-| Consumer Weather Applications | Power mobile and web weather apps with accurate current conditions, forecasts, and location-aware weather data. |
-| IoT and Smart Home Automation | Trigger IoT device actions based on real-time weather conditions, forecasts, and precipitation alerts. |
-| Travel and Outdoor Planning | Integrate weather data into travel booking, outdoor activity planning, and event management platforms. |
-| Emergency Management | Use storm tracking, severe weather alerts, and precipitation forecasts for emergency response and public safety. |
-| Agriculture and Environmental Monitoring | Access hyper-local weather data and forecasts for precision agriculture, crop management, and environmental monitoring. |
+**Agent readiness 26.6** — agent-aware
 
-## Integrations
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | na |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | na |
+| Error Semantics | — |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
 
-| Name | Description |
-|------|-------------|
-| Apple WeatherKit | AccuWeather data powers weather experiences on Apple platforms alongside native WeatherKit data. |
-| Samsung SmartThings | Weather-based automation triggers in the Samsung SmartThings IoT ecosystem. |
-| Salesforce | Weather data integration with Salesforce CRM for weather-aware sales and service workflows. |
-| Microsoft Azure | Azure Maps integration providing AccuWeather data within the Microsoft cloud ecosystem. |
+**Regulatory alignment 24.5** — Horizontal (data, software, accessibility, platform)
 
-## Artifacts
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/accuweather/](https://apis.io/providers/accuweather/).
 
-Machine-readable API specifications organized by format.
+## How this profile is made
 
-### OpenAPI
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
 
-- [AccuWeather One Platform API](openapi/accuweather-openapi-original.yml)
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for AccuWeather: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
 
-### JSON Schema
+## Open an issue
 
-57 schema files covering all AccuWeather API data models including:
-- [Air Quality Schema](json-schema/accuweather-air-quality-schema.json)
-- [Autocomplete Location Schema](json-schema/accuweather-autocomplete-location-schema.json)
-- [Current Conditions Schema](json-schema/accuweather-current-data-schema.json)
-- [Hourly Forecast Schema](json-schema/accuweather-hourly-forecast-schema.json)
-- [Daily Forecast Schema](json-schema/accuweather-daily-forecast-schema.json)
-
-### JSON Structure
-
-57 JSON Structure files corresponding to all JSON Schema definitions.
-
-### JSON-LD
-
-- [AccuWeather Context](json-ld/accuweather-context.jsonld)
-
-### Examples
-
-57 example JSON files for all AccuWeather API data models.
-
-## Capabilities
-
-Naftiko capabilities organized as shared per-API definitions composed into customer-facing workflows.
-
-### Shared Per-API Definitions
-
-- [AccuWeather API](capabilities/shared/accuweather-api.yaml) — 10 operations for weather data, location search, forecasts, air quality, and storm tracking
-
-### Workflow Capabilities
-
-| Workflow | APIs Combined | Tools | Persona |
-|----------|--------------|-------|---------|
-| [Weather Intelligence](capabilities/weather-intelligence.yaml) | AccuWeather One Platform API | 9 | Developer, Mobile App, IoT Platform, Emergency Management |
-
-## Vocabulary
-
-- [AccuWeather Vocabulary](vocabulary/accuweather-vocabulary.yaml) — Unified taxonomy mapping 9 resources, 5 actions, 1 workflow, and 4 personas across AccuWeather's weather data platform
-
-## Rules
-
-- [AccuWeather Spectral Rules](rules/accuweather-spectral-rules.yml) — 21 rules across 8 categories enforcing AccuWeather API conventions
-
-## Maintainers
-
-**FN:** Kin Lane
-
-**Email:** kin@apievangelist.com
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/accuweather/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
